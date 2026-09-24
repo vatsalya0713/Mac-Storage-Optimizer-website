@@ -101,10 +101,10 @@ export default function AdminLayout({
           </nav>
 
           <div className="p-4 border-t border-white/5">
-            <button className="flex items-center gap-3 px-4 py-3 w-full rounded-xl text-gray-400 hover:text-white hover:bg-white/5 transition-colors">
+            <Link href="https://macdiskcleaner.com" className="flex items-center gap-3 px-4 py-3 w-full rounded-xl text-gray-400 hover:text-white hover:bg-white/5 transition-colors">
               <LogOut className="w-5 h-5" />
-              <span className="font-medium">Logout</span>
-            </button>
+              <span className="font-medium">Back to Website</span>
+            </Link>
           </div>
         </div>
       </aside>
