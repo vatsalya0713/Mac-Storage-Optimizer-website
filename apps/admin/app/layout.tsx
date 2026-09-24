@@ -16,11 +16,11 @@ import {
 } from 'lucide-react'
 
 const navItems = [
-  { name: 'Dashboard', href: '/admin', icon: LayoutDashboard },
-  { name: 'License Keys', href: '/admin/keys', icon: KeyRound },
-  { name: 'Activations', href: '/admin/activations', icon: MonitorCheck },
-  { name: 'Sales & Customers', href: '/admin/sales', icon: DollarSign },
-  { name: 'Settings', href: '/admin/settings', icon: Settings },
+  { name: 'Dashboard', href: '/', icon: LayoutDashboard },
+  { name: 'License Keys', href: '/keys', icon: KeyRound },
+  { name: 'Activations', href: '/activations', icon: MonitorCheck },
+  { name: 'Sales & Customers', href: '/sales', icon: DollarSign },
+  { name: 'Settings', href: '/settings', icon: Settings },
 ]
 
 import './globals.css'
@@ -55,7 +55,7 @@ export default function AdminLayout({
       >
         <div className="flex flex-col h-full">
           <div className="flex items-center justify-between h-20 px-6 border-b border-white/5">
-            <Link href="/admin" className="flex items-center gap-3">
+            <Link href="/" className="flex items-center gap-3">
               <div className="w-8 h-8 rounded-xl bg-gradient-to-tr from-purple-600 to-blue-500 flex items-center justify-center shadow-lg shadow-purple-500/20">
                 <MonitorCheck className="w-5 h-5 text-white" />
               </div>
@@ -73,7 +73,7 @@ export default function AdminLayout({
 
           <nav className="flex-1 px-4 py-8 space-y-2 overflow-y-auto">
             {navItems.map((item) => {
-              const isActive = pathname === item.href || (pathname.startsWith(item.href) && item.href !== '/admin')
+              const isActive = pathname === item.href || (pathname.startsWith(item.href) && item.href !== '/')
               const Icon = item.icon
 
               return (
@@ -121,7 +121,7 @@ export default function AdminLayout({
               <Menu className="w-6 h-6" />
             </button>
             <h1 className="text-xl font-semibold capitalize">
-              {pathname === '/admin' ? 'Dashboard' : pathname.split('/').pop()?.replace('-', ' ')}
+              {pathname === '/' ? 'Dashboard' : pathname.split('/').pop()?.replace('-', ' ')}
             </h1>
           </div>
           

@@ -20,8 +20,8 @@ export async function revokeKey(id: string) {
     .eq('id', id)
     
   if (error) throw new Error(error.message)
-  revalidatePath('/admin/keys')
-  revalidatePath('/admin')
+  revalidatePath('/keys')
+  revalidatePath('/')
 }
 
 export async function generateKey(tier: string, maxActivations: number) {
@@ -42,6 +42,6 @@ export async function generateKey(tier: string, maxActivations: number) {
     ])
     
   if (error) throw new Error(error.message)
-  revalidatePath('/admin/keys')
-  revalidatePath('/admin')
+  revalidatePath('/keys')
+  revalidatePath('/')
 }

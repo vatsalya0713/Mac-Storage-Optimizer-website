@@ -92,7 +92,7 @@ export default async function AdminDashboard() {
           <div className="flex items-center justify-between mb-6">
             <h3 className="text-lg font-semibold">Recent License Keys</h3>
             <Link 
-              href="/admin/keys" 
+              href="/keys" 
               className="text-sm text-purple-400 hover:text-purple-300 flex items-center gap-1 transition-colors"
             >
               View all <ArrowUpRight className="w-4 h-4" />

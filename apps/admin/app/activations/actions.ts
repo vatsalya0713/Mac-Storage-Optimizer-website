@@ -26,6 +26,6 @@ export async function deactivateInstance(id: string) {
     .eq('id', id)
     
   if (error) throw new Error(error.message)
-  revalidatePath('/admin/activations')
-  revalidatePath('/admin')
+  revalidatePath('/activations')
+  revalidatePath('/')
 }
