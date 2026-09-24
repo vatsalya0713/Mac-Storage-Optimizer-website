@@ -1,7 +1,7 @@
 import { getKeys } from './actions'
 import KeysClient from './KeysClient'
 
-export const revalidate = 0
+export const dynamic = 'force-dynamic'
 
 export default async function KeysPage() {
   const keys = await getKeys()

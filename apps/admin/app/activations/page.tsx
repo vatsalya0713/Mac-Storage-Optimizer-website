@@ -1,7 +1,7 @@
 import { getActivations } from './actions'
 import ActivationsClient from './ActivationsClient'
 
-export const revalidate = 0
+export const dynamic = 'force-dynamic'
 
 export default async function ActivationsPage() {
   const activations = await getActivations()

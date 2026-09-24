@@ -2,7 +2,7 @@ import { supabaseAdmin } from '@/lib/supabase'
 import { KeyRound, MonitorCheck, Activity, ArrowUpRight, DollarSign } from 'lucide-react'
 import Link from 'next/link'
 
-export const revalidate = 0 // Disable caching for the admin dashboard
+export const dynamic = 'force-dynamic' // Disable caching for the admin dashboard
 
 export default async function AdminDashboard() {
   // Fetch stats from Supabase

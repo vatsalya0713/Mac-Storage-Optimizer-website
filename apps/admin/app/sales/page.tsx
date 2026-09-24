@@ -1,7 +1,7 @@
 import { supabaseAdmin } from '@/lib/supabase'
 import SalesClient from './SalesClient'
 
-export const revalidate = 0
+export const dynamic = 'force-dynamic'
 
 export default async function SalesPage() {
   const { data: sales, error } = await supabaseAdmin
