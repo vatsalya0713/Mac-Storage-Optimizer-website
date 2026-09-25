@@ -23,17 +23,13 @@ export default function SettingsPage() {
           <div className="space-y-4">
             <div className="flex flex-col gap-1">
               <label className="text-sm text-gray-400 font-medium">Admin Password</label>
-              <div className="flex gap-4">
-                <input 
-                  type="password" 
-                  value="********" 
-                  disabled
-                  className="bg-black/20 border border-white/10 rounded-xl px-4 py-2 w-full text-gray-300" 
-                />
-                <button className="px-4 py-2 bg-white/10 hover:bg-white/15 text-white rounded-xl text-sm font-medium transition-colors whitespace-nowrap">
-                  Change Password
-                </button>
+              <div className="px-4 py-3 rounded-xl bg-black/20 border border-white/5 text-gray-300 font-mono text-sm">
+                ••••••••
               </div>
+              <p className="text-xs text-gray-500 mt-1">
+                Set via the <code className="text-gray-400">ADMIN_PASSWORD</code> environment variable in this
+                project's Vercel settings — to change it, update that value there and redeploy.
+              </p>
             </div>
           </div>
         </div>

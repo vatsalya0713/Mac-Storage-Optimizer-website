@@ -4,15 +4,17 @@ import React, { useState } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { motion } from 'framer-motion'
-import { 
-  LayoutDashboard, 
-  KeyRound, 
-  MonitorCheck, 
-  Settings, 
+import {
+  LayoutDashboard,
+  KeyRound,
+  MonitorCheck,
+  Settings,
   LogOut,
+  ExternalLink,
   Menu,
   X,
-  DollarSign
+  DollarSign,
+  MessageCircle
 } from 'lucide-react'
 
 const navItems = [
@@ -20,6 +22,7 @@ const navItems = [
   { name: 'License Keys', href: '/keys', icon: KeyRound },
   { name: 'Activations', href: '/activations', icon: MonitorCheck },
   { name: 'Sales & Customers', href: '/sales', icon: DollarSign },
+  { name: 'Support Messages', href: '/support', icon: MessageCircle },
   { name: 'Settings', href: '/settings', icon: Settings },
 ]
 
@@ -34,6 +37,18 @@ export default function AdminLayout({
 }) {
   const pathname = usePathname()
   const [sidebarOpen, setSidebarOpen] = useState(false)
+
+  // /login renders its own full-screen layout — it must not show the
+  // authenticated dashboard chrome (sidebar/header) around it.
+  if (pathname === '/login') {
+    return (
+      <html lang="en">
+        <body className={`${inter.className} bg-[#050505] text-gray-100 antialiased`}>
+          {children}
+        </body>
+      </html>
+    )
+  }
 
   return (
     <html lang="en">
@@ -100,11 +115,20 @@ export default function AdminLayout({
             })}
           </nav>
 
-          <div className="p-4 border-t border-white/5">
+          <div className="p-4 border-t border-white/5 space-y-1">
             <Link href="https://macdiskcleaner.com" className="flex items-center gap-3 px-4 py-3 w-full rounded-xl text-gray-400 hover:text-white hover:bg-white/5 transition-colors">
-              <LogOut className="w-5 h-5" />
+              <ExternalLink className="w-5 h-5" />
               <span className="font-medium">Back to Website</span>
             </Link>
+            <form action="/api/logout" method="POST">
+              <button
+                type="submit"
+                className="flex items-center gap-3 px-4 py-3 w-full rounded-xl text-gray-400 hover:text-red-400 hover:bg-red-500/5 transition-colors"
+              >
+                <LogOut className="w-5 h-5" />
+                <span className="font-medium">Log Out</span>
+              </button>
+            </form>
           </div>
         </div>
       </aside>
