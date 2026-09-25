@@ -1,5 +1,12 @@
 import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
+import { timingSafeEqual, createHash } from 'node:crypto'
+
+function safeEqual(a: string, b: string) {
+  const hashA = createHash('sha256').update(a).digest()
+  const hashB = createHash('sha256').update(b).digest()
+  return timingSafeEqual(hashA, hashB)
+}
 
 // This admin panel had no authentication at all — anyone with the URL could
 // view every customer email, copy license keys, revoke keys, and generate
@@ -15,7 +22,7 @@ export function proxy(request: NextRequest) {
   const session = request.cookies.get('admin_session')?.value
   const expected = process.env.ADMIN_PASSWORD
 
-  if (!expected || session !== expected) {
+  if (!expected || !session || !safeEqual(session, expected)) {
     const loginUrl = new URL('/login', request.url)
     loginUrl.searchParams.set('from', pathname)
     return NextResponse.redirect(loginUrl)

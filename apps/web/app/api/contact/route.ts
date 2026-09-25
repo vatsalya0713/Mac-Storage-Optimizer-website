@@ -1,8 +1,10 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { Resend } from 'resend'
 import { supabaseAdmin } from '@/lib/supabase'
+import { rateLimit, clientIp } from '@/lib/rateLimit'
 
 const CATEGORIES = ['general', 'support', 'bug', 'suggestion'] as const
+const MAX_MESSAGE_LENGTH = 5000
 
 function escapeHtml(value: string) {
   return value
@@ -14,6 +16,10 @@ function escapeHtml(value: string) {
 }
 
 export async function POST(request: NextRequest) {
+  if (!rateLimit(`contact:${clientIp(request)}`, 5, 60_000)) {
+    return NextResponse.json({ error: 'Too many messages, please try again in a minute' }, { status: 429 })
+  }
+
   const body = await request.json().catch(() => null)
   const name = (body?.name as string | undefined)?.trim()
   const email = (body?.email as string | undefined)?.trim()
@@ -25,6 +31,9 @@ export async function POST(request: NextRequest) {
   }
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
     return NextResponse.json({ error: 'Invalid email address' }, { status: 400 })
+  }
+  if (message.length > MAX_MESSAGE_LENGTH) {
+    return NextResponse.json({ error: `Message must be under ${MAX_MESSAGE_LENGTH} characters` }, { status: 400 })
   }
 
   const { error } = await supabaseAdmin.from('contact_submissions').insert([

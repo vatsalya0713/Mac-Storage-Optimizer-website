@@ -1,10 +1,15 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { supabaseAdmin } from '@/lib/supabase'
+import { rateLimit, clientIp } from '@/lib/rateLimit'
 
 // Periodic check-in from the desktop app to confirm a key/machine pair is
 // still valid (e.g. hasn't been revoked or deactivated from the admin panel).
 // Response shape matches activate/route.ts — see the comment there.
 export async function POST(request: NextRequest) {
+  if (!rateLimit(`validate:${clientIp(request)}`, 60, 60_000)) {
+    return NextResponse.json({ valid: false, reason: 'Too many attempts, try again shortly' })
+  }
+
   const body = await request.json().catch(() => null)
   const key = body?.key as string | undefined
   const machineId = body?.machine_id as string | undefined
