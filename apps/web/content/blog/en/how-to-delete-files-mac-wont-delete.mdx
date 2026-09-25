@@ -1,0 +1,36 @@
+---
+title: "How to Delete Files on Mac That Won't Delete"
+description: "Fixes for the most common reasons a file refuses to move to Trash or empty on a Mac, from permission errors to files that are still in use."
+date: "2026-01-22"
+keywords: ["how to delete files on mac that won t delete", "mac remove unwanted files free"]
+---
+
+A file that won't delete on macOS almost always falls into one of four categories. Here's how to identify which one you're dealing with, and the fix for each.
+
+## 1. "The item is in use" error
+
+Another app has the file open. Quit the app fully (Cmd+Q, not just closing the window) and try again. If you're not sure which app is using it, restart your Mac — this releases every file lock.
+
+## 2. Permission denied
+
+Right-click the file → **Get Info** → check the **Sharing & Permissions** section at the bottom. If your account doesn't show "Read & Write," click the lock icon, authenticate, select your username, and change the privilege level. Then try deleting again.
+
+## 3. The file is locked
+
+Right-click → **Get Info** → uncheck the **Locked** checkbox if it's ticked. Locked files are protected from accidental deletion until you explicitly unlock them.
+
+## 4. It's a system-protected file
+
+macOS's System Integrity Protection (SIP) blocks deletion of certain files outright, even for administrators. This is intentional — if you've been told to delete a file inside `/System`, it's almost always the wrong fix for whatever problem you're trying to solve. Look for the actual cause instead.
+
+## The Trash itself won't empty
+
+If **Empty Trash** hangs or fails:
+
+1. Try Option-clicking the Trash icon in the Dock and selecting **Empty Trash** — this skips the confirmation dialog and sometimes clears a stuck state.
+2. Restart your Mac, then try again immediately after logging back in.
+3. If one specific file is the culprit, drag it out of the Trash back to the Desktop, apply the fixes above, then delete it individually.
+
+## A faster, safer alternative
+
+If you're trying to delete files to free up space rather than fix one specific stuck file, it's often easier to let a cleaner handle permissions and locked-file edge cases for you. [MacDiskCleaner](/free-mac-cleaner) scans for exactly this kind of removable clutter and handles the Trash step automatically.

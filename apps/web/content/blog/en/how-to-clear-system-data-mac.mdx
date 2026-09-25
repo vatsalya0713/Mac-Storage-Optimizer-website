@@ -1,0 +1,46 @@
+---
+title: "How to Clear System Data on Mac (Step-by-Step)"
+description: "\"System Data\" in About This Mac can be tens of gigabytes. Here's what it actually is and exactly how to reduce it safely."
+date: "2026-01-20"
+keywords: ["how to clear system data on mac", "clear system data mac"]
+---
+
+Open **About This Mac → Storage** and you'll often see "System Data" (sometimes labeled "Other") taking up an alarming amount of space — sometimes 50 GB or more. It's not one folder you can delete; it's a catch-all category covering several different things.
+
+## What's actually inside System Data
+
+- **Caches** — app, browser, and system caches
+- **Logs** — crash reports and diagnostic logs
+- **Time Machine local snapshots** — hidden backup snapshots stored on your internal disk
+- **Spotlight index files**
+- **Application support files** for apps you've installed, including ones you've since deleted
+
+## Step 1: Check for Time Machine local snapshots
+
+These are often the single biggest hidden chunk. Open Terminal and run:
+
+```
+tmutil listlocalsnapshots /
+```
+
+If you see snapshots listed, macOS is usually good about purging old ones automatically when space is needed — but if System Data is unexpectedly huge, this is the first place to look.
+
+## Step 2: Clear caches and logs
+
+This is the largest *controllable* part of System Data. Go to `~/Library/Caches` and `~/Library/Logs` in Finder (Cmd+Shift+G to jump there) and remove what belongs to apps you recognize and don't need cached data for.
+
+## Step 3: Remove leftover data from deleted apps
+
+Dragging an app to Trash on macOS does **not** remove its support files, caches, or preferences — those stay in `~/Library/Application Support` indefinitely. Over years of installing and removing apps, this adds up significantly.
+
+## The faster way
+
+Manually auditing System Data is genuinely tedious because macOS doesn't expose a clean breakdown of what's in it. A cleaner like MacDiskCleaner scans all of these locations — caches, logs, leftover app data — in one pass and shows you exactly what's safe to remove before deleting anything. [See how it works](/#howit).
+
+## FAQ
+
+**Is it safe to delete System Data?**
+You should never delete the System Data category directly — there's no single folder for it. What's safe is clearing the caches, logs, and leftover app files that make it up, which is what the steps above (or a cleaner) actually do.
+
+**Why does System Data keep growing back?**
+Because caches and logs regenerate as you use your Mac. This is normal — it's why scheduled, automatic cleaning is more effective than a one-time manual clean.

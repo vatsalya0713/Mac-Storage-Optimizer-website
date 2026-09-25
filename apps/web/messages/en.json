@@ -1,0 +1,135 @@
+{
+  "meta": {
+    "homeTitle": "MacDiskCleaner — Free Up Storage & Clean Junk Files on Mac",
+    "homeDescription": "The Mac storage cleaner built for macOS. Remove junk files, find duplicates, uninstall apps cleanly, and free up gigabytes of space in minutes. Free to download.",
+    "siteName": "MacDiskCleaner"
+  },
+  "nav": {
+    "features": "Features",
+    "howit": "How It Works",
+    "pricing": "Pricing",
+    "support": "Support",
+    "blog": "Blog",
+    "download": "Download Free"
+  },
+  "hero": {
+    "badge": "macOS Sequoia Ready · Apple Silicon Native",
+    "titleLine1": "The Mac cleaner",
+    "titleAccent": "built for Mac.",
+    "subtitle": "Free up gigabytes of storage, remove hidden junk, find duplicates, and keep your Mac running like the day you unboxed it.",
+    "ctaPrimary": "Download Free",
+    "ctaSecondary": "See how it works",
+    "trust": ["No subscription", "One-time purchase", "100% safe & secure", "30-day refund"],
+    "scanLabel": "Scan complete",
+    "scanValue": "23.4 GB",
+    "scanSub": "recoverable space found",
+    "scanRows": [["Junk Files", "2.1 GB"], ["Duplicates", "1.3 GB"], ["Logs", "0.8 GB"]],
+    "scanCta": "Clean Now"
+  },
+  "stats": {
+    "items": [
+      { "num": "1M+", "label": "Downloads" },
+      { "num": "4.9★", "label": "Average Rating" },
+      { "num": "50 GB+", "label": "Average Space Freed" },
+      { "num": "24/7", "label": "Customer Support" }
+    ]
+  },
+  "features": {
+    "label": "Features",
+    "title": "Every tool your Mac needs.",
+    "subtitle": "A complete toolkit crafted for macOS, designed with the same care Apple puts into their hardware.",
+    "items": [
+      { "title": "Junk File Cleaner", "desc": "Eliminate caches, logs, and system junk automatically. Recover gigabytes in seconds without lifting a finger." },
+      { "title": "Duplicate Finder", "desc": "Smart hash-based detection finds exact and near-duplicate files across your entire Mac with zero false positives." },
+      { "title": "Storage Analyzer", "desc": "Visualize exactly what's eating your disk space with a beautiful, interactive breakdown by folder and file type." },
+      { "title": "Privacy Protector", "desc": "Securely wipe browser history, cookies, and application traces. Your privacy, completely in your control." },
+      { "title": "Performance Boost", "desc": "Clean startup agents, heavy apps, and background processes that slow down your Mac over time." },
+      { "title": "Large File Scanner", "desc": "Instantly find and remove old downloads, archives, and forgotten files that have been hogging space for years." }
+    ]
+  },
+  "lifestyle": {
+    "label": "Seamless Experience",
+    "title": "Designed to feel native.",
+    "titleAccent": "Because it is.",
+    "body": "MacDiskCleaner is built from the ground up for macOS. It uses native APIs, respects your system's security model, and integrates seamlessly with Spotlight, Apple Silicon, and beyond.",
+    "points": [
+      "Native macOS design language",
+      "Optimized for Apple Silicon & Intel",
+      "Sandboxed & privacy-first architecture",
+      "Scheduled scans run silently in background"
+    ]
+  },
+  "howit": {
+    "label": "How It Works",
+    "title": "Three steps. Real results.",
+    "steps": [
+      { "num": "01", "title": "Download & Install", "desc": "A lightweight, 12MB download. Drag to Applications and you're up and running in seconds." },
+      { "num": "02", "title": "Run a Smart Scan", "desc": "One click launches a deep, intelligent scan of your entire Mac — junk, duplicates, large files, and more." },
+      { "num": "03", "title": "Clean with Confidence", "desc": "Review what was found, select what to remove, and reclaim your space safely. No surprises, ever." }
+    ]
+  },
+  "screenshots": {
+    "label": "App Preview",
+    "titleStart": "See every screen.",
+    "titleAccent": "Love every detail.",
+    "subtitle": "Explore the real MacDiskCleaner interface — designed to be beautiful, intuitive, and powerfully effective.",
+    "tabs": [
+      { "id": "dashboard", "label": "Dashboard", "title": "Smart Dashboard", "desc": "Complete overview of your Mac storage health — disk usage ring, recoverable space counter, and personalized cleanup recommendations all in one place." },
+      { "id": "duplicates", "label": "Duplicates", "title": "Duplicate Finder", "desc": "Find and remove exact duplicate files across your entire Mac. Smart grouping lets you keep originals and delete copies." },
+      { "id": "largefiles", "label": "Large Files", "title": "Large File Scanner", "desc": "Instantly locate huge files that have been silently hogging your storage. Sort by size and reclaim space fast." },
+      { "id": "oldfiles", "label": "Old Files", "title": "Old Files Cleanup", "desc": "Identify files you have not opened in months or years. Safely archive or delete them to free up gigabytes of wasted space." },
+      { "id": "cleanup", "label": "Smart Cleanup", "title": "One-Click Cleanup", "desc": "Remove junk in one click. Cache, dev cache, temp files, logs, downloads and duplicates all identified and cleaned safely in one powerful sweep." },
+      { "id": "uninstaller", "label": "Uninstaller", "title": "App Uninstaller", "desc": "Completely remove applications along with their hidden leftover data and preferences to free up maximum space." }
+    ]
+  },
+  "pricing": {
+    "label": "Pricing",
+    "title": "Simple. Honest. One price.",
+    "subtitle": "No subscriptions. No hidden fees. Own it forever.",
+    "free": {
+      "name": "Free",
+      "price": "$0",
+      "sub": "Forever free, always.",
+      "features": ["Basic junk clean (up to 2 GB)", "Duplicate file scanner", "Large file finder", "Monthly scan limit"],
+      "cta": "Download Free"
+    },
+    "pro": {
+      "badge": "BEST VALUE",
+      "name": "Pro",
+      "price": "$12.99",
+      "sub": "One-time. No subscription ever.",
+      "features": ["Unlimited junk cleaning", "Smart duplicate detection", "Privacy cleaner", "Startup manager", "Auto-scheduled scans", "Lifetime updates", "Priority support"],
+      "cta": "Get Pro — $12.99"
+    }
+  },
+  "faq": {
+    "label": "FAQ",
+    "title": "Common questions.",
+    "items": [
+      { "q": "Is it safe to use?", "a": "Absolutely. MacDiskCleaner only deletes files you explicitly approve. All files are moved to Trash before permanent removal, so nothing is ever unrecoverable." },
+      { "q": "Will it work on my Mac?", "a": "Yes! MacDiskCleaner supports macOS 12 Monterey and later, on both Apple Silicon (M1, M2, M3, M4) and Intel Macs." },
+      { "q": "Is the free version really free?", "a": "Yes, the free version is completely free with no trial periods or hidden limits on core features. Upgrade to Pro for the full suite of tools." },
+      { "q": "How is this different from CleanMyMac?", "a": "MacDiskCleaner is a one-time purchase with no subscription, is significantly lighter on system resources, and focuses on doing the essentials exceptionally well." },
+      { "q": "Can I get a refund?", "a": "Of course. We offer a full 30-day no-questions-asked refund on all Pro purchases." }
+    ]
+  },
+  "footer": {
+    "privacy": "Privacy Policy",
+    "terms": "Terms",
+    "tagline": "Made with love for Mac users worldwide.",
+    "copyright": "© 2026 MacDiskCleaner. All rights reserved."
+  },
+  "success": {
+    "title": "You're all set.",
+    "subtitle": "Your MacDiskCleaner Pro license key is ready. We've also emailed it to you.",
+    "keyLabel": "Your license key",
+    "copy": "Copy",
+    "copied": "Copied",
+    "instructionsTitle": "Next steps",
+    "step1": "Download and open MacDiskCleaner on your Mac.",
+    "step2": "Go to Settings → License, and paste the key above.",
+    "step3": "Click Activate — you're upgraded to Pro immediately.",
+    "downloadCta": "Download MacDiskCleaner",
+    "supportNote": "Didn't get the email? Check your spam folder, or contact support@macdiskcleaner.com."
+  }
+}

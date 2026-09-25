@@ -1,0 +1,36 @@
+---
+title: "How to Clean Junk Files on Your Mac (Free & Automatic)"
+description: "Step-by-step guide to finding and removing cache files, logs, and other junk that quietly fills up your Mac's storage — manually or with a free cleaner."
+date: "2026-01-18"
+keywords: ["mac junk cleaner", "mac junk files cleaner", "mac junk cleaner free", "remove junk files from mac free"]
+---
+
+"Junk files" on a Mac are the cache files, logs, temporary files, and leftover app data that build up silently over months of normal use. None of it is dangerous to remove — but finding it manually means digging through hidden folders most people never see.
+
+## Where Mac junk files actually live
+
+- `~/Library/Caches` — app and browser caches, usually the biggest single contributor
+- `~/Library/Logs` — diagnostic logs most apps never clean up themselves
+- `~/Library/Application Support` — leftover data from apps you've already uninstalled
+- `/private/var/folders` — system-level temporary files
+
+## Option 1: Clean it manually
+
+1. Open Finder, press **Cmd+Shift+G**, and type `~/Library/Caches`.
+2. Sort by size and look for folders belonging to apps you don't use — those are usually safe to empty.
+3. Repeat for `~/Library/Logs`.
+4. Empty the Trash afterward to actually reclaim the space.
+
+This works, but it's slow, and it's easy to second-guess whether a given folder is safe to touch — a lot of these folder names aren't self-explanatory.
+
+## Option 2: Use a junk cleaner
+
+A dedicated cleaner scans all of these locations automatically, groups what it finds by category, and lets you review everything before anything is deleted. [MacDiskCleaner's free tier](/free-mac-cleaner) handles up to 2 GB of junk cleanup with exactly this workflow: scan, review, clean — nothing is removed without you seeing it first.
+
+## Is it safe?
+
+Yes, as long as the tool moves files to Trash rather than deleting them outright, and as long as it's only touching cache/log/temp locations rather than your actual documents. That's the standard every cleaner on this site follows.
+
+## How often should you clean junk files?
+
+Most people don't need to think about it at all — a cleaner with scheduled scans (available in MacDiskCleaner Pro) handles it silently in the background. If you're doing it manually, once every one to two months is enough for typical use.

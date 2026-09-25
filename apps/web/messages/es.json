@@ -1,0 +1,135 @@
+{
+  "meta": {
+    "homeTitle": "MacDiskCleaner — Libera espacio y limpia archivos basura en tu Mac",
+    "homeDescription": "El limpiador de almacenamiento para macOS. Elimina archivos basura, encuentra duplicados, desinstala aplicaciones por completo y libera gigabytes de espacio en minutos. Descarga gratis.",
+    "siteName": "MacDiskCleaner"
+  },
+  "nav": {
+    "features": "Funciones",
+    "howit": "Cómo funciona",
+    "pricing": "Precios",
+    "support": "Soporte",
+    "blog": "Blog",
+    "download": "Descargar gratis"
+  },
+  "hero": {
+    "badge": "Compatible con macOS Sequoia · Nativo para Apple Silicon",
+    "titleLine1": "El limpiador de Mac",
+    "titleAccent": "hecho para tu Mac.",
+    "subtitle": "Libera gigabytes de almacenamiento, elimina archivos basura ocultos, encuentra duplicados y mantén tu Mac como el primer día.",
+    "ctaPrimary": "Descargar gratis",
+    "ctaSecondary": "Ver cómo funciona",
+    "trust": ["Sin suscripción", "Pago único", "100% seguro y confiable", "Reembolso de 30 días"],
+    "scanLabel": "Escaneo completo",
+    "scanValue": "23.4 GB",
+    "scanSub": "espacio recuperable encontrado",
+    "scanRows": [["Archivos basura", "2.1 GB"], ["Duplicados", "1.3 GB"], ["Registros", "0.8 GB"]],
+    "scanCta": "Limpiar ahora"
+  },
+  "stats": {
+    "items": [
+      { "num": "1M+", "label": "Descargas" },
+      { "num": "4.9★", "label": "Valoración media" },
+      { "num": "50 GB+", "label": "Espacio liberado en promedio" },
+      { "num": "24/7", "label": "Atención al cliente" }
+    ]
+  },
+  "features": {
+    "label": "Funciones",
+    "title": "Todas las herramientas que tu Mac necesita.",
+    "subtitle": "Un conjunto completo de herramientas diseñado para macOS, con el mismo cuidado que Apple pone en su hardware.",
+    "items": [
+      { "title": "Limpiador de archivos basura", "desc": "Elimina automáticamente cachés, registros y archivos basura del sistema. Recupera gigabytes en segundos sin esfuerzo." },
+      { "title": "Buscador de duplicados", "desc": "La detección inteligente basada en hash encuentra archivos duplicados exactos y casi idénticos en todo tu Mac sin falsos positivos." },
+      { "title": "Analizador de almacenamiento", "desc": "Visualiza exactamente qué está ocupando tu espacio en disco con un desglose interactivo y detallado por carpeta y tipo de archivo." },
+      { "title": "Protector de privacidad", "desc": "Elimina de forma segura el historial del navegador, las cookies y los rastros de aplicaciones. Tu privacidad, bajo tu control." },
+      { "title": "Impulso de rendimiento", "desc": "Limpia agentes de inicio, aplicaciones pesadas y procesos en segundo plano que ralentizan tu Mac con el tiempo." },
+      { "title": "Buscador de archivos grandes", "desc": "Encuentra y elimina al instante descargas antiguas, archivos comprimidos y archivos olvidados que ocupan espacio desde hace años." }
+    ]
+  },
+  "lifestyle": {
+    "label": "Experiencia fluida",
+    "title": "Diseñado para sentirse nativo.",
+    "titleAccent": "Porque lo es.",
+    "body": "MacDiskCleaner está construido desde cero para macOS. Usa APIs nativas, respeta el modelo de seguridad de tu sistema y se integra a la perfección con Spotlight, Apple Silicon y más.",
+    "points": [
+      "Lenguaje de diseño nativo de macOS",
+      "Optimizado para Apple Silicon e Intel",
+      "Arquitectura aislada (sandboxed) y centrada en la privacidad",
+      "Los escaneos programados se ejecutan en segundo plano de forma silenciosa"
+    ]
+  },
+  "howit": {
+    "label": "Cómo funciona",
+    "title": "Tres pasos. Resultados reales.",
+    "steps": [
+      { "num": "01", "title": "Descarga e instala", "desc": "Una descarga ligera de 12 MB. Arrástrala a Aplicaciones y estará lista en segundos." },
+      { "num": "02", "title": "Ejecuta un escaneo inteligente", "desc": "Un solo clic inicia un análisis profundo e inteligente de todo tu Mac: basura, duplicados, archivos grandes y más." },
+      { "num": "03", "title": "Limpia con confianza", "desc": "Revisa lo que se encontró, selecciona qué eliminar y recupera tu espacio de forma segura. Sin sorpresas." }
+    ]
+  },
+  "screenshots": {
+    "label": "Vista previa de la app",
+    "titleStart": "Mira cada pantalla.",
+    "titleAccent": "Ama cada detalle.",
+    "subtitle": "Explora la interfaz real de MacDiskCleaner: hermosa, intuitiva y realmente eficaz.",
+    "tabs": [
+      { "id": "dashboard", "label": "Panel", "title": "Panel inteligente", "desc": "Vista completa del estado de almacenamiento de tu Mac: anillo de uso de disco, contador de espacio recuperable y recomendaciones de limpieza personalizadas, todo en un solo lugar." },
+      { "id": "duplicates", "label": "Duplicados", "title": "Buscador de duplicados", "desc": "Encuentra y elimina archivos duplicados exactos en todo tu Mac. La agrupación inteligente te permite conservar los originales y borrar las copias." },
+      { "id": "largefiles", "label": "Archivos grandes", "title": "Buscador de archivos grandes", "desc": "Localiza al instante los archivos enormes que ocupan tu almacenamiento en silencio. Ordena por tamaño y recupera espacio rápidamente." },
+      { "id": "oldfiles", "label": "Archivos antiguos", "title": "Limpieza de archivos antiguos", "desc": "Identifica archivos que no has abierto en meses o años. Archívalos o elimínalos de forma segura para liberar gigabytes de espacio desperdiciado." },
+      { "id": "cleanup", "label": "Limpieza inteligente", "title": "Limpieza con un clic", "desc": "Elimina la basura con un solo clic. Caché, caché de desarrollo, archivos temporales, registros, descargas y duplicados, todo identificado y limpiado de forma segura en un solo barrido." },
+      { "id": "uninstaller", "label": "Desinstalador", "title": "Desinstalador de aplicaciones", "desc": "Elimina por completo las aplicaciones junto con sus datos y preferencias ocultas para liberar el máximo espacio posible." }
+    ]
+  },
+  "pricing": {
+    "label": "Precios",
+    "title": "Simple. Honesto. Un solo precio.",
+    "subtitle": "Sin suscripciones. Sin cargos ocultos. Es tuyo para siempre.",
+    "free": {
+      "name": "Gratis",
+      "price": "$0",
+      "sub": "Gratis para siempre.",
+      "features": ["Limpieza básica de basura (hasta 2 GB)", "Buscador de archivos duplicados", "Buscador de archivos grandes", "Límite mensual de escaneos"],
+      "cta": "Descargar gratis"
+    },
+    "pro": {
+      "badge": "MEJOR VALOR",
+      "name": "Pro",
+      "price": "$12.99",
+      "sub": "Pago único. Sin suscripción, nunca.",
+      "features": ["Limpieza de basura ilimitada", "Detección inteligente de duplicados", "Limpiador de privacidad", "Gestor de inicio", "Escaneos programados automáticamente", "Actualizaciones de por vida", "Soporte prioritario"],
+      "cta": "Obtener Pro — $12.99"
+    }
+  },
+  "faq": {
+    "label": "Preguntas frecuentes",
+    "title": "Preguntas comunes.",
+    "items": [
+      { "q": "¿Es seguro usarlo?", "a": "Totalmente. MacDiskCleaner solo elimina los archivos que tú apruebas explícitamente. Todos los archivos se mueven a la papelera antes de eliminarse de forma permanente, así que nunca es irrecuperable." },
+      { "q": "¿Funcionará en mi Mac?", "a": "¡Sí! MacDiskCleaner es compatible con macOS 12 Monterey en adelante, tanto en Macs con Apple Silicon (M1, M2, M3, M4) como con Intel." },
+      { "q": "¿La versión gratuita es realmente gratis?", "a": "Sí, la versión gratuita es completamente gratuita, sin periodos de prueba ni límites ocultos en las funciones principales. Actualiza a Pro para obtener el conjunto completo de herramientas." },
+      { "q": "¿En qué se diferencia de CleanMyMac?", "a": "MacDiskCleaner es una compra única sin suscripción, es mucho más ligero para los recursos del sistema y se centra en hacer excepcionalmente bien lo esencial." },
+      { "q": "¿Puedo obtener un reembolso?", "a": "Por supuesto. Ofrecemos un reembolso completo de 30 días sin preguntas en todas las compras de Pro." }
+    ]
+  },
+  "footer": {
+    "privacy": "Política de privacidad",
+    "terms": "Términos",
+    "tagline": "Hecho con cariño para los usuarios de Mac en todo el mundo.",
+    "copyright": "© 2026 MacDiskCleaner. Todos los derechos reservados."
+  },
+  "success": {
+    "title": "Todo listo.",
+    "subtitle": "Tu clave de licencia de MacDiskCleaner Pro está lista. También te la hemos enviado por correo electrónico.",
+    "keyLabel": "Tu clave de licencia",
+    "copy": "Copiar",
+    "copied": "Copiado",
+    "instructionsTitle": "Próximos pasos",
+    "step1": "Descarga y abre MacDiskCleaner en tu Mac.",
+    "step2": "Ve a Configuración → Licencia y pega la clave de arriba.",
+    "step3": "Haz clic en Activar: pasarás a Pro de inmediato.",
+    "downloadCta": "Descargar MacDiskCleaner",
+    "supportNote": "¿No recibiste el correo? Revisa tu carpeta de spam o contacta a support@macdiskcleaner.com."
+  }
+}
