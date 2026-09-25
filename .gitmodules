@@ -1,0 +1,3 @@
+[submodule "apps/desktop"]
+	path = apps/desktop
+	url = https://github.com/vatsalya0713/Mac-Storage-Optimizer.git
