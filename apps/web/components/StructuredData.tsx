@@ -1,4 +1,4 @@
-const SITE_URL = 'https://macdiskcleaner.com'
+const SITE_URL = 'https://www.macdiskcleaner.com'
 
 const FAQ_ITEMS = [
   {

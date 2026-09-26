@@ -2,7 +2,7 @@ import type { MetadataRoute } from 'next'
 import { getPostSlugs } from '@/lib/blog'
 import { routing } from '@/i18n/routing'
 
-const SITE_URL = 'https://macdiskcleaner.com'
+const SITE_URL = 'https://www.macdiskcleaner.com'
 
 function localizedUrl(locale: string, pathname: string) {
   const prefix = locale === routing.defaultLocale ? '' : `/${locale}`
@@ -34,6 +34,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${SITE_URL}/vs/cleanmymac`, lastModified: now, changeFrequency: 'monthly', priority: 0.9 },
     { url: `${SITE_URL}/blog`, lastModified: now, changeFrequency: 'weekly', priority: 0.7 },
     { url: `${SITE_URL}/contact`, lastModified: now, changeFrequency: 'yearly', priority: 0.3 },
+    { url: `${SITE_URL}/privacy`, lastModified: now, changeFrequency: 'yearly', priority: 0.2 },
+    { url: `${SITE_URL}/terms`, lastModified: now, changeFrequency: 'yearly', priority: 0.2 },
     ...getPostSlugs('en').map((slug) => ({
       url: `${SITE_URL}/blog/${slug}`,
       lastModified: now,

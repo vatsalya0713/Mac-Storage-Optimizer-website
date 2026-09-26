@@ -2,6 +2,9 @@ import type { Metadata } from 'next'
 import { Navbar } from '@/components/Navbar'
 import { Footer } from '@/components/Footer'
 
+// English-only by design, same as /free-mac-cleaner, /vs/cleanmymac, and
+// the blog — no `languages` alternates so untranslated locale URLs aren't
+// advertised as duplicate content.
 export const metadata: Metadata = {
   title: 'Privacy Policy',
   description: 'How MacDiskCleaner collects, uses, and protects your data.',

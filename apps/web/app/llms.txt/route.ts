@@ -1,6 +1,6 @@
 import { getAllPosts } from '@/lib/blog'
 
-const SITE_URL = 'https://macdiskcleaner.com'
+const SITE_URL = 'https://www.macdiskcleaner.com'
 
 // Generated as a route (not a static public/ file) so it always lists the
 // current set of pages and blog posts as content is added — no manual sync.
@@ -19,6 +19,8 @@ export async function GET() {
     `- [Free Mac Cleaner](${SITE_URL}/free-mac-cleaner): details on what's included in the free tier vs. Pro.`,
     `- [vs. CleanMyMac X & OnyX](${SITE_URL}/vs/cleanmymac): feature-by-feature comparison against the other well-known Mac cleaners.`,
     `- [Contact](${SITE_URL}/contact): support, bug reports, and feature suggestions.`,
+    `- [Privacy Policy](${SITE_URL}/privacy)`,
+    `- [Terms of Service](${SITE_URL}/terms)`,
     '',
     '## Guides',
     ...posts.map((p) => `- [${p.title}](${SITE_URL}/blog/${p.slug}): ${p.description}`),

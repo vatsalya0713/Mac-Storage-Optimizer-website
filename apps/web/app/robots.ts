@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: ['/api/', '/success'],
     },
-    sitemap: 'https://macdiskcleaner.com/sitemap.xml',
+    sitemap: 'https://www.macdiskcleaner.com/sitemap.xml',
   }
 }

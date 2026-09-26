@@ -24,7 +24,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params
   const t = await getTranslations({ locale, namespace: 'meta' })
-  const siteUrl = 'https://macdiskcleaner.com'
+  const siteUrl = 'https://www.macdiskcleaner.com'
   const path = locale === routing.defaultLocale ? '/' : `/${locale}`
 
   return {

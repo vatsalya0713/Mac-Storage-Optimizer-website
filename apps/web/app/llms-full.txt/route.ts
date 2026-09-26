@@ -2,7 +2,7 @@ import fs from 'node:fs'
 import matter from 'gray-matter'
 import { getPostSlugs, getPostPath } from '@/lib/blog'
 
-const SITE_URL = 'https://macdiskcleaner.com'
+const SITE_URL = 'https://www.macdiskcleaner.com'
 
 // The "full" variant of /llms.txt: complete page content inline, not just
 // links, so an AI agent can answer questions about MacDiskCleaner from this

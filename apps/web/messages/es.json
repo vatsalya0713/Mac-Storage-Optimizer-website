@@ -5,11 +5,16 @@
     "siteName": "MacDiskCleaner"
   },
   "nav": {
+    "product": "Producto",
     "features": "Funciones",
     "howit": "Cómo funciona",
     "pricing": "Precios",
-    "support": "Soporte",
+    "freeMacCleaner": "Detalle del plan gratuito",
+    "compare": "vs. CleanMyMac",
+    "resources": "Recursos",
+    "support": "Preguntas frecuentes",
     "blog": "Blog",
+    "contact": "Contacto",
     "download": "Descargar gratis"
   },
   "hero": {
