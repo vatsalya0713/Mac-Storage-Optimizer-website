@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { Download, Menu, X } from "lucide-react";
+import { LanguageSwitcher } from "./LanguageSwitcher";
 
 export function Navbar() {
   const t = useTranslations("nav");
@@ -39,6 +40,7 @@ export function Navbar() {
         </nav>
 
         <div className="flex items-center gap-2 flex-shrink-0">
+          <LanguageSwitcher className="hidden lg:flex" />
           <a
             href="/downloads/MacDiskCleaner.dmg"
             className="btn-primary text-[12px] sm:text-[13px] py-[8px] sm:py-[9px] px-3.5 sm:px-5 whitespace-nowrap"
@@ -67,6 +69,9 @@ export function Navbar() {
               {l.label}
             </a>
           ))}
+          <div className="pt-2.5">
+            <LanguageSwitcher />
+          </div>
         </nav>
       )}
     </header>

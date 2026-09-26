@@ -1,0 +1,48 @@
+---
+title: "How to Find and Delete Large Files on Mac"
+description: "The fastest ways to find exactly which files are taking up the most space on your Mac, from built-in tools to dedicated scanners."
+date: "2026-02-11"
+keywords: ["mac storage cleaner", "mac disk cleaner free", "mac storage cleaner app"]
+---
+
+Large files — old video exports, disk images, forgotten archives — are usually the single biggest recoverable chunk of space on a Mac that hasn't been cleaned in a while. Here's how to actually find them.
+
+## Method 1: Finder (free, manual)
+
+1. Open a Finder window, select your Mac's main drive
+2. Switch to **List View** (Cmd+2)
+3. Click the **Size** column header to sort by size — click again to reverse
+4. Use **View → Show View Options** to make sure "Calculate all sizes" is checked, so folders show accurate totals
+
+This works, but Finder's search doesn't easily let you say "show me every file over 500 MB across my whole Mac" — you're browsing folder by folder.
+
+## Method 2: Spotlight search by size
+
+Open Spotlight (Cmd+Space) and search using:
+```
+kind:file size:>500mb
+```
+This is faster than manual browsing but still limited — it won't distinguish "large file you actually need" from "large file you forgot about," and won't show *why* a file is large or what to do next.
+
+## Method 3: A dedicated large file scanner
+
+A tool built specifically for this sorts by size across your entire Mac in one pass, and lets you preview, reveal in Finder, or move straight to Trash. [MacDiskCleaner's Large File Scanner](/#features) is included in both the free and Pro tiers — no limit on how many files it shows you.
+
+## Where large files typically hide
+
+- `~/Downloads` — installers, exported videos, one-off downloads
+- `~/Movies` — screen recordings, video exports
+- `~/Library/Application Support/MobileSync/Backup` — old iPhone/iPad backups
+- Mounted disk images (`.dmg`) you opened and forgot to delete after installing
+
+## Before you delete anything
+
+Check the file's last-opened date, not just its size — a 20 GB video project you're actively editing is very different from a 20 GB export you finished six months ago. Moving to Trash first (rather than permanently deleting) gives you a safety window either way.
+
+## FAQ
+
+**What counts as a "large file" on Mac?**
+There's no fixed threshold, but most cleanup tools default to flagging anything over 100 MB, since that's large enough to matter but common enough to catch real opportunities.
+
+**Will deleting large files slow down my Mac in any way?**
+No — removing files only frees space. If anything, having more free space helps macOS perform better, since it needs some free space for virtual memory swapping.

@@ -1,0 +1,48 @@
+---
+title: "Mac Running Out of Storage? The Complete Fix Guide"
+description: "Your Mac says storage is almost full — here's how to actually diagnose what's using it and fix it, not just guess."
+date: "2026-02-08"
+keywords: ["mac storage cleaner", "mac storage cleaner app", "macbook storage cleaner free app"]
+---
+
+"Your disk is almost full" is one of the most frustrating macOS alerts, mostly because it doesn't tell you *what* is full. Here's how to actually diagnose it.
+
+## Step 1: See what macOS itself thinks is using space
+
+Apple menu → **About This Mac** → **Storage** → **Manage**. This gives a rough breakdown (Apps, Documents, Photos, "System Data"), but "System Data" is usually the biggest and least helpful category — it's a catch-all, not something you can click into.
+
+## Step 2: Find out what's actually in "System Data"
+
+This is almost always some combination of:
+
+- App caches and logs that accumulate silently over months
+- Leftover files from apps you uninstalled without removing their support files
+- Old iOS/iPadOS device backups
+- Time Machine local snapshots
+
+A scanner that actually enumerates these locations (rather than macOS's rough category estimate) gives you an actionable list instead of a mystery number. [MacDiskCleaner's Storage Overview](/#features) shows a real breakdown by folder and file type — not just "System Data: 41 GB."
+
+## Step 3: Attack the biggest categories first
+
+In order of typical impact:
+
+1. **Large files** — old video exports, disk images, forgotten downloads. Often the single biggest recoverable chunk.
+2. **Duplicates** — photos imported twice, files saved in multiple places.
+3. **Junk** — caches, logs, temp files. Individually small, collectively significant.
+4. **Uninstalled app leftovers** — dragging an app to Trash doesn't remove its `~/Library` support files.
+
+## Step 4: Prevent it from filling up again
+
+Storage doesn't usually get low from one big event — it's gradual, from caches and downloads accumulating over weeks. A scheduled scan (available in [MacDiskCleaner Pro](/#pricing)) running quietly in the background catches this before it becomes a "Mac is full" emergency again.
+
+## How much space should cleaning recover?
+
+For a Mac that hasn't been cleaned before, 20–50 GB is typical. If you've cleaned recently, expect a smaller amount from caches and logs that regenerated since.
+
+## FAQ
+
+**Why does my Mac say storage is full when Finder shows free space?**
+macOS sometimes delays updating the reported free space after large deletions — restart, or wait a few minutes, before assuming the deletion didn't work.
+
+**Is it safe to delete "System Data"?**
+You can't delete that category directly — it's not one folder. What's safe is clearing the caches, logs, and leftover files that make it up, which is what a proper cleanup covers.
