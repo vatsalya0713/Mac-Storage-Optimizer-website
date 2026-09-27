@@ -84,7 +84,9 @@
       { "id": "largefiles", "label": "Fichiers volumineux", "title": "Scanner de fichiers volumineux", "desc": "Repérez instantanément les fichiers volumineux qui occupent discrètement votre stockage. Triez par taille et récupérez de l'espace rapidement." },
       { "id": "oldfiles", "label": "Anciens fichiers", "title": "Nettoyage des anciens fichiers", "desc": "Identifiez les fichiers que vous n'avez pas ouverts depuis des mois, voire des années. Archivez-les ou supprimez-les en toute sécurité pour libérer des gigaoctets d'espace gaspillé." },
       { "id": "cleanup", "label": "Nettoyage intelligent", "title": "Nettoyage en un clic", "desc": "Supprimez les fichiers indésirables en un clic. Cache, cache de développement, fichiers temporaires, journaux, téléchargements et doublons, tous identifiés et nettoyés en toute sécurité en un seul passage." },
-      { "id": "uninstaller", "label": "Désinstalleur", "title": "Désinstalleur d'applications", "desc": "Supprime complètement les applications ainsi que leurs données et préférences résiduelles cachées pour libérer un maximum d'espace." }
+      { "id": "uninstaller", "label": "Désinstalleur", "title": "Désinstalleur d'applications", "desc": "Supprime complètement les applications ainsi que leurs données et préférences résiduelles cachées pour libérer un maximum d'espace." },
+      { "id": "privacy", "label": "Nettoyeur de confidentialité", "title": "Nettoyeur de confidentialité", "desc": "Effacez l'historique, le cache et les cookies du navigateur, ainsi que les éléments récents du Finder et le cache de vignettes Quick Look, en un seul endroit." },
+      { "id": "startup", "label": "Gestionnaire de démarrage", "title": "Gestionnaire de démarrage", "desc": "Visualisez tout ce qui se lance automatiquement à la connexion et désactivez ce dont vous n'avez pas besoin pour un Mac plus rapide et plus silencieux." }
     ]
   },
   "pricing": {
@@ -95,7 +97,7 @@
       "name": "Gratuit",
       "price": "0 $",
       "sub": "Gratuit pour toujours.",
-      "features": ["Nettoyage de base (jusqu'à 2 Go)", "Détecteur de fichiers en double", "Détecteur de fichiers volumineux", "Limite d'analyses mensuelle"],
+      "features": ["Nettoyage de fichiers indésirables — jusqu'à 2 Go par analyse", "Détecteur de doublons complet, sans limite", "Détecteur de fichiers volumineux complet, sans limite", "Analyses illimitées"],
       "cta": "Télécharger gratuitement"
     },
     "pro": {
@@ -103,7 +105,7 @@
       "name": "Pro",
       "price": "12,99 $",
       "sub": "Achat unique. Jamais d'abonnement.",
-      "features": ["Nettoyage illimité des fichiers indésirables", "Détection intelligente des doublons", "Nettoyeur de confidentialité", "Gestionnaire de démarrage", "Analyses planifiées automatiquement", "Mises à jour à vie", "Assistance prioritaire"],
+      "features": ["Nettoyage illimité des fichiers indésirables", "Désinstalleur d'applications (supprime les fichiers résiduels)", "Nettoyeur de confidentialité", "Gestionnaire de démarrage", "Analyses planifiées automatiquement", "Mises à jour à vie", "Assistance prioritaire"],
       "cta": "Obtenir Pro — 12,99 $"
     }
   },
@@ -111,11 +113,18 @@
     "label": "FAQ",
     "title": "Questions fréquentes.",
     "items": [
-      { "q": "Est-ce sûr à utiliser ?", "a": "Absolument. MacDiskCleaner ne supprime que les fichiers que vous approuvez explicitement. Tous les fichiers sont déplacés dans la corbeille avant suppression définitive, rien n'est donc jamais irrécupérable." },
-      { "q": "Fonctionnera-t-il sur mon Mac ?", "a": "Oui ! MacDiskCleaner prend en charge macOS 12 Monterey et versions ultérieures, sur les Mac Apple Silicon (M1, M2, M3, M4) comme sur les Mac Intel." },
-      { "q": "La version gratuite est-elle vraiment gratuite ?", "a": "Oui, la version gratuite est entièrement gratuite, sans période d'essai ni limites cachées sur les fonctionnalités principales. Passez à Pro pour bénéficier de la suite complète d'outils." },
-      { "q": "En quoi est-ce différent de CleanMyMac ?", "a": "MacDiskCleaner est un achat unique sans abonnement, nettement plus léger pour les ressources système, et se concentre sur l'essentiel, fait exceptionnellement bien." },
-      { "q": "Puis-je être remboursé ?", "a": "Bien sûr. Nous offrons un remboursement intégral sous 30 jours, sans justification, sur tous les achats Pro." }
+      { "q": "Est-ce sûr à utiliser ?", "a": "Absolument. MacDiskCleaner ne supprime que les fichiers que vous approuvez explicitement. Tout est déplacé dans la corbeille avant suppression définitive, rien n'est donc jamais irrécupérable." },
+      { "q": "Fonctionnera-t-il sur mon Mac ?", "a": "Oui. MacDiskCleaner prend en charge macOS 12 Monterey jusqu'à la dernière version de macOS Sequoia, sur les Mac Apple Silicon (M1, M2, M3, M4) comme sur les Mac Intel." },
+      { "q": "La version gratuite est-elle vraiment gratuite ?", "a": "Oui, sans période d'essai ni expiration : nettoyage jusqu'à 2 Go par analyse, plus un détecteur de doublons et de fichiers volumineux complets et sans limite, en permanence." },
+      { "q": "Que débloque exactement Pro ?", "a": "Pro supprime la limite de 2 Go sur le nettoyage et ajoute quatre outils supplémentaires : le désinstalleur d'applications (supprime les fichiers résiduels, pas seulement l'app), le nettoyeur de confidentialité, le gestionnaire de démarrage et les analyses planifiées, plus les mises à jour à vie et l'assistance prioritaire, pour un paiement unique de 12,99 $." },
+      { "q": "Est-ce un abonnement ?", "a": "Non. Pro est un paiement unique de 12,99 $ — jamais de facturation récurrente." },
+      { "q": "Sur combien de Mac puis-je utiliser une licence ?", "a": "Chaque licence Pro s'active sur 2 Mac maximum." },
+      { "q": "Puis-je être remboursé ?", "a": "Oui — un remboursement intégral sous 30 jours, sans justification, sur tous les achats Pro. Écrivez à support@macdiskcleaner.com avec votre clé de licence." },
+      { "q": "En quoi est-ce différent de CleanMyMac ou OnyX ?", "a": "MacDiskCleaner est un achat unique sans abonnement (contrairement à CleanMyMac) et inclut un détecteur de doublons et de fichiers volumineux guidé qu'OnyX n'a pas." },
+      { "q": "Mes données sont-elles collectées ou envoyées ?", "a": "Non. Toute l'analyse se fait localement sur votre Mac. Seule votre clé de licence est envoyée à notre serveur, lors de l'activation." },
+      { "q": "Le prix est-il le même pour les clients américains ?", "a": "Oui — 12,99 $ partout, paiement unique, avec carte, Apple Pay et Google Pay disponibles au paiement." },
+      { "q": "Que faire si j'ai besoin d'aide ?", "a": "Utilisez la page Contact ou écrivez à support@macdiskcleaner.com. Nous répondons à tous les messages, les clients Pro bénéficient d'un traitement prioritaire." },
+      { "q": "Ai-je besoin d'internet pour l'utiliser ?", "a": "Seulement brièvement, pour la première activation Pro et les vérifications de mise à jour. L'analyse et le nettoyage fonctionnent entièrement hors ligne." }
     ]
   },
   "footer": {

@@ -12,6 +12,7 @@ const CATEGORIES = [
 export function ContactForm() {
   const [form, setForm] = useState({ name: "", email: "", category: "general", message: "" });
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
+  const [errorMessage, setErrorMessage] = useState("");
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -22,10 +23,16 @@ export function ContactForm() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(form),
       });
-      if (!res.ok) throw new Error();
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) {
+        setErrorMessage(data?.error || "Something went wrong — please try again, or email us directly below.");
+        setStatus("error");
+        return;
+      }
       setStatus("sent");
       setForm({ name: "", email: "", category: "general", message: "" });
     } catch {
+      setErrorMessage("Couldn't reach the server — check your connection and try again, or email us directly below.");
       setStatus("error");
     }
   };
@@ -106,7 +113,7 @@ export function ContactForm() {
               </div>
 
               {status === "error" && (
-                <p className="text-[13px] text-[#FF3B30]">Something went wrong — please try again.</p>
+                <p className="text-[13px] text-[#FF3B30]">{errorMessage}</p>
               )}
 
               <button
@@ -119,6 +126,14 @@ export function ContactForm() {
               </button>
             </form>
           )}
+
+          <p className="mt-8 text-[14px] text-[#6E6E73] border-t border-[rgba(0,0,0,0.06)] pt-6">
+            Prefer email? Reach us directly at{" "}
+            <a href="mailto:support@macdiskcleaner.com" className="font-semibold text-[#007AFF] hover:underline">
+              support@macdiskcleaner.com
+            </a>
+            . Pro customers with a license key get priority handling — include it in your message for faster help.
+          </p>
       </div>
     </main>
   );

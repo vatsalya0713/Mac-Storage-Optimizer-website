@@ -38,15 +38,23 @@ const FAQS = [
   },
   {
     q: 'What\'s the catch?',
-    a: 'The only limit on the free tier is a 2 GB cap on junk cleaning per scan and a monthly scan limit. Everything else — duplicates, large files — is fully unlocked. Pro removes those limits and adds an app uninstaller, privacy cleaner, and scheduled scans.',
+    a: 'The only limit on the free tier is a 2 GB cap on junk cleaning per scan — you can run as many scans as you want, with no monthly limit. Everything else, duplicates and large files, is fully unlocked. Pro removes the 2 GB cap and adds an app uninstaller, privacy cleaner, startup manager, and scheduled scans.',
   },
   {
     q: 'Does it work on my MacBook?',
-    a: 'Yes. It supports macOS 12 Monterey and later, on both Apple Silicon (M1–M4) and Intel MacBooks.',
+    a: 'Yes. It supports macOS 12 Monterey through the latest macOS Sequoia release, on both Apple Silicon (M1–M4) and Intel MacBooks.',
   },
   {
     q: 'Is it safe to use a free cleaner?',
     a: 'Yes, as long as it moves files to Trash before permanent deletion — which is exactly how MacDiskCleaner works, on both the free and Pro tiers.',
+  },
+  {
+    q: 'Does the free tier upload any of my data?',
+    a: 'No. Scanning and cleanup analysis run entirely on your Mac — nothing about your files is ever sent to a server, free or Pro.',
+  },
+  {
+    q: 'If I upgrade later, do I lose anything from the free tier?',
+    a: 'No. Pro is strictly additive — everything free stays included, and Pro just removes the 2 GB cap and unlocks four extra tools.',
   },
 ]
 

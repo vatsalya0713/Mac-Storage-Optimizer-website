@@ -84,7 +84,9 @@
       { "id": "largefiles", "label": "Große Dateien", "title": "Großdatei-Scanner", "desc": "Finde sofort riesige Dateien, die still deinen Speicher belegen. Nach Größe sortieren und schnell Platz zurückgewinnen." },
       { "id": "oldfiles", "label": "Alte Dateien", "title": "Bereinigung alter Dateien", "desc": "Identifiziere Dateien, die du seit Monaten oder Jahren nicht geöffnet hast. Sicher archivieren oder löschen, um Gigabytes an verschwendetem Platz freizugeben." },
       { "id": "cleanup", "label": "Intelligente Bereinigung", "title": "Bereinigung mit einem Klick", "desc": "Entferne Datenmüll mit einem Klick. Cache, Entwickler-Cache, temporäre Dateien, Logs, Downloads und Duplikate – alles erkannt und sicher in einem einzigen Durchgang bereinigt." },
-      { "id": "uninstaller", "label": "Deinstallation", "title": "App-Deinstallierer", "desc": "Entfernt Apps vollständig, einschließlich versteckter Restdaten und Einstellungen, um maximalen Speicherplatz freizugeben." }
+      { "id": "uninstaller", "label": "Deinstallation", "title": "App-Deinstallierer", "desc": "Entfernt Apps vollständig, einschließlich versteckter Restdaten und Einstellungen, um maximalen Speicherplatz freizugeben." },
+      { "id": "privacy", "label": "Datenschutz-Reiniger", "title": "Datenschutz-Reiniger", "desc": "Lösche Browserverlauf, Cache und Cookies sowie Finder-„Zuletzt benutzt“ und den Quick-Look-Miniaturcache, alles an einem Ort." },
+      { "id": "startup", "label": "Start-Manager", "title": "Start-Manager", "desc": "Sieh alles, was automatisch beim Login startet, und deaktiviere, was du nicht brauchst – für einen schnelleren, ruhigeren Mac." }
     ]
   },
   "pricing": {
@@ -95,7 +97,7 @@
       "name": "Kostenlos",
       "price": "0 $",
       "sub": "Für immer kostenlos.",
-      "features": ["Basis-Reinigung (bis zu 2 GB)", "Duplikat-Dateiscanner", "Großdatei-Finder", "Monatliches Scan-Limit"],
+      "features": ["Junk-Bereinigung — bis zu 2 GB pro Scan", "Vollständiger Duplikat-Scanner, ohne Limit", "Vollständiger Großdatei-Finder, ohne Limit", "Unbegrenzte Scans"],
       "cta": "Kostenlos herunterladen"
     },
     "pro": {
@@ -103,7 +105,7 @@
       "name": "Pro",
       "price": "12,99 $",
       "sub": "Einmalzahlung. Niemals ein Abo.",
-      "features": ["Unbegrenzte Junk-Bereinigung", "Intelligente Duplikat-Erkennung", "Datenschutz-Reiniger", "Start-Manager", "Automatisch geplante Scans", "Lebenslange Updates", "Priorisierter Support"],
+      "features": ["Unbegrenzte Junk-Bereinigung", "App-Deinstallierer (entfernt Restdateien)", "Datenschutz-Reiniger", "Start-Manager", "Automatisch geplante Scans", "Lebenslange Updates", "Priorisierter Support"],
       "cta": "Pro holen — 12,99 $"
     }
   },
@@ -111,11 +113,18 @@
     "label": "FAQ",
     "title": "Häufige Fragen.",
     "items": [
-      { "q": "Ist die Nutzung sicher?", "a": "Absolut. MacDiskCleaner löscht nur Dateien, die du ausdrücklich bestätigst. Alle Dateien wandern vor der endgültigen Löschung in den Papierkorb – nichts geht jemals unwiderruflich verloren." },
-      { "q": "Funktioniert es auf meinem Mac?", "a": "Ja! MacDiskCleaner unterstützt macOS 12 Monterey und neuer, sowohl auf Apple-Silicon- (M1, M2, M3, M4) als auch auf Intel-Macs." },
-      { "q": "Ist die kostenlose Version wirklich kostenlos?", "a": "Ja, die kostenlose Version ist komplett kostenlos, ohne Testzeitraum oder versteckte Limits bei den Kernfunktionen. Für das volle Toolkit lohnt sich ein Upgrade auf Pro." },
-      { "q": "Was unterscheidet es von CleanMyMac?", "a": "MacDiskCleaner ist ein einmaliger Kauf ohne Abo, deutlich ressourcenschonender und konzentriert sich darauf, die wichtigsten Dinge außergewöhnlich gut zu erledigen." },
-      { "q": "Kann ich eine Rückerstattung bekommen?", "a": "Natürlich. Wir bieten auf alle Pro-Käufe eine vollständige 30-Tage-Geld-zurück-Garantie ohne Fragen." }
+      { "q": "Ist die Nutzung sicher?", "a": "Absolut. MacDiskCleaner löscht nur Dateien, die du ausdrücklich bestätigst. Alles wandert vor der endgültigen Löschung in den Papierkorb – nichts geht jemals unwiderruflich verloren." },
+      { "q": "Funktioniert es auf meinem Mac?", "a": "Ja. MacDiskCleaner unterstützt macOS 12 Monterey bis zur aktuellen macOS-Sequoia-Version, sowohl auf Apple-Silicon- (M1, M2, M3, M4) als auch auf Intel-Macs." },
+      { "q": "Ist die kostenlose Version wirklich kostenlos?", "a": "Ja — ohne Testzeitraum, ohne Ablauf: Junk-Bereinigung bis zu 2 GB pro Scan, plus ein vollständiger Duplikat-Scanner und Großdatei-Finder ohne Limit, dauerhaft." },
+      { "q": "Was schaltet Pro genau frei?", "a": "Pro entfernt das 2-GB-Limit bei der Junk-Bereinigung und fügt vier weitere Werkzeuge hinzu: App-Deinstallierer (entfernt Restdateien, nicht nur die App), Datenschutz-Reiniger, Start-Manager und geplante Scans, plus lebenslange Updates und priorisierten Support — für eine einmalige Zahlung von 12,99 $." },
+      { "q": "Ist das ein Abo?", "a": "Nein. Pro ist eine einmalige Zahlung von 12,99 $ — keine wiederkehrende Abrechnung, niemals." },
+      { "q": "Auf wie vielen Macs kann ich eine Lizenz nutzen?", "a": "Jede Pro-Lizenz lässt sich auf bis zu 2 Macs aktivieren." },
+      { "q": "Kann ich eine Rückerstattung bekommen?", "a": "Ja — eine vollständige 30-Tage-Geld-zurück-Garantie ohne Fragen auf alle Pro-Käufe. Schreib an support@macdiskcleaner.com mit deinem Lizenzschlüssel." },
+      { "q": "Was unterscheidet es von CleanMyMac oder OnyX?", "a": "MacDiskCleaner ist ein einmaliger Kauf ohne Abo (im Gegensatz zu CleanMyMac) und enthält einen geführten Duplikat- und Großdatei-Finder, den OnyX nicht hat." },
+      { "q": "Werden meine Daten gesammelt oder hochgeladen?", "a": "Nein. Scans und Analysen laufen vollständig auf deinem Mac. Nur dein Lizenzschlüssel wird bei der Aktivierung an unseren Server gesendet." },
+      { "q": "Ist der Preis für US-Kunden gleich?", "a": "Ja — 12,99 $ überall, einmalige Zahlung, mit Karte, Apple Pay und Google Pay beim Checkout." },
+      { "q": "Was mache ich, wenn ich Hilfe brauche?", "a": "Nutze die Kontaktseite oder schreib an support@macdiskcleaner.com. Wir beantworten jede Nachricht, Pro-Kunden erhalten bevorzugten Support." },
+      { "q": "Brauche ich eine Internetverbindung zur Nutzung?", "a": "Nur kurz, für die erstmalige Pro-Aktivierung und Update-Prüfungen. Scannen und Bereinigen funktionieren vollständig offline." }
     ]
   },
   "footer": {

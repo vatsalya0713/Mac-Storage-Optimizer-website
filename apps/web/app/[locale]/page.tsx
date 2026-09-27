@@ -31,6 +31,8 @@ const SCREENSHOT_META = [
   { emoji: "🕰️", color: "#8E8E93", bg: "#F2F2F7", image: "/real-app-oldfiles-new.png" },
   { emoji: "⚡", color: "#FF3B30", bg: "#FFF1F0", image: "/real-app-cleanup-new.png" },
   { emoji: "🗑️", color: "#34C759", bg: "#EDFAF0", image: "/real-app-uninstaller-new.png" },
+  { emoji: "🔒", color: "#00C7BE", bg: "#E5FBFA", image: "/real-app-privacy.png" },
+  { emoji: "🔌", color: "#A2845E", bg: "#F7F1EA", image: "/real-app-startup.png" },
 ];
 
 const fadeUp = {
@@ -507,24 +509,10 @@ function AppScreenshots() {
               border: "1px solid rgba(0,0,0,0.08)",
             }}
           >
-            <div
-              className="flex items-center gap-2 px-4 py-3"
-              style={{
-                background: "linear-gradient(180deg, #3d3d3d 0%, #2d2d2d 100%)",
-                borderBottom: "1px solid rgba(0,0,0,0.3)",
-              }}
-            >
-              <div className="w-3 h-3 rounded-full bg-[#FF5F57] shadow-sm" />
-              <div className="w-3 h-3 rounded-full bg-[#FEBC2E] shadow-sm" />
-              <div className="w-3 h-3 rounded-full bg-[#28C840] shadow-sm" />
-              <span
-                className="ml-3 text-[12px] font-medium"
-                style={{ color: "rgba(255,255,255,0.4)" }}
-              >
-                MacDiskCleaner — {active.label}
-              </span>
-            </div>
-
+            {/* No fake title bar here — every real-app-*.png already has the
+                actual macOS title bar (traffic lights + sidebar toolbar)
+                baked in from the real screenshot, so adding another on top
+                doubled up. */}
             <img
               src={activeMeta.image}
               alt={`MacDiskCleaner ${active.label} screen`}

@@ -84,7 +84,9 @@
       { "id": "largefiles", "label": "Archivos grandes", "title": "Buscador de archivos grandes", "desc": "Localiza al instante los archivos enormes que ocupan tu almacenamiento en silencio. Ordena por tamaño y recupera espacio rápidamente." },
       { "id": "oldfiles", "label": "Archivos antiguos", "title": "Limpieza de archivos antiguos", "desc": "Identifica archivos que no has abierto en meses o años. Archívalos o elimínalos de forma segura para liberar gigabytes de espacio desperdiciado." },
       { "id": "cleanup", "label": "Limpieza inteligente", "title": "Limpieza con un clic", "desc": "Elimina la basura con un solo clic. Caché, caché de desarrollo, archivos temporales, registros, descargas y duplicados, todo identificado y limpiado de forma segura en un solo barrido." },
-      { "id": "uninstaller", "label": "Desinstalador", "title": "Desinstalador de aplicaciones", "desc": "Elimina por completo las aplicaciones junto con sus datos y preferencias ocultas para liberar el máximo espacio posible." }
+      { "id": "uninstaller", "label": "Desinstalador", "title": "Desinstalador de aplicaciones", "desc": "Elimina por completo las aplicaciones junto con sus datos y preferencias ocultas para liberar el máximo espacio posible." },
+      { "id": "privacy", "label": "Limpiador de privacidad", "title": "Limpiador de privacidad", "desc": "Borra el historial, la caché y las cookies del navegador, además de los elementos recientes de Finder y la caché de miniaturas de Quick Look, todo en un solo lugar." },
+      { "id": "startup", "label": "Gestor de inicio", "title": "Gestor de inicio", "desc": "Ve todo lo que se inicia automáticamente al iniciar sesión y desactiva lo que no necesitas para un Mac más rápido y silencioso." }
     ]
   },
   "pricing": {
@@ -95,7 +97,7 @@
       "name": "Gratis",
       "price": "$0",
       "sub": "Gratis para siempre.",
-      "features": ["Limpieza básica de basura (hasta 2 GB)", "Buscador de archivos duplicados", "Buscador de archivos grandes", "Límite mensual de escaneos"],
+      "features": ["Limpieza de basura — hasta 2 GB por escaneo", "Buscador de duplicados completo, sin límites", "Buscador de archivos grandes completo, sin límites", "Escaneos ilimitados"],
       "cta": "Descargar gratis"
     },
     "pro": {
@@ -103,7 +105,7 @@
       "name": "Pro",
       "price": "$12.99",
       "sub": "Pago único. Sin suscripción, nunca.",
-      "features": ["Limpieza de basura ilimitada", "Detección inteligente de duplicados", "Limpiador de privacidad", "Gestor de inicio", "Escaneos programados automáticamente", "Actualizaciones de por vida", "Soporte prioritario"],
+      "features": ["Limpieza de basura ilimitada", "Desinstalador de apps (elimina archivos residuales)", "Limpiador de privacidad", "Gestor de inicio", "Escaneos programados automáticamente", "Actualizaciones de por vida", "Soporte prioritario"],
       "cta": "Obtener Pro — $12.99"
     }
   },
@@ -111,11 +113,18 @@
     "label": "Preguntas frecuentes",
     "title": "Preguntas comunes.",
     "items": [
-      { "q": "¿Es seguro usarlo?", "a": "Totalmente. MacDiskCleaner solo elimina los archivos que tú apruebas explícitamente. Todos los archivos se mueven a la papelera antes de eliminarse de forma permanente, así que nunca es irrecuperable." },
-      { "q": "¿Funcionará en mi Mac?", "a": "¡Sí! MacDiskCleaner es compatible con macOS 12 Monterey en adelante, tanto en Macs con Apple Silicon (M1, M2, M3, M4) como con Intel." },
-      { "q": "¿La versión gratuita es realmente gratis?", "a": "Sí, la versión gratuita es completamente gratuita, sin periodos de prueba ni límites ocultos en las funciones principales. Actualiza a Pro para obtener el conjunto completo de herramientas." },
-      { "q": "¿En qué se diferencia de CleanMyMac?", "a": "MacDiskCleaner es una compra única sin suscripción, es mucho más ligero para los recursos del sistema y se centra en hacer excepcionalmente bien lo esencial." },
-      { "q": "¿Puedo obtener un reembolso?", "a": "Por supuesto. Ofrecemos un reembolso completo de 30 días sin preguntas en todas las compras de Pro." }
+      { "q": "¿Es seguro usarlo?", "a": "Totalmente. MacDiskCleaner solo elimina los archivos que tú apruebas explícitamente. Todo se mueve a la papelera antes de eliminarse de forma permanente, así que nunca es irrecuperable." },
+      { "q": "¿Funcionará en mi Mac?", "a": "Sí. MacDiskCleaner es compatible desde macOS 12 Monterey hasta la última versión de macOS Sequoia, tanto en Macs con Apple Silicon (M1, M2, M3, M4) como con Intel." },
+      { "q": "¿La versión gratuita es realmente gratis?", "a": "Sí, sin periodo de prueba ni caducidad: limpieza de basura hasta 2 GB por escaneo, más un buscador de duplicados y de archivos grandes completos y sin límites, para siempre." },
+      { "q": "¿Qué desbloquea exactamente Pro?", "a": "Pro elimina el límite de 2 GB en la limpieza de basura y añade cuatro herramientas que la versión gratuita no incluye: Desinstalador de apps (elimina archivos residuales, no solo la app), Limpiador de privacidad, Gestor de inicio y Escaneos programados, además de actualizaciones de por vida y soporte prioritario, todo por un único pago de $12.99." },
+      { "q": "¿Es una suscripción?", "a": "No. Pro es un pago único de $12.99 — sin cobros recurrentes, nunca." },
+      { "q": "¿En cuántos Mac puedo usar una licencia?", "a": "Cada licencia Pro se activa en hasta 2 Mac." },
+      { "q": "¿Puedo obtener un reembolso?", "a": "Sí — un reembolso completo de 30 días sin preguntas en todas las compras Pro. Escribe a support@macdiskcleaner.com con tu clave de licencia." },
+      { "q": "¿En qué se diferencia de CleanMyMac u OnyX?", "a": "MacDiskCleaner es una compra única sin suscripción, a diferencia de los planes de CleanMyMac, e incluye un buscador de duplicados y archivos grandes guiado que OnyX no tiene." },
+      { "q": "¿Recopila o sube mis datos?", "a": "No. Todo el escaneo y análisis ocurre en tu Mac. Solo tu clave de licencia se envía a nuestro servidor, y únicamente durante la activación." },
+      { "q": "¿El precio es el mismo para clientes en EE. UU.?", "a": "Sí — $12.99 USD en todas partes, pago único, con tarjeta, Apple Pay y Google Pay disponibles en el checkout." },
+      { "q": "¿Qué hago si necesito ayuda?", "a": "Usa la página de Contacto o escribe a support@macdiskcleaner.com. Respondemos todos los mensajes, y los clientes Pro reciben atención prioritaria." },
+      { "q": "¿Necesito conexión a internet para usarlo?", "a": "Solo brevemente, para activar tu licencia Pro la primera vez y buscar actualizaciones. El escaneo y la limpieza funcionan completamente sin conexión." }
     ]
   },
   "footer": {
