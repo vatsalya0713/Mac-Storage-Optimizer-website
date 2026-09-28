@@ -43,7 +43,7 @@ export function Navbar() {
         <div className="flex items-center gap-2 flex-shrink-0">
           <LanguageSwitcher className="hidden lg:flex" />
           <a
-            href="/downloads/MacDiskCleaner.dmg"
+            href="/downloads"
             className="btn-primary text-[12px] sm:text-[13px] py-[8px] sm:py-[9px] px-3.5 sm:px-5 whitespace-nowrap"
           >
             <Download size={14} /> <span className="hidden xs:inline">{t("download")}</span>

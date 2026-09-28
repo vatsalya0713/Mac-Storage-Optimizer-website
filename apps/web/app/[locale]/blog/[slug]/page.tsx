@@ -80,14 +80,17 @@ export default async function BlogPost({
           <h1 className="text-[32px] md:text-[46px] font-extrabold tracking-[-0.03em] text-[#1D1D1F] leading-tight mb-4">
             {data.title}
           </h1>
-          <p className="text-[17px] text-[#6E6E73] mb-6">{data.description}</p>
+          <p className="text-[17px] text-[#6E6E73] mb-8">{data.description}</p>
 
-          <a
-            href="/downloads/MacDiskCleaner.dmg"
-            className="btn-primary text-[14px] py-2.5 px-6 inline-flex mb-12"
-          >
-            <Download size={15} /> Download Free
-          </a>
+          <div className="bento-card p-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left mb-12">
+            <div>
+              <p className="text-[16px] font-bold text-[#1D1D1F] mb-1">Ready to clean up your Mac?</p>
+              <p className="text-[13px] text-[#6E6E73]">Free to download. No account required to start.</p>
+            </div>
+            <a href="/downloads/MacDiskCleaner.dmg" className="btn-primary text-[14px] py-3 px-6 flex-shrink-0">
+              <Download size={15} /> Download Free
+            </a>
+          </div>
 
           <div className="prose prose-lg max-w-none prose-headings:font-bold prose-headings:tracking-tight prose-a:no-underline hover:prose-a:underline prose-table:text-[15px]">
             <MDXRemote

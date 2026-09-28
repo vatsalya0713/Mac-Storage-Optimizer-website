@@ -110,7 +110,42 @@ export default async function FreeMacCleanerPage() {
         </div>
       </section>
 
-      <section className="py-32 px-6">
+      <section className="py-24 px-6">
+        <div className="max-w-[900px] mx-auto">
+          <h2 className="text-[28px] font-extrabold tracking-tight text-[#1D1D1F] mb-3 text-center">How the free tier works</h2>
+          <p className="text-[15px] text-[#6E6E73] text-center mb-12 max-w-[480px] mx-auto">Three steps, no account, no trial countdown.</p>
+          <svg viewBox="0 0 900 200" className="w-full h-auto" role="img" aria-label="Scan, review, and clean diagram">
+            <line x1="150" y1="60" x2="750" y2="60" stroke="#D1D1D6" strokeWidth="2" strokeDasharray="6 6" />
+            <g>
+              <circle cx="150" cy="60" r="44" fill="#EBF4FF" />
+              <path d="M150 40a20 20 0 100 40 20 20 0 000-40zm0 6a14 14 0 110 28 14 14 0 010-28z" fill="#007AFF" transform="translate(0,0)" />
+              <circle cx="150" cy="60" r="10" fill="#007AFF" />
+              <text x="150" y="132" textAnchor="middle" fontSize="16" fontWeight="700" fill="#1D1D1F">1. Scan</text>
+              <text x="150" y="154" textAnchor="middle" fontSize="12.5" fill="#6E6E73">One click, full Mac</text>
+            </g>
+            <g>
+              <circle cx="450" cy="60" r="44" fill="#EDFAF0" />
+              <rect x="428" y="42" width="44" height="36" rx="4" fill="none" stroke="#34C759" strokeWidth="3" />
+              <line x1="436" y1="52" x2="464" y2="52" stroke="#34C759" strokeWidth="2.5" />
+              <line x1="436" y1="61" x2="458" y2="61" stroke="#34C759" strokeWidth="2.5" />
+              <line x1="436" y1="70" x2="464" y2="70" stroke="#34C759" strokeWidth="2.5" />
+              <text x="450" y="132" textAnchor="middle" fontSize="16" fontWeight="700" fill="#1D1D1F">2. Review</text>
+              <text x="450" y="154" textAnchor="middle" fontSize="12.5" fill="#6E6E73">You choose what goes</text>
+            </g>
+            <g>
+              <circle cx="750" cy="60" r="44" fill="#FFF1F0" />
+              <path d="M732 46h36l-3 34a4 4 0 01-4 4h-22a4 4 0 01-4-4z" fill="none" stroke="#FF3B30" strokeWidth="3" strokeLinejoin="round" />
+              <line x1="726" y1="46" x2="774" y2="46" stroke="#FF3B30" strokeWidth="3" />
+              <line x1="742" y1="46" x2="744" y2="38" stroke="#FF3B30" strokeWidth="3" />
+              <line x1="758" y1="46" x2="756" y2="38" stroke="#FF3B30" strokeWidth="3" />
+              <text x="750" y="132" textAnchor="middle" fontSize="16" fontWeight="700" fill="#1D1D1F">3. Clean</text>
+              <text x="750" y="154" textAnchor="middle" fontSize="12.5" fill="#6E6E73">Moved to Trash first</text>
+            </g>
+          </svg>
+        </div>
+      </section>
+
+      <section className="py-24 px-6">
         <div className="max-w-[720px] mx-auto">
           <h2 className="text-[32px] font-extrabold tracking-tight text-[#1D1D1F] mb-10 text-center">Frequently asked</h2>
           <div className="divide-y divide-[rgba(0,0,0,0.06)]">

@@ -1,5 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { useState } from "react";
 import { useTranslations, useLocale } from "next-intl";
 import { Link } from "@/i18n/navigation";
@@ -25,14 +26,14 @@ const LIFESTYLE_ICONS = [Apple, Zap, Lock, Clock];
 const HOWIT_ICONS = [Download, Search, Zap];
 
 const SCREENSHOT_META = [
-  { emoji: "🏠", color: "#007AFF", bg: "#EBF4FF", image: "/real-app-dashboard.png" },
-  { emoji: "📋", color: "#FF9500", bg: "#FFF5E6", image: "/real-app-duplicates-new.png" },
-  { emoji: "📦", color: "#AF52DE", bg: "#F5EEFF", image: "/real-app-largefiles-new.png" },
-  { emoji: "🕰️", color: "#8E8E93", bg: "#F2F2F7", image: "/real-app-oldfiles-new.png" },
-  { emoji: "⚡", color: "#FF3B30", bg: "#FFF1F0", image: "/real-app-cleanup-new.png" },
-  { emoji: "🗑️", color: "#34C759", bg: "#EDFAF0", image: "/real-app-uninstaller-new.png" },
-  { emoji: "🔒", color: "#00C7BE", bg: "#E5FBFA", image: "/real-app-privacy.png" },
-  { emoji: "🔌", color: "#A2845E", bg: "#F7F1EA", image: "/real-app-startup.png" },
+  { emoji: "🏠", color: "#007AFF", bg: "#EBF4FF", image: "/real-app-dashboard.png", width: 1500, height: 1049 },
+  { emoji: "📋", color: "#FF9500", bg: "#FFF5E6", image: "/real-app-duplicates-new.png", width: 1498, height: 1050 },
+  { emoji: "📦", color: "#AF52DE", bg: "#F5EEFF", image: "/real-app-largefiles-new.png", width: 1514, height: 1039 },
+  { emoji: "🕰️", color: "#8E8E93", bg: "#F2F2F7", image: "/real-app-oldfiles-new.png", width: 1583, height: 993 },
+  { emoji: "⚡", color: "#FF3B30", bg: "#FFF1F0", image: "/real-app-cleanup-new.png", width: 1531, height: 1027 },
+  { emoji: "🗑️", color: "#34C759", bg: "#EDFAF0", image: "/real-app-uninstaller-new.png", width: 1920, height: 1198 },
+  { emoji: "🔒", color: "#00C7BE", bg: "#E5FBFA", image: "/real-app-privacy.png", width: 1920, height: 1344 },
+  { emoji: "🔌", color: "#A2845E", bg: "#F7F1EA", image: "/real-app-startup.png", width: 1920, height: 1344 },
 ];
 
 const fadeUp = {
@@ -428,12 +429,13 @@ function AppScreenshots() {
           </motion.p>
         </motion.div>
 
+        {/* Mobile / tablet: horizontal scrollable pill row above the image */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="flex flex-wrap justify-center gap-3 mb-12"
+          className="flex lg:hidden flex-wrap justify-center gap-3 mb-12"
         >
           {tabs.map((tab, i) => {
             const meta = SCREENSHOT_META[i];
@@ -467,77 +469,122 @@ function AppScreenshots() {
           })}
         </motion.div>
 
-        <motion.div
-          key={`info-${activeTab}`}
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4 }}
-          className="text-center mb-8"
-        >
-          <div
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-[13px] font-semibold mb-4"
-            style={{ background: activeMeta.bg, color: activeMeta.color }}
-          >
-            <span>{activeMeta.emoji}</span>
-            {active.label}
+        {/* Desktop: vertical tab list on the left, screenshot on the right */}
+        <div className="grid grid-cols-1 lg:grid-cols-[300px_1fr] gap-10 items-center">
+          <div className="hidden lg:flex flex-col gap-2">
+            {tabs.map((tab, i) => {
+              const meta = SCREENSHOT_META[i];
+              const isActive = activeTab === i;
+              return (
+                <button
+                  key={tab.id}
+                  onClick={() => setActiveTab(i)}
+                  className="flex items-start gap-3 p-4 rounded-2xl text-left cursor-pointer transition-all duration-300 select-none"
+                  style={
+                    isActive
+                      ? { background: "white", boxShadow: "0 8px 24px rgba(0,0,0,0.08)" }
+                      : { background: "transparent" }
+                  }
+                >
+                  <span
+                    className="flex-shrink-0 w-9 h-9 rounded-xl flex items-center justify-center text-[16px]"
+                    style={{ background: meta.bg }}
+                  >
+                    {meta.emoji}
+                  </span>
+                  <span className="min-w-0">
+                    <span
+                      className="block text-[14px] font-semibold"
+                      style={{ color: isActive ? meta.color : "#1D1D1F" }}
+                    >
+                      {tab.label}
+                    </span>
+                    {isActive && (
+                      <span className="block text-[12px] text-[#6E6E73] leading-snug mt-1">
+                        {tab.desc}
+                      </span>
+                    )}
+                  </span>
+                </button>
+              );
+            })}
           </div>
-          <h3 className="text-[28px] md:text-[34px] font-extrabold tracking-tight text-[#1D1D1F] mb-3">
-            {active.title}
-          </h3>
-          <p className="text-[17px] text-[#6E6E73] max-w-[580px] mx-auto leading-relaxed">
-            {active.desc}
-          </p>
-        </motion.div>
 
-        <motion.div
-          key={`screenshot-${activeTab}`}
-          initial={{ opacity: 0, y: 32, scale: 0.98 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
-          transition={{ duration: 0.5 }}
-          className="relative mx-auto"
-          style={{ maxWidth: "960px" }}
-        >
-          <div
-            className="absolute -inset-6 -z-10 blur-[60px] opacity-20 rounded-[40px] transition-all duration-500"
-            style={{ background: activeMeta.color }}
-          />
+          <div>
+            <motion.div
+              key={`info-${activeTab}`}
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4 }}
+              className="text-center lg:hidden mb-8"
+            >
+              <div
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-[13px] font-semibold mb-4"
+                style={{ background: activeMeta.bg, color: activeMeta.color }}
+              >
+                <span>{activeMeta.emoji}</span>
+                {active.label}
+              </div>
+              <h3 className="text-[28px] md:text-[34px] font-extrabold tracking-tight text-[#1D1D1F] mb-3">
+                {active.title}
+              </h3>
+              <p className="text-[17px] text-[#6E6E73] max-w-[580px] mx-auto leading-relaxed">
+                {active.desc}
+              </p>
+            </motion.div>
 
-          <div
-            className="rounded-[20px] overflow-hidden"
-            style={{
-              boxShadow: "0 40px 100px rgba(0,0,0,0.18), 0 8px 32px rgba(0,0,0,0.1)",
-              border: "1px solid rgba(0,0,0,0.08)",
-            }}
-          >
-            {/* No fake title bar here — every real-app-*.png already has the
-                actual macOS title bar (traffic lights + sidebar toolbar)
-                baked in from the real screenshot, so adding another on top
-                doubled up. */}
-            <img
-              src={activeMeta.image}
-              alt={`MacDiskCleaner ${active.label} screen`}
-              className="w-full h-auto block"
-              style={{
-                display: "block",
-                background: "#1a1a1f",
-              }}
-            />
+            <motion.div
+              key={`screenshot-${activeTab}`}
+              initial={{ opacity: 0, y: 32, scale: 0.98 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              transition={{ duration: 0.5 }}
+              className="relative mx-auto"
+              style={{ maxWidth: "960px" }}
+            >
+              <div
+                className="absolute -inset-6 -z-10 blur-[60px] opacity-20 rounded-[40px] transition-all duration-500"
+                style={{ background: activeMeta.color }}
+              />
+
+              <div
+                className="rounded-[20px] overflow-hidden"
+                style={{
+                  boxShadow: "0 40px 100px rgba(0,0,0,0.18), 0 8px 32px rgba(0,0,0,0.1)",
+                  border: "1px solid rgba(0,0,0,0.08)",
+                }}
+              >
+                {/* No fake title bar here — every real-app-*.png already has
+                    the actual macOS title bar (traffic lights + sidebar
+                    toolbar) baked in from the real screenshot, so adding
+                    another on top doubled up. */}
+                <Image
+                  src={activeMeta.image}
+                  alt={`MacDiskCleaner ${active.label} screen`}
+                  width={activeMeta.width}
+                  height={activeMeta.height}
+                  priority={activeTab === 0}
+                  className="w-full h-auto block"
+                  style={{ display: "block", background: "#1a1a1f" }}
+                  sizes="(max-width: 1024px) 100vw, 960px"
+                />
+              </div>
+            </motion.div>
+
+            <div className="flex lg:hidden justify-center gap-2 mt-8">
+              {tabs.map((tab, i) => (
+                <button
+                  key={tab.id}
+                  onClick={() => setActiveTab(i)}
+                  className="transition-all duration-300 rounded-full"
+                  style={{
+                    width: activeTab === i ? "24px" : "8px",
+                    height: "8px",
+                    background: activeTab === i ? activeMeta.color : "#D1D1D6",
+                  }}
+                />
+              ))}
+            </div>
           </div>
-        </motion.div>
-
-        <div className="flex justify-center gap-2 mt-8">
-          {tabs.map((tab, i) => (
-            <button
-              key={tab.id}
-              onClick={() => setActiveTab(i)}
-              className="transition-all duration-300 rounded-full"
-              style={{
-                width: activeTab === i ? "24px" : "8px",
-                height: "8px",
-                background: activeTab === i ? activeMeta.color : "#D1D1D6",
-              }}
-            />
-          ))}
         </div>
       </div>
     </section>
