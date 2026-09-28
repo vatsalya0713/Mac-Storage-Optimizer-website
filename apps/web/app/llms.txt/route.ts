@@ -13,7 +13,7 @@ export async function GET() {
     '> MacDiskCleaner is a Mac storage cleaner app for macOS that removes junk files, finds duplicate files, and locates large files to free up disk space. Scanning is always free and shows every result; the free tier includes 2 GB of total (lifetime) cleanup, and after that the app asks for Pro. Pro is a single $12.99 one-time purchase (not a subscription) that adds an App Uninstaller, Privacy Cleaner, Startup Manager, and Scheduled Scans.',
     '',
     '## Key facts',
-    '- Platform: macOS 12 Monterey through the latest macOS Sequoia release. Ships as a single universal binary with native Apple Silicon (M1–M4) and Intel code — one download runs natively on both.',
+    '- Platform: macOS 14 Sonoma and later, including the latest macOS release. Ships as a single universal binary with native Apple Silicon (M1–M4) and Intel code — one download runs natively on both.',
     '- Pricing: Free tier ($0, forever) and Pro ($12.99 USD, one-time payment, no subscription).',
     '- Pro license activates on up to 2 Macs per purchase.',
     '- 30-day no-questions-asked refund policy on Pro purchases.',

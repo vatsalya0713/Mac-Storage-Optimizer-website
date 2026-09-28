@@ -114,7 +114,7 @@
     "title": "Häufige Fragen.",
     "items": [
       { "q": "Ist die Nutzung sicher?", "a": "Absolut. MacDiskCleaner löscht nur Dateien, die du ausdrücklich bestätigst. Alles wandert vor der endgültigen Löschung in den Papierkorb – nichts geht jemals unwiderruflich verloren." },
-      { "q": "Funktioniert es auf meinem Mac?", "a": "Ja. MacDiskCleaner unterstützt macOS 12 Monterey bis zur aktuellen macOS-Sequoia-Version, sowohl auf Apple-Silicon- (M1, M2, M3, M4) als auch auf Intel-Macs." },
+      { "q": "Funktioniert es auf meinem Mac?", "a": "Ja. MacDiskCleaner unterstützt macOS 14 Sonoma und neuer, sowohl auf Apple-Silicon- (M1, M2, M3, M4) als auch auf Intel-Macs." },
       { "q": "Ist die kostenlose Version wirklich kostenlos?", "a": "Ja — ohne Testzeitraum, ohne Ablauf: Scannen und alle Ergebnisse ansehen ist dauerhaft kostenlos, und du kannst insgesamt 2 GB gratis bereinigen. Danach fragt die App nach Pro oder einem Lizenzschlüssel, bevor sie mehr löscht." },
       { "q": "Was schaltet Pro genau frei?", "a": "Pro entfernt das kostenlose 2-GB-Bereinigungslimit und fügt vier weitere Werkzeuge hinzu: App-Deinstallierer (entfernt Restdateien, nicht nur die App), Datenschutz-Reiniger, Start-Manager und geplante Scans, plus lebenslange Updates und priorisierten Support — für eine einmalige Zahlung von 12,99 $." },
       { "q": "Ist das ein Abo?", "a": "Nein. Pro ist eine einmalige Zahlung von 12,99 $ — keine wiederkehrende Abrechnung, niemals." },

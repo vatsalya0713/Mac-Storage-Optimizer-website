@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { supabaseAdmin } from '@/lib/supabase'
 import { rateLimit, clientIp } from '@/lib/rateLimit'
+import { boundedString, LIMITS } from '@/lib/validate'
 
 // Periodic check-in from the desktop app to confirm a key/machine pair is
 // still valid (e.g. hasn't been revoked or deactivated from the admin panel).
@@ -11,8 +12,8 @@ export async function POST(request: NextRequest) {
   }
 
   const body = await request.json().catch(() => null)
-  const key = body?.key as string | undefined
-  const machineId = body?.machine_id as string | undefined
+  const key = boundedString(body?.key, LIMITS.key)
+  const machineId = boundedString(body?.machine_id, LIMITS.machineId)
 
   if (!key || !machineId) {
     return NextResponse.json({ error: 'key and machine_id are required' }, { status: 400 })
@@ -25,7 +26,8 @@ export async function POST(request: NextRequest) {
     .maybeSingle()
 
   if (licenseError) {
-    return NextResponse.json({ error: licenseError.message }, { status: 500 })
+    console.error('validate lookup failed:', licenseError.message)
+    return NextResponse.json({ error: 'Validation is temporarily unavailable' }, { status: 500 })
   }
   if (!license) {
     return NextResponse.json({ valid: false, reason: 'Invalid license key' })

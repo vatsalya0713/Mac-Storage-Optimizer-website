@@ -43,7 +43,7 @@ const FAQS = [
   },
   {
     q: 'Does it work on my MacBook?',
-    a: 'Yes. It supports macOS 12 Monterey through the latest macOS Sequoia release, on both Apple Silicon (M1–M4) and Intel MacBooks.',
+    a: 'Yes. It supports macOS 14 Sonoma and later, including the latest macOS release, on both Apple Silicon (M1–M4) and Intel MacBooks.',
   },
   {
     q: 'Is it safe to use a free cleaner?',

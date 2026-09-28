@@ -1,5 +1,16 @@
 [
   {
+    "version": "1.1.1",
+    "date": "2026-09-28",
+    "notes": [
+      "Fixed: your Pro license can no longer be lost if the license server has a hiccup, and it now survives updates",
+      "Fixed: the App Uninstaller now removes only the selected app's own files, never other apps from the same vendor",
+      "Trash: put back anything MacDiskCleaner moved, free for everyone (returns the size to your free allowance)",
+      "The app is now simply named MacDiskCleaner and is signed for a stable identity",
+      "Corrected system requirement: macOS 14 Sonoma or later"
+    ]
+  },
+  {
     "version": "1.1.0",
     "date": "2026-09-28",
     "notes": [

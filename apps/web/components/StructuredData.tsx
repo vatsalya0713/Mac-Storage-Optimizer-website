@@ -7,7 +7,7 @@ const FAQ_ITEMS = [
   },
   {
     q: 'Does MacDiskCleaner work on Apple Silicon and Intel Macs?',
-    a: 'Yes. MacDiskCleaner supports macOS 12 Monterey through the latest macOS Sequoia release, on both Apple Silicon (M1, M2, M3, M4) and Intel Macs.',
+    a: 'Yes. MacDiskCleaner supports macOS 14 Sonoma and later, including the latest macOS release, on both Apple Silicon (M1, M2, M3, M4) and Intel Macs.',
   },
   {
     q: 'Is the free version of MacDiskCleaner really free?',
@@ -65,7 +65,7 @@ export function StructuredData({ locale }: { locale: string }) {
     '@id': `${url}/#software`,
     name: 'MacDiskCleaner',
     applicationCategory: 'UtilitiesApplication',
-    operatingSystem: 'macOS 12+',
+    operatingSystem: 'macOS 14+',
     url,
     image: `${SITE_URL}/app-icon.jpg`,
     offers: [

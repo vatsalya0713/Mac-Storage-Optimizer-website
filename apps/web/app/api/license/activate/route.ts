@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { supabaseAdmin } from '@/lib/supabase'
 import { rateLimit, clientIp } from '@/lib/rateLimit'
+import { boundedString, LIMITS } from '@/lib/validate'
 
 // Called by the desktop app when the user pastes a license key and clicks
 // Activate. Body: { key: string, machine_id: string, machine_name?: string }
@@ -28,9 +29,9 @@ export async function POST(request: NextRequest) {
   }
 
   const body = await request.json().catch(() => null)
-  const key = body?.key as string | undefined
-  const machineId = body?.machine_id as string | undefined
-  const machineName = (body?.machine_name as string | undefined) ?? null
+  const key = boundedString(body?.key, LIMITS.key)
+  const machineId = boundedString(body?.machine_id, LIMITS.machineId)
+  const machineName = boundedString(body?.machine_name, LIMITS.machineName) ?? null
 
   if (!key || !machineId) {
     return NextResponse.json({ error: 'key and machine_id are required' }, { status: 400 })
@@ -49,7 +50,8 @@ export async function POST(request: NextRequest) {
       console.error('activate_license Postgres function is missing — run supabase/schema.sql')
       return NextResponse.json({ error: 'Server not fully configured' }, { status: 500 })
     }
-    return NextResponse.json({ error: error.message }, { status: 500 })
+    console.error('activate_license failed:', error.message)
+    return NextResponse.json({ error: 'Activation is temporarily unavailable' }, { status: 500 })
   }
 
   return NextResponse.json(data)

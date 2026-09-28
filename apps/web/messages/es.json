@@ -68,7 +68,7 @@
     "label": "Cómo funciona",
     "title": "Tres pasos. Resultados reales.",
     "steps": [
-      { "num": "01", "title": "Descarga e instala", "desc": "Una descarga ligera de 12 MB. Arrástrala a Aplicaciones y estará lista en segundos." },
+      { "num": "01", "title": "Descarga e instala", "desc": "Una descarga ligera de 5 MB. Arrástrala a Aplicaciones y estará lista en segundos." },
       { "num": "02", "title": "Ejecuta un escaneo inteligente", "desc": "Un solo clic inicia un análisis profundo e inteligente de todo tu Mac: basura, duplicados, archivos grandes y más." },
       { "num": "03", "title": "Limpia con confianza", "desc": "Revisa lo que se encontró, selecciona qué eliminar y recupera tu espacio de forma segura. Sin sorpresas." }
     ]
@@ -114,7 +114,7 @@
     "title": "Preguntas comunes.",
     "items": [
       { "q": "¿Es seguro usarlo?", "a": "Totalmente. MacDiskCleaner solo elimina los archivos que tú apruebas explícitamente. Todo se mueve a la papelera antes de eliminarse de forma permanente, así que nunca es irrecuperable." },
-      { "q": "¿Funcionará en mi Mac?", "a": "Sí. MacDiskCleaner es compatible desde macOS 12 Monterey hasta la última versión de macOS Sequoia, tanto en Macs con Apple Silicon (M1, M2, M3, M4) como con Intel." },
+      { "q": "¿Funcionará en mi Mac?", "a": "Sí. MacDiskCleaner es compatible desde macOS 14 Sonoma y versiones posteriores, tanto en Macs con Apple Silicon (M1, M2, M3, M4) como con Intel." },
       { "q": "¿La versión gratuita es realmente gratis?", "a": "Sí, sin periodo de prueba ni caducidad: escanear y ver todos los resultados es gratis para siempre, y puedes limpiar 2 GB en total sin coste. Después de 2 GB, la app pide Pro o una clave de licencia antes de borrar más." },
       { "q": "¿Qué desbloquea exactamente Pro?", "a": "Pro elimina el límite gratuito de 2 GB de limpieza y añade cuatro herramientas que la versión gratuita no incluye: Desinstalador de apps (elimina archivos residuales, no solo la app), Limpiador de privacidad, Gestor de inicio y Escaneos programados, además de actualizaciones de por vida y soporte prioritario, todo por un único pago de $12.99." },
       { "q": "¿Es una suscripción?", "a": "No. Pro es un pago único de $12.99 — sin cobros recurrentes, nunca." },

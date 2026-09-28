@@ -70,7 +70,7 @@ export default async function SecurityPage() {
               <code className="block break-all text-[13px] font-mono text-[#1D1D1F]">{latest.sha256}</code>
             </div>
             <p className="text-[13px] text-[#6E6E73] mt-5 text-center leading-relaxed">
-              MacDiskCleaner is distributed directly from this website. Because it isn&apos;t yet notarized by Apple, macOS may ask you to confirm the first launch: right-click the app, choose Open, then Open again.
+              MacDiskCleaner is distributed directly from this website. Because it isn&apos;t yet notarized by Apple, macOS asks you to confirm the first launch — see the steps on the download page. After that, updates install themselves.
             </p>
             <div className="text-center mt-8">
               <a href="/downloads/MacDiskCleaner.dmg" className="btn-primary text-[15px] py-3 px-7 inline-flex">

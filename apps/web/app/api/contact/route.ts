@@ -41,7 +41,8 @@ export async function POST(request: NextRequest) {
   ])
 
   if (error) {
-    return NextResponse.json({ error: error.message }, { status: 500 })
+    console.error('contact insert failed:', error.message)
+    return NextResponse.json({ error: 'Could not send your message. Please try again.' }, { status: 500 })
   }
 
   const notifyTo = process.env.CONTACT_NOTIFICATION_EMAIL

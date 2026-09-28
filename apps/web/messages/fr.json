@@ -68,7 +68,7 @@
     "label": "Comment ça marche",
     "title": "Trois étapes. Des résultats réels.",
     "steps": [
-      { "num": "01", "title": "Télécharger et installer", "desc": "Un téléchargement léger de 12 Mo. Glissez-le dans Applications et c'est prêt en quelques secondes." },
+      { "num": "01", "title": "Télécharger et installer", "desc": "Un téléchargement léger de 5 Mo. Glissez-le dans Applications et c'est prêt en quelques secondes." },
       { "num": "02", "title": "Lancer une analyse intelligente", "desc": "Un seul clic lance une analyse approfondie et intelligente de tout votre Mac : fichiers indésirables, doublons, fichiers volumineux, et plus encore." },
       { "num": "03", "title": "Nettoyer en toute confiance", "desc": "Passez en revue ce qui a été trouvé, sélectionnez ce qu'il faut supprimer, et récupérez votre espace en toute sécurité. Aucune surprise." }
     ]
@@ -114,7 +114,7 @@
     "title": "Questions fréquentes.",
     "items": [
       { "q": "Est-ce sûr à utiliser ?", "a": "Absolument. MacDiskCleaner ne supprime que les fichiers que vous approuvez explicitement. Tout est déplacé dans la corbeille avant suppression définitive, rien n'est donc jamais irrécupérable." },
-      { "q": "Fonctionnera-t-il sur mon Mac ?", "a": "Oui. MacDiskCleaner prend en charge macOS 12 Monterey jusqu'à la dernière version de macOS Sequoia, sur les Mac Apple Silicon (M1, M2, M3, M4) comme sur les Mac Intel." },
+      { "q": "Fonctionnera-t-il sur mon Mac ?", "a": "Oui. MacDiskCleaner prend en charge macOS 14 Sonoma et les versions plus récentes, sur les Mac Apple Silicon (M1, M2, M3, M4) comme sur les Mac Intel." },
       { "q": "La version gratuite est-elle vraiment gratuite ?", "a": "Oui, sans période d'essai ni expiration : analyser et consulter tous les résultats est gratuit pour toujours, et vous pouvez nettoyer 2 Go au total sans frais. Au-delà, l'app demande Pro ou une clé de licence avant de supprimer davantage." },
       { "q": "Que débloque exactement Pro ?", "a": "Pro supprime la limite gratuite de 2 Go de nettoyage et ajoute quatre outils supplémentaires : le désinstalleur d'applications (supprime les fichiers résiduels, pas seulement l'app), le nettoyeur de confidentialité, le gestionnaire de démarrage et les analyses planifiées, plus les mises à jour à vie et l'assistance prioritaire, pour un paiement unique de 12,99 $." },
       { "q": "Est-ce un abonnement ?", "a": "Non. Pro est un paiement unique de 12,99 $ — jamais de facturation récurrente." },

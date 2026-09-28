@@ -17,7 +17,7 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 const REQUIREMENTS = [
-  'macOS 12 Monterey or later',
+  'macOS 14 Sonoma or later',
   'Apple Silicon (M1, M2, M3, M4) or Intel processor',
   '50 MB of free disk space',
   'No account or sign-up required',
@@ -26,7 +26,7 @@ const REQUIREMENTS = [
 const STEPS = [
   { num: '01', title: 'Open the .dmg file', desc: 'Your browser downloads it directly — no installer wizard.' },
   { num: '02', title: 'Drag to Applications', desc: 'Drop the MacDiskCleaner icon into your Applications folder.' },
-  { num: '03', title: 'Open and scan', desc: 'First launch: right-click the app, choose Open, then Open again — macOS asks once because the app is downloaded directly, not from the App Store. After that, updates install themselves.' },
+  { num: '03', title: 'Open and scan', desc: 'Launch it from Applications. The first time, macOS may ask you to confirm (see the note below) — that only happens once, and later updates install themselves.' },
 ]
 
 export default async function DownloadsPage() {
@@ -101,6 +101,41 @@ export default async function DownloadsPage() {
                 </div>
               ))}
             </div>
+          </div>
+        </section>
+
+        <section className="py-16 px-6">
+          <div className="max-w-[720px] mx-auto bento-card p-8">
+            <h2 className="text-[22px] font-bold text-[#1D1D1F] mb-2">If macOS says it can&apos;t open the app</h2>
+            <p className="text-[14px] text-[#6E6E73] leading-relaxed mb-5">
+              MacDiskCleaner is downloaded directly from this website rather than the App Store, so macOS asks you to confirm the first launch. It takes ten seconds:
+            </p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 text-[14px] text-[#1D1D1F]">
+              <div>
+                <p className="font-semibold mb-2">macOS 15 Sequoia or later</p>
+                <ol className="space-y-1.5 list-decimal pl-5 text-[#6E6E73]">
+                  <li>Open MacDiskCleaner once and click <strong>Done</strong> on the warning.</li>
+                  <li>Open <strong>System Settings → Privacy &amp; Security</strong>.</li>
+                  <li>Scroll down, click <strong>Open Anyway</strong> next to MacDiskCleaner, then confirm.</li>
+                </ol>
+              </div>
+              <div>
+                <p className="font-semibold mb-2">macOS 14 Sonoma or earlier</p>
+                <ol className="space-y-1.5 list-decimal pl-5 text-[#6E6E73]">
+                  <li>Right-click (or Control-click) MacDiskCleaner in Applications.</li>
+                  <li>Choose <strong>Open</strong>.</li>
+                  <li>Click <strong>Open</strong> again in the dialog.</li>
+                </ol>
+              </div>
+            </div>
+            <details className="mt-6 text-[13px] text-[#6E6E73]">
+              <summary className="cursor-pointer font-semibold text-[#1D1D1F]">Prefer Terminal?</summary>
+              <p className="mt-2">Paste this once, then open the app normally:</p>
+              <code className="block mt-2 bg-[#F5F5F7] rounded-lg px-3 py-2 text-[12px] break-all text-[#1D1D1F]">xattr -dr com.apple.quarantine /Applications/MacDiskCleaner.app</code>
+            </details>
+            <p className="text-[12px] text-[#9A9A9E] mt-5">
+              You can verify your download with its published checksum on the <Link href="/security" className="text-[#007AFF]">safety page</Link>.
+            </p>
           </div>
         </section>
 
