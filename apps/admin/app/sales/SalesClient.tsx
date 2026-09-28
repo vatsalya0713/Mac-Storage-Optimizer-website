@@ -1,41 +1,35 @@
 'use client'
 
-import { useState } from 'react'
-import { Search } from 'lucide-react'
+import { PaginatedSearch } from '@/components/PaginatedSearch'
+import { formatDateTime } from '@/lib/formatDate'
 
-export default function SalesClient({ initialSales }: { initialSales: any[] }) {
-  const [search, setSearch] = useState('')
-  
-  const filteredSales = initialSales.filter(sale => 
-    sale.customer_email?.toLowerCase().includes(search.toLowerCase()) || 
-    sale.customer_name?.toLowerCase().includes(search.toLowerCase()) ||
-    sale.order_id?.toLowerCase().includes(search.toLowerCase())
-  )
-
-  const totalRevenue = filteredSales.reduce((acc, sale) => acc + sale.amount, 0)
-
+export default function SalesClient({
+  sales,
+  page,
+  pageSize,
+  total,
+  totalRevenue,
+}: {
+  sales: any[]
+  page: number
+  pageSize: number
+  total: number
+  totalRevenue: number
+}) {
   return (
     <div className="space-y-6">
-      
-      {/* Stats & Controls */}
       <div className="flex flex-col sm:flex-row gap-4 justify-between items-center">
-        <div className="relative w-full sm:w-80">
-          <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-500" />
-          <input 
-            type="text"
-            placeholder="Search by email, name, or order ID..."
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-            className="w-full pl-9 pr-4 py-2 bg-white/5 border border-white/10 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500/50 transition-all text-sm"
-          />
-        </div>
-        
-        <div className="bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 px-4 py-2 rounded-xl text-sm font-medium">
-          Revenue (Filtered): ${totalRevenue.toFixed(2)}
+        <PaginatedSearch
+          placeholder="Search by email, name, or order ID..."
+          total={total}
+          page={page}
+          pageSize={pageSize}
+        />
+        <div className="bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 px-4 py-2 rounded-xl text-sm font-medium whitespace-nowrap">
+          Revenue (filtered): ${totalRevenue.toFixed(2)}
         </div>
       </div>
 
-      {/* Table */}
       <div className="border border-white/10 rounded-2xl bg-white/5 overflow-hidden backdrop-blur-sm">
         <div className="overflow-x-auto">
           <table className="w-full text-left text-sm whitespace-nowrap">
@@ -49,7 +43,7 @@ export default function SalesClient({ initialSales }: { initialSales: any[] }) {
               </tr>
             </thead>
             <tbody className="divide-y divide-white/5">
-              {filteredSales.map((sale) => (
+              {sales.map((sale) => (
                 <tr key={sale.id} className="hover:bg-white/5 transition-colors">
                   <td className="px-6 py-4">
                     {sale.customer_email ? (
@@ -65,7 +59,7 @@ export default function SalesClient({ initialSales }: { initialSales: any[] }) {
                     {sale.order_id || 'N/A'}
                   </td>
                   <td className="px-6 py-4 text-gray-300">
-                    {new Date(sale.created_at).toLocaleString()}
+                    {formatDateTime(sale.created_at)}
                   </td>
                   <td className="px-6 py-4">
                     <span className="capitalize px-2.5 py-1 rounded-full text-xs font-medium bg-purple-500/10 text-purple-400 border border-purple-500/20">
@@ -77,8 +71,8 @@ export default function SalesClient({ initialSales }: { initialSales: any[] }) {
                   </td>
                 </tr>
               ))}
-              
-              {filteredSales.length === 0 && (
+
+              {sales.length === 0 && (
                 <tr>
                   <td colSpan={5} className="px-6 py-12 text-center text-gray-500">
                     No sales found matching your search.
@@ -89,7 +83,6 @@ export default function SalesClient({ initialSales }: { initialSales: any[] }) {
           </table>
         </div>
       </div>
-
     </div>
   )
 }

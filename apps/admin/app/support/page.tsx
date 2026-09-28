@@ -1,12 +1,19 @@
-import { getSubmissions } from './actions'
+import { getSubmissionsPaged } from './actions'
 import SupportClient from './SupportClient'
 import { AlertTriangle } from 'lucide-react'
 
 export const dynamic = 'force-dynamic'
 
-export default async function SupportPage() {
-  const { submissions, tableMissing } = await getSubmissions()
-  const unreadCount = submissions.filter((s) => !s.is_read).length
+const PAGE_SIZE = 20
+
+export default async function SupportPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ page?: string; q?: string }>
+}) {
+  const { page: pageParam, q } = await searchParams
+  const page = Math.max(1, parseInt(pageParam || '1', 10) || 1)
+  const { submissions, count, unreadCount, tableMissing } = await getSubmissionsPaged(page, q)
 
   return (
     <div className="space-y-6">
@@ -34,7 +41,7 @@ export default async function SupportPage() {
           </div>
         </div>
       ) : (
-        <SupportClient initialSubmissions={submissions} />
+        <SupportClient submissions={submissions} page={page} pageSize={PAGE_SIZE} total={count} />
       )}
     </div>
   )

@@ -2,25 +2,30 @@
 
 import { useState, useTransition } from 'react'
 import { deactivateInstance } from './actions'
-import { Search, MonitorOff, Copy, Check } from 'lucide-react'
+import { MonitorOff, Copy, Check } from 'lucide-react'
+import { PaginatedSearch } from '@/components/PaginatedSearch'
+import { formatDateTime } from '@/lib/formatDate'
 
-export default function ActivationsClient({ initialActivations }: { initialActivations: any[] }) {
+export default function ActivationsClient({
+  activations: initialActivations,
+  page,
+  pageSize,
+  total,
+}: {
+  activations: any[]
+  page: number
+  pageSize: number
+  total: number
+}) {
   const [activations, setActivations] = useState(initialActivations)
-  const [search, setSearch] = useState('')
   const [isPending, startTransition] = useTransition()
   const [copiedId, setCopiedId] = useState<string | null>(null)
-  
-  const filteredActivations = activations.filter(a => 
-    a.machine_name?.toLowerCase().includes(search.toLowerCase()) || 
-    a.license_key?.toLowerCase().includes(search.toLowerCase()) ||
-    a.license_keys?.customer_email?.toLowerCase().includes(search.toLowerCase())
-  )
 
   const handleDeactivate = async (id: string) => {
     if (confirm('Are you sure you want to deactivate this instance?')) {
       startTransition(async () => {
         await deactivateInstance(id)
-        setActivations(activations.map(a => a.id === id ? { ...a, is_active: false } : a))
+        setActivations((prev) => prev.map((a) => (a.id === id ? { ...a, is_active: false } : a)))
       })
     }
   }
@@ -33,22 +38,13 @@ export default function ActivationsClient({ initialActivations }: { initialActiv
 
   return (
     <div className="space-y-6">
-      
-      {/* Controls */}
-      <div className="flex flex-col sm:flex-row gap-4 justify-between">
-        <div className="relative">
-          <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-500" />
-          <input 
-            type="text"
-            placeholder="Search activations..."
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-            className="w-full sm:w-80 pl-9 pr-4 py-2 bg-white/5 border border-white/10 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500/50 transition-all text-sm"
-          />
-        </div>
-      </div>
+      <PaginatedSearch
+        placeholder="Search activations..."
+        total={total}
+        page={page}
+        pageSize={pageSize}
+      />
 
-      {/* Table */}
       <div className="border border-white/10 rounded-2xl bg-white/5 overflow-hidden backdrop-blur-sm">
         <div className="overflow-x-auto">
           <table className="w-full text-left text-sm whitespace-nowrap">
@@ -63,7 +59,7 @@ export default function ActivationsClient({ initialActivations }: { initialActiv
               </tr>
             </thead>
             <tbody className="divide-y divide-white/5">
-              {filteredActivations.map((activation) => (
+              {activations.map((activation) => (
                 <tr key={activation.id} className="hover:bg-white/5 transition-colors">
                   <td className="px-6 py-4">
                     <div className="flex flex-col">
@@ -73,7 +69,7 @@ export default function ActivationsClient({ initialActivations }: { initialActiv
                   </td>
                   <td className="px-6 py-4 font-mono text-xs flex items-center gap-2">
                     {activation.license_key}
-                    <button 
+                    <button
                       onClick={() => copyToClipboard(activation.id, activation.license_key)}
                       className="text-gray-500 hover:text-white transition-colors"
                     >
@@ -84,12 +80,12 @@ export default function ActivationsClient({ initialActivations }: { initialActiv
                     {activation.license_keys?.customer_email || <span className="italic text-gray-600">None</span>}
                   </td>
                   <td className="px-6 py-4 text-gray-400 text-xs">
-                    {new Date(activation.activated_at).toLocaleString()}
+                    {formatDateTime(activation.activated_at)}
                   </td>
                   <td className="px-6 py-4">
                     <div className={`inline-flex px-2.5 py-1 rounded-full text-xs font-medium border ${
-                      !activation.is_active 
-                        ? 'bg-red-500/10 text-red-400 border-red-500/20' 
+                      !activation.is_active
+                        ? 'bg-red-500/10 text-red-400 border-red-500/20'
                         : 'bg-green-500/10 text-green-400 border-green-500/20'
                     }`}>
                       {!activation.is_active ? 'Deactivated' : 'Active'}
@@ -97,7 +93,7 @@ export default function ActivationsClient({ initialActivations }: { initialActiv
                   </td>
                   <td className="px-6 py-4 text-right">
                     {activation.is_active && (
-                      <button 
+                      <button
                         onClick={() => handleDeactivate(activation.id)}
                         disabled={isPending}
                         className="text-gray-500 hover:text-red-400 transition-colors p-2 rounded-lg hover:bg-red-500/10"
@@ -109,8 +105,8 @@ export default function ActivationsClient({ initialActivations }: { initialActiv
                   </td>
                 </tr>
               ))}
-              
-              {filteredActivations.length === 0 && (
+
+              {activations.length === 0 && (
                 <tr>
                   <td colSpan={6} className="px-6 py-12 text-center text-gray-500">
                     No activations found matching your search.
@@ -121,7 +117,6 @@ export default function ActivationsClient({ initialActivations }: { initialActiv
           </table>
         </div>
       </div>
-
     </div>
   )
 }
