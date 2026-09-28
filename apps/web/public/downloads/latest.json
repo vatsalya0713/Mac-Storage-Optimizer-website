@@ -1,17 +1,20 @@
 {
   "version": "1.1.0",
-  "build": 16,
+  "build": 17,
   "releasedAt": "2026-09-28",
   "notes": [
     "New Developer tab: safely clears Xcode data, node_modules, build folders and package caches, with project-aware safety labels",
+    "New Space Lens: explore what is using your disk folder by folder and remove it",
     "Free plan: scan everything and clean up to 2 GB \u2014 Pro removes the limit",
     "Choose exactly what to scan, with live progress and time remaining",
     "Scan results are saved, so there is no rescan after a restart or after activating Pro",
     "Buy Pro from inside the app and it unlocks automatically",
-    "Built-in update checker"
+    "Optional menu bar item with free space and quick actions",
+    "Never-touch list: folders MacDiskCleaner will not scan results from or delete",
+    "Built-in update checker with one-click install"
   ],
   "url": "https://www.macdiskcleaner.com/downloads/MacDiskCleaner-1.1.0.dmg",
-  "sha256": "71daf82c0be1e350bc37a9cd6c21f8ce58d5509ce454933e2e8524afae73308c",
-  "sizeBytes": 4703667,
+  "sha256": "807d2e437a445874d41d8e77a8c529bdf34a918117cf1732aacdf93bc7a73298",
+  "sizeBytes": 4917335,
   "minMacOS": "12"
 }
