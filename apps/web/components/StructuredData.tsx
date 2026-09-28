@@ -11,11 +11,11 @@ const FAQ_ITEMS = [
   },
   {
     q: 'Is the free version of MacDiskCleaner really free?',
-    a: 'Yes. The free tier never expires: junk cleanup up to 2 GB per scan, plus a full duplicate file scanner and a full large file finder with no limits.',
+    a: 'Yes. Scanning and browsing every result are free forever, and you can clean up 2 GB in total at no cost — there is no trial period and nothing expires. After 2 GB, the app asks for Pro.',
   },
   {
     q: 'What does MacDiskCleaner Pro unlock?',
-    a: 'Pro removes the 2 GB junk cleanup cap and adds the App Uninstaller, Privacy Cleaner, Startup Manager, and Scheduled Scans, plus lifetime updates, for a single $12.99 payment — no subscription.',
+    a: 'Pro removes the 2 GB free cleanup cap and adds the App Uninstaller, Privacy Cleaner, Startup Manager, and Scheduled Scans, plus lifetime updates, for a single $12.99 payment — no subscription.',
   },
   {
     q: 'How many Macs can one Pro license activate?',

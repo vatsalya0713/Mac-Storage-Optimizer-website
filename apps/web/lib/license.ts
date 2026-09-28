@@ -15,6 +15,7 @@ export async function createLicenseKey({
   customerName,
   paymentProvider,
   orderId,
+  claimMachineId,
 }: {
   tier: 'basic' | 'pro' | 'lifetime'
   maxActivations: number
@@ -22,21 +23,33 @@ export async function createLicenseKey({
   customerName?: string | null
   paymentProvider: string
   orderId?: string | null
+  /** Machine that started checkout in the app; lets the app auto-claim the key. */
+  claimMachineId?: string | null
 }) {
   const key = generateLicenseKeyString()
 
-  const { error } = await supabaseAdmin.from('license_keys').insert([
-    {
-      key,
-      tier,
-      max_activations: maxActivations,
-      is_revoked: false,
-      customer_email: customerEmail,
-      customer_name: customerName ?? null,
-      payment_provider: paymentProvider,
-      order_id: orderId ?? null,
-    },
-  ])
+  const row: Record<string, unknown> = {
+    key,
+    tier,
+    max_activations: maxActivations,
+    is_revoked: false,
+    customer_email: customerEmail,
+    customer_name: customerName ?? null,
+    payment_provider: paymentProvider,
+    order_id: orderId ?? null,
+  }
+  if (claimMachineId) row.claim_machine_id = claimMachineId
+
+  let { error } = await supabaseAdmin.from('license_keys').insert([row])
+
+  // The claim columns come from a SQL migration. If it hasn't been applied
+  // yet, never lose a paid customer's key over it — store without the claim
+  // tag (the emailed key still works) and log so it gets fixed.
+  if (error && claimMachineId && /claim_machine_id/.test(error.message)) {
+    console.error('claim_machine_id column missing — run the license_keys claim migration. Saving key without it.')
+    delete row.claim_machine_id
+    ;({ error } = await supabaseAdmin.from('license_keys').insert([row]))
+  }
 
   if (error) throw new Error(error.message)
   return key

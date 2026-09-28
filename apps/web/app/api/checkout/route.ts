@@ -1,42 +1,33 @@
 import { NextRequest, NextResponse } from 'next/server'
+import { createCheckoutSession, MACHINE_ID_PATTERN } from '@/lib/checkout'
+import { rateLimit, clientIp } from '@/lib/rateLimit'
 
 // Plain HTML form POST from the Pricing button (no JS required) — we create
 // the Dodo Payments checkout session server-side and 303-redirect the
 // browser straight to Dodo's hosted checkout page.
 export async function POST(request: NextRequest) {
-  const productId = process.env.DODO_PRODUCT_ID_PRO
-  const apiKey = process.env.DODO_PAYMENTS_API_KEY
-  const environment = process.env.DODO_PAYMENTS_ENVIRONMENT === 'live_mode' ? 'live' : 'test'
-  const baseUrl = environment === 'live' ? 'https://live.dodopayments.com' : 'https://test.dodopayments.com'
+  if (!rateLimit(`checkout:${clientIp(request)}`, 20, 60_000)) {
+    return NextResponse.json({ error: 'Too many attempts, try again shortly' }, { status: 429 })
+  }
+  const result = await createCheckoutSession({ origin: request.nextUrl.origin })
+  if (!result.ok) return NextResponse.json({ error: result.error }, { status: result.status })
+  return NextResponse.redirect(result.url, { status: 303 })
+}
 
-  if (!productId || !apiKey) {
-    return NextResponse.json(
-      { error: 'Dodo Payments is not configured (missing DODO_PRODUCT_ID_PRO or DODO_PAYMENTS_API_KEY)' },
-      { status: 500 }
-    )
+// Opened by the desktop app in the user's browser: /api/checkout?mid=<machine id>.
+// The machine ID is attached to the checkout so the app can pick up its key
+// automatically after payment. Failures land on the pricing page rather than
+// showing raw JSON to a customer.
+export async function GET(request: NextRequest) {
+  const origin = request.nextUrl.origin
+  if (!rateLimit(`checkout:${clientIp(request)}`, 20, 60_000)) {
+    return NextResponse.redirect(`${origin}/pricing`, { status: 303 })
   }
 
-  const returnUrl = process.env.DODO_PAYMENTS_RETURN_URL || `${request.nextUrl.origin}/success`
+  const mid = request.nextUrl.searchParams.get('mid')
+  const machineId = mid && MACHINE_ID_PATTERN.test(mid) ? mid : null
 
-  const dodoResponse = await fetch(`${baseUrl}/checkouts`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      Authorization: `Bearer ${apiKey}`,
-    },
-    body: JSON.stringify({
-      product_cart: [{ product_id: productId, quantity: 1 }],
-      return_url: returnUrl,
-    }),
-  })
-
-  if (!dodoResponse.ok) {
-    const text = await dodoResponse.text()
-    console.error('Dodo Payments checkout session creation failed:', dodoResponse.status, text)
-    return NextResponse.json({ error: 'Could not start checkout' }, { status: 502 })
-  }
-
-  const { checkout_url } = (await dodoResponse.json()) as { checkout_url: string }
-
-  return NextResponse.redirect(checkout_url, { status: 303 })
+  const result = await createCheckoutSession({ origin, machineId })
+  if (!result.ok) return NextResponse.redirect(`${origin}/pricing`, { status: 303 })
+  return NextResponse.redirect(result.url, { status: 303 })
 }

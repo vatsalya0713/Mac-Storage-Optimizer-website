@@ -30,6 +30,13 @@ create table if not exists license_keys (
 
 create index if not exists license_keys_order_id_idx on license_keys (order_id);
 
+-- Auto-activation: a purchase started from the desktop app is tagged with that
+-- Mac's machine ID so the app can claim its key (POST /api/license/claim).
+alter table license_keys
+  add column if not exists claim_machine_id text,
+  add column if not exists claimed_at timestamptz;
+create index if not exists license_keys_claim_machine_idx on license_keys (claim_machine_id);
+
 create table if not exists activations (
   id uuid primary key default gen_random_uuid(),
   license_key text not null references license_keys (key),

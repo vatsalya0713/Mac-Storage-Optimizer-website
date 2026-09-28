@@ -97,7 +97,7 @@
       "name": "Gratuit",
       "price": "0 $",
       "sub": "Gratuit pour toujours.",
-      "features": ["Nettoyage de fichiers indésirables — jusqu'à 2 Go par analyse", "Détecteur de doublons complet, sans limite", "Détecteur de fichiers volumineux complet, sans limite", "Analyses illimitées"],
+      "features": ["Analysez tout votre Mac — rien de masqué", "Doublons, fichiers volumineux et anciens, téléchargements, indésirables", "Nettoyage gratuit jusqu'à 2 Go au total", "Analyses illimitées"],
       "cta": "Télécharger gratuitement"
     },
     "pro": {
@@ -105,7 +105,7 @@
       "name": "Pro",
       "price": "12,99 $",
       "sub": "Achat unique. Jamais d'abonnement.",
-      "features": ["Nettoyage illimité des fichiers indésirables", "Désinstalleur d'applications (supprime les fichiers résiduels)", "Nettoyeur de confidentialité", "Gestionnaire de démarrage", "Analyses planifiées automatiquement", "Mises à jour à vie", "Assistance prioritaire"],
+      "features": ["Nettoyage illimité — sans plafond de 2 Go", "Désinstalleur d'applications (supprime les fichiers résiduels)", "Nettoyeur de confidentialité", "Gestionnaire de démarrage", "Analyses planifiées automatiquement", "Mises à jour à vie", "Assistance prioritaire"],
       "cta": "Obtenir Pro — 12,99 $"
     }
   },
@@ -115,8 +115,8 @@
     "items": [
       { "q": "Est-ce sûr à utiliser ?", "a": "Absolument. MacDiskCleaner ne supprime que les fichiers que vous approuvez explicitement. Tout est déplacé dans la corbeille avant suppression définitive, rien n'est donc jamais irrécupérable." },
       { "q": "Fonctionnera-t-il sur mon Mac ?", "a": "Oui. MacDiskCleaner prend en charge macOS 12 Monterey jusqu'à la dernière version de macOS Sequoia, sur les Mac Apple Silicon (M1, M2, M3, M4) comme sur les Mac Intel." },
-      { "q": "La version gratuite est-elle vraiment gratuite ?", "a": "Oui, sans période d'essai ni expiration : nettoyage jusqu'à 2 Go par analyse, plus un détecteur de doublons et de fichiers volumineux complets et sans limite, en permanence." },
-      { "q": "Que débloque exactement Pro ?", "a": "Pro supprime la limite de 2 Go sur le nettoyage et ajoute quatre outils supplémentaires : le désinstalleur d'applications (supprime les fichiers résiduels, pas seulement l'app), le nettoyeur de confidentialité, le gestionnaire de démarrage et les analyses planifiées, plus les mises à jour à vie et l'assistance prioritaire, pour un paiement unique de 12,99 $." },
+      { "q": "La version gratuite est-elle vraiment gratuite ?", "a": "Oui, sans période d'essai ni expiration : analyser et consulter tous les résultats est gratuit pour toujours, et vous pouvez nettoyer 2 Go au total sans frais. Au-delà, l'app demande Pro ou une clé de licence avant de supprimer davantage." },
+      { "q": "Que débloque exactement Pro ?", "a": "Pro supprime la limite gratuite de 2 Go de nettoyage et ajoute quatre outils supplémentaires : le désinstalleur d'applications (supprime les fichiers résiduels, pas seulement l'app), le nettoyeur de confidentialité, le gestionnaire de démarrage et les analyses planifiées, plus les mises à jour à vie et l'assistance prioritaire, pour un paiement unique de 12,99 $." },
       { "q": "Est-ce un abonnement ?", "a": "Non. Pro est un paiement unique de 12,99 $ — jamais de facturation récurrente." },
       { "q": "Sur combien de Mac puis-je utiliser une licence ?", "a": "Chaque licence Pro s'active sur 2 Mac maximum." },
       { "q": "Puis-je être remboursé ?", "a": "Oui — un remboursement intégral sous 30 jours, sans justification, sur tous les achats Pro. Écrivez à support@macdiskcleaner.com avec votre clé de licence." },
@@ -144,6 +144,7 @@
     "step2": "Allez dans Réglages → Licence, et collez la clé ci-dessus.",
     "step3": "Cliquez sur Activer — vous passez immédiatement à Pro.",
     "downloadCta": "Télécharger MacDiskCleaner",
-    "supportNote": "Vous n'avez pas reçu l'e-mail ? Vérifiez vos spams ou contactez support@macdiskcleaner.com."
+    "supportNote": "Vous n'avez pas reçu l'e-mail ? Vérifiez vos spams ou contactez support@macdiskcleaner.com.",
+    "appNote": "Achat depuis l'application ? Retournez dans MacDiskCleaner : Pro se débloque automatiquement en quelques secondes. Rien à coller."
   }
 }

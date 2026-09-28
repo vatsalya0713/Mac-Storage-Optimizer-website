@@ -2,6 +2,7 @@ import { Webhooks } from '@dodopayments/nextjs'
 import { NextRequest, NextResponse } from 'next/server'
 import { createLicenseKey, sendLicenseEmail } from '@/lib/license'
 import { supabaseAdmin } from '@/lib/supabase'
+import { MACHINE_ID_PATTERN } from '@/lib/checkout'
 
 const webhookKey = process.env.DODO_PAYMENTS_WEBHOOK_KEY
 
@@ -31,6 +32,10 @@ const handler = webhookKey
           return
         }
 
+        const rawMachineId = payload.data.metadata?.machine_id
+        const claimMachineId =
+          typeof rawMachineId === 'string' && MACHINE_ID_PATTERN.test(rawMachineId) ? rawMachineId : null
+
         const key = await createLicenseKey({
           tier: 'pro',
           maxActivations: 2,
@@ -38,6 +43,7 @@ const handler = webhookKey
           customerName: name,
           paymentProvider: 'dodo',
           orderId,
+          claimMachineId,
         })
 
         await sendLicenseEmail({ to: email, licenseKey: key })

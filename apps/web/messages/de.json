@@ -97,7 +97,7 @@
       "name": "Kostenlos",
       "price": "0 $",
       "sub": "Für immer kostenlos.",
-      "features": ["Junk-Bereinigung — bis zu 2 GB pro Scan", "Vollständiger Duplikat-Scanner, ohne Limit", "Vollständiger Großdatei-Finder, ohne Limit", "Unbegrenzte Scans"],
+      "features": ["Scanne deinen ganzen Mac — nichts verborgen", "Duplikate, große und alte Dateien, Downloads und Junk", "Kostenlose Bereinigung bis zu 2 GB insgesamt", "Unbegrenzte Scans"],
       "cta": "Kostenlos herunterladen"
     },
     "pro": {
@@ -105,7 +105,7 @@
       "name": "Pro",
       "price": "12,99 $",
       "sub": "Einmalzahlung. Niemals ein Abo.",
-      "features": ["Unbegrenzte Junk-Bereinigung", "App-Deinstallierer (entfernt Restdateien)", "Datenschutz-Reiniger", "Start-Manager", "Automatisch geplante Scans", "Lebenslange Updates", "Priorisierter Support"],
+      "features": ["Unbegrenzte Bereinigung — ohne 2-GB-Limit", "App-Deinstallierer (entfernt Restdateien)", "Datenschutz-Reiniger", "Start-Manager", "Automatisch geplante Scans", "Lebenslange Updates", "Priorisierter Support"],
       "cta": "Pro holen — 12,99 $"
     }
   },
@@ -115,8 +115,8 @@
     "items": [
       { "q": "Ist die Nutzung sicher?", "a": "Absolut. MacDiskCleaner löscht nur Dateien, die du ausdrücklich bestätigst. Alles wandert vor der endgültigen Löschung in den Papierkorb – nichts geht jemals unwiderruflich verloren." },
       { "q": "Funktioniert es auf meinem Mac?", "a": "Ja. MacDiskCleaner unterstützt macOS 12 Monterey bis zur aktuellen macOS-Sequoia-Version, sowohl auf Apple-Silicon- (M1, M2, M3, M4) als auch auf Intel-Macs." },
-      { "q": "Ist die kostenlose Version wirklich kostenlos?", "a": "Ja — ohne Testzeitraum, ohne Ablauf: Junk-Bereinigung bis zu 2 GB pro Scan, plus ein vollständiger Duplikat-Scanner und Großdatei-Finder ohne Limit, dauerhaft." },
-      { "q": "Was schaltet Pro genau frei?", "a": "Pro entfernt das 2-GB-Limit bei der Junk-Bereinigung und fügt vier weitere Werkzeuge hinzu: App-Deinstallierer (entfernt Restdateien, nicht nur die App), Datenschutz-Reiniger, Start-Manager und geplante Scans, plus lebenslange Updates und priorisierten Support — für eine einmalige Zahlung von 12,99 $." },
+      { "q": "Ist die kostenlose Version wirklich kostenlos?", "a": "Ja — ohne Testzeitraum, ohne Ablauf: Scannen und alle Ergebnisse ansehen ist dauerhaft kostenlos, und du kannst insgesamt 2 GB gratis bereinigen. Danach fragt die App nach Pro oder einem Lizenzschlüssel, bevor sie mehr löscht." },
+      { "q": "Was schaltet Pro genau frei?", "a": "Pro entfernt das kostenlose 2-GB-Bereinigungslimit und fügt vier weitere Werkzeuge hinzu: App-Deinstallierer (entfernt Restdateien, nicht nur die App), Datenschutz-Reiniger, Start-Manager und geplante Scans, plus lebenslange Updates und priorisierten Support — für eine einmalige Zahlung von 12,99 $." },
       { "q": "Ist das ein Abo?", "a": "Nein. Pro ist eine einmalige Zahlung von 12,99 $ — keine wiederkehrende Abrechnung, niemals." },
       { "q": "Auf wie vielen Macs kann ich eine Lizenz nutzen?", "a": "Jede Pro-Lizenz lässt sich auf bis zu 2 Macs aktivieren." },
       { "q": "Kann ich eine Rückerstattung bekommen?", "a": "Ja — eine vollständige 30-Tage-Geld-zurück-Garantie ohne Fragen auf alle Pro-Käufe. Schreib an support@macdiskcleaner.com mit deinem Lizenzschlüssel." },
@@ -144,6 +144,7 @@
     "step2": "Gehe zu Einstellungen → Lizenz und füge den obigen Schlüssel ein.",
     "step3": "Klicke auf Aktivieren – du bist sofort auf Pro upgegradet.",
     "downloadCta": "MacDiskCleaner herunterladen",
-    "supportNote": "E-Mail nicht erhalten? Prüfe deinen Spam-Ordner oder kontaktiere support@macdiskcleaner.com."
+    "supportNote": "E-Mail nicht erhalten? Prüfe deinen Spam-Ordner oder kontaktiere support@macdiskcleaner.com.",
+    "appNote": "Direkt in der App gekauft? Wechsle zurück zu MacDiskCleaner – Pro wird in wenigen Sekunden automatisch freigeschaltet. Nichts einzufügen."
   }
 }

@@ -9,21 +9,21 @@ export async function generateMetadata(): Promise<Metadata> {
   // /vs/cleanmymac — canonical always points at the unprefixed English URL.
   return {
     title: 'MacDiskCleaner Pricing — Free Tier & $12.99 One-Time Pro',
-    description: 'MacDiskCleaner pricing: a genuinely free tier, and a $12.99 one-time Pro purchase with no subscription, ever. See exactly what each tier includes.',
+    description: 'MacDiskCleaner pricing: scan everything free and clean up to 2 GB at no cost, then unlock unlimited cleanup with a $12.99 one-time Pro purchase — no subscription, ever.',
     alternates: { canonical: '/pricing' },
   }
 }
 
 const FREE_FEATURES = [
-  'Junk file cleanup — up to 2 GB per scan',
-  'Full duplicate file scanner, no limits',
-  'Full large file finder, no limits',
+  'Scan your whole Mac — nothing hidden or blurred',
+  'Duplicates, large & old files, downloads and junk, all visible',
+  'Free cleanup up to 2 GB in total (lifetime allowance)',
   'Unlimited scans',
   'Safe deletion — everything goes to Trash first',
 ]
 
 const PRO_FEATURES = [
-  'Unlimited junk cleaning (no 2 GB cap)',
+  'Unlimited cleanup — no 2 GB cap',
   'App Uninstaller — removes leftover support files',
   'Privacy Cleaner — browser history, cache, cookies, Recent Items',
   'Startup Manager — see and disable login items',
@@ -50,8 +50,12 @@ const FAQS = [
     a: 'Card, Apple Pay, and Google Pay, all in USD, processed securely at checkout.',
   },
   {
+    q: 'What happens when I reach the free 2 GB?',
+    a: 'Scanning and browsing stay free forever — you can always see everything MacDiskCleaner finds. Once you have cleaned up 2 GB in total, the app asks for Pro (or a license key) before it deletes anything more. The 2 GB is a lifetime allowance, not a monthly one.',
+  },
+  {
     q: 'If I stay on the free tier, does anything expire?',
-    a: 'No. The free tier has no trial period and never expires — it works exactly the same a year from now as it does today.',
+    a: 'No. There is no trial period and nothing expires — scanning and browsing are free forever, and your 2 GB cleanup allowance never resets or disappears.',
   },
 ]
 

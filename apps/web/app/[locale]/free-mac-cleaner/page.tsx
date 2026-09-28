@@ -11,21 +11,21 @@ export async function generateMetadata(): Promise<Metadata> {
   // English text) doesn't get indexed as separate duplicate content.
   return {
     title: 'Free Mac Cleaner — Clean Junk, Duplicates & Large Files at No Cost',
-    description: 'Download a free Mac storage cleaner with no trial period. Clean up to 2 GB of junk, find duplicates, and locate large files — completely free, forever.',
+    description: 'Download a free Mac storage cleaner with no trial period. Scan everything for free, forever, and clean up to 2 GB at no cost — duplicates, large files, junk and more.',
     alternates: { canonical: '/free-mac-cleaner' },
   }
 }
 
 const FREE_FEATURES = [
-  'Junk file cleanup — up to 2 GB per scan',
-  'Full duplicate file scanner, no limits',
-  'Full large file finder, no limits',
+  'Scan your whole Mac — every result visible, nothing blurred',
+  'Duplicates, large & old files, downloads and junk',
+  'Free cleanup up to 2 GB in total (lifetime allowance)',
   'Safe deletion — everything goes to Trash first',
   'No account, no trial period, no credit card',
 ]
 
 const PRO_UPSELL = [
-  'Unlimited junk cleaning (no 2 GB cap)',
+  'Unlimited cleanup — no 2 GB cap',
   'App uninstaller that removes leftover files',
   'Privacy cleaner & startup manager',
   'Scheduled automatic scans',
@@ -34,11 +34,11 @@ const PRO_UPSELL = [
 const FAQS = [
   {
     q: 'Is MacDiskCleaner really free, or is this a trial?',
-    a: 'The free tier has no trial period and no expiration. It includes a full duplicate file scanner, a full large file finder, and junk cleanup up to 2 GB per scan — permanently, not for a limited time.',
+    a: 'There is no trial period and no expiration. Scanning and browsing are free forever, and you can clean up 2 GB in total for free — permanently, not for a limited time.',
   },
   {
     q: 'What\'s the catch?',
-    a: 'The only limit on the free tier is a 2 GB cap on junk cleaning per scan — you can run as many scans as you want, with no monthly limit. Everything else, duplicates and large files, is fully unlocked. Pro removes the 2 GB cap and adds an app uninstaller, privacy cleaner, startup manager, and scheduled scans.',
+    a: 'The one limit is a 2 GB lifetime cleanup allowance: you can scan as often as you like and see every duplicate, large file and junk item, but once you have deleted 2 GB in total the app asks for Pro (or a license key) before removing more. Pro removes the cap and adds an app uninstaller, privacy cleaner, startup manager, and scheduled scans.',
   },
   {
     q: 'Does it work on my MacBook?',
@@ -54,7 +54,7 @@ const FAQS = [
   },
   {
     q: 'If I upgrade later, do I lose anything from the free tier?',
-    a: 'No. Pro is strictly additive — everything free stays included, and Pro just removes the 2 GB cap and unlocks four extra tools.',
+    a: 'No. Pro is strictly additive — nothing you had is taken away, and space you already cleaned stays cleaned. Pro removes the 2 GB cap and unlocks four extra tools.',
   },
 ]
 

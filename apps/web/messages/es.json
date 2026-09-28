@@ -97,7 +97,7 @@
       "name": "Gratis",
       "price": "$0",
       "sub": "Gratis para siempre.",
-      "features": ["Limpieza de basura — hasta 2 GB por escaneo", "Buscador de duplicados completo, sin límites", "Buscador de archivos grandes completo, sin límites", "Escaneos ilimitados"],
+      "features": ["Escanea todo tu Mac — nada oculto", "Duplicados, archivos grandes y antiguos, descargas y basura", "Limpieza gratis hasta 2 GB en total", "Escaneos ilimitados"],
       "cta": "Descargar gratis"
     },
     "pro": {
@@ -105,7 +105,7 @@
       "name": "Pro",
       "price": "$12.99",
       "sub": "Pago único. Sin suscripción, nunca.",
-      "features": ["Limpieza de basura ilimitada", "Desinstalador de apps (elimina archivos residuales)", "Limpiador de privacidad", "Gestor de inicio", "Escaneos programados automáticamente", "Actualizaciones de por vida", "Soporte prioritario"],
+      "features": ["Limpieza ilimitada — sin el límite de 2 GB", "Desinstalador de apps (elimina archivos residuales)", "Limpiador de privacidad", "Gestor de inicio", "Escaneos programados automáticamente", "Actualizaciones de por vida", "Soporte prioritario"],
       "cta": "Obtener Pro — $12.99"
     }
   },
@@ -115,8 +115,8 @@
     "items": [
       { "q": "¿Es seguro usarlo?", "a": "Totalmente. MacDiskCleaner solo elimina los archivos que tú apruebas explícitamente. Todo se mueve a la papelera antes de eliminarse de forma permanente, así que nunca es irrecuperable." },
       { "q": "¿Funcionará en mi Mac?", "a": "Sí. MacDiskCleaner es compatible desde macOS 12 Monterey hasta la última versión de macOS Sequoia, tanto en Macs con Apple Silicon (M1, M2, M3, M4) como con Intel." },
-      { "q": "¿La versión gratuita es realmente gratis?", "a": "Sí, sin periodo de prueba ni caducidad: limpieza de basura hasta 2 GB por escaneo, más un buscador de duplicados y de archivos grandes completos y sin límites, para siempre." },
-      { "q": "¿Qué desbloquea exactamente Pro?", "a": "Pro elimina el límite de 2 GB en la limpieza de basura y añade cuatro herramientas que la versión gratuita no incluye: Desinstalador de apps (elimina archivos residuales, no solo la app), Limpiador de privacidad, Gestor de inicio y Escaneos programados, además de actualizaciones de por vida y soporte prioritario, todo por un único pago de $12.99." },
+      { "q": "¿La versión gratuita es realmente gratis?", "a": "Sí, sin periodo de prueba ni caducidad: escanear y ver todos los resultados es gratis para siempre, y puedes limpiar 2 GB en total sin coste. Después de 2 GB, la app pide Pro o una clave de licencia antes de borrar más." },
+      { "q": "¿Qué desbloquea exactamente Pro?", "a": "Pro elimina el límite gratuito de 2 GB de limpieza y añade cuatro herramientas que la versión gratuita no incluye: Desinstalador de apps (elimina archivos residuales, no solo la app), Limpiador de privacidad, Gestor de inicio y Escaneos programados, además de actualizaciones de por vida y soporte prioritario, todo por un único pago de $12.99." },
       { "q": "¿Es una suscripción?", "a": "No. Pro es un pago único de $12.99 — sin cobros recurrentes, nunca." },
       { "q": "¿En cuántos Mac puedo usar una licencia?", "a": "Cada licencia Pro se activa en hasta 2 Mac." },
       { "q": "¿Puedo obtener un reembolso?", "a": "Sí — un reembolso completo de 30 días sin preguntas en todas las compras Pro. Escribe a support@macdiskcleaner.com con tu clave de licencia." },
@@ -144,6 +144,7 @@
     "step2": "Ve a Configuración → Licencia y pega la clave de arriba.",
     "step3": "Haz clic en Activar: pasarás a Pro de inmediato.",
     "downloadCta": "Descargar MacDiskCleaner",
-    "supportNote": "¿No recibiste el correo? Revisa tu carpeta de spam o contacta a support@macdiskcleaner.com."
+    "supportNote": "¿No recibiste el correo? Revisa tu carpeta de spam o contacta a support@macdiskcleaner.com.",
+    "appNote": "¿Compraste desde la app? Vuelve a MacDiskCleaner: Pro se activa solo en unos segundos. No hace falta pegar nada."
   }
 }

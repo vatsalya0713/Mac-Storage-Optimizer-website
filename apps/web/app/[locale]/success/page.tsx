@@ -16,6 +16,7 @@ function SuccessContent() {
   const t = useTranslations("success");
   const searchParams = useSearchParams();
   const paymentId = searchParams.get("payment_id");
+  const fromApp = searchParams.get("from") === "app";
 
   const [key, setKey] = useState<string | null>(null);
   const [copied, setCopied] = useState(false);
@@ -59,6 +60,12 @@ function SuccessContent() {
         </div>
         <h1 className="text-[32px] font-extrabold tracking-tight text-[#1D1D1F] mb-2">{t("title")}</h1>
         <p className="text-[16px] text-[#6E6E73] mb-8">{t("subtitle")}</p>
+
+        {fromApp && (
+          <div className="bg-[#EDF4FF] text-[#0A4FB3] rounded-xl px-4 py-3 mb-6 text-[14px] font-medium text-left">
+            {t("appNote")}
+          </div>
+        )}
 
         <div className="bento-card p-6 mb-8 text-left">
           <p className="text-[13px] font-semibold text-[#6E6E73] mb-2">{t("keyLabel")}</p>

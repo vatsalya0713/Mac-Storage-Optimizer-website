@@ -97,7 +97,7 @@
       "name": "Free",
       "price": "$0",
       "sub": "Forever free, always.",
-      "features": ["Junk cleanup — up to 2 GB per scan", "Full duplicate file scanner, no limits", "Full large file finder, no limits", "Unlimited scans"],
+      "features": ["Scan your whole Mac — nothing hidden", "Duplicates, large & old files, downloads, junk", "Free cleanup up to 2 GB in total", "Unlimited scans"],
       "cta": "Download Free"
     },
     "pro": {
@@ -105,7 +105,7 @@
       "name": "Pro",
       "price": "$12.99",
       "sub": "One-time. No subscription ever.",
-      "features": ["Unlimited junk cleaning", "App Uninstaller (removes leftover files)", "Privacy Cleaner", "Startup Manager", "Auto-scheduled scans", "Lifetime updates", "Priority support"],
+      "features": ["Unlimited cleanup — no 2 GB cap", "App Uninstaller (removes leftover files)", "Privacy Cleaner", "Startup Manager", "Auto-scheduled scans", "Lifetime updates", "Priority support"],
       "cta": "Get Pro — $12.99"
     }
   },
@@ -115,8 +115,8 @@
     "items": [
       { "q": "Is it safe to use?", "a": "Absolutely. MacDiskCleaner only deletes files you explicitly approve. Everything is moved to Trash before permanent removal, so nothing is ever unrecoverable, and it never touches system files it hasn't verified are safe to remove." },
       { "q": "Will it work on my Mac?", "a": "Yes. MacDiskCleaner supports macOS 12 Monterey through the latest macOS Sequoia release, on both Apple Silicon (M1, M2, M3, M4) and Intel Macs — no Rosetta required." },
-      { "q": "Is the free version really free?", "a": "Yes. The free tier has no trial period and never expires: junk cleanup up to 2 GB per scan, plus a full duplicate file scanner and a full large file finder with no limits at all — permanently, not just during a trial." },
-      { "q": "What exactly does Pro unlock?", "a": "Pro removes the 2 GB cap on junk cleanup and adds four tools the free tier doesn't include: the App Uninstaller (removes leftover support files, not just the app), Privacy Cleaner, Startup Manager, and Scheduled Scans — plus lifetime updates and priority support, all for a single $12.99 payment." },
+      { "q": "Is the free version really free?", "a": "Yes. There is no trial period and nothing expires: scanning and browsing every result are free forever, and you can clean up 2 GB in total at no cost. After 2 GB, the app asks for Pro or a license key before deleting more." },
+      { "q": "What exactly does Pro unlock?", "a": "Pro removes the 2 GB free cleanup cap and adds four tools the free tier doesn't include: the App Uninstaller (removes leftover support files, not just the app), Privacy Cleaner, Startup Manager, and Scheduled Scans — plus lifetime updates and priority support, all for a single $12.99 payment." },
       { "q": "Is it a subscription?", "a": "No. Pro is a one-time $12.99 payment — no recurring billing, ever. You own your license and the app keeps working even if MacDiskCleaner's website ever goes offline." },
       { "q": "How many Macs can I use one license on?", "a": "Each Pro license activates on up to 2 Macs. Need it on more? Contact support and we'll sort it out." },
       { "q": "Can I get a refund?", "a": "Yes — a full 30-day, no-questions-asked refund on all Pro purchases. Email support@macdiskcleaner.com with your license key." },
@@ -144,6 +144,7 @@
     "step2": "Go to Settings → License, and paste the key above.",
     "step3": "Click Activate — you're upgraded to Pro immediately.",
     "downloadCta": "Download MacDiskCleaner",
-    "supportNote": "Didn't get the email? Check your spam folder, or contact support@macdiskcleaner.com."
+    "supportNote": "Didn't get the email? Check your spam folder, or contact support@macdiskcleaner.com.",
+    "appNote": "Bought from inside the app? Switch back to MacDiskCleaner — Pro unlocks automatically within a few seconds. Nothing to paste."
   }
 }
