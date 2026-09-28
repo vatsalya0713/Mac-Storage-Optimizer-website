@@ -24,6 +24,13 @@ const nextConfig = {
         headers: [{ key: 'Cache-Control', value: 'no-cache, no-store, must-revalidate' }],
       },
       {
+        source: '/install.sh',
+        headers: [
+          { key: 'Cache-Control', value: 'no-cache, must-revalidate' },
+          { key: 'Content-Type', value: 'text/plain; charset=utf-8' },
+        ],
+      },
+      {
         source: '/downloads/MacDiskCleaner.dmg',
         headers: [{ key: 'Cache-Control', value: 'no-cache, must-revalidate' }],
       },

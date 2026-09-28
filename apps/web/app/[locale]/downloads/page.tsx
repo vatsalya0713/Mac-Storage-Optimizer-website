@@ -61,6 +61,20 @@ export default async function DownloadsPage() {
           </div>
         </section>
 
+        <section className="pt-4 pb-16 px-6">
+          <div className="max-w-[720px] mx-auto bento-card p-8 text-center">
+            <p className="text-[13px] font-semibold text-[#007AFF] mb-2">FASTEST INSTALL — NO macOS WARNING</p>
+            <h2 className="text-[22px] font-bold text-[#1D1D1F] mb-2">Install from Terminal in one line</h2>
+            <p className="text-[14px] text-[#6E6E73] leading-relaxed mb-5 max-w-[520px] mx-auto">
+              Open Terminal, paste this, press Return. It downloads the latest version, checks its published checksum, installs it in Applications and opens it — with no security prompt.
+            </p>
+            <code className="block bg-[#F5F5F7] rounded-xl px-4 py-3 text-[13px] text-[#1D1D1F] break-all select-all">curl -fsSL https://www.macdiskcleaner.com/install.sh | bash</code>
+            <p className="text-[12px] text-[#9A9A9E] mt-4">
+              Prefer to read it first? <a href="/install.sh" className="text-[#007AFF]">View the script</a>. Or use the regular download above.
+            </p>
+          </div>
+        </section>
+
         <section className="py-16 bg-[#F5F5F7] px-6">
           <div className="max-w-[900px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-5">
             <a href="/downloads/MacDiskCleaner.dmg" className="bento-card p-8 hover:shadow-lg transition-shadow">
