@@ -1,7 +1,6 @@
 import { Webhooks } from '@dodopayments/nextjs'
 import { NextRequest, NextResponse } from 'next/server'
-import { createLicenseKey, sendLicenseEmail } from '@/lib/license'
-import { supabaseAdmin } from '@/lib/supabase'
+import { createLicenseKey, findKeyByOrder, revokeByOrder, sendLicenseEmail } from '@/lib/license'
 import { MACHINE_ID_PATTERN } from '@/lib/checkout'
 
 const webhookKey = process.env.DODO_PAYMENTS_WEBHOOK_KEY
@@ -14,39 +13,61 @@ const webhookKey = process.env.DODO_PAYMENTS_WEBHOOK_KEY
 const handler = webhookKey
   ? Webhooks({
       webhookKey,
+
       onPaymentSucceeded: async (payload) => {
-        const { email, name } = payload.data.customer
-        const orderId = payload.data.payment_id
+        const data = payload.data
+        const orderId = data.payment_id
+        const email = data.customer?.email
+        if (!email) throw new Error(`Payment ${orderId} has no customer email`)
 
-        // Idempotency: payment providers retry webhook delivery, and a
-        // captured payload could be replayed. Without this check a retry
-        // would mint a second free license key for the same payment.
-        const { data: existing } = await supabaseAdmin
-          .from('license_keys')
-          .select('key')
-          .eq('order_id', orderId)
-          .maybeSingle()
-
-        if (existing) {
-          console.log(`Order ${orderId} already has key ${existing.key} — skipping duplicate`)
+        // Only our Pro product mints a key (guards against other products on
+        // the same Dodo account).
+        const proProduct = process.env.DODO_PRODUCT_ID_PRO
+        const cart = data.product_cart ?? []
+        if (proProduct && cart.length > 0 && !cart.some((item) => item.product_id === proProduct)) {
+          console.log(`Payment ${orderId} is not for the Pro product — ignoring`)
           return
         }
 
-        const rawMachineId = payload.data.metadata?.machine_id
+        // Idempotency: providers retry deliveries, and a captured payload could
+        // be replayed. A retry never mints a second key — but it does re-send the
+        // email, because the usual reason for a retry is that the first attempt
+        // created the key and then failed to send the email.
+        const existing = await findKeyByOrder(orderId)
+        if (existing) {
+          console.log(`Order ${orderId} already has a key — re-sending email only`)
+          if (!existing.is_revoked) await sendLicenseEmail({ to: existing.customer_email ?? email, licenseKey: existing.key })
+          return
+        }
+
+        const rawMachineId = data.metadata?.machine_id
         const claimMachineId =
           typeof rawMachineId === 'string' && MACHINE_ID_PATTERN.test(rawMachineId) ? rawMachineId : null
 
-        const key = await createLicenseKey({
+        const { key, created } = await createLicenseKey({
           tier: 'pro',
-          maxActivations: 2,
           customerEmail: email,
-          customerName: name,
+          customerName: data.customer?.name,
           paymentProvider: 'dodo',
           orderId,
           claimMachineId,
         })
 
-        await sendLicenseEmail({ to: email, licenseKey: key })
+        // If this throws, the delivery fails and is retried; the retry above
+        // finds the key and sends only the email.
+        if (created) await sendLicenseEmail({ to: email, licenseKey: key })
+      },
+
+      // A refunded or charged-back payment must stop unlocking Pro.
+      onRefundSucceeded: async (payload) => {
+        if (payload.data.is_partial) return
+        await revokeByOrder(payload.data.payment_id, 'full refund')
+      },
+      onDisputeOpened: async (payload) => {
+        await revokeByOrder(payload.data.payment_id, 'dispute opened')
+      },
+      onDisputeLost: async (payload) => {
+        await revokeByOrder(payload.data.payment_id, 'dispute lost')
       },
     })
   : null

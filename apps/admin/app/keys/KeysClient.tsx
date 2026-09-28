@@ -1,8 +1,8 @@
 'use client'
 
 import { useState, useTransition } from 'react'
-import { revokeKey, generateKey } from './actions'
-import { Plus, Ban, Loader2, Copy, Check } from 'lucide-react'
+import { revokeKey, generateKey, resetActivations } from './actions'
+import { Plus, Ban, Loader2, Copy, Check, RotateCcw } from 'lucide-react'
 import { PaginatedSearch } from '@/components/PaginatedSearch'
 
 export default function KeysClient({
@@ -22,13 +22,21 @@ export default function KeysClient({
 
   const [showModal, setShowModal] = useState(false)
   const [tier, setTier] = useState('pro')
-  const [maxActivations, setMaxActivations] = useState(2)
+  const [maxActivations, setMaxActivations] = useState(1)
 
   const handleRevoke = async (id: string) => {
     if (confirm('Are you sure you want to revoke this key? This cannot be undone.')) {
       startTransition(async () => {
         await revokeKey(id)
         setKeys((prev) => prev.map((k) => (k.id === id ? { ...k, is_revoked: true } : k)))
+      })
+    }
+  }
+
+  const handleReset = async (licenseKey: string) => {
+    if (confirm('Free every device seat on this key? The customer can then activate it on a new Mac.')) {
+      startTransition(async () => {
+        await resetActivations(licenseKey)
       })
     }
   }
@@ -116,6 +124,16 @@ export default function KeysClient({
                     </div>
                   </td>
                   <td className="px-6 py-4 text-right">
+                    {!key.is_revoked && (
+                      <button
+                        onClick={() => handleReset(key.key)}
+                        disabled={isPending}
+                        className="text-gray-500 hover:text-blue-400 transition-colors p-2 rounded-lg hover:bg-blue-500/10"
+                        title="Reset devices (free all seats)"
+                      >
+                        <RotateCcw className="w-4 h-4" />
+                      </button>
+                    )}
                     {!key.is_revoked && (
                       <button
                         onClick={() => handleRevoke(key.id)}

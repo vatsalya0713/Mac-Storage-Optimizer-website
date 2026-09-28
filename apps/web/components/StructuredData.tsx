@@ -20,7 +20,7 @@ const FAQ_ITEMS = [
   },
   {
     q: 'How many Macs can one Pro license activate?',
-    a: 'Each MacDiskCleaner Pro license activates on up to 2 Macs.',
+    a: 'Each MacDiskCleaner Pro license activates on one Mac, and can be moved to a new Mac by deactivating it on the old one.',
   },
   {
     q: 'How is MacDiskCleaner different from CleanMyMac X or OnyX?',

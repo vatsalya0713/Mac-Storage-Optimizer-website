@@ -9,7 +9,7 @@ import { createPrivateKey, sign } from 'node:crypto'
 // Token format: base64url(payload JSON) + '.' + base64url(Ed25519 signature
 // over the payload string).
 
-const TOKEN_TTL_DAYS = 14
+const TOKEN_TTL_DAYS = 7
 
 function b64url(input: Buffer | string) {
   return Buffer.from(input).toString('base64url')

@@ -118,7 +118,7 @@
       { "q": "¿La versión gratuita es realmente gratis?", "a": "Sí, sin periodo de prueba ni caducidad: escanear y ver todos los resultados es gratis para siempre, y puedes limpiar 2 GB en total sin coste. Después de 2 GB, la app pide Pro o una clave de licencia antes de borrar más." },
       { "q": "¿Qué desbloquea exactamente Pro?", "a": "Pro elimina el límite gratuito de 2 GB de limpieza y añade cuatro herramientas que la versión gratuita no incluye: Desinstalador de apps (elimina archivos residuales, no solo la app), Limpiador de privacidad, Gestor de inicio y Escaneos programados, además de actualizaciones de por vida y soporte prioritario, todo por un único pago de $12.99." },
       { "q": "¿Es una suscripción?", "a": "No. Pro es un pago único de $12.99 — sin cobros recurrentes, nunca." },
-      { "q": "¿En cuántos Mac puedo usar una licencia?", "a": "Cada licencia Pro se activa en hasta 2 Mac." },
+      { "q": "¿En cuántos Mac puedo usar una licencia?", "a": "Cada licencia Pro se activa en un solo Mac. ¿Mac nuevo? Desactiva la licencia en la app anterior (o contacta con soporte) y actívala en el nuevo." },
       { "q": "¿Puedo obtener un reembolso?", "a": "Sí — un reembolso completo de 30 días sin preguntas en todas las compras Pro. Escribe a support@macdiskcleaner.com con tu clave de licencia." },
       { "q": "¿En qué se diferencia de CleanMyMac u OnyX?", "a": "MacDiskCleaner es una compra única sin suscripción, a diferencia de los planes de CleanMyMac, e incluye un buscador de duplicados y archivos grandes guiado que OnyX no tiene." },
       { "q": "¿Recopila o sube mis datos?", "a": "No. Todo el escaneo y análisis ocurre en tu Mac. Solo tu clave de licencia se envía a nuestro servidor, y únicamente durante la activación." },

@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Download } from "lucide-react";
 import { LanguageSwitcher } from "./LanguageSwitcher";
 import { AppleLogo } from "@/components/AppleLogo"
 
@@ -47,7 +47,7 @@ export function Navbar() {
             href="/downloads"
             className="btn-primary text-[12px] sm:text-[13px] py-[8px] sm:py-[9px] px-3.5 sm:px-5 whitespace-nowrap"
           >
-            <AppleLogo size={14} /> <span className="hidden xs:inline">{t("download")}</span>
+            <AppleLogo size={14} /> <span className="hidden xs:inline">{t("download")}</span> <Download size={14} />
           </a>
           <button
             onClick={() => setOpen((v) => !v)}

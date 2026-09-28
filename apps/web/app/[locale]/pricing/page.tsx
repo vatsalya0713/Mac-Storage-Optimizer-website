@@ -40,7 +40,7 @@ const FAQS = [
   },
   {
     q: 'How many Macs can one license activate?',
-    a: 'Each Pro license activates on up to 2 Macs.',
+    a: 'Each Pro license activates on one Mac. Getting a new Mac? Choose Deactivate License in the old app (or contact support) and activate it on the new one.',
   },
   {
     q: 'Can I get a refund?',

@@ -30,6 +30,14 @@ create table if not exists license_keys (
 
 create index if not exists license_keys_order_id_idx on license_keys (order_id);
 
+-- One payment can only ever create one key (protects against concurrent
+-- webhook deliveries minting duplicates).
+create unique index if not exists license_keys_order_id_unique on license_keys (order_id) where order_id is not null;
+
+-- One key = one Mac. Applies the current policy to any existing keys.
+update license_keys set max_activations = 1 where max_activations > 1;
+alter table license_keys alter column max_activations set default 1;
+
 -- Auto-activation: a purchase started from the desktop app is tagged with that
 -- Mac's machine ID so the app can claim its key (POST /api/license/claim).
 alter table license_keys
@@ -155,3 +163,36 @@ $$;
 -- Callable only via the service-role key (server-side), same as every
 -- other table here — not exposed to the anon/public role.
 revoke all on function activate_license(text, text, text) from public, anon, authenticated;
+
+
+-- ============================================================
+-- Free-tier usage per Mac (stops "delete the local counter to reset the
+-- 2 GB free allowance"). The app reports how many bytes it has cleaned;
+-- the server keeps the highest value ever seen for that machine.
+-- ============================================================
+create table if not exists free_usage (
+  machine_id text primary key,
+  bytes bigint not null default 0,
+  updated_at timestamptz not null default now()
+);
+alter table free_usage enable row level security;
+drop policy if exists "no public access to free_usage" on free_usage;
+create policy "no public access to free_usage" on free_usage for all using (false) with check (false);
+
+create or replace function record_free_usage(p_machine_id text, p_bytes bigint)
+returns bigint
+language plpgsql
+security definer
+set search_path = public
+as $$
+declare
+  v_bytes bigint;
+begin
+  insert into free_usage (machine_id, bytes) values (p_machine_id, greatest(p_bytes, 0))
+  on conflict (machine_id) do update
+    set bytes = greatest(free_usage.bytes, excluded.bytes), updated_at = now()
+  returning bytes into v_bytes;
+  return v_bytes;
+end;
+$$;
+revoke all on function record_free_usage(text, bigint) from public, anon, authenticated;

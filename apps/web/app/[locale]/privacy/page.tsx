@@ -31,13 +31,13 @@ export default function PrivacyPage() {
         <p>
           MacDiskCleaner runs locally on your Mac and scans your file system to identify junk files, duplicates,
           and large files. It does not upload your file contents, file names, or scan results to our servers.
-          The only network requests the app makes are: activating, validating and deactivating your license key; starting a purchase and receiving the key for it (using your Mac&apos;s device identifier); and checking macdiskcleaner.com for a newer version. The app contains no analytics or advertising, and scan results and settings stay on your Mac.
+          The only network requests the app makes are: activating, validating and deactivating your license key; starting a purchase and receiving the key for it; reporting how many bytes of free cleanup this Mac has used (so the free allowance can&apos;t be reset); and checking macdiskcleaner.com for a newer version. These use an anonymous, one-way hashed device identifier — never your hardware serial or file information. The app contains no analytics or advertising, and scan results and settings stay on your Mac.
         </p>
 
         <h2>Data we store</h2>
         <p>
-          We store your license key, the email address associated with it, and a device identifier for each
-          Mac you've activated it on (used only to enforce your plan's device limit). This data is kept for
+          We store your license key, the email address associated with it, and an anonymous hashed device identifier for the
+          Mac you've activated it on (used only to enforce the one-Mac-per-license limit). This data is kept for
           as long as your license is active, or as required by law.
         </p>
 
