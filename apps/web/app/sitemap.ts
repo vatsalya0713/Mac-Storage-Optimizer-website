@@ -1,6 +1,7 @@
 import type { MetadataRoute } from 'next'
-import { getPostSlugs } from '@/lib/blog'
+import { getAllPosts, getPostSlugs } from '@/lib/blog'
 import { routing } from '@/i18n/routing'
+import latest from '@/public/downloads/latest.json'
 
 const SITE_URL = 'https://www.macdiskcleaner.com'
 
@@ -16,7 +17,11 @@ function languageAlternates(pathname: string) {
 }
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const now = new Date()
+  // Search engines discount sitemaps whose <lastmod> changes on every fetch, so
+  // use real dates: the last release for product pages, the post's own date for articles.
+  const released = new Date(`${latest.releasedAt}T00:00:00Z`)
+  const now = released
+  const postDates = new Map(getAllPosts('en').map((p) => [p.slug, new Date(p.date)]))
 
   // Home ships in all 4 locales.
   const home: MetadataRoute.Sitemap = routing.locales.map((locale) => ({
@@ -48,7 +53,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${SITE_URL}/terms`, lastModified: now, changeFrequency: 'yearly', priority: 0.2 },
     ...getPostSlugs('en').map((slug) => ({
       url: `${SITE_URL}/blog/${slug}`,
-      lastModified: now,
+      lastModified: postDates.get(slug) ?? released,
       changeFrequency: 'monthly' as const,
       priority: 0.6,
     })),

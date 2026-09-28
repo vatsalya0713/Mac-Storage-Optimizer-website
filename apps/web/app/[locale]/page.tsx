@@ -84,7 +84,7 @@ function Hero() {
           className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-14"
         >
           <a href="/downloads/MacDiskCleaner.dmg" className="btn-primary text-[16px] py-[14px] px-8">
-            <AppleLogo size={16} /> {t("ctaPrimary")}
+            <AppleLogo size={16} /> {t("ctaPrimary")} <Download size={16} />
           </a>
           <a href="#howit" className="btn-ghost text-[16px] py-[14px] px-6">
             {t("ctaSecondary")} <ChevronRight size={16} />
@@ -317,8 +317,8 @@ function Pricing() {
                 </li>
               ))}
             </ul>
-            <a href="/downloads/MacDiskCleaner.dmg" className="block text-center py-3 rounded-full border-2 border-[#007AFF] text-[#007AFF] font-semibold text-[15px] hover:bg-[#EBF4FF] transition-colors">
-              {t("free.cta")}
+            <a href="/downloads/MacDiskCleaner.dmg" className="flex items-center justify-center gap-2 py-3 rounded-full border-2 border-[#007AFF] text-[#007AFF] font-semibold text-[15px] hover:bg-[#EBF4FF] transition-colors">
+              <AppleLogo size={15} /> {t("free.cta")} <Download size={15} />
             </a>
           </motion.div>
 

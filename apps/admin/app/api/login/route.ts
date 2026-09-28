@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { timingSafeEqual, createHash } from 'node:crypto'
 import { rateLimit, clientIp } from '@/lib/rateLimit'
+import { sessionToken } from '@/lib/session'
 
 // Hash both sides to a fixed-length digest before comparing — avoids
 // leaking the real password's length via how long the comparison takes,
@@ -36,12 +37,12 @@ export async function POST(request: NextRequest) {
   }
 
   const response = NextResponse.json({ success: true })
-  response.cookies.set('admin_session', expected, {
+  response.cookies.set('admin_session', sessionToken(expected), {
     httpOnly: true,
     secure: process.env.NODE_ENV === 'production',
-    sameSite: 'lax',
+    sameSite: 'strict',
     path: '/',
-    maxAge: 60 * 60 * 24 * 30, // 30 days
+    maxAge: 60 * 60 * 24 * 7, // 7 days
   })
   return response
 }

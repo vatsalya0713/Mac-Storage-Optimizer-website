@@ -3,7 +3,7 @@ import { Link } from '@/i18n/navigation'
 import { Navbar } from '@/components/Navbar'
 import { Footer } from '@/components/Footer'
 import { AppleLogo } from '@/components/AppleLogo'
-import { ChevronRight, Trash2, Lock, ShieldCheck, Eye, ListChecks, WifiOff } from 'lucide-react'
+import { ChevronRight, Trash2, Lock, ShieldCheck, Eye, ListChecks, WifiOff, Download } from 'lucide-react'
 import latest from '@/public/downloads/latest.json'
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -74,7 +74,7 @@ export default async function SecurityPage() {
             </p>
             <div className="text-center mt-8">
               <a href="/downloads/MacDiskCleaner.dmg" className="btn-primary text-[15px] py-3 px-7 inline-flex">
-                <AppleLogo size={15} /> Download for Mac
+                <AppleLogo size={15} /> Download for Mac <Download size={15} />
               </a>
             </div>
           </div>

@@ -78,7 +78,7 @@ export default async function FreeMacCleanerPage() {
             No trial period. No credit card. Clean junk files, find duplicates, and locate large files hogging your storage — download and start scanning in under a minute.
           </p>
           <a href="/downloads/MacDiskCleaner.dmg" className="btn-primary text-[16px] py-[14px] px-8 inline-flex">
-            <AppleLogo size={16} /> Download Free for Mac
+            <AppleLogo size={16} /> Download Free for Mac <Download size={16} />
           </a>
         </div>
       </section>

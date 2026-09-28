@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server'
 import { supabaseAdmin } from '@/lib/supabase'
 import { rateLimit, clientIp } from '@/lib/rateLimit'
 import { boundedString, LIMITS } from '@/lib/validate'
+import { issueLicenseToken } from '@/lib/licenseToken'
 
 // Called by the desktop app when the user pastes a license key and clicks
 // Activate. Body: { key: string, machine_id: string, machine_name?: string }
@@ -52,6 +53,13 @@ export async function POST(request: NextRequest) {
     }
     console.error('activate_license failed:', error.message)
     return NextResponse.json({ error: 'Activation is temporarily unavailable' }, { status: 500 })
+  }
+
+  if (data?.valid === true) {
+    // Until LICENSE_SIGNING_KEY is configured no token is issued; older app
+    // versions don't need one, current versions refuse to unlock without it.
+    const token = issueLicenseToken({ key, machineId, tier: data.tier })
+    return NextResponse.json(token ? { ...data, token } : data)
   }
 
   return NextResponse.json(data)

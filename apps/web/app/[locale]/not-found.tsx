@@ -1,3 +1,4 @@
+import { Download } from 'lucide-react'
 import { Link } from '@/i18n/navigation'
 import { Navbar } from '@/components/Navbar'
 import { Footer } from '@/components/Footer'
@@ -18,7 +19,7 @@ export default function NotFound() {
           </p>
           <div className="flex flex-wrap items-center justify-center gap-3">
             <a href="/downloads/MacDiskCleaner.dmg" className="btn-primary text-[14px] py-3 px-6 inline-flex">
-              <AppleLogo size={14} /> Download for Mac
+              <AppleLogo size={14} /> Download for Mac <Download size={14} />
             </a>
             <Link href="/" className="text-[14px] font-semibold text-[#007AFF] px-4 py-3">Home</Link>
             <Link href="/pricing" className="text-[14px] font-semibold text-[#007AFF] px-4 py-3">Pricing</Link>

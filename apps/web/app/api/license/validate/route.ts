@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server'
 import { supabaseAdmin } from '@/lib/supabase'
 import { rateLimit, clientIp } from '@/lib/rateLimit'
 import { boundedString, LIMITS } from '@/lib/validate'
+import { issueLicenseToken } from '@/lib/licenseToken'
 
 // Periodic check-in from the desktop app to confirm a key/machine pair is
 // still valid (e.g. hasn't been revoked or deactivated from the admin panel).
@@ -55,5 +56,6 @@ export async function POST(request: NextRequest) {
     .update({ last_validated: new Date().toISOString() })
     .eq('id', activation.id)
 
-  return NextResponse.json({ valid: true, tier: license.tier, expiresAt: license.expires_at ?? null })
+  const token = issueLicenseToken({ key, machineId, tier: license.tier })
+  return NextResponse.json({ valid: true, tier: license.tier, expiresAt: license.expires_at ?? null, ...(token ? { token } : {}) })
 }

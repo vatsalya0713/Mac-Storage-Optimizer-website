@@ -3,7 +3,7 @@ import { Link } from '@/i18n/navigation'
 import { Navbar } from '@/components/Navbar'
 import { Footer } from '@/components/Footer'
 import { AppleLogo } from '@/components/AppleLogo'
-import { Check, ChevronRight, Hammer, Shield, FolderGit2, RotateCcw } from 'lucide-react'
+import { Check, ChevronRight, Hammer, Shield, FolderGit2, RotateCcw, Download } from 'lucide-react'
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
@@ -65,7 +65,7 @@ export default async function DevelopersPage() {
               Xcode, Node, Gradle and friends quietly fill a Mac with gigabytes of regenerable files. The Developer tab finds them, tells you which are safe to rebuild, and moves them to the Trash — without ever touching your source code.
             </p>
             <a href="/downloads/MacDiskCleaner.dmg" className="btn-primary text-[16px] py-[14px] px-8 inline-flex">
-              <AppleLogo size={16} /> Download Free for Mac
+              <AppleLogo size={16} /> Download Free for Mac <Download size={16} />
             </a>
           </div>
         </section>

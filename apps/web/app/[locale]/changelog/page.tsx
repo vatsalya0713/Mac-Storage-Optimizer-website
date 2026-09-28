@@ -3,7 +3,7 @@ import { Link } from '@/i18n/navigation'
 import { Navbar } from '@/components/Navbar'
 import { Footer } from '@/components/Footer'
 import { AppleLogo } from '@/components/AppleLogo'
-import { ChevronRight } from 'lucide-react'
+import { ChevronRight, Download } from 'lucide-react'
 import changelog from '@/content/changelog.json'
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -37,7 +37,7 @@ export default async function ChangelogPage() {
               MacDiskCleaner checks for updates on its own and installs them in one click — your results, settings and license are kept. You can also choose <strong>MacDiskCleaner → Check for Updates…</strong> any time.
             </p>
             <a href="/downloads/MacDiskCleaner.dmg" className="btn-primary text-[15px] py-3 px-7 inline-flex">
-              <AppleLogo size={15} /> Download the latest version
+              <AppleLogo size={15} /> Download the latest version <Download size={15} />
             </a>
           </div>
         </section>

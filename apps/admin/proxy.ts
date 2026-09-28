@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
 import { timingSafeEqual, createHash } from 'node:crypto'
+import { sessionToken } from './lib/session'
 
 function safeEqual(a: string, b: string) {
   const hashA = createHash('sha256').update(a).digest()
@@ -22,7 +23,7 @@ export function proxy(request: NextRequest) {
   const session = request.cookies.get('admin_session')?.value
   const expected = process.env.ADMIN_PASSWORD
 
-  if (!expected || !session || !safeEqual(session, expected)) {
+  if (!expected || !session || !safeEqual(session, sessionToken(expected))) {
     const loginUrl = new URL('/login', request.url)
     loginUrl.searchParams.set('from', pathname)
     return NextResponse.redirect(loginUrl)

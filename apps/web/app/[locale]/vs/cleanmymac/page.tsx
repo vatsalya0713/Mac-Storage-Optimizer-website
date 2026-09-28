@@ -107,7 +107,7 @@ export default async function VsCleanMyMacPage() {
         <h2 className="text-[32px] font-extrabold tracking-tight text-[#1D1D1F] mb-4">Try it before you decide</h2>
         <p className="text-[16px] text-[#6E6E73] mb-8">Free download, no account required.</p>
         <a href="/downloads/MacDiskCleaner.dmg" className="btn-primary text-[16px] py-[14px] px-8 inline-flex">
-          <AppleLogo size={16} /> Download Free
+          <AppleLogo size={16} /> Download Free <Download size={16} />
         </a>
       </section>
       </main>

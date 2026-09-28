@@ -48,7 +48,7 @@ export default async function DownloadsPage() {
               MacDiskCleaner ships as a single universal binary compiled natively for both Apple Silicon and Intel — no need to pick a version, it just runs fast on whichever Mac you have.
             </p>
             <a href="/downloads/MacDiskCleaner.dmg" className="btn-primary text-[16px] py-[14px] px-8 inline-flex">
-              <AppleLogo size={16} /> Download Free for Mac
+              <AppleLogo size={16} /> Download Free for Mac <Download size={16} />
             </a>
             <p className="text-[13px] text-[#6E6E73] mt-5">
               Version {latest.version} · {(latest.sizeBytes / 1_048_576).toFixed(1)} MB · released{' '}

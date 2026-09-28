@@ -89,7 +89,7 @@ export default async function BlogPost({
               <p className="text-[13px] text-[#6E6E73]">Free to download. No account required to start.</p>
             </div>
             <a href="/downloads/MacDiskCleaner.dmg" className="btn-primary text-[14px] py-3 px-6 flex-shrink-0">
-              <AppleLogo size={15} /> Download Free
+              <AppleLogo size={15} /> Download Free <Download size={15} />
             </a>
           </div>
 
@@ -106,7 +106,7 @@ export default async function BlogPost({
               <p className="text-[14px] text-[#6E6E73]">Free to download. No account required to start.</p>
             </div>
             <a href="/downloads/MacDiskCleaner.dmg" className="btn-primary text-[14px] py-3 px-6 flex-shrink-0">
-              <AppleLogo size={15} /> Download Free
+              <AppleLogo size={15} /> Download Free <Download size={15} />
             </a>
           </div>
         </article>
