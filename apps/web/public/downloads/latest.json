@@ -1,16 +1,13 @@
 {
-  "version": "1.1.1",
-  "build": 18,
+  "version": "1.1.2",
+  "build": 19,
   "releasedAt": "2026-09-28",
   "notes": [
-    "Fixed: your Pro license can no longer be lost if the license server has a hiccup, and it now survives updates",
-    "Fixed: the App Uninstaller now removes only the selected app's own files, never other apps from the same vendor",
-    "Trash: put back anything MacDiskCleaner moved, free for everyone (returns the size to your free allowance)",
-    "The app is now simply named MacDiskCleaner and is signed for a stable identity",
-    "Corrected system requirement: macOS 14 Sonoma or later"
+    "Full Disk Access guidance: an optional banner and a Settings row explain how to let scans include Safari, Mail and app data",
+    "New Help menu: what's new, safety & privacy, contact support, and report a problem with diagnostics filled in"
   ],
-  "url": "https://www.macdiskcleaner.com/downloads/MacDiskCleaner-1.1.1.dmg",
-  "sha256": "5776b8c0ab5286799250216d80a49953810b0467939a682f6e32c5f5966f4c0a",
-  "sizeBytes": 4972476,
+  "url": "https://www.macdiskcleaner.com/downloads/MacDiskCleaner-1.1.2.dmg",
+  "sha256": "551c9cb9458af3b07d60621f017bf5021c274c684157b7473d36ce7da49b6cc6",
+  "sizeBytes": 5007212,
   "minMacOS": "14"
 }

@@ -1,3 +1,4 @@
+import latest from '@/public/downloads/latest.json'
 const SITE_URL = 'https://www.macdiskcleaner.com'
 
 const FAQ_ITEMS = [
@@ -53,11 +54,6 @@ export function StructuredData({ locale }: { locale: string }) {
     url: SITE_URL,
     name: 'MacDiskCleaner',
     publisher: { '@id': `${SITE_URL}/#organization` },
-    potentialAction: {
-      '@type': 'SearchAction',
-      target: `${SITE_URL}/search?q={search_term_string}`,
-      'query-input': 'required name=search_term_string',
-    },
   }
 
   const softwareApplication = {
@@ -66,6 +62,11 @@ export function StructuredData({ locale }: { locale: string }) {
     name: 'MacDiskCleaner',
     applicationCategory: 'UtilitiesApplication',
     operatingSystem: 'macOS 14+',
+    softwareVersion: latest.version,
+    fileSize: `${Math.round(latest.sizeBytes / 1_048_576)}MB`,
+    downloadUrl: `${SITE_URL}/downloads/MacDiskCleaner.dmg`,
+    releaseNotes: `${SITE_URL}/changelog`,
+    datePublished: latest.releasedAt,
     url,
     image: `${SITE_URL}/app-icon.jpg`,
     offers: [

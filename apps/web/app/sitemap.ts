@@ -6,6 +6,8 @@ const SITE_URL = 'https://www.macdiskcleaner.com'
 
 function localizedUrl(locale: string, pathname: string) {
   const prefix = locale === routing.defaultLocale ? '' : `/${locale}`
+  // '/es/' 308-redirects to '/es' — list the final URL, never a redirect.
+  if (pathname === '/') return prefix ? `${SITE_URL}${prefix}` : `${SITE_URL}/`
   return `${SITE_URL}${prefix}${pathname}`
 }
 

@@ -1,5 +1,13 @@
 [
   {
+    "version": "1.1.2",
+    "date": "2026-09-28",
+    "notes": [
+      "Full Disk Access guidance: an optional banner and a Settings row explain how to let scans include Safari, Mail and app data",
+      "New Help menu: what's new, safety & privacy, contact support, and report a problem with diagnostics filled in"
+    ]
+  },
+  {
     "version": "1.1.1",
     "date": "2026-09-28",
     "notes": [
