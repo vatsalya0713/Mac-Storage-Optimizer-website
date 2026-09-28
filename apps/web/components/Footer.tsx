@@ -1,7 +1,8 @@
 "use client";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
-import { Apple } from "lucide-react";
+import {  } from "lucide-react";
+import { AppleLogo } from "@/components/AppleLogo"
 
 export function Footer() {
   const tNav = useTranslations("nav");
@@ -12,13 +13,16 @@ export function Footer() {
       <div className="max-w-[1200px] mx-auto px-6">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6 mb-6">
           <Link href="/" className="flex items-center gap-2 font-bold text-[15px] text-[#1D1D1F]">
-            <Apple size={17} /> MacDiskCleaner
+            <AppleLogo size={17} /> MacDiskCleaner
           </Link>
           <nav className="flex flex-wrap justify-center gap-x-6 gap-y-2 text-[13px] text-[#6E6E73] font-medium">
             <a href="/#features" className="hover:text-[#1D1D1F] transition-colors">{tNav("features")}</a>
             <a href="/#howit" className="hover:text-[#1D1D1F] transition-colors">{tNav("howit")}</a>
             <a href="/#pricing" className="hover:text-[#1D1D1F] transition-colors">{tNav("pricing")}</a>
             <Link href="/blog" className="hover:text-[#1D1D1F] transition-colors">{tNav("blog")}</Link>
+            <Link href="/developers" className="hover:text-[#1D1D1F] transition-colors">For developers</Link>
+            <Link href="/changelog" className="hover:text-[#1D1D1F] transition-colors">Changelog</Link>
+            <Link href="/security" className="hover:text-[#1D1D1F] transition-colors">Safety</Link>
             <Link href="/vs/cleanmymac" className="hover:text-[#1D1D1F] transition-colors">vs. CleanMyMac</Link>
             <Link href="/contact" className="hover:text-[#1D1D1F] transition-colors">Contact</Link>
             <Link href="/privacy" className="hover:text-[#1D1D1F] transition-colors">{t("privacy")}</Link>

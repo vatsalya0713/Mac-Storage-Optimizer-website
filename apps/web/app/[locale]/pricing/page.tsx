@@ -3,6 +3,7 @@ import { Link } from '@/i18n/navigation'
 import { Navbar } from '@/components/Navbar'
 import { Footer } from '@/components/Footer'
 import { Check, Download, ChevronRight } from 'lucide-react'
+import { AppleLogo } from "@/components/AppleLogo"
 
 export async function generateMetadata(): Promise<Metadata> {
   // English-only content today, same convention as /free-mac-cleaner and
@@ -97,7 +98,7 @@ export default async function PricingPage() {
                 href="/downloads/MacDiskCleaner.dmg"
                 className="text-[14px] font-semibold py-3 px-6 w-full justify-center inline-flex items-center gap-2 rounded-full border border-[rgba(0,0,0,0.12)] text-[#1D1D1F] hover:bg-[#F5F5F7] transition-colors"
               >
-                <Download size={15} /> Download Free
+                <AppleLogo size={15} /> Download Free
               </a>
             </div>
 

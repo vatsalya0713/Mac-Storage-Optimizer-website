@@ -3,6 +3,7 @@ import { Link } from '@/i18n/navigation'
 import { Navbar } from '@/components/Navbar'
 import { Footer } from '@/components/Footer'
 import { Check, Download, ChevronRight } from 'lucide-react'
+import { AppleLogo } from "@/components/AppleLogo"
 
 export async function generateMetadata(): Promise<Metadata> {
   // English-only content today (see plan: new landing pages translate once
@@ -77,7 +78,7 @@ export default async function FreeMacCleanerPage() {
             No trial period. No credit card. Clean junk files, find duplicates, and locate large files hogging your storage — download and start scanning in under a minute.
           </p>
           <a href="/downloads/MacDiskCleaner.dmg" className="btn-primary text-[16px] py-[14px] px-8 inline-flex">
-            <Download size={16} /> Download Free for Mac
+            <AppleLogo size={16} /> Download Free for Mac
           </a>
         </div>
       </section>

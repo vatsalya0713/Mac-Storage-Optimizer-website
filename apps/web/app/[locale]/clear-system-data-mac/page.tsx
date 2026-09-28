@@ -3,6 +3,7 @@ import { Link } from '@/i18n/navigation'
 import { Navbar } from '@/components/Navbar'
 import { Footer } from '@/components/Footer'
 import { Check, Download, ChevronRight } from 'lucide-react'
+import { AppleLogo } from "@/components/AppleLogo"
 
 export async function generateMetadata(): Promise<Metadata> {
   // English-only content today, same convention as /free-mac-cleaner and
@@ -66,7 +67,7 @@ export default async function ClearSystemDataMacPage() {
               "System Data" is usually the biggest, least helpful category in About This Mac → Storage. Here's what's actually inside it, and how to safely reduce it.
             </p>
             <a href="/downloads/MacDiskCleaner.dmg" className="btn-primary text-[16px] py-[14px] px-8 inline-flex">
-              <Download size={16} /> Download Free for Mac
+              <AppleLogo size={16} /> Download Free for Mac
             </a>
           </div>
         </section>
@@ -123,7 +124,7 @@ export default async function ClearSystemDataMacPage() {
               <p className="text-[14px] text-[#6E6E73]">Free to download. No account required to start.</p>
             </div>
             <a href="/downloads/MacDiskCleaner.dmg" className="btn-primary text-[14px] py-3 px-6 flex-shrink-0">
-              <Download size={15} /> Download Free
+              <AppleLogo size={15} /> Download Free
             </a>
           </div>
         </section>

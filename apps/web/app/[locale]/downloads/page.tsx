@@ -2,7 +2,9 @@ import type { Metadata } from 'next'
 import { Link } from '@/i18n/navigation'
 import { Navbar } from '@/components/Navbar'
 import { Footer } from '@/components/Footer'
+import latest from '@/public/downloads/latest.json'
 import { Check, Cpu, Download, ChevronRight } from 'lucide-react'
+import { AppleLogo } from "@/components/AppleLogo"
 
 export async function generateMetadata(): Promise<Metadata> {
   // English-only content today, same convention as /free-mac-cleaner and
@@ -24,7 +26,7 @@ const REQUIREMENTS = [
 const STEPS = [
   { num: '01', title: 'Open the .dmg file', desc: 'Your browser downloads it directly — no installer wizard.' },
   { num: '02', title: 'Drag to Applications', desc: 'Drop the MacDiskCleaner icon into your Applications folder.' },
-  { num: '03', title: 'Open and scan', desc: 'Launch it from Applications or Launchpad, then click Start Scan.' },
+  { num: '03', title: 'Open and scan', desc: 'First launch: right-click the app, choose Open, then Open again — macOS asks once because the app is downloaded directly, not from the App Store. After that, updates install themselves.' },
 ]
 
 export default async function DownloadsPage() {
@@ -46,8 +48,16 @@ export default async function DownloadsPage() {
               MacDiskCleaner ships as a single universal binary compiled natively for both Apple Silicon and Intel — no need to pick a version, it just runs fast on whichever Mac you have.
             </p>
             <a href="/downloads/MacDiskCleaner.dmg" className="btn-primary text-[16px] py-[14px] px-8 inline-flex">
-              <Download size={16} /> Download Free for Mac
+              <AppleLogo size={16} /> Download Free for Mac
             </a>
+            <p className="text-[13px] text-[#6E6E73] mt-5">
+              Version {latest.version} · {(latest.sizeBytes / 1_048_576).toFixed(1)} MB · released{' '}
+              {new Date(`${latest.releasedAt}T00:00:00Z`).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' })}
+              {' · '}
+              <Link href="/changelog" className="text-[#007AFF] font-medium">What&apos;s new</Link>
+              {' · '}
+              <Link href="/security" className="text-[#007AFF] font-medium">Verify checksum</Link>
+            </p>
           </div>
         </section>
 

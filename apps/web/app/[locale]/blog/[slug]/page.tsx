@@ -9,6 +9,7 @@ import { getPostSlugs, getPostPath, getPostFrontmatter } from '@/lib/blog'
 import { Navbar } from '@/components/Navbar'
 import { Footer } from '@/components/Footer'
 import { ChevronRight, Download } from 'lucide-react'
+import { AppleLogo } from "@/components/AppleLogo"
 
 export function generateStaticParams() {
   return getPostSlugs('en').map((slug) => ({ slug }))
@@ -88,7 +89,7 @@ export default async function BlogPost({
               <p className="text-[13px] text-[#6E6E73]">Free to download. No account required to start.</p>
             </div>
             <a href="/downloads/MacDiskCleaner.dmg" className="btn-primary text-[14px] py-3 px-6 flex-shrink-0">
-              <Download size={15} /> Download Free
+              <AppleLogo size={15} /> Download Free
             </a>
           </div>
 
@@ -105,7 +106,7 @@ export default async function BlogPost({
               <p className="text-[14px] text-[#6E6E73]">Free to download. No account required to start.</p>
             </div>
             <a href="/downloads/MacDiskCleaner.dmg" className="btn-primary text-[14px] py-3 px-6 flex-shrink-0">
-              <Download size={15} /> Download Free
+              <AppleLogo size={15} /> Download Free
             </a>
           </div>
         </article>

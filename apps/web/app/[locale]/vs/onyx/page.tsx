@@ -3,6 +3,7 @@ import { Link } from '@/i18n/navigation'
 import { Navbar } from '@/components/Navbar'
 import { Footer } from '@/components/Footer'
 import { Check, X, Download, ChevronRight } from 'lucide-react'
+import { AppleLogo } from "@/components/AppleLogo"
 
 export async function generateMetadata(): Promise<Metadata> {
   // English-only content today — canonical pinned to the unprefixed URL
@@ -121,7 +122,7 @@ export default async function VsOnyxPage() {
           <h2 className="text-[32px] font-extrabold tracking-tight text-[#1D1D1F] mb-4">Try it before you decide</h2>
           <p className="text-[16px] text-[#6E6E73] mb-8">Free download, no account required.</p>
           <a href="/downloads/MacDiskCleaner.dmg" className="btn-primary text-[16px] py-[14px] px-8 inline-flex">
-            <Download size={16} /> Download Free
+            <AppleLogo size={16} /> Download Free
           </a>
         </section>
       </main>

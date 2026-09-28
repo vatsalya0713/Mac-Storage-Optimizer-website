@@ -2,7 +2,8 @@
 import { Suspense, useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { useTranslations } from "next-intl";
-import { Check, Copy, Download, Loader2 } from "lucide-react";
+import { Check, Copy, Loader2 } from "lucide-react";
+import { AppleLogo } from "@/components/AppleLogo"
 
 export default function SuccessPage() {
   return (
@@ -96,7 +97,7 @@ function SuccessContent() {
         </div>
 
         <a href="/downloads/MacDiskCleaner.dmg" className="btn-primary text-[15px] py-3 px-7 inline-flex">
-          <Download size={16} /> {t("downloadCta")}
+          <AppleLogo size={16} /> {t("downloadCta")}
         </a>
 
         <p className="text-[12px] text-[#9A9A9E] mt-8">{t("supportNote")}</p>

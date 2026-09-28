@@ -6,11 +6,8 @@ import { useTranslations, useLocale } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
-import {
-  Trash2, Copy, HardDrive, Shield, Zap, Star,
-  ChevronRight, Download, Apple, Check,
-  Search, Globe, Lock, BarChart2, Clock, ArrowRight
-} from "lucide-react";
+import { Trash2, Copy, HardDrive, Shield, Zap, Star, ChevronRight, Download, Check, Search, Globe, Lock, BarChart2, Clock, ArrowRight } from "lucide-react";
+import { AppleLogo } from "@/components/AppleLogo"
 
 const FEATURE_ICONS = [
   { icon: Trash2, color: "#FF3B30", bg: "#FFF1F0" },
@@ -21,7 +18,7 @@ const FEATURE_ICONS = [
   { icon: Search, color: "#30B0C7", bg: "#EDF9FB" },
 ];
 
-const LIFESTYLE_ICONS = [Apple, Zap, Lock, Clock];
+const LIFESTYLE_ICONS = [AppleLogo, Zap, Lock, Clock];
 
 const HOWIT_ICONS = [Download, Search, Zap];
 
@@ -64,7 +61,7 @@ function Hero() {
           className="flex justify-center mb-8"
         >
           <span className="inline-flex items-center gap-2 bg-[#F0F6FF] text-[#007AFF] text-[13px] font-semibold rounded-full px-4 py-1.5 border border-[#C8DEFF]">
-            <Apple size={13} /> {t("badge")}
+            <AppleLogo size={13} /> {t("badge")}
           </span>
         </motion.div>
 
@@ -87,7 +84,7 @@ function Hero() {
           className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-14"
         >
           <a href="/downloads/MacDiskCleaner.dmg" className="btn-primary text-[16px] py-[14px] px-8">
-            <Download size={16} /> {t("ctaPrimary")}
+            <AppleLogo size={16} /> {t("ctaPrimary")}
           </a>
           <a href="#howit" className="btn-ghost text-[16px] py-[14px] px-6">
             {t("ctaSecondary")} <ChevronRight size={16} />
