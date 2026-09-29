@@ -3,8 +3,8 @@ import { Link } from '@/i18n/navigation'
 import { Navbar } from '@/components/Navbar'
 import { Footer } from '@/components/Footer'
 import { AppleLogo } from '@/components/AppleLogo'
-import { ChevronRight, Trash2, Lock, ShieldCheck, Eye, ListChecks, WifiOff, Download } from 'lucide-react'
-import latest from '@/public/downloads/latest.json'
+import { ChevronRight, Trash2, Lock, ShieldCheck, Eye, ListChecks, WifiOff, Download, Feather } from 'lucide-react'
+import { getLatestRelease } from '@/lib/latestRelease'
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
@@ -25,6 +25,7 @@ const PROMISES = [
 ]
 
 export default async function SecurityPage() {
+  const latest = await getLatestRelease()
   return (
     <>
       <Navbar />
@@ -56,6 +57,23 @@ export default async function SecurityPage() {
                 <p className="text-[14px] text-[#6E6E73] leading-relaxed">{p.text}</p>
               </div>
             ))}
+          </div>
+        </section>
+
+        <section className="pb-20 px-6">
+          <div className="max-w-[640px] mx-auto bento-card p-7 flex gap-4">
+            <div className="w-10 h-10 rounded-xl bg-[#34C759]/10 flex items-center justify-center flex-shrink-0">
+              <Feather size={19} className="text-[#34C759]" />
+            </div>
+            <div>
+              <p className="text-[16px] font-bold text-[#1D1D1F] mb-1.5">Why is the download only {(latest.sizeBytes / 1_048_576).toFixed(0)} MB?</p>
+              <p className="text-[14px] text-[#6E6E73] leading-relaxed">
+                Because it&apos;s genuinely native. MacDiskCleaner is written in Swift and SwiftUI — Apple&apos;s own languages for
+                macOS — and calls macOS&apos;s built-in file and Trash APIs directly. There&apos;s no embedded browser engine,
+                no bundled Node.js runtime, no downloaded frameworks. A small download isn&apos;t a sign of something missing;
+                it&apos;s the normal size for a focused native Mac utility with nothing extra riding along.
+              </p>
+            </div>
           </div>
         </section>
 
