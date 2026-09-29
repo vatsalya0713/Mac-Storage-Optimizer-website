@@ -33,7 +33,9 @@ SHA="$(plutil -extract sha256 raw -o - "$TMP/latest.json")"
 [ -n "$VERSION" ] && [ -n "$URL" ] && [ -n "$SHA" ] || die "Release information was incomplete."
 
 say "Downloading MacDiskCleaner $VERSION..."
-curl -fL --progress-bar "$URL" -o "$TMP/MacDiskCleaner.dmg" || die "Download failed."
+# Goes through /api/download (not $URL directly) so this install is counted
+# alongside browser downloads; it redirects to the exact same file $URL points to.
+curl -fL --progress-bar "$SITE/api/download?src=installer" -o "$TMP/MacDiskCleaner.dmg" || die "Download failed."
 
 say "Verifying checksum..."
 ACTUAL="$(shasum -a 256 "$TMP/MacDiskCleaner.dmg" | awk '{print $1}')"

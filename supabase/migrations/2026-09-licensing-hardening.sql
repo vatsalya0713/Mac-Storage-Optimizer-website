@@ -61,3 +61,24 @@ create unique index if not exists app_releases_one_current on app_releases (is_c
 alter table app_releases enable row level security;
 drop policy if exists "no public access to app_releases" on app_releases;
 create policy "no public access to app_releases" on app_releases for all using (false) with check (false);
+
+
+-- Download tracking (admin panel "Downloads" page). No raw IP is stored —
+-- only a one-way hash (for rough distinct-visitor counting) plus coarse
+-- geo (country/region/city) read from Vercel's edge request headers.
+create table if not exists download_logs (
+  id uuid primary key default gen_random_uuid(),
+  created_at timestamptz not null default now(),
+  source text not null default 'dmg',
+  version text,
+  country text,
+  region text,
+  city text,
+  ip_hash text,
+  referrer text
+);
+create index if not exists download_logs_created_at_idx on download_logs (created_at desc);
+
+alter table download_logs enable row level security;
+drop policy if exists "no public access to download_logs" on download_logs;
+create policy "no public access to download_logs" on download_logs for all using (false) with check (false);

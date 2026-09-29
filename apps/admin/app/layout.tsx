@@ -15,7 +15,8 @@ import {
   X,
   DollarSign,
   MessageCircle,
-  Rocket
+  Rocket,
+  Download
 } from 'lucide-react'
 
 const navItems = [
@@ -25,6 +26,7 @@ const navItems = [
   { name: 'Sales & Customers', href: '/sales', icon: DollarSign },
   { name: 'Support Messages', href: '/support', icon: MessageCircle },
   { name: 'App Releases', href: '/releases', icon: Rocket },
+  { name: 'Downloads', href: '/downloads', icon: Download },
   { name: 'Settings', href: '/settings', icon: Settings },
 ]
 
