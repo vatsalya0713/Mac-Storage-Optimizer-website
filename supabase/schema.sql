@@ -196,3 +196,29 @@ begin
 end;
 $$;
 revoke all on function record_free_usage(text, bigint) from public, anon, authenticated;
+
+-- ============================================================
+-- Release management: the admin panel edits release notes and can roll the
+-- "current" version back without a new app build. The desktop app's updater
+-- (from the next app version onward) reads /api/releases/latest, which
+-- serves the row marked is_current. Older app versions keep reading the
+-- static /downloads/latest.json file, which the release script still writes.
+-- ============================================================
+create table if not exists app_releases (
+  id uuid primary key default gen_random_uuid(),
+  version text not null unique,
+  build int,
+  released_at date not null default current_date,
+  notes jsonb not null default '[]'::jsonb,
+  dmg_path text not null,
+  sha256 text not null,
+  size_bytes bigint not null,
+  min_macos text,
+  is_current boolean not null default false,
+  created_at timestamptz not null default now()
+);
+create unique index if not exists app_releases_one_current on app_releases (is_current) where is_current;
+
+alter table app_releases enable row level security;
+drop policy if exists "no public access to app_releases" on app_releases;
+create policy "no public access to app_releases" on app_releases for all using (false) with check (false);
