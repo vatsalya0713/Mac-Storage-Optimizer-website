@@ -2,6 +2,7 @@
 
 import { PaginatedSearch } from '@/components/PaginatedSearch'
 import { formatDateTime } from '@/lib/formatDate'
+import { Download } from 'lucide-react'
 
 export default function SalesClient({
   sales,
@@ -25,8 +26,16 @@ export default function SalesClient({
           page={page}
           pageSize={pageSize}
         />
-        <div className="bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 px-4 py-2 rounded-xl text-sm font-medium whitespace-nowrap">
-          Revenue (filtered): ${totalRevenue.toFixed(2)}
+        <div className="flex items-center gap-2">
+          <div className="bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 px-4 py-2 rounded-xl text-sm font-medium whitespace-nowrap">
+            Revenue (filtered): ${totalRevenue.toFixed(2)}
+          </div>
+          <a
+            href="/api/export/license-keys"
+            className="flex items-center justify-center gap-2 px-4 py-2 bg-white/5 border border-white/10 text-gray-200 font-medium rounded-xl hover:bg-white/10 transition-colors text-sm whitespace-nowrap"
+          >
+            <Download className="w-4 h-4" /> Export CSV
+          </a>
         </div>
       </div>
 

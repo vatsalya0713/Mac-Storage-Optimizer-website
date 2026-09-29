@@ -1,7 +1,7 @@
 import { supabaseAdmin } from '@/lib/supabase'
 import { priceForTier } from '@/lib/pricing'
 import { formatDate, formatShortDate } from '@/lib/formatDate'
-import { KeyRound, MonitorCheck, Activity, ArrowUpRight, DollarSign, Clock } from 'lucide-react'
+import { KeyRound, MonitorCheck, Activity, ArrowUpRight, DollarSign, Clock, Webhook, CheckCircle2, AlertTriangle } from 'lucide-react'
 import Link from 'next/link'
 import { ActivationsChart, RevenueChart } from '@/components/DashboardCharts'
 
@@ -65,6 +65,21 @@ export default async function AdminDashboard() {
       .order('expires_at', { ascending: true })
       .limit(5),
   ])
+
+  // Best-effort: the migration adding webhook_events may not have run yet,
+  // so a missing table must never break the dashboard — just show "unknown".
+  let lastWebhook: { created_at: string; event_type: string } | null = null
+  try {
+    const { data } = await supabaseAdmin
+      .from('webhook_events')
+      .select('created_at, event_type')
+      .order('created_at', { ascending: false })
+      .limit(1)
+      .maybeSingle()
+    lastWebhook = data
+  } catch {
+    lastWebhook = null
+  }
 
   const totalRevenue = allKeys?.reduce((acc, key) => {
     if (key.payment_provider === 'manual_admin') return acc
@@ -142,6 +157,9 @@ export default async function AdminDashboard() {
           )
         })}
       </div>
+
+      {/* Webhook health */}
+      <WebhookHealthBanner lastWebhook={lastWebhook} />
 
       {/* Trend charts */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
@@ -228,6 +246,38 @@ export default async function AdminDashboard() {
         </div>
 
       </div>
+    </div>
+  )
+}
+
+function WebhookHealthBanner({ lastWebhook }: { lastWebhook: { created_at: string; event_type: string } | null }) {
+  if (!lastWebhook) {
+    return (
+      <div className="flex items-center gap-3 p-4 rounded-2xl bg-white/5 border border-white/10">
+        <Webhook className="w-4 h-4 text-gray-500" />
+        <p className="text-sm text-gray-400">No webhook activity logged yet.</p>
+      </div>
+    )
+  }
+
+  const ageMs = Date.now() - new Date(lastWebhook.created_at).getTime()
+  const ageHours = ageMs / 3_600_000
+  // Dodo can go quiet for legitimately long stretches (no sales that day),
+  // so this flags "stale" rather than claiming something is actually wrong —
+  // it's a nudge to check the Dodo dashboard, not a hard alert.
+  const stale = ageHours > 72
+  const ageLabel =
+    ageHours < 1 ? `${Math.max(1, Math.round(ageMs / 60_000))} min ago`
+    : ageHours < 48 ? `${Math.round(ageHours)}h ago`
+    : `${Math.round(ageHours / 24)}d ago`
+
+  return (
+    <div className={`flex items-center gap-3 p-4 rounded-2xl border ${stale ? 'bg-amber-500/5 border-amber-500/20' : 'bg-white/5 border-white/10'}`}>
+      {stale ? <AlertTriangle className="w-4 h-4 text-amber-400 flex-shrink-0" /> : <CheckCircle2 className="w-4 h-4 text-emerald-400 flex-shrink-0" />}
+      <p className="text-sm text-gray-300">
+        Last Dodo webhook: <span className="font-medium text-gray-100">{lastWebhook.event_type}</span> · {ageLabel}
+        {stale && <span className="text-amber-400"> — no webhook in over 3 days, worth checking the Dodo dashboard.</span>}
+      </p>
     </div>
   )
 }

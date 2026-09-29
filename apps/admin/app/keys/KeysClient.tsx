@@ -2,7 +2,7 @@
 
 import { useState, useTransition } from 'react'
 import { revokeKey, generateKey, resetActivations } from './actions'
-import { Plus, Ban, Loader2, Copy, Check, RotateCcw } from 'lucide-react'
+import { Plus, Ban, Loader2, Copy, Check, RotateCcw, Download } from 'lucide-react'
 import { PaginatedSearch } from '@/components/PaginatedSearch'
 
 export default function KeysClient({
@@ -63,12 +63,20 @@ export default function KeysClient({
       <div className="flex flex-col sm:flex-row gap-4 justify-between items-center">
         <PaginatedSearch placeholder="Search keys..." total={total} page={page} pageSize={pageSize} />
 
-        <button
-          onClick={() => setShowModal(true)}
-          className="flex items-center justify-center gap-2 px-4 py-2 bg-white text-black font-medium rounded-xl hover:bg-gray-100 transition-colors text-sm whitespace-nowrap"
-        >
-          <Plus className="w-4 h-4" /> Generate Key
-        </button>
+        <div className="flex gap-2">
+          <a
+            href="/api/export/license-keys"
+            className="flex items-center justify-center gap-2 px-4 py-2 bg-white/5 border border-white/10 text-gray-200 font-medium rounded-xl hover:bg-white/10 transition-colors text-sm whitespace-nowrap"
+          >
+            <Download className="w-4 h-4" /> Export CSV
+          </a>
+          <button
+            onClick={() => setShowModal(true)}
+            className="flex items-center justify-center gap-2 px-4 py-2 bg-white text-black font-medium rounded-xl hover:bg-gray-100 transition-colors text-sm whitespace-nowrap"
+          >
+            <Plus className="w-4 h-4" /> Generate Key
+          </button>
+        </div>
       </div>
 
       <div className="border border-white/10 rounded-2xl bg-white/5 overflow-hidden backdrop-blur-sm">

@@ -82,3 +82,33 @@ create index if not exists download_logs_created_at_idx on download_logs (create
 alter table download_logs enable row level security;
 drop policy if exists "no public access to download_logs" on download_logs;
 create policy "no public access to download_logs" on download_logs for all using (false) with check (false);
+
+
+-- Webhook health (admin panel shows "last webhook received"). Logs every
+-- Dodo event regardless of type via onPayload, which the SDK calls before
+-- any specific handler — so this insert is wrapped defensively in the route
+-- itself and must NEVER throw, or it would block real payment processing.
+create table if not exists webhook_events (
+  id uuid primary key default gen_random_uuid(),
+  created_at timestamptz not null default now(),
+  event_type text not null,
+  payment_id text
+);
+create index if not exists webhook_events_created_at_idx on webhook_events (created_at desc);
+
+alter table webhook_events enable row level security;
+drop policy if exists "no public access to webhook_events" on webhook_events;
+create policy "no public access to webhook_events" on webhook_events for all using (false) with check (false);
+
+-- Admin login attempts (security visibility — brute-force patterns, etc.)
+create table if not exists login_attempts (
+  id uuid primary key default gen_random_uuid(),
+  created_at timestamptz not null default now(),
+  ip text,
+  success boolean not null
+);
+create index if not exists login_attempts_created_at_idx on login_attempts (created_at desc);
+
+alter table login_attempts enable row level security;
+drop policy if exists "no public access to login_attempts" on login_attempts;
+create policy "no public access to login_attempts" on login_attempts for all using (false) with check (false);

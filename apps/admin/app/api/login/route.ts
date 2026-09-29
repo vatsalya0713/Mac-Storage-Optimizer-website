@@ -2,6 +2,20 @@ import { NextRequest, NextResponse } from 'next/server'
 import { timingSafeEqual, createHash } from 'node:crypto'
 import { rateLimit, clientIp } from '@/lib/rateLimit'
 import { sessionToken } from '@/lib/session'
+import { supabaseAdmin } from '@/lib/supabase'
+
+// Best-effort only — logging an attempt must never affect whether login
+// succeeds or fails. Awaited (with a short timeout) rather than
+// fire-and-forget, since a serverless function can freeze the instant it
+// returns a response, before a background write actually completes.
+async function logAttempt(ip: string, success: boolean) {
+  const insert = Promise.resolve(supabaseAdmin.from('login_attempts').insert([{ ip, success }]))
+    .then(({ error }) => {
+      if (error) console.error('login_attempts insert failed (non-fatal):', error.message)
+    })
+    .catch((error: unknown) => console.error('login_attempts insert failed (non-fatal):', error instanceof Error ? error.message : error))
+  await Promise.race([insert, new Promise((resolve) => setTimeout(resolve, 800))])
+}
 
 // Hash both sides to a fixed-length digest before comparing — avoids
 // leaking the real password's length via how long the comparison takes,
@@ -33,8 +47,11 @@ export async function POST(request: NextRequest) {
   }
 
   if (!password || !safeEqual(password, expected)) {
+    await logAttempt(clientIp(request), false)
     return NextResponse.json({ error: 'Incorrect password' }, { status: 401 })
   }
+
+  await logAttempt(clientIp(request), true)
 
   const response = NextResponse.json({ success: true })
   response.cookies.set('admin_session', sessionToken(expected), {

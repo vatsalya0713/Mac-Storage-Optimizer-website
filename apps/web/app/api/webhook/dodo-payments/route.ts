@@ -2,6 +2,7 @@ import { Webhooks } from '@dodopayments/nextjs'
 import { NextRequest, NextResponse } from 'next/server'
 import { createLicenseKey, findKeyByOrder, revokeByOrder, sendLicenseEmail } from '@/lib/license'
 import { MACHINE_ID_PATTERN } from '@/lib/checkout'
+import { supabaseAdmin } from '@/lib/supabase'
 
 const webhookKey = process.env.DODO_PAYMENTS_WEBHOOK_KEY
 
@@ -13,6 +14,24 @@ const webhookKey = process.env.DODO_PAYMENTS_WEBHOOK_KEY
 const handler = webhookKey
   ? Webhooks({
       webhookKey,
+
+      // Runs before any specific handler below (the SDK awaits it first) —
+      // an error here would silently block real payment processing, so this
+      // is wrapped so it can NEVER throw. Purely for the admin panel's
+      // "last webhook received" health indicator.
+      onPayload: async (payload) => {
+        try {
+          const data = payload.data as { payment_id?: string }
+          const { error } = await supabaseAdmin
+            .from('webhook_events')
+            .insert([{ event_type: payload.type, payment_id: data?.payment_id ?? null }])
+          // Table not created yet (migration pending), or any other hiccup —
+          // logged only, never rethrown.
+          if (error) console.error('webhook_events insert failed (non-fatal):', error.message)
+        } catch (error) {
+          console.error('webhook_events insert failed (non-fatal):', error instanceof Error ? error.message : error)
+        }
+      },
 
       onPaymentSucceeded: async (payload) => {
         const data = payload.data

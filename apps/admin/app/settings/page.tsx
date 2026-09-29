@@ -1,8 +1,24 @@
-import { Settings, Shield, Key } from 'lucide-react'
+import { Settings, Shield, Key, ShieldAlert } from 'lucide-react'
+import { supabaseAdmin } from '@/lib/supabase'
+import { formatDateTime } from '@/lib/formatDate'
 
 export const dynamic = 'force-dynamic'
 
-export default function SettingsPage() {
+async function getRecentLoginAttempts() {
+  try {
+    const { data } = await supabaseAdmin
+      .from('login_attempts')
+      .select('created_at, ip, success')
+      .order('created_at', { ascending: false })
+      .limit(15)
+    return data ?? []
+  } catch {
+    return []
+  }
+}
+
+export default async function SettingsPage() {
+  const attempts = await getRecentLoginAttempts()
   return (
     <div className="space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-500">
       <div className="flex items-center justify-between">
@@ -61,6 +77,35 @@ export default function SettingsPage() {
           </div>
         </div>
 
+
+        {/* Login Attempts */}
+        <div className="p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm lg:col-span-2">
+          <div className="flex items-center gap-3 mb-6">
+            <div className="p-2 bg-red-500/10 rounded-lg text-red-400">
+              <ShieldAlert className="w-5 h-5" />
+            </div>
+            <h3 className="text-lg font-semibold">Recent Login Attempts</h3>
+          </div>
+
+          {attempts.length === 0 ? (
+            <p className="text-sm text-gray-500">
+              None logged yet — this starts recording once{' '}
+              <code className="text-gray-400">supabase/migrations/2026-09-licensing-hardening.sql</code> has been run.
+            </p>
+          ) : (
+            <div className="space-y-2">
+              {attempts.map((a, i) => (
+                <div key={i} className="flex items-center justify-between px-4 py-2.5 rounded-xl bg-black/20 border border-white/5">
+                  <span className="text-sm text-gray-300 font-mono">{a.ip || 'unknown'}</span>
+                  <span className="text-xs text-gray-500">{formatDateTime(a.created_at)}</span>
+                  <span className={`px-2 py-0.5 rounded-full text-xs font-medium ${a.success ? 'bg-green-500/10 text-green-400' : 'bg-red-500/10 text-red-400'}`}>
+                    {a.success ? 'Success' : 'Failed'}
+                  </span>
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
       </div>
     </div>
   )
