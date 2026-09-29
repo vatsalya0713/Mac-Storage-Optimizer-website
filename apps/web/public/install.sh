@@ -26,7 +26,7 @@ cleanup() {
 trap cleanup EXIT
 
 say "Checking the latest version..."
-curl -fsSL "$SITE/downloads/latest.json?t=$(date +%s)" -o "$TMP/latest.json" || die "Couldn't reach macdiskcleaner.com."
+curl -fsSL "$SITE/api/releases/latest?t=$(date +%s)" -o "$TMP/latest.json" || die "Couldn't reach macdiskcleaner.com."
 VERSION="$(plutil -extract version raw -o - "$TMP/latest.json")"
 URL="$(plutil -extract url raw -o - "$TMP/latest.json")"
 SHA="$(plutil -extract sha256 raw -o - "$TMP/latest.json")"

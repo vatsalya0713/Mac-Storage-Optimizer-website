@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { Link } from '@/i18n/navigation'
 import { Navbar } from '@/components/Navbar'
 import { Footer } from '@/components/Footer'
-import latest from '@/public/downloads/latest.json'
+import { getLatestRelease } from '@/lib/latestRelease'
 import { Check, Download, ChevronRight } from 'lucide-react'
 import { AppleLogo } from "@/components/AppleLogo"
 
@@ -30,6 +30,7 @@ const STEPS = [
 ]
 
 export default async function DownloadsPage() {
+  const latest = await getLatestRelease()
   return (
     <>
       <Navbar />
@@ -90,7 +91,7 @@ export default async function DownloadsPage() {
         <section className="py-16 bg-[#F5F5F7] px-6">
           <div className="max-w-[720px] mx-auto text-center">
             <p className="text-[13px] font-semibold text-[#6E6E73] mb-4">Prefer a regular download?</p>
-            <a href="/downloads/MacDiskCleaner.dmg" className="btn-primary text-[15px] py-3 px-7 inline-flex">
+            <a href="/api/download" className="btn-primary text-[15px] py-3 px-7 inline-flex">
               <AppleLogo size={15} /> Download the .dmg <Download size={15} />
             </a>
             <p className="text-[13px] text-[#6E6E73] max-w-[560px] mx-auto mt-5">

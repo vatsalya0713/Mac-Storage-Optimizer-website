@@ -66,7 +66,7 @@ export default async function ClearSystemDataMacPage() {
             <p className="text-[19px] text-[#6E6E73] leading-relaxed max-w-[620px] mx-auto mb-10">
               "System Data" is usually the biggest, least helpful category in About This Mac → Storage. Here's what's actually inside it, and how to safely reduce it.
             </p>
-            <a href="/downloads/MacDiskCleaner.dmg" className="btn-primary text-[16px] py-[14px] px-8 inline-flex">
+            <a href="/api/download" className="btn-primary text-[16px] py-[14px] px-8 inline-flex">
               <AppleLogo size={16} /> Download Free for Mac <Download size={16} />
             </a>
           </div>
@@ -123,7 +123,7 @@ export default async function ClearSystemDataMacPage() {
               <p className="text-[17px] font-bold text-[#1D1D1F] mb-1">Ready to see what's really in System Data?</p>
               <p className="text-[14px] text-[#6E6E73]">Free to download. No account required to start.</p>
             </div>
-            <a href="/downloads/MacDiskCleaner.dmg" className="btn-primary text-[14px] py-3 px-6 flex-shrink-0">
+            <a href="/api/download" className="btn-primary text-[14px] py-3 px-6 flex-shrink-0">
               <AppleLogo size={15} /> Download Free <Download size={15} />
             </a>
           </div>

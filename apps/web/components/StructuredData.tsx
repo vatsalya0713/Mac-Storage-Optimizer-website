@@ -64,7 +64,7 @@ export function StructuredData({ locale }: { locale: string }) {
     operatingSystem: 'macOS 14+',
     softwareVersion: latest.version,
     fileSize: `${Math.round(latest.sizeBytes / 1_048_576)}MB`,
-    downloadUrl: `${SITE_URL}/downloads/MacDiskCleaner.dmg`,
+    downloadUrl: `${SITE_URL}/api/download`,
     releaseNotes: `${SITE_URL}/changelog`,
     datePublished: latest.releasedAt,
     url,

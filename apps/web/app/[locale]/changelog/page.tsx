@@ -4,7 +4,8 @@ import { Navbar } from '@/components/Navbar'
 import { Footer } from '@/components/Footer'
 import { AppleLogo } from '@/components/AppleLogo'
 import { ChevronRight, Download } from 'lucide-react'
-import changelog from '@/content/changelog.json'
+import changelogFile from '@/content/changelog.json'
+import { supabaseAdmin } from '@/lib/supabase'
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
@@ -18,7 +19,20 @@ function formatDate(iso: string) {
   return new Date(`${iso}T00:00:00Z`).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' })
 }
 
+async function getChangelog() {
+  const { data } = await supabaseAdmin
+    .from('app_releases')
+    .select('version, released_at, notes')
+    .order('released_at', { ascending: false })
+
+  const fromDb = (data ?? []).map((r) => ({ version: r.version, date: r.released_at, notes: r.notes as string[] }))
+  const knownVersions = new Set(fromDb.map((r) => r.version))
+  const merged = [...fromDb, ...changelogFile.filter((r) => !knownVersions.has(r.version))]
+  return merged.sort((a, b) => (a.date < b.date ? 1 : -1))
+}
+
 export default async function ChangelogPage() {
+  const changelog = await getChangelog()
   return (
     <>
       <Navbar />
@@ -36,7 +50,7 @@ export default async function ChangelogPage() {
             <p className="text-[18px] text-[#6E6E73] leading-relaxed max-w-[560px] mx-auto mb-8">
               MacDiskCleaner checks for updates on its own and installs them in one click — your results, settings and license are kept. You can also choose <strong>MacDiskCleaner → Check for Updates…</strong> any time.
             </p>
-            <a href="/downloads/MacDiskCleaner.dmg" className="btn-primary text-[15px] py-3 px-7 inline-flex">
+            <a href="/api/download" className="btn-primary text-[15px] py-3 px-7 inline-flex">
               <AppleLogo size={15} /> Download the latest version <Download size={15} />
             </a>
           </div>
