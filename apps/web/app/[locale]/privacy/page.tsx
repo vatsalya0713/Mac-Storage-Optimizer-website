@@ -47,6 +47,12 @@ export default function PrivacyPage() {
           &quot;Allow&quot; on the analytics notice; until then it stays off. We do not use advertising cookies and never
           sell data. You can change your mind by clearing this site&apos;s data in your browser.
         </p>
+        <p>
+          Downloading the app is logged for basic usage counts: the country/region/city your connection appears to
+          come from, and a one-way cryptographic hash of your IP address (not the address itself, and not
+          reversible) so the same download isn&apos;t double-counted. This applies regardless of the analytics
+          choice above, since it isn&apos;t a cookie and identifies no one individually.
+        </p>
 
         <h2>Third parties</h2>
         <p>
