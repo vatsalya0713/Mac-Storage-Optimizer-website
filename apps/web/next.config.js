@@ -31,12 +31,22 @@ const nextConfig = {
         ],
       },
       {
+        // Content-Disposition: attachment forces an actual download in every
+        // browser — without it some browsers try to handle the file inline
+        // (they can't render a .dmg, so behavior is inconsistent) instead of
+        // just saving it, which looked like "downloading does nothing".
         source: '/downloads/MacDiskCleaner.dmg',
-        headers: [{ key: 'Cache-Control', value: 'no-cache, must-revalidate' }],
+        headers: [
+          { key: 'Cache-Control', value: 'no-cache, must-revalidate' },
+          { key: 'Content-Disposition', value: 'attachment; filename="MacDiskCleaner.dmg"' },
+        ],
       },
       {
         source: '/downloads/MacDiskCleaner-:version.dmg',
-        headers: [{ key: 'Cache-Control', value: 'public, max-age=31536000, immutable' }],
+        headers: [
+          { key: 'Cache-Control', value: 'public, max-age=31536000, immutable' },
+          { key: 'Content-Disposition', value: 'attachment; filename="MacDiskCleaner.dmg"' },
+        ],
       },
     ]
   },
