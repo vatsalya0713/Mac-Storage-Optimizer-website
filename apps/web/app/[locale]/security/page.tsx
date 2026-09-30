@@ -91,7 +91,7 @@ export default async function SecurityPage() {
               MacDiskCleaner is distributed directly from this website. Because it isn&apos;t yet notarized by Apple, macOS asks you to confirm the first launch — see the steps on the download page. After that, updates install themselves.
             </p>
             <div className="text-center mt-8">
-              <a href="/api/download" className="btn-primary text-[15px] py-3 px-7 inline-flex">
+              <a href="/downloads" className="btn-primary text-[15px] py-3 px-7 inline-flex">
                 <AppleLogo size={15} /> Download for Mac <Download size={15} />
               </a>
             </div>

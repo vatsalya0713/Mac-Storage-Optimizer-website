@@ -96,7 +96,7 @@ function SuccessContent() {
           </ol>
         </div>
 
-        <a href="/api/download" className="btn-primary text-[15px] py-3 px-7 inline-flex">
+        <a href="/downloads" className="btn-primary text-[15px] py-3 px-7 inline-flex">
           <AppleLogo size={16} /> {t("downloadCta")} <Download size={16} />
         </a>
 
