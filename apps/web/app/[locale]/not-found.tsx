@@ -18,7 +18,7 @@ export default function NotFound() {
             The link may be old or mistyped. Here are the places most people are looking for:
           </p>
           <div className="flex flex-wrap items-center justify-center gap-3">
-            <a href="/downloads" className="btn-primary text-[14px] py-3 px-6 inline-flex">
+            <a href="/downloads?start=1" className="btn-primary text-[14px] py-3 px-6 inline-flex">
               <AppleLogo size={14} /> Download for Mac <Download size={14} />
             </a>
             <Link href="/" className="text-[14px] font-semibold text-[#007AFF] px-4 py-3">Home</Link>

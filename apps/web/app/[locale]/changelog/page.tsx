@@ -50,7 +50,7 @@ export default async function ChangelogPage() {
             <p className="text-[18px] text-[#6E6E73] leading-relaxed max-w-[560px] mx-auto mb-8">
               MacDiskCleaner checks for updates on its own and installs them in one click — your results, settings and license are kept. You can also choose <strong>MacDiskCleaner → Check for Updates…</strong> any time.
             </p>
-            <a href="/downloads" className="btn-primary text-[15px] py-3 px-7 inline-flex">
+            <a href="/downloads?start=1" className="btn-primary text-[15px] py-3 px-7 inline-flex">
               <AppleLogo size={15} /> Download the latest version <Download size={15} />
             </a>
           </div>

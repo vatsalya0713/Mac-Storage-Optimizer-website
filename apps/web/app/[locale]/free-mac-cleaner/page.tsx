@@ -77,7 +77,7 @@ export default async function FreeMacCleanerPage() {
           <p className="text-[19px] text-[#6E6E73] leading-relaxed max-w-[620px] mx-auto mb-10">
             No trial period. No credit card. Clean junk files, find duplicates, and locate large files hogging your storage — download and start scanning in under a minute.
           </p>
-          <a href="/downloads" className="btn-primary text-[16px] py-[14px] px-8 inline-flex">
+          <a href="/downloads?start=1" className="btn-primary text-[16px] py-[14px] px-8 inline-flex">
             <AppleLogo size={16} /> Download Free for Mac <Download size={16} />
           </a>
         </div>

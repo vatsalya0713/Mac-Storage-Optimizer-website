@@ -88,7 +88,7 @@ export default async function BlogPost({
               <p className="text-[16px] font-bold text-[#1D1D1F] mb-1">Ready to clean up your Mac?</p>
               <p className="text-[13px] text-[#6E6E73]">Free to download. No account required to start.</p>
             </div>
-            <a href="/downloads" className="btn-primary text-[14px] py-3 px-6 flex-shrink-0">
+            <a href="/downloads?start=1" className="btn-primary text-[14px] py-3 px-6 flex-shrink-0">
               <AppleLogo size={15} /> Download Free <Download size={15} />
             </a>
           </div>
@@ -105,7 +105,7 @@ export default async function BlogPost({
               <p className="text-[17px] font-bold text-[#1D1D1F] mb-1">Ready to clean up your Mac?</p>
               <p className="text-[14px] text-[#6E6E73]">Free to download. No account required to start.</p>
             </div>
-            <a href="/downloads" className="btn-primary text-[14px] py-3 px-6 flex-shrink-0">
+            <a href="/downloads?start=1" className="btn-primary text-[14px] py-3 px-6 flex-shrink-0">
               <AppleLogo size={15} /> Download Free <Download size={15} />
             </a>
           </div>

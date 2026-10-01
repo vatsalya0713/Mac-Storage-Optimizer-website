@@ -5,6 +5,7 @@ import { Footer } from '@/components/Footer'
 import { getLatestRelease } from '@/lib/latestRelease'
 import { Check, Download, ChevronRight } from 'lucide-react'
 import { AppleLogo } from "@/components/AppleLogo"
+import { DownloadStarter } from '@/components/DownloadStarter'
 
 export async function generateMetadata(): Promise<Metadata> {
   // English-only content today, same convention as /free-mac-cleaner and
@@ -35,6 +36,7 @@ export default async function DownloadsPage() {
     <>
       <Navbar />
       <main className="min-h-screen bg-white">
+        <DownloadStarter />
         <section className="pt-32 pb-14 px-6">
           <div className="max-w-[820px] mx-auto text-center">
             <div className="flex items-center justify-center gap-1.5 text-[13px] text-[#6E6E73] mb-8">

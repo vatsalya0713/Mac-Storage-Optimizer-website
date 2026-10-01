@@ -83,7 +83,7 @@ function Hero() {
           transition={{ delay: 0.45, duration: 0.6 }}
           className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-14"
         >
-          <a href="/downloads" className="btn-primary text-[16px] py-[14px] px-8">
+          <a href="/downloads?start=1" className="btn-primary text-[16px] py-[14px] px-8">
             <AppleLogo size={16} /> {t("ctaPrimary")} <Download size={16} />
           </a>
           <a href="#howit" className="btn-ghost text-[16px] py-[14px] px-6">
@@ -317,7 +317,7 @@ function Pricing() {
                 </li>
               ))}
             </ul>
-            <a href="/downloads" className="flex items-center justify-center gap-2 py-3 rounded-full border-2 border-[#007AFF] text-[#007AFF] font-semibold text-[15px] hover:bg-[#EBF4FF] transition-colors">
+            <a href="/downloads?start=1" className="flex items-center justify-center gap-2 py-3 rounded-full border-2 border-[#007AFF] text-[#007AFF] font-semibold text-[15px] hover:bg-[#EBF4FF] transition-colors">
               <AppleLogo size={15} /> {t("free.cta")} <Download size={15} />
             </a>
           </motion.div>

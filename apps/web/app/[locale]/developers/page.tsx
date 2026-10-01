@@ -64,7 +64,7 @@ export default async function DevelopersPage() {
             <p className="text-[19px] text-[#6E6E73] leading-relaxed max-w-[640px] mx-auto mb-10">
               Xcode, Node, Gradle and friends quietly fill a Mac with gigabytes of regenerable files. The Developer tab finds them, tells you which are safe to rebuild, and moves them to the Trash — without ever touching your source code.
             </p>
-            <a href="/downloads" className="btn-primary text-[16px] py-[14px] px-8 inline-flex">
+            <a href="/downloads?start=1" className="btn-primary text-[16px] py-[14px] px-8 inline-flex">
               <AppleLogo size={16} /> Download Free for Mac <Download size={16} />
             </a>
           </div>

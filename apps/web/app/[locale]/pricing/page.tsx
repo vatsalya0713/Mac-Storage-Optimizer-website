@@ -95,7 +95,7 @@ export default async function PricingPage() {
                 ))}
               </ul>
               <a
-                href="/downloads"
+                href="/downloads?start=1"
                 className="text-[14px] font-semibold py-3 px-6 w-full justify-center inline-flex items-center gap-2 rounded-full border border-[rgba(0,0,0,0.12)] text-[#1D1D1F] hover:bg-[#F5F5F7] transition-colors"
               >
                 <AppleLogo size={15} /> Download Free <Download size={15} />
