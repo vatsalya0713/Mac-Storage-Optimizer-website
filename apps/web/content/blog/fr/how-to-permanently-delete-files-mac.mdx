@@ -1,0 +1,88 @@
+---
+title: "Raccourci pour supprimer définitivement sur Mac : Option-Commande-Supprimer (et 5 autres méthodes)"
+description: "Le raccourci clavier pour supprimer définitivement des fichiers sur Mac sans passer par la Corbeille, comment la vider instantanément, et quand il vaut mieux — ou non — sauter la Corbeille."
+date: "2026-01-24"
+updated: "2026-10-09"
+keywords: ["raccourci supprimer définitivement mac", "supprimer définitivement mac", "supprimer fichier mac sans corbeille", "raccourci supprimer mac", "effacer définitivement mac", "supprimer immédiatement mac"]
+tldr: "Pour supprimer définitivement un fichier sur Mac sans l’envoyer à la Corbeille, sélectionnez-le dans le Finder et appuyez sur Option-Commande-Supprimer (⌥⌘⌫), puis confirmez. Commande-Supprimer (⌘⌫) le place dans la Corbeille, Maj-Commande-Supprimer (⇧⌘⌫) vide la Corbeille et Option-Maj-Commande-Supprimer la vide sans confirmation."
+related: ["empty-trash-mac-shortcut", "how-to-delete-files-mac-wont-delete", "remove-files-macbook-desktop-without-deleting"]
+faq:
+  - q: "Quel est le raccourci pour supprimer définitivement un fichier sur Mac ?"
+    a: "Sélectionnez le fichier dans le Finder et appuyez sur Option-Commande-Supprimer (⌥⌘⌫). macOS demande confirmation puis le supprime immédiatement, sans passer par la Corbeille."
+  - q: "Peut-on récupérer un fichier supprimé avec Option-Commande-Supprimer ?"
+    a: "Pas depuis la Corbeille, puisqu’il n’y passe jamais. Seule une sauvegarde Time Machine (ou autre) permet de le retrouver. Réservez donc ce raccourci aux fichiers dont vous êtes sûr."
+  - q: "Comment supprimer sans la fenêtre de confirmation ?"
+    a: "Il n’existe pas de moyen intégré d’éviter la confirmation de « Supprimer immédiatement ». Pour la Corbeille, Option-Maj-Commande-Supprimer la vide sans rien demander."
+  - q: "Existe-t-il une suppression sécurisée sur Mac ?"
+    a: "Apple a retiré « Vider la corbeille en mode sécurisé » dans OS X El Capitan, car ce n’est pas fiable sur les SSD. Sur un Mac récent, activer FileVault (chiffrement du disque) rend les données supprimées illisibles."
+  - q: "Pourquoi « Supprimer immédiatement » est-il grisé ?"
+    a: "L’option n’existe que dans le Finder, et seulement si votre compte peut supprimer l’élément. Un fichier verrouillé, utilisé ou sans permissions doit d’abord être débloqué — voir notre guide des fichiers impossibles à supprimer."
+---
+
+macOS est conçu pour que supprimer soit réversible : les fichiers passent d’abord par la Corbeille. Quand vous voulez vraiment qu’un élément disparaisse tout de suite, voici les raccourcis et méthodes qui contournent ce filet de sécurité.
+
+## Les raccourcis en un coup d’œil
+
+| Action | Raccourci | Réversible ? |
+|---|---|---|
+| Placer dans la corbeille | <Kbd>⌘</Kbd> <Kbd>⌫</Kbd> | Oui — « Remettre » depuis la Corbeille |
+| Supprimer immédiatement (sans Corbeille) | <Kbd>⌥</Kbd> <Kbd>⌘</Kbd> <Kbd>⌫</Kbd> | Non |
+| Vider la Corbeille | <Kbd>⇧</Kbd> <Kbd>⌘</Kbd> <Kbd>⌫</Kbd> | Non |
+| Vider la Corbeille sans confirmation | <Kbd>⌥</Kbd> <Kbd>⇧</Kbd> <Kbd>⌘</Kbd> <Kbd>⌫</Kbd> | Non |
+| Annuler le placement dans la corbeille | <Kbd>⌘</Kbd> <Kbd>Z</Kbd> | Oui, juste après |
+
+Sur un clavier de MacBook, la touche **delete** (supprimer) est la touche ⌫. Ces raccourcis fonctionnent dans le Finder, y compris sur le Bureau.
+
+## Méthode 1 : Option-Commande-Supprimer
+
+1. Sélectionnez le fichier ou le dossier dans le Finder.
+2. Appuyez sur <Kbd>⌥</Kbd> <Kbd>⌘</Kbd> <Kbd>⌫</Kbd>.
+3. Cliquez sur **Supprimer** dans la fenêtre de confirmation.
+
+L’élément disparaît aussitôt et n’apparaît jamais dans la Corbeille.
+
+## Méthode 2 : maintenir Option dans le menu Fichier
+
+Sélectionnez l’élément, ouvrez le menu **Fichier** du Finder et maintenez <Kbd>⌥</Kbd> : « Placer dans la corbeille » devient **Supprimer immédiatement…**. C’est la même action que le raccourci, pratique si vous oubliez les touches.
+
+## Méthode 3 : supprimer depuis la Corbeille
+
+Ouvrez la Corbeille, sélectionnez un ou plusieurs éléments et choisissez **Supprimer immédiatement** dans le menu contextuel. Utile pour garder le reste de la Corbeille pour l’instant.
+
+## Méthode 4 : vider la Corbeille
+
+Appuyez sur <Kbd>⇧</Kbd> <Kbd>⌘</Kbd> <Kbd>⌫</Kbd> dans le Finder, ou faites un clic droit sur la Corbeille du Dock et choisissez **Vider la corbeille**. Ajoutez <Kbd>⌥</Kbd> pour éviter la question de confirmation. Plus d’options dans notre [guide pour vider la Corbeille](/blog/empty-trash-mac-shortcut).
+
+## Méthode 5 : le Terminal (avancé)
+
+`rm` supprime définitivement, sans Corbeille ni confirmation :
+
+```bash
+rm ~/Downloads/ancien-installateur.dmg
+```
+
+Prudence extrême : une faute de frappe dans le chemin peut supprimer autre chose, et `rm -r` efface des dossiers entiers. Au quotidien, le Finder est plus sûr.
+
+<DownloadCTA />
+
+## Méthode 6 : activer le vidage automatique
+
+Si vous voulez simplement que les fichiers supprimés ne s’accumulent pas, laissez macOS vider la Corbeille : Finder → **Réglages** → **Avancés** → cochez **Supprimer les éléments de la corbeille après 30 jours**. Chaque élément est effacé 30 jours après sa mise à la corbeille : vous gardez une marge de sécurité.
+
+## Quand la suppression définitive a du sens
+
+- Gros fichiers dont vous êtes sûr de ne plus avoir besoin (images disque, installateurs, vidéos exportées) quand il faut de la place tout de suite.
+- Fichiers sensibles que vous ne voulez pas laisser dans la Corbeille.
+- Disque si plein que macOS fonctionne mal.
+
+## Quand ne pas sauter la Corbeille
+
+- Lors d’un grand nettoyage : une mauvaise sélection est irréversible.
+- Pour tout ce qui se trouve dans `~/Library`, les dossiers de support d’apps ou les emplacements système.
+- Si vous n’êtes pas sûr qu’une autre app n’ait plus besoin du fichier.
+
+C’est pour cela que MacDiskCleaner ne supprime jamais immédiatement : tout ce qu’il nettoie passe d’abord par la Corbeille, pour que vous puissiez le remettre si vous changez d’avis.
+
+## Et la suppression sécurisée ?
+
+Les anciennes versions de macOS proposaient **Vider la corbeille en mode sécurisé**. Apple l’a retiré dans OS X El Capitan, car l’écrasement n’est pas fiable sur les SSD. Sur les Mac actuels, le chiffrement **FileVault** (Réglages Système → Confidentialité et sécurité → FileVault) rend les données supprimées pratiquement irrécupérables.

@@ -18,7 +18,7 @@
     "download": "Download Free"
   },
   "hero": {
-    "badge": "macOS Sequoia Ready · Apple Silicon Native",
+    "badge": "macOS 14+ · Native on Apple Silicon & Intel",
     "titleLine1": "The Mac cleaner",
     "titleAccent": "built for Mac.",
     "subtitle": "Free up gigabytes of storage, remove hidden junk, find duplicates, and keep your Mac running like the day you unboxed it.",
@@ -33,10 +33,10 @@
   },
   "stats": {
     "items": [
-      { "num": "1M+", "label": "Downloads" },
-      { "num": "4.9★", "label": "Average Rating" },
-      { "num": "50 GB+", "label": "Average Space Freed" },
-      { "num": "24/7", "label": "Customer Support" }
+      { "num": "$12.99", "label": "One-time Pro — no subscription" },
+      { "num": "2 GB", "label": "Free cleanup, no trial" },
+      { "num": "100%", "label": "On-device scanning" },
+      { "num": "30 days", "label": "Money-back guarantee" }
     ]
   },
   "features": {
@@ -56,11 +56,11 @@
     "label": "Seamless Experience",
     "title": "Designed to feel native.",
     "titleAccent": "Because it is.",
-    "body": "MacDiskCleaner is built from the ground up for macOS. It uses native APIs, respects your system's security model, and integrates seamlessly with Spotlight, Apple Silicon, and beyond.",
+    "body": "MacDiskCleaner is built from the ground up for macOS. It uses native APIs, respects your system's security model, and runs natively on both Apple Silicon and Intel Macs.",
     "points": [
       "Native macOS design language",
       "Optimized for Apple Silicon & Intel",
-      "Sandboxed & privacy-first architecture",
+      "Local-only, privacy-first scanning",
       "Scheduled scans run silently in background"
     ]
   },
@@ -117,7 +117,7 @@
       { "q": "Will it work on my Mac?", "a": "Yes. MacDiskCleaner supports macOS 14 Sonoma and later, including the latest macOS release, on both Apple Silicon (M1, M2, M3, M4) and Intel Macs — no Rosetta required." },
       { "q": "Is the free version really free?", "a": "Yes. There is no trial period and nothing expires: scanning and browsing every result are free forever, and you can clean up 2 GB in total at no cost. After 2 GB, the app asks for Pro or a license key before deleting more." },
       { "q": "What exactly does Pro unlock?", "a": "Pro removes the 2 GB free cleanup cap and adds four tools the free tier doesn't include: the App Uninstaller (removes leftover support files, not just the app), Privacy Cleaner, Startup Manager, and Scheduled Scans — plus lifetime updates and priority support, all for a single $12.99 payment." },
-      { "q": "Is it a subscription?", "a": "No. Pro is a one-time $12.99 payment — no recurring billing, ever. You own your license and the app keeps working even if MacDiskCleaner's website ever goes offline." },
+      { "q": "Is it a subscription?", "a": "No. Pro is a one-time $12.99 payment — no recurring billing, ever. You own your license." },
       { "q": "How many Macs can I use one license on?", "a": "Each Pro license activates on one Mac. Getting a new Mac? Choose Deactivate License in the old app (or contact support) and activate it on the new one. Need more Macs? Contact support." },
       { "q": "Can I get a refund?", "a": "Yes — a full 30-day, no-questions-asked refund on all Pro purchases. Email support@macdiskcleaner.com with your license key." },
       { "q": "How is this different from CleanMyMac or OnyX?", "a": "MacDiskCleaner is a one-time purchase with no subscription, unlike CleanMyMac's recurring plans, and it includes a guided duplicate finder and large-file scanner that OnyX doesn't have. See our full feature-by-feature comparison for details." },
@@ -146,5 +146,83 @@
     "downloadCta": "Download MacDiskCleaner",
     "supportNote": "Didn't get the email? Check your spam folder, or contact support@macdiskcleaner.com.",
     "appNote": "Bought from inside the app? Switch back to MacDiskCleaner — Pro unlocks automatically within a few seconds. Nothing to paste."
+  },
+  "common": {
+    "home": "MacDiskCleaner",
+    "download": "Download Free",
+    "downloadForMac": "Download Free for Mac",
+    "ctaTitle": "Ready to clean up your Mac?",
+    "ctaSubtitle": "Free to download. No account required to start.",
+    "versionLine": "Version {version} · {size} MB · macOS 14 or later · Apple Silicon & Intel",
+    "faqTitle": "Frequently asked questions",
+    "relatedTitle": "Related guides",
+    "updated": "Updated {date}",
+    "readTime": "{minutes} min read",
+    "quickAnswer": "Quick answer",
+    "inlineCtaTitle": "Do it in one scan with MacDiskCleaner",
+    "inlineCtaText": "Finds junk, duplicates and large files across your Mac, shows everything for free, and moves what you choose to the Trash first — so nothing is lost by mistake.",
+    "allGuides": "All guides",
+    "blogTitle": "Mac Cleanup Guides & Storage Tips",
+    "blogDescription": "Practical, accurate guides for freeing up space on a Mac: junk files, System Data, duplicates, large files, the Trash and more.",
+    "blogH1": "Mac Cleanup Guides",
+    "blogLead": "Practical, accurate guides for freeing up space and keeping your Mac fast.",
+    "blogBreadcrumb": "Blog"
+  },
+  "footerLinks": {
+    "developers": "For developers",
+    "changelog": "Changelog",
+    "safety": "Safety",
+    "vsCleanMyMac": "vs. CleanMyMac",
+    "contact": "Contact",
+    "download": "Download",
+    "guides": "Guides",
+    "systemData": "System Data"
+  },
+  "downloadStarter": {
+    "started": "Your download has started",
+    "notStarted": "Didn't start? <link>Click here to download</link>.",
+    "firstTime": "Opening it the first time (takes 20 seconds, only once):",
+    "step1": "Open the downloaded <b>MacDiskCleaner.dmg</b> and drag <b>MacDiskCleaner</b> into the <b>Applications</b> folder.",
+    "step2": "Open MacDiskCleaner from Applications. macOS shows <i>\"Apple could not verify…\"</i> — click <b>Done</b>. <warn>Never click \"Move to Bin\".</warn>",
+    "step3": "Open <b>System Settings → Privacy & Security</b>, scroll down to <i>\"MacDiskCleaner was blocked\"</i>, click <b>Open Anyway</b> and confirm with your password.",
+    "openSettings": "Open Privacy & Security",
+    "step4": "Done — from now on it opens normally, and updates install themselves with no warning.",
+    "zeroTitle": "Want zero warnings instead?",
+    "zeroText": "Paste this in Terminal — it installs and opens the app with no security prompt at all:"
+  },
+  "contact": {
+    "metaTitle": "Contact MacDiskCleaner Support",
+    "metaDescription": "Questions, bug reports or feature suggestions for MacDiskCleaner — get in touch. We reply within 1–2 business days.",
+    "title": "Get in touch",
+    "lead": "Questions, bug reports or feature ideas — we read everything and reply within 1–2 business days.",
+    "sentTitle": "Message sent",
+    "sentText": "Thanks — we'll get back to you soon.",
+    "sendAnother": "Send another message",
+    "name": "Name",
+    "email": "Email",
+    "topic": "Topic",
+    "message": "Message",
+    "send": "Send message",
+    "catGeneral": "General question",
+    "catSupport": "Support / technical issue",
+    "catBug": "Report a bug",
+    "catSuggestion": "Feature suggestion",
+    "errorGeneric": "Something went wrong — please try again, or email us directly below.",
+    "errorNetwork": "Couldn't reach the server — check your connection and try again, or email us directly below.",
+    "emailNote": "Prefer email? Reach us directly at <mail>support@macdiskcleaner.com</mail>. Pro customers: include your license key for priority help."
+  },
+  "notFound": {
+    "title": "That page isn't here.",
+    "text": "The link may be old or mistyped. Here are the places most people are looking for:",
+    "home": "Home",
+    "pricing": "Pricing",
+    "guides": "Guides",
+    "contact": "Contact support"
+  },
+  "cookie": {
+    "text": "This site uses privacy-friendly analytics to see which pages are useful — no ads, no data sold. See our <link>Privacy Policy</link>.",
+    "decline": "Decline",
+    "accept": "Accept",
+    "label": "Cookie preferences"
   }
 }

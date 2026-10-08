@@ -1,36 +1,101 @@
 ---
-title: "How to Delete Files on Mac That Won't Delete"
-description: "Fixes for the most common reasons a file refuses to move to Trash or empty on a Mac, from permission errors to files that are still in use."
+title: "Mac Can’t Delete a File? How to Force Delete Locked and Stuck Files"
+description: "Fixes for files that won’t delete on a Mac: “item is in use”, permission errors, locked files, files you can’t move to the Trash, and a Trash that won’t empty — from Finder to Terminal."
 date: "2026-01-22"
-keywords: ["how to delete files on mac that won t delete", "mac remove unwanted files free"]
+updated: "2026-10-09"
+keywords: ["mac can t delete file", "how to delete files on mac that won t delete", "force delete file mac", "delete locked files mac", "mac cannot delete file in use", "trash won t empty mac", "mac remove unwanted files free"]
+tldr: "If a Mac won’t delete a file, quit the app using it (or restart), unlock it in Get Info (⌘I → untick Locked), and check Sharing & Permissions. Then use Option-Command-Delete to delete it immediately, or hold Option while emptying the Trash. Files protected by macOS System Integrity Protection can’t — and shouldn’t — be deleted."
+related: ["how-to-permanently-delete-files-mac", "empty-trash-mac-shortcut", "how-to-clean-junk-files-mac"]
+faq:
+  - q: "How do I force delete a file on Mac?"
+    a: "Quit any app that might use it, unlock it in Get Info, then select it and press Option-Command-Delete. If that fails, restart (or start in Safe Mode) and try again. As a last resort, Terminal’s rm command deletes it permanently."
+  - q: "Why does my Mac say the item can’t be moved to the Trash?"
+    a: "Usually the file is locked, you don’t have write permission for it or its folder, or it is part of macOS and protected by System Integrity Protection."
+  - q: "How do I delete a locked file on Mac?"
+    a: "Select it, press Command-I, untick Locked, then delete it. In Terminal, chflags nouchg followed by the file path removes the lock."
+  - q: "How do I find which app is using a file?"
+    a: "In Terminal, run lsof with the file path (for example lsof ~/Downloads/video.mov). It lists the process holding the file open; quit that app or process."
+  - q: "Should I turn off System Integrity Protection to delete a file?"
+    a: "No. Files protected by SIP are part of macOS; deleting them can stop your Mac from starting. If a protected file seems to take up space, the cause is almost always something else."
 ---
 
-A file that won't delete on macOS almost always falls into one of four categories. Here's how to identify which one you're dealing with, and the fix for each.
+When a Mac refuses to delete something, the error message tells you why — once you know how to read it. Work through the fixes below from top to bottom; most problems are solved in the first two steps.
 
-## 1. "The item is in use" error
+## 1. “The operation can’t be completed because the item is in use”
 
-Another app has the file open. Quit the app fully (Cmd+Q, not just closing the window) and try again. If you're not sure which app is using it, restart your Mac — this releases every file lock.
+An app still has the file open.
 
-## 2. Permission denied
+- **Quit the app** that last used it (<Kbd>⌘</Kbd> <Kbd>Q</Kbd>), not just its window.
+- If you don’t know which app, open **Terminal** and ask macOS:
 
-Right-click the file → **Get Info** → check the **Sharing & Permissions** section at the bottom. If your account doesn't show "Read & Write," click the lock icon, authenticate, select your username, and change the privilege level. Then try deleting again.
+```bash
+lsof ~/Downloads/video.mov
+```
 
-## 3. The file is locked
+The output names the process; quit it, or end it from **Activity Monitor**.
+- Still stuck? **Restart** your Mac and delete the file before opening anything else.
 
-Right-click → **Get Info** → uncheck the **Locked** checkbox if it's ticked. Locked files are protected from accidental deletion until you explicitly unlock them.
+## 2. The file is locked
 
-## 4. It's a system-protected file
+Locked files can’t be moved to the Trash (or the Trash asks for confirmation every time).
 
-macOS's System Integrity Protection (SIP) blocks deletion of certain files outright, even for administrators. This is intentional — if you've been told to delete a file inside `/System`, it's almost always the wrong fix for whatever problem you're trying to solve. Look for the actual cause instead.
+1. Select the file and press <Kbd>⌘</Kbd> <Kbd>I</Kbd> (Get Info).
+2. Untick **Locked** under General.
+3. Delete it as usual.
 
-## The Trash itself won't empty
+For many files at once, Terminal removes the lock flag:
 
-If **Empty Trash** hangs or fails:
+```bash
+chflags -R nouchg ~/Desktop/OldProject
+```
 
-1. Try Option-clicking the Trash icon in the Dock and selecting **Empty Trash** — this skips the confirmation dialog and sometimes clears a stuck state.
-2. Restart your Mac, then try again immediately after logging back in.
-3. If one specific file is the culprit, drag it out of the Trash back to the Desktop, apply the fixes above, then delete it individually.
+## 3. “You don’t have permission” errors
 
-## A faster, safer alternative
+You need write permission for the file **and** for the folder that contains it.
 
-If you're trying to delete files to free up space rather than fix one specific stuck file, it's often easier to let a cleaner handle permissions and locked-file edge cases for you. [MacDiskCleaner](/free-mac-cleaner) scans for exactly this kind of removable clutter and handles the Trash step automatically.
+1. Press <Kbd>⌘</Kbd> <Kbd>I</Kbd> on the file (or its folder).
+2. At the bottom, open **Sharing & Permissions**, click the padlock and enter your password.
+3. Set your user to **Read & Write**, then try again.
+
+Files copied from another Mac, an external drive or a backup often carry the old owner’s permissions — this fixes most of them.
+
+## 4. Use “Delete Immediately”
+
+When the Trash itself is the problem, skip it: select the file and press <Kbd>⌥</Kbd> <Kbd>⌘</Kbd> <Kbd>⌫</Kbd>, then confirm. See our [permanent delete shortcut guide](/blog/how-to-permanently-delete-files-mac) for all the options.
+
+## 5. Restart in Safe Mode
+
+Safe Mode loads only what macOS needs, so nothing else can hold your file open — and it clears some system caches.
+
+- **Apple silicon:** shut down, press and hold the power button until “Loading startup options” appears, select your disk, hold <Kbd>⇧</Kbd> and click **Continue in Safe Mode**.
+- **Intel:** restart and hold <Kbd>⇧</Kbd> until the login window appears.
+
+Delete the file, then restart normally.
+
+## 6. Force delete from Terminal (last resort)
+
+```bash
+rm -f ~/Downloads/stubborn-file.zip
+```
+
+Terminal deletes permanently, with no Trash and no confirmation. Double-check the path; never run `rm` on anything in `/System`, `/Library` or a folder you don’t recognise. Prefixing `sudo` gives it administrator rights — only use that for files you created yourself in a protected location.
+
+<DownloadCTA />
+
+## The Trash won’t empty
+
+- **Hold Option** while choosing **Empty Trash** (or press <Kbd>⌥</Kbd> <Kbd>⇧</Kbd> <Kbd>⌘</Kbd> <Kbd>⌫</Kbd>). This skips locked-item warnings.
+- **Unlock** any locked items inside the Trash (Get Info → untick Locked).
+- **Eject** disks or USB drives whose files are in the Trash — or empty the Trash with the drive connected, because files from external drives stay on that drive.
+- **Restart**, then empty the Trash again.
+- Still failing? Run **Disk Utility → First Aid** on your startup disk to repair directory errors.
+
+More options are in our [empty Trash guide](/blog/empty-trash-mac-shortcut).
+
+## Files you should not force delete
+
+Some files can’t be removed because macOS protects them with **System Integrity Protection (SIP)** — anything in `/System`, `/usr` (except `/usr/local`) and the apps that ship with macOS. Don’t disable SIP to delete them: they are part of the operating system, and removing them can stop your Mac from starting. If you think system files are taking up space, it’s almost always caches, snapshots or backups instead — see [what’s really inside System Data](/clear-system-data-mac).
+
+## A safer way to remove what you don’t need
+
+Most “I can’t delete this” moments happen while cleaning up space. MacDiskCleaner lists junk, duplicates and large files with their exact locations, skips protected system paths automatically, and moves what you choose to the Trash — so you can clean without fighting Finder errors.

@@ -1,0 +1,81 @@
+---
+title: "Große Dateien auf dem Mac finden: Finder, Speicher-Einstellungen, Terminal und Apps"
+description: "Vier zuverlässige Wege, die größten Dateien auf deinem Mac zu finden – Finder-Suche nach Größe, die Liste „Große Dateien“ in den Speicher-Einstellungen, ein Terminal-Befehl und kostenlose Apps – und wie du sie sicher löschst."
+date: "2026-02-11"
+updated: "2026-10-09"
+keywords: ["große dateien finden mac", "mac große dateien suchen", "mac speicherfresser finden", "mac dateien nach größe suchen", "mac speicherplatz freigeben", "omnidisksweeper mac"]
+tldr: "Am schnellsten findest du große Dateien auf dem Mac über Systemeinstellungen → Allgemein → Speicher → Dokumente (ⓘ) → Große Dateien. Im Finder drückst du ⌘F, wählst „Diesen Mac“, fügst das Attribut „Dateigröße“ hinzu und stellst „ist größer als 1 GB“ ein. Im Terminal listet find ~ -type f -size +1G alle Dateien über 1 GB in deinem Benutzerordner."
+related: ["how-to-clean-up-mac-hard-drive", "duplicate-photos-mac", "mac-running-out-of-storage-fix-guide"]
+faq:
+  - q: "Wie sehe ich die größten Dateien auf meinem Mac?"
+    a: "Systemeinstellungen → Allgemein → Speicher öffnen, auf das ⓘ neben Dokumente klicken und Große Dateien wählen. Dort stehen Dateien ab einigen Hundert Megabyte, die größten zuerst."
+  - q: "Wie suche ich im Finder nach Dateigröße?"
+    a: "Befehl-F drücken, Diesen Mac wählen, auf das erste Attribut-Menü klicken, Andere … wählen und Dateigröße ankreuzen. Dann „ist größer als“ und eine Größe wie 500 MB einstellen."
+  - q: "Welche großen Dateien kann ich auf dem Mac löschen?"
+    a: "Alte Installer (.dmg, .pkg), heruntergeladene Videos, exportierte Projekte, bereits entpackte Zip-Archive, alte Geräte-Backups und doppelte Kopien. Keine Dateien in /System und keine Container noch genutzter Apps."
+  - q: "Warum findet der Finder Dateien nicht, die der Speicher anzeigt?"
+    a: "Die Finder-Suche überspringt System- und versteckte Orte wie ~/Library. Große versteckte Objekte – Caches, Backups, Entwicklerdaten – findest du leichter mit dem Terminal oder einem Speicher-Scanner."
+---
+
+Ein paar große Dateien belegen oft mehr Platz als Tausende kleine. Diese vier Methoden finden sie – von der einfachsten bis zur gründlichsten.
+
+## Methode 1: Speicher-Einstellungen (am einfachsten)
+
+1. **Systemeinstellungen → Allgemein → Speicher** öffnen.
+2. Auf das **ⓘ** neben **Dokumente** klicken.
+3. **Große Dateien** wählen, um alles ab einigen Hundert Megabyte zu sehen, die größten zuerst. Auch **Downloads** ist dort aufgeführt.
+
+Dateien auswählen und auf **Löschen …** klicken – das löscht sofort statt über den Papierkorb.
+
+## Methode 2: Finder-Suche nach Größe
+
+1. Im Finder <Kbd>⌘</Kbd> <Kbd>F</Kbd> drücken und **Diesen Mac** wählen.
+2. Auf das erste Menü klicken (zeigt „Art“) und **Andere …** wählen.
+3. **Dateigröße** ankreuzen und auf **OK** klicken.
+4. **ist größer als** einstellen und eine Größe eingeben, z. B. **1 GB**.
+5. Mit rechts auf die Spaltenköpfe klicken, **Größe** hinzufügen und danach sortieren.
+
+Mit **Sichern** legst du die Suche für später in der Finder-Seitenleiste ab.
+
+## Methode 3: Terminal (am gründlichsten)
+
+Das Terminal sieht Orte, die die Finder-Suche überspringt. Alle Dateien über 1 GB in deinem Benutzerordner:
+
+```bash
+find ~ -type f -size +1G -exec ls -lh {} + 2>/dev/null | awk '{print $5, $9}'
+```
+
+Die größten Ordner in deinem Benutzerordner, die größten zuletzt:
+
+```bash
+du -sh ~/* ~/Library/* 2>/dev/null | sort -h | tail -20
+```
+
+Diese Befehle **listen** nur – sie löschen nichts.
+
+## Methode 4: Speicherplatz-Apps
+
+- **GrandPerspective** (kostenlos) – eine Kachelkarte, in der jedes Rechteck so groß ist wie die Datei.
+- **OmniDiskSweeper** (kostenlos) – Ordner nach Größe sortiert zum Durchklicken.
+- **DaisyDisk** (9,99 $) – eine interaktive Sunburst-Karte; die Testversion scannt, löscht aber nicht.
+- **MacDiskCleaner** (Scan kostenlos) – eine Liste großer Dateien plus alte Dateien, Downloads und Duplikate, jeweils mit Größe und Speicherort. Mit Space Lens durchsuchst du Ordner nach Größe.
+
+<DownloadCTA />
+
+## Wo große Dateien meist stecken
+
+- **Downloads** – vergessene Installer, Videos und Zips.
+- **Filme** – Bildschirmaufnahmen, Exporte und iMovie- oder Final-Cut-Mediatheken.
+- **`~/Library/Application Support/MobileSync/Backup`** – iPhone- und iPad-Backups.
+- **`~/Library/Developer`** – Xcode-Daten und Simulatoren.
+- **Virtuelle Maschinen und Docker-Images.**
+- **Mail- und Nachrichten-Anhänge** in deiner Library.
+
+## Bevor du löschst
+
+1. **Zuletzt-geöffnet-Datum prüfen** (Informationen, <Kbd>⌘</Kbd> <Kbd>I</Kbd>). Ein Jahr unberührt heißt meist: kann ins Archiv.
+2. **Archivieren statt löschen**, was du vielleicht noch brauchst – externe Laufwerke sind günstig.
+3. **Den Papierkorb nutzen**, nicht sofortiges Löschen, damit Fehler umkehrbar sind.
+4. **Papierkorb leeren**, um den Platz wirklich freizugeben.
+
+Steckt der Platz nicht in großen Dateien, sieh dir als Nächstes [Duplikate](/blog/duplicate-photos-mac) und die [Systemdaten](/clear-system-data-mac) an.

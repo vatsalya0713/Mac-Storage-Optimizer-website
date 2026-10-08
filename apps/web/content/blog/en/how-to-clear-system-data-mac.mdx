@@ -1,46 +1,99 @@
 ---
-title: "How to Clear System Data on Mac (Step-by-Step)"
-description: "\"System Data\" in About This Mac can be tens of gigabytes. Here's what it actually is and exactly how to reduce it safely."
+title: "Why Is System Data So Large on Mac? (100 GB+ Explained and Fixed)"
+description: "System Data over 100 GB on your Mac? These are the usual causes — Time Machine snapshots, iPhone backups, Xcode, caches, Docker and VM files — how to check each one, and how to shrink it safely."
 date: "2026-01-20"
-keywords: ["how to clear system data on mac", "clear system data mac"]
+updated: "2026-10-09"
+keywords: ["macos system data over 100gb", "how to delete system data on mac", "how to remove system data on mac", "how to clear system data on mac", "clean system data mac", "can i clear system data on mac", "mac clean system data", "macos taking up storage", "system data mac huge"]
+tldr: "When System Data on a Mac grows past 100 GB, the cause is usually one of five things: Time Machine local snapshots, old iPhone/iPad backups, Xcode and simulator data, a Docker or virtual-machine disk image, or oversized app caches. Check each with the commands below, remove what you don’t need, empty the Trash and restart. Leave /System and protected files alone."
+related: ["mac-running-out-of-storage-fix-guide", "clear-cache-mac", "disk-cleanup-mac"]
+faq:
+  - q: "Is it normal for System Data to be 100 GB?"
+    a: "Tens of gigabytes is common. Above 100 GB, one specific culprit (snapshots, device backups, Xcode, a virtual-machine image) is almost always responsible."
+  - q: "Why did my System Data suddenly increase?"
+    a: "Typical triggers are a big download or update, a new iPhone backup, starting Time Machine, installing Xcode or a simulator, or a virtual machine or Docker image growing."
+  - q: "Can I delete System Data on Mac?"
+    a: "Not as one item, but you can delete what it’s made of: old snapshots, backups, caches, logs, developer data and leftovers from deleted apps."
+  - q: "Does reinstalling macOS reduce System Data?"
+    a: "Rarely worth it. Reinstalling macOS keeps your user data, and the large items are almost always in your user Library, so the number usually comes back."
 ---
 
-Open **About This Mac → Storage** and you'll often see "System Data" (sometimes labeled "Other") taking up an alarming amount of space — sometimes 50 GB or more. It's not one folder you can delete; it's a catch-all category covering several different things.
+“System Data” (called “Other” on older macOS versions) is the catch-all category in your Mac’s Storage view. A few dozen gigabytes is normal. When it reaches **100 GB or more**, something specific is almost always to blame. This guide shows how to find it. For the full step-by-step removal guide, see [how to clear System Data](/clear-system-data-mac).
 
-## What's actually inside System Data
+## First: get an accurate number
 
-- **Caches** — app, browser, and system caches
-- **Logs** — crash reports and diagnostic logs
-- **Time Machine local snapshots** — hidden backup snapshots stored on your internal disk
-- **Spotlight index files**
-- **Application support files** for apps you've installed, including ones you've since deleted
+Open **System Settings → General → Storage** and let it finish calculating — the first number shown is often too high. Then restart your Mac and check again: a restart clears swap and temporary files and gives macOS a chance to purge snapshots it no longer needs.
 
-## Step 1: Check for Time Machine local snapshots
+## Cause 1: Time Machine local snapshots
 
-These are often the single biggest hidden chunk. Open Terminal and run:
+If Time Machine is on, macOS keeps hourly **local snapshots** on your internal disk, especially when the backup drive isn’t connected. They are counted as System Data.
 
-```
+```bash
 tmutil listlocalsnapshots /
 ```
 
-If you see snapshots listed, macOS is usually good about purging old ones automatically when space is needed — but if System Data is unexpectedly huge, this is the first place to look.
+If you see many entries, connect your backup drive and let a backup finish, or delete old ones by date:
 
-## Step 2: Clear caches and logs
+```bash
+sudo tmutil deletelocalsnapshots 2026-09-15-101500
+```
 
-This is the largest *controllable* part of System Data. Go to `~/Library/Caches` and `~/Library/Logs` in Finder (Cmd+Shift+G to jump there) and remove what belongs to apps you recognize and don't need cached data for.
+macOS removes snapshots automatically when space is needed, but the Storage bar doesn’t always reflect that right away.
 
-## Step 3: Remove leftover data from deleted apps
+## Cause 2: Old iPhone and iPad backups
 
-Dragging an app to Trash on macOS does **not** remove its support files, caches, or preferences — those stay in `~/Library/Application Support` indefinitely. Over years of installing and removing apps, this adds up significantly.
+Each local device backup can be **tens of gigabytes**, and old ones are never removed automatically. Look in:
 
-## The faster way
+`~/Library/Application Support/MobileSync/Backup`
 
-Manually auditing System Data is genuinely tedious because macOS doesn't expose a clean breakdown of what's in it. A cleaner like MacDiskCleaner scans all of these locations — caches, logs, leftover app data — in one pass and shows you exactly what's safe to remove before deleting anything. [See how it works](/#howit).
+Or connect the device, select it in Finder’s sidebar and click **Manage Backups** to delete old ones.
 
-## FAQ
+## Cause 3: Xcode, simulators and developer tools
 
-**Is it safe to delete System Data?**
-You should never delete the System Data category directly — there's no single folder for it. What's safe is clearing the caches, logs, and leftover app files that make it up, which is what the steps above (or a cleaner) actually do.
+If you have ever installed Xcode, check `~/Library/Developer`. DerivedData, iOS DeviceSupport files and old simulator runtimes easily reach 50 GB or more.
 
-**Why does System Data keep growing back?**
-Because caches and logs regenerate as you use your Mac. This is normal — it's why scheduled, automatic cleaning is more effective than a one-time manual clean.
+```bash
+du -sh ~/Library/Developer/* 2>/dev/null
+xcrun simctl delete unavailable
+```
+
+Our [developer cleanup page](/developers) explains which folders are safe to remove.
+
+## Cause 4: Docker, virtual machines and emulators
+
+Docker Desktop stores containers and images in a single disk-image file that grows but rarely shrinks; UTM, Parallels and VMware store whole virtual machines as files. Check their size in each app’s settings, and reclaim Docker space with:
+
+```bash
+docker system prune
+```
+
+(Read what it will delete before confirming — it removes stopped containers and unused images.)
+
+## Cause 5: Caches and logs
+
+Browsers, streaming apps, design tools and chat apps can each keep several gigabytes in `~/Library/Caches`. Logs and crash reports live in `~/Library/Logs`. See [how to clear cache safely](/blog/clear-cache-mac).
+
+<DownloadCTA />
+
+## Cause 6: Leftovers from deleted apps
+
+Dragging an app to the Trash leaves its support files behind in `~/Library/Application Support` and `~/Library/Containers`. Games, video editors and virtual instruments can leave very large folders.
+
+## Find the biggest folders yourself
+
+This lists the largest folders in your Library, biggest last:
+
+```bash
+du -sh ~/Library/* 2>/dev/null | sort -h | tail -15
+```
+
+Work down from the top, but never delete `Keychains`, `Preferences` or the containers of apps you still use.
+
+## What not to do
+
+- **Don’t disable System Integrity Protection** or delete anything in `/System` — it won’t reduce System Data in a useful way and can break macOS.
+- **Don’t erase your disk** to fix the number unless you have a full backup and a real reason.
+- **Don’t trust “cleaners” that promise to delete System Data in one click** without showing you what’s inside.
+
+## The quicker way
+
+A MacDiskCleaner scan breaks down the user-level caches, logs, developer data and app leftovers that make up most of System Data, with sizes, and moves what you select to the Trash. Scanning is free, so you can see where your space went before deciding anything.

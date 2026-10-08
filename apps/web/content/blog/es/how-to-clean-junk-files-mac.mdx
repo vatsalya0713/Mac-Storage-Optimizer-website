@@ -1,0 +1,85 @@
+---
+title: "Cómo borrar archivos basura en Mac (gratis, a mano y automáticamente)"
+description: "Qué cuenta como basura en un Mac, dónde se esconde y cómo eliminarla con seguridad: cachés, registros, descargas e instaladores antiguos, copias del iPhone y restos de apps, a mano o con un limpiador gratuito."
+date: "2026-01-18"
+updated: "2026-10-09"
+keywords: ["borrar archivos basura mac", "limpiar archivos basura mac", "eliminar archivos innecesarios mac", "limpiador archivos basura mac gratis", "limpiar mac gratis", "limpieza mac gratis", "archivos basura mac"]
+tldr: "Los archivos basura de un Mac son sobre todo cachés de apps (~/Library/Caches), registros (~/Library/Logs), descargas e instaladores antiguos, copias obsoletas del iPhone/iPad, cachés de desarrollo y restos de apps borradas. Elimínalos moviéndolos a la Papelera con Finder → Ir → Ir a la carpeta… y vacía la Papelera, o deja que un limpiador como MacDiskCleaner los encuentre todos gratis en un solo análisis."
+related: ["clear-cache-mac", "disk-cleanup-mac", "how-to-clean-up-mac-hard-drive"]
+faq:
+  - q: "¿Qué son los archivos basura en un Mac?"
+    a: "Archivos que tu Mac ya no necesita: cachés, registros, informes de fallos, instaladores y descargas antiguas, copias obsoletas de dispositivos, archivos temporales y restos de apps que borraste."
+  - q: "¿Es seguro borrar archivos basura en Mac?"
+    a: "Sí, si te limitas a cachés de usuario, registros, descargas y copias que reconozcas, y los mueves a la Papelera en lugar de borrarlos definitivamente. Nunca borres nada de /System ni tu carpeta Keychains."
+  - q: "¿Cómo limpio archivos basura en Mac gratis?"
+    a: "A mano con el Finder y los ajustes de Almacenamiento, o con una herramienta gratuita. El plan gratuito de MacDiskCleaner lo analiza todo y limpia hasta 2 GB en total sin coste."
+  - q: "¿Cada cuánto debo borrar los archivos basura?"
+    a: "Cada uno o dos meses para la mayoría, o cuando recibas un aviso de poco espacio. La basura se regenera, así que no sirve de nada limpiar a diario."
+---
+
+La «basura» de un Mac no es una sola carpeta. Es una mezcla de datos temporales que las apps y macOS crean y rara vez limpian. Esto es dónde vive y cómo eliminarla sin romper nada.
+
+## Dónde se esconden los archivos basura del Mac
+
+| Basura | Dónde | ¿Se puede borrar? |
+|---|---|---|
+| Cachés de apps | `~/Library/Caches` | Sí, cerrando antes la app |
+| Registros e informes de fallos | `~/Library/Logs` | Sí |
+| Descargas e instaladores antiguos | `~/Downloads` | Sí, después de revisarlos |
+| Copias del iPhone/iPad | `~/Library/Application Support/MobileSync/Backup` | Las antiguas, sí |
+| Adjuntos de Mail | `~/Library/Containers/com.apple.mail/Data/Library/Mail Downloads` | Sí: siguen en los correos |
+| Cachés de desarrollo | `~/Library/Developer`, `~/.npm`, `~/.gradle` | Sí: las herramientas las regeneran |
+| Restos de apps borradas | `~/Library/Application Support`, `~/Library/Containers` | Sí, de apps que ya no tienes |
+| La Papelera | `~/.Trash` | Sí: para eso está |
+
+Las descargas, las copias de dispositivos y las cachés de desarrollo suelen ser lo más grande; las cachés y los registros se acumulan con el tiempo.
+
+## Opción 1: Limpia los archivos basura a mano
+
+### 1. Borra cachés y registros de apps
+
+Cierra tus apps. En el Finder pulsa <Kbd>⇧</Kbd> <Kbd>⌘</Kbd> <Kbd>G</Kbd>, abre `~/Library/Caches` y mueve a la Papelera las carpetas de las apps que más usas. Haz lo mismo en `~/Library/Logs`. Las apps regeneran lo que necesitan.
+
+### 2. Vacía la carpeta Descargas
+
+Ordena Descargas por tamaño y borra los instaladores (`.dmg`, `.pkg`, `.zip`) de apps ya instaladas y los archivos que ya guardaste en otro sitio.
+
+### 3. Borra copias antiguas de dispositivos
+
+Conecta tu iPhone o iPad, selecciónalo en el Finder y haz clic en **Gestionar copias de seguridad**, o elimina las carpetas de copias antiguas de la ruta MobileSync de arriba.
+
+### 4. Elimina los restos de apps borradas
+
+Busca en `~/Library/Application Support` y `~/Library/Containers` carpetas con el nombre de apps que ya no tienes.
+
+### 5. Vacía la Papelera
+
+Pulsa <Kbd>⇧</Kbd> <Kbd>⌘</Kbd> <Kbd>⌫</Kbd>. No se libera nada hasta que lo hagas.
+
+<DownloadCTA />
+
+## Opción 2: Usa un limpiador de archivos basura
+
+Un limpiador hace lo mismo más rápido y te muestra los tamaños antes de decidir. Busca uno que:
+
+- **Muestre cada elemento** con su ruta y tamaño antes de borrar.
+- **Mueva los archivos a la Papelera** en lugar de eliminarlos.
+- **Omita automáticamente los archivos del sistema.**
+- **No funcione constantemente** en segundo plano.
+
+El análisis de limpieza de MacDiskCleaner cubre cachés, registros, descargas antiguas, cachés de desarrollo y restos de apps de una sola vez. El análisis siempre es gratis y puedes limpiar hasta 2 GB en total sin coste: [este es el plan gratuito](/free-mac-cleaner).
+
+## Cosas que parecen basura pero no lo son
+
+- **Los archivos de idioma dentro de las apps**: eliminarlos rompe la firma de código de la app en macOS actual. Déjalos.
+- **`/System/Library/Caches`**: protegido y gestionado por macOS.
+- **El espacio purgable**: macOS lo libera solo cuando hace falta.
+- **Tu fototeca de Fotos**: puede ser enorme, pero son tus fotos. Usa el [álbum Duplicados](/blog/duplicate-photos-mac) en lugar de borrar la fototeca.
+
+## ¿Es seguro?
+
+Sí, si te ciñes a las ubicaciones anteriores y dejas los archivos en la Papelera hasta comprobar que todo funciona. Evita cualquier herramienta que quiera borrar archivos del sistema, «optimizar la memoria» o limpiar a diario: macOS ya se encarga de eso.
+
+## ¿Cada cuánto conviene limpiar?
+
+Cada uno o dos meses basta para la mayoría. Si eres desarrollador o editas vídeo, revisa más a menudo: las cachés de compilación y los archivos de render crecen rápido.

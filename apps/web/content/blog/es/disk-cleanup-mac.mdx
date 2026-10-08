@@ -1,0 +1,77 @@
+---
+title: "Liberador de espacio en Mac: el equivalente al «Liberador de espacio en disco» de Windows"
+description: "El Mac no tiene una app «Liberador de espacio en disco» como Windows. Esto es lo que debes usar en un MacBook o iMac: los ajustes de Almacenamiento, el Finder y Terminal o un limpiador de disco, paso a paso."
+date: "2026-10-09"
+keywords: ["liberar espacio mac", "liberador de espacio en disco mac", "limpiar disco mac", "limpiador de disco mac", "limpieza de disco imac", "limpiar mac gratis", "limpieza mac gratis"]
+tldr: "El Mac no tiene una app de «Liberador de espacio en disco». El equivalente integrado es Ajustes del Sistema → General → Almacenamiento, que ofrece recomendaciones (guardar en iCloud, optimizar el almacenamiento, vaciar la Papelera automáticamente) y permite revisar archivos grandes, descargas y apps. Para las cachés, duplicados y restos que no muestra, usa el Finder y Terminal o un limpiador como MacDiskCleaner."
+related: ["how-to-clean-up-mac-hard-drive", "how-to-clean-junk-files-mac", "best-free-mac-cleaner-apps-2026"]
+faq:
+  - q: "¿El Mac tiene un liberador de espacio como Windows?"
+    a: "No. La herramienta integrada más parecida es Ajustes del Sistema → General → Almacenamiento. Muestra qué ocupa espacio y ofrece recomendaciones, pero no borra cachés, duplicados ni restos de apps."
+  - q: "¿Cómo libero espacio en un iMac?"
+    a: "Igual que en un MacBook: abre Ajustes del Sistema → General → Almacenamiento, sigue las recomendaciones, revisa Documentos y Aplicaciones y vacía la Papelera. Para una limpieza más a fondo, busca cachés, duplicados y archivos grandes."
+  - q: "¿La Utilidad de Discos sirve para limpiar el disco?"
+    a: "No exactamente. Primera ayuda comprueba y repara errores del disco; no elimina basura ni libera espacio."
+  - q: "¿Cada cuánto debería limpiar el disco del Mac?"
+    a: "Revisa el Almacenamiento cada uno o dos meses, o cuando el espacio libre baje de un 15–20 % del disco. Así queda sitio para las actualizaciones de macOS y los archivos temporales."
+---
+
+Si vienes de Windows, quizá busques el **Liberador de espacio en disco**, la herramienta que borra archivos temporales con unas cuantas casillas. macOS no tiene una app con ese nombre, pero sí equivalentes. Así se hace una limpieza de disco completa en cualquier Mac, incluidos MacBook Air, MacBook Pro e iMac.
+
+## Liberador de Windows vs. lo que tiene el Mac
+
+| Elemento del Liberador de Windows | Equivalente en Mac |
+|---|---|
+| Archivos temporales | Se borran solos al reiniciar; cachés de apps en `~/Library/Caches` |
+| Papelera de reciclaje | Papelera: vacíala con <Kbd>⇧</Kbd> <Kbd>⌘</Kbd> <Kbd>⌫</Kbd> |
+| Archivos de programa descargados | Instaladores `.dmg` y `.pkg` antiguos en Descargas |
+| Caché de miniaturas | Caché de Vista Rápida (se regenera sola) |
+| Volcados de memoria de errores | `~/Library/Logs/DiagnosticReports` |
+| Limpieza de Windows Update | La gestiona macOS; las instantáneas locales de Time Machine se purgan cuando hace falta espacio |
+
+## Paso 1: Usa los ajustes de Almacenamiento
+
+Abre **Ajustes del Sistema → General → Almacenamiento** (en macOS Ventura y posteriores; en versiones anteriores: menú Apple → Acerca de este Mac → Almacenamiento → Gestionar). Espera a que la barra termine de calcular y revisa las **Recomendaciones**:
+
+- **Guardar en iCloud**: mantiene Escritorio, Documentos y Fotos en iCloud y solo los descarga cuando hacen falta.
+- **Optimizar almacenamiento**: elimina las películas y series de Apple TV ya vistas.
+- **Vaciar la Papelera automáticamente**: borra los ítems 30 días después de enviarlos a la Papelera.
+
+Debajo, haz clic en la **ⓘ** junto a cada categoría (Aplicaciones, Documentos, Archivos de iOS, Mail…) para revisar y eliminar ítems. **Documentos → Archivos grandes** es lo más rápido.
+
+## Paso 2: Elimina descargas e instaladores antiguos
+
+Abre **Descargas** en el Finder, cambia a la vista de lista (<Kbd>⌘</Kbd> <Kbd>2</Kbd>) y ordena por **Tamaño**. Los instaladores (`.dmg`, `.pkg`, `.zip`) se pueden borrar una vez instalada la app.
+
+## Paso 3: Borra cachés y registros de apps
+
+Las cachés y los registros son los «archivos temporales» del Mac. En el Finder elige **Ir → Ir a la carpeta…** y abre:
+
+- `~/Library/Caches`: mueve a la Papelera las carpetas de las apps que más usas (ciérralas antes).
+- `~/Library/Logs`: registros e informes de fallos antiguos.
+
+Las apps regeneran lo que necesitan. Nuestra [guía de cachés](/blog/clear-cache-mac) explica qué es seguro.
+
+## Paso 4: Desinstala las apps que no usas
+
+En **Aplicaciones**, arrastra a la Papelera las apps que no uses. Muchas dejan ajustes y cachés en `~/Library/Application Support` y `~/Library/Containers`: elimina también esas carpetas o usa un desinstalador que las encuentre.
+
+<DownloadCTA />
+
+## Paso 5: Encuentra duplicados y archivos grandes
+
+Los ajustes de Almacenamiento no buscan duplicados y esconden muchos archivos grandes dentro de carpetas. Usa la búsqueda del Finder (<Kbd>⌘</Kbd> <Kbd>F</Kbd> → **Tamaño del archivo** → **es mayor que** 1 GB) o un analizador; consulta [cómo encontrar archivos grandes](/blog/find-delete-large-files-mac).
+
+## Paso 6: Vacía la Papelera y reinicia
+
+El espacio solo se libera al vaciar la Papelera. Después, un reinicio borra los archivos temporales y de intercambio. Vuelve a mirar el Almacenamiento: puede tardar unos minutos en actualizarse.
+
+## Hacerlo todo de una vez
+
+MacDiskCleaner es un limpiador de disco para Mac que reúne estos pasos: un solo análisis muestra basura y cachés, duplicados, archivos grandes y antiguos, descargas viejas y datos de desarrollo, con sus tamaños. Tú eliges qué se va y todo se mueve primero a la Papelera. El análisis es gratis, igual que hasta 2 GB de limpieza: [mira qué incluye](/free-mac-cleaner).
+
+## Lo que no hay que «limpiar»
+
+- Nada de `/System` ni de `/Library/Apple`: macOS lo protege.
+- Los llaveros y preferencias de `~/Library`.
+- El espacio **purgable** del Almacenamiento: macOS lo libera solo cuando lo necesita.

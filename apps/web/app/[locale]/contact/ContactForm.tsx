@@ -1,15 +1,17 @@
 "use client";
 import { useState } from "react";
+import { useLocale, useTranslations } from "next-intl";
 import { Check, Loader2, Mail } from "lucide-react";
 
-const CATEGORIES = [
-  { value: "general", label: "General question" },
-  { value: "support", label: "Support / technical issue" },
-  { value: "bug", label: "Report a bug" },
-  { value: "suggestion", label: "Feature suggestion" },
-];
-
 export function ContactForm() {
+  const t = useTranslations("contact");
+  const locale = useLocale();
+  const CATEGORIES = [
+    { value: "general", label: t("catGeneral") },
+    { value: "support", label: t("catSupport") },
+    { value: "bug", label: t("catBug") },
+    { value: "suggestion", label: t("catSuggestion") },
+  ];
   const [form, setForm] = useState({ name: "", email: "", category: "general", message: "" });
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
   const [errorMessage, setErrorMessage] = useState("");
@@ -25,14 +27,15 @@ export function ContactForm() {
       });
       const data = await res.json().catch(() => ({}));
       if (!res.ok) {
-        setErrorMessage(data?.error || "Something went wrong — please try again, or email us directly below.");
+        // The API explains validation errors in English; elsewhere show the localized generic message.
+        setErrorMessage(locale === "en" && data?.error ? data.error : t("errorGeneric"));
         setStatus("error");
         return;
       }
       setStatus("sent");
       setForm({ name: "", email: "", category: "general", message: "" });
     } catch {
-      setErrorMessage("Couldn't reach the server — check your connection and try again, or email us directly below.");
+      setErrorMessage(t("errorNetwork"));
       setStatus("error");
     }
   };
@@ -44,10 +47,10 @@ export function ContactForm() {
             <Mail size={24} className="text-[#007AFF]" />
           </div>
           <h1 className="text-[38px] md:text-[46px] font-extrabold tracking-[-0.03em] text-[#1D1D1F] mb-3">
-            Get in touch
+            {t("title")}
           </h1>
           <p className="text-[17px] text-[#6E6E73] leading-relaxed mb-10">
-            Questions, bug reports, or feature ideas — we read everything and reply within 1-2 business days.
+            {t("lead")}
           </p>
 
           {status === "sent" ? (
@@ -55,20 +58,20 @@ export function ContactForm() {
               <div className="w-12 h-12 rounded-full bg-[#EDFAF0] flex items-center justify-center mx-auto mb-4">
                 <Check size={22} className="text-[#34C759]" strokeWidth={2.5} />
               </div>
-              <p className="text-[18px] font-bold text-[#1D1D1F] mb-1">Message sent</p>
-              <p className="text-[14px] text-[#6E6E73]">Thanks — we'll get back to you soon.</p>
+              <p className="text-[18px] font-bold text-[#1D1D1F] mb-1">{t("sentTitle")}</p>
+              <p className="text-[14px] text-[#6E6E73]">{t("sentText")}</p>
               <button
                 onClick={() => setStatus("idle")}
                 className="mt-6 text-[14px] font-semibold text-[#007AFF]"
               >
-                Send another message
+                {t("sendAnother")}
               </button>
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="space-y-4">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-[13px] font-semibold text-[#6E6E73] mb-1.5">Name</label>
+                  <label className="block text-[13px] font-semibold text-[#6E6E73] mb-1.5">{t("name")}</label>
                   <input
                     required
                     value={form.name}
@@ -77,7 +80,7 @@ export function ContactForm() {
                   />
                 </div>
                 <div>
-                  <label className="block text-[13px] font-semibold text-[#6E6E73] mb-1.5">Email</label>
+                  <label className="block text-[13px] font-semibold text-[#6E6E73] mb-1.5">{t("email")}</label>
                   <input
                     required
                     type="email"
@@ -89,7 +92,7 @@ export function ContactForm() {
               </div>
 
               <div>
-                <label className="block text-[13px] font-semibold text-[#6E6E73] mb-1.5">Topic</label>
+                <label className="block text-[13px] font-semibold text-[#6E6E73] mb-1.5">{t("topic")}</label>
                 <select
                   value={form.category}
                   onChange={(e) => setForm({ ...form, category: e.target.value })}
@@ -102,7 +105,7 @@ export function ContactForm() {
               </div>
 
               <div>
-                <label className="block text-[13px] font-semibold text-[#6E6E73] mb-1.5">Message</label>
+                <label className="block text-[13px] font-semibold text-[#6E6E73] mb-1.5">{t("message")}</label>
                 <textarea
                   required
                   rows={5}
@@ -122,17 +125,19 @@ export function ContactForm() {
                 className="btn-primary text-[15px] py-3 px-7 w-full sm:w-auto justify-center"
               >
                 {status === "sending" && <Loader2 size={16} className="animate-spin" />}
-                Send message
+                {t("send")}
               </button>
             </form>
           )}
 
           <p className="mt-8 text-[14px] text-[#6E6E73] border-t border-[rgba(0,0,0,0.06)] pt-6">
-            Prefer email? Reach us directly at{" "}
-            <a href="mailto:support@macdiskcleaner.com" className="font-semibold text-[#007AFF] hover:underline">
-              support@macdiskcleaner.com
-            </a>
-            . Pro customers with a license key get priority handling — include it in your message for faster help.
+            {t.rich("emailNote", {
+              mail: (chunks) => (
+                <a href="mailto:support@macdiskcleaner.com" className="font-semibold text-[#007AFF] hover:underline">
+                  {chunks}
+                </a>
+              ),
+            })}
           </p>
       </div>
     </main>

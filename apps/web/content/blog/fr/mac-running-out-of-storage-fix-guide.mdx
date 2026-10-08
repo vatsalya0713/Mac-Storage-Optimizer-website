@@ -1,0 +1,66 @@
+---
+title: "Stockage du Mac plein ? Comment régler « Votre disque est presque plein »"
+description: "Votre Mac indique que le disque est presque plein. Voici comment savoir ce qui occupe vraiment l’espace, en libérer tout de suite, comprendre les Données système et l’espace purgeable, et éviter que cela recommence."
+date: "2026-02-08"
+updated: "2026-10-09"
+keywords: ["stockage mac plein", "disque presque plein mac", "mac plus d’espace", "libérer de l’espace mac", "macbook stockage plein", "macos prend trop de place", "nettoyeur stockage mac gratuit"]
+tldr: "Quand votre Mac signale un disque presque plein, videz d’abord la Corbeille et redémarrez. Ouvrez ensuite Réglages Système → Général → Stockage, supprimez gros fichiers et vieux téléchargements via Documents → Fichiers volumineux, effacez les vieilles sauvegardes d’iPhone et videz les caches. Si les Données système sont énormes, vérifiez les instantanés Time Machine, les sauvegardes d’appareils et Xcode. Gardez 15 à 20 % du disque libre pour que l’alerte ne revienne pas."
+related: ["how-to-clear-system-data-mac", "how-to-clean-up-mac-hard-drive", "find-delete-large-files-mac"]
+faq:
+  - q: "Pourquoi le stockage est-il plein alors que j’ai supprimé des fichiers ?"
+    a: "Les fichiers supprimés restent dans la Corbeille tant qu’elle n’est pas vidée, et la vue Stockage met quelques minutes à se mettre à jour. Les instantanés locaux Time Machine peuvent aussi retenir des données supprimées jusqu’à ce que macOS les purge."
+  - q: "Qu’est-ce que l’espace purgeable sur Mac ?"
+    a: "De l’espace occupé par des éléments que macOS peut supprimer seul en cas de besoin, comme des fichiers iCloud déjà dans le nuage ou d’anciens instantanés. Inutile de le supprimer à la main."
+  - q: "Que se passe-t-il si le stockage du Mac est complètement plein ?"
+    a: "Les apps peuvent planter, les fichiers ne s’enregistrent plus, les mises à jour de macOS ne s’installent pas et le Mac ralentit faute de place pour la mémoire virtuelle. Libérez de l’espace au plus vite."
+  - q: "Comment éviter que le stockage se remplisse à nouveau ?"
+    a: "Activez Vider la corbeille automatiquement, stockez Bureau et Documents dans iCloud si vous l’utilisez, videz régulièrement Téléchargements et lancez une analyse de nettoyage tous les un ou deux mois."
+---
+
+« Votre disque est presque plein » dit rarement **ce qui** est plein. Voici comment poser le bon diagnostic et récupérer de l’espace — vite d’abord, à fond ensuite.
+
+## Libérer de l’espace tout de suite (2 minutes)
+
+1. **Videz la Corbeille :** <Kbd>⇧</Kbd> <Kbd>⌘</Kbd> <Kbd>⌫</Kbd> dans le Finder.
+2. **Quittez les apps inutilisées**, surtout les navigateurs aux nombreux onglets et les logiciels de montage.
+3. **Redémarrez.** Cela efface swap et fichiers temporaires, parfois plusieurs Go sur un disque presque plein.
+
+S’il vous reste encore moins d’environ 10 Go, supprimez quelques gros fichiers de Téléchargements avant de continuer.
+
+## Étape 1 : voir ce que macOS pense occuper l’espace
+
+Ouvrez **Réglages Système → Général → Stockage**. La barre colorée montre les grandes catégories : Applications, Documents, Photos, iCloud Drive, Mail, Messages, macOS et **Données système**. Cliquez sur le **ⓘ** à côté de chacune pour voir et supprimer son contenu.
+
+## Étape 2 : supprimer gros fichiers et vieux téléchargements
+
+Dans **Documents**, ouvrez **Fichiers volumineux** et **Téléchargements**. Vieux installateurs, vidéos et archives sont les gains les plus rapides. Guide : [trouver les gros fichiers sur Mac](/blog/find-delete-large-files-mac).
+
+## Étape 3 : vérifier Fichiers iOS et Messages
+
+- **Fichiers iOS** liste les sauvegardes et mises à jour logicielles d’iPhone et d’iPad stockées sur votre Mac — supprimez les anciennes.
+- **Messages** peut contenir des Go de photos et vidéos ; dans Messages → Réglages → Général, réglez **Conserver les messages** sur 1 an ou 30 jours si cela vous convient.
+
+## Étape 4 : s’occuper des Données système
+
+Si les **Données système** sont très volumineuses, les causes habituelles sont les instantanés locaux Time Machine, les sauvegardes d’appareils, les données de développement ou une machine virtuelle. Lisez [pourquoi les Données système grossissent autant](/blog/how-to-clear-system-data-mac) et la [solution pas à pas](/clear-system-data-mac).
+
+<DownloadCTA />
+
+## Étape 5 : désinstaller les apps inutilisées
+
+Dans **Applications**, triez par taille et supprimez ce dont vous n’avez plus besoin, puis effacez les dossiers restants de l’app dans `~/Library/Application Support`.
+
+## Comprendre l’espace purgeable
+
+Le Stockage affiche parfois de l’espace **purgeable**. Ce sont des données que macOS supprimera de lui-même quand il aura besoin de place : copies locales de fichiers iCloud, anciens instantanés et certains caches. Vous n’avez rien à faire.
+
+## Éviter que cela recommence
+
+- Activez **Vider la corbeille automatiquement** dans les recommandations Stockage.
+- Déplacez projets terminés et vieilles photos vers un disque externe.
+- Gardez **15 à 20 % du disque libres** — macOS s’en sert pour la mémoire virtuelle et les mises à jour.
+- Lancez une analyse de nettoyage tous les un ou deux mois. MacDiskCleaner montre où l’espace est parti depuis la dernière fois, et Pro peut analyser selon un calendrier.
+
+## Combien d’espace un nettoyage devrait-il libérer ?
+
+Cela dépend du Mac. Un Mac qui accumule des années de téléchargements, de sauvegardes d’appareils ou d’outils de développement a souvent des dizaines de Go à récupérer. Une analyse gratuite avec MacDiskCleaner vous donne le vrai chiffre pour votre Mac avant d’y passer du temps à la main.

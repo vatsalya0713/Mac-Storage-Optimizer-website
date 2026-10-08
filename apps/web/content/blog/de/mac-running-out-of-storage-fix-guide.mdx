@@ -1,0 +1,66 @@
+---
+title: "Mac-Speicher voll? So behebst du „Dein Startvolume ist fast voll“"
+description: "Dein Mac meldet, die Festplatte sei fast voll. So findest du heraus, was wirklich Platz belegt, gibst sofort etwas frei, verstehst Systemdaten und löschbaren Speicher – und verhinderst, dass er wieder vollläuft."
+date: "2026-02-08"
+updated: "2026-10-09"
+keywords: ["mac speicher voll", "mac festplatte fast voll", "startvolume fast voll mac", "macbook speicher voll", "mac speicherplatz freigeben", "macos belegt viel speicher", "mac speicher cleaner kostenlos"]
+tldr: "Meldet dein Mac eine fast volle Festplatte, leere zuerst den Papierkorb und starte neu. Öffne dann Systemeinstellungen → Allgemein → Speicher, lösche große Dateien und alte Downloads über Dokumente → Große Dateien, entferne alte iPhone-Backups und leere Caches. Sind die Systemdaten riesig, prüfe Time-Machine-Snapshots, Geräte-Backups und Xcode. Halte 15–20 % der Festplatte frei, damit die Warnung nicht wiederkommt."
+related: ["how-to-clear-system-data-mac", "how-to-clean-up-mac-hard-drive", "find-delete-large-files-mac"]
+faq:
+  - q: "Warum ist der Speicher voll, obwohl ich Dateien gelöscht habe?"
+    a: "Gelöschte Dateien bleiben im Papierkorb, bis du ihn leerst, und die Speicheranzeige braucht ein paar Minuten. Auch lokale Time-Machine-Snapshots können gelöschte Daten halten, bis macOS sie bereinigt."
+  - q: "Was ist löschbarer Speicher auf dem Mac?"
+    a: "Platz, den macOS bei Bedarf selbst freigeben kann – etwa iCloud-Dateien, die schon in der Cloud liegen, oder alte Snapshots. Du musst ihn nicht manuell löschen."
+  - q: "Was passiert, wenn der Mac-Speicher komplett voll ist?"
+    a: "Apps können abstürzen, Dateien lassen sich nicht sichern, macOS-Updates werden nicht installiert und der Mac wird langsam, weil kein Platz für virtuellen Speicher bleibt. Gib so schnell wie möglich Platz frei."
+  - q: "Wie verhindere ich, dass der Speicher wieder vollläuft?"
+    a: "„Papierkorb automatisch entleeren“ aktivieren, Schreibtisch und Dokumente in iCloud speichern (falls genutzt), Downloads regelmäßig leeren und alle ein bis zwei Monate einen Aufräum-Scan machen."
+---
+
+„Dein Startvolume ist fast voll“ sagt selten, **was** voll ist. So diagnostizierst du richtig und holst dir Platz zurück – zuerst schnell, dann gründlich.
+
+## Sofort Platz schaffen (2 Minuten)
+
+1. **Papierkorb leeren:** <Kbd>⇧</Kbd> <Kbd>⌘</Kbd> <Kbd>⌫</Kbd> im Finder.
+2. **Ungenutzte Apps beenden**, vor allem Browser mit vielen Tabs und Videoschnitt-Programme.
+3. **Neu starten.** Das entfernt Auslagerungs- und temporäre Dateien – bei fast voller Festplatte oft mehrere Gigabyte.
+
+Sind danach immer noch weniger als etwa 10 GB frei, lösche zuerst ein paar große Dateien aus Downloads.
+
+## Schritt 1: Sehen, was laut macOS Platz belegt
+
+Öffne **Systemeinstellungen → Allgemein → Speicher**. Der farbige Balken zeigt die Hauptkategorien: Programme, Dokumente, Fotos, iCloud Drive, Mail, Nachrichten, macOS und **Systemdaten**. Mit dem **ⓘ** neben jeder Kategorie siehst und löschst du ihren Inhalt.
+
+## Schritt 2: Große Dateien und alte Downloads entfernen
+
+Unter **Dokumente** **Große Dateien** und **Downloads** öffnen. Alte Installer, Videos und Archive bringen am schnellsten etwas. Ratgeber: [große Dateien auf dem Mac finden](/blog/find-delete-large-files-mac).
+
+## Schritt 3: iOS-Dateien und Nachrichten prüfen
+
+- **iOS-Dateien** listet iPhone- und iPad-Backups sowie Softwareupdates auf deinem Mac – lösche alte.
+- **Nachrichten** kann Gigabyte an Fotos und Videos enthalten; stelle unter Nachrichten → Einstellungen → Allgemein **Nachrichten behalten** auf 1 Jahr oder 30 Tage, wenn das für dich passt.
+
+## Schritt 4: Systemdaten angehen
+
+Sind die **Systemdaten** sehr groß, stecken meist lokale Time-Machine-Snapshots, Geräte-Backups, Entwicklerdaten oder eine virtuelle Maschine dahinter. Lies, [warum Systemdaten so groß werden](/blog/how-to-clear-system-data-mac), und die [Schritt-für-Schritt-Lösung](/clear-system-data-mac).
+
+<DownloadCTA />
+
+## Schritt 5: Ungenutzte Apps deinstallieren
+
+Unter **Programme** nach Größe sortieren, Unnötiges entfernen und danach die übrigen Ordner der App in `~/Library/Application Support` löschen.
+
+## Löschbaren Speicher verstehen
+
+Die Speicheranzeige zeigt manchmal **löschbaren** Speicher. Das sind Daten, die macOS bei Platzbedarf selbst entfernt – lokale Kopien von iCloud-Dateien, alte Snapshots und manche Caches. Du musst nichts tun.
+
+## Damit er nicht wieder vollläuft
+
+- **Papierkorb automatisch entleeren** in den Speicher-Empfehlungen aktivieren.
+- Abgeschlossene Projekte und alte Fotos auf ein externes Laufwerk auslagern.
+- **15–20 % der Festplatte frei halten** – macOS braucht das für virtuellen Speicher und Updates.
+- Alle ein bis zwei Monate einen Aufräum-Scan machen. MacDiskCleaner zeigt, wohin der Speicher seit dem letzten Mal gegangen ist, und Pro kann nach Zeitplan scannen.
+
+## Wie viel sollte Aufräumen bringen?
+
+Das hängt vom Mac ab. Einer mit jahrelangen Downloads, Geräte-Backups oder Entwickler-Tools hat oft Dutzende Gigabyte zu holen. Ein kostenloser MacDiskCleaner-Scan nennt dir die echte Zahl für deinen Mac, bevor du Zeit ins manuelle Aufräumen steckst.

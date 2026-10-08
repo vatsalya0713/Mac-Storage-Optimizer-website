@@ -1,47 +1,73 @@
 ---
-title: "Mac Storage Cleaner: Free Download for macOS 14+"
-description: "Download a free Mac storage cleaner directly — no email signup, no trial. Here's exactly what you get and how to install it safely."
+title: "Free Mac Cleaner Download: How to Install MacDiskCleaner Safely"
+description: "Download a free Mac cleaner directly — no email, no trial. What you get, system requirements, how to install it, and how to get past macOS’s first-launch check safely."
 date: "2026-02-05"
-keywords: ["mac storage cleaner free download", "mac storage cleaner download", "mac storage cleaner app"]
+updated: "2026-10-09"
+keywords: ["mac storage cleaner free download", "free mac cleaner download", "free mac disk cleaner", "maccleaner free", "mac clean up free", "mac storage cleaner download", "mac storage cleaner app"]
+tldr: "Download MacDiskCleaner free from macdiskcleaner.com/downloads — one universal app for Apple Silicon and Intel Macs on macOS 14 or later, no account needed. For a warning-free install, paste the one-line Terminal command from the downloads page. If you use the .dmg instead, drag the app to Applications, open it once, then click Open Anyway in System Settings → Privacy & Security."
+related: ["best-free-mac-cleaner-apps-2026", "how-to-clean-junk-files-mac", "disk-cleanup-mac"]
+faq:
+  - q: "Is MacDiskCleaner free to download?"
+    a: "Yes. The download is free with no account, email or credit card. The free tier never expires: scan everything and clean up to 2 GB in total."
+  - q: "Why does macOS say it can’t verify the app?"
+    a: "macOS shows that message for apps downloaded in a browser that aren’t distributed through the Mac App Store. It’s a one-time check: click Done, then Open Anyway in Privacy & Security — or use the Terminal installer, which avoids it."
+  - q: "Does it work on M1, M2, M3 and M4 Macs?"
+    a: "Yes. MacDiskCleaner is a universal app with native code for Apple Silicon and Intel, on macOS 14 Sonoma or later."
+  - q: "How do I update it?"
+    a: "The app checks for updates and installs them from inside the app, with a verified checksum. You don’t need to download it again."
+  - q: "How do I verify the download?"
+    a: "Compare the file’s SHA-256 checksum with the one published on the safety page: run shasum -a 256 on the downloaded .dmg in Terminal."
 ---
 
-If you searched for a Mac storage cleaner to download, here's the short version: [MacDiskCleaner](/free-mac-cleaner) is free to download directly, with no email signup and no trial countdown on the core features.
+You can [download MacDiskCleaner](/downloads) straight from this site — no email sign-up, no trial countdown. Here’s what you get and how to install it properly.
 
-## Direct download
+## What’s included free
 
-[Download MacDiskCleaner for free](/downloads/MacDiskCleaner.dmg) — it's a small `.dmg` file. Once it downloads:
+- A full scan of your Mac (or the folders you choose): junk and caches, duplicates, large and old files, old downloads, developer data and app leftovers.
+- Every result visible — nothing hidden behind a paywall.
+- Up to **2 GB of cleanup in total**, for free, permanently.
+- Trash-first deletion, so anything you remove can be put back.
 
-1. Open the `.dmg` file
-2. Drag **MacDiskCleaner** into your **Applications** folder
-3. Open it from Applications (or Launchpad)
-4. Click **Start Scan**
-
-That's it — no account creation required to use the free tier.
-
-## What's actually included in the free download
-
-- Scan your whole Mac for free, forever — duplicates, large files, old files, downloads and junk, all visible
-- Free cleanup up to 2 GB in total; after that the app asks for Pro or a license key
-- Safe deletion — everything goes to Trash first, nothing is ever permanently deleted without your confirmation
-
-See the complete breakdown, including what Pro unlocks, on the [Free Mac Cleaner](/free-mac-cleaner) page.
-
-## Is it safe to download Mac cleaner apps?
-
-Only from sources you trust. A few checks worth doing before installing any Mac cleaner:
-
-- Download directly from the developer's own site (like this one) rather than a third-party download aggregator, which can bundle unrelated software
-- Check that it explains exactly what it scans and moves everything to Trash rather than deleting permanently
-- Avoid anything that requires disabling Gatekeeper or granting Full Disk Access before you've even run a scan
+Pro ($12.99 once) removes the 2 GB limit and adds an app uninstaller, privacy cleaner, startup manager and scheduled scans. [Compare free and Pro](/pricing).
 
 ## System requirements
 
-macOS 14 Sonoma or later, on both Apple Silicon (M1–M4) and Intel Macs. The download itself is lightweight — a few megabytes, not a multi-hundred-megabyte installer.
+- macOS 14 Sonoma or later
+- Apple Silicon (M1 or newer) or Intel processor
+- About 50 MB of free space
 
-## FAQ
+## Option 1: Install with no warning (Terminal)
 
-**Do I need to create an account to download it?**
-No. Download, drag to Applications, and open — no signup for the free tier.
+Open **Terminal** (Applications → Utilities), paste this line and press Return:
 
-**Will it keep working after the free trial ends?**
-There's no trial. The free tier (unlimited scanning, 2 GB of total cleanup) works indefinitely.
+```bash
+curl -fsSL https://www.macdiskcleaner.com/install.sh | bash
+```
+
+It downloads the latest version, checks its published SHA-256 checksum, installs it in Applications and opens it. You can [read the script](/install.sh) before running it.
+
+## Option 2: Download the .dmg
+
+1. Click **Download** on the [downloads page](/downloads) and open **MacDiskCleaner.dmg**.
+2. Drag **MacDiskCleaner** into the **Applications** folder.
+3. Open it from Applications. macOS shows “Apple could not verify…” — click **Done** (never **Move to Bin**).
+4. Open **System Settings → Privacy & Security**, scroll down and click **Open Anyway** next to MacDiskCleaner, then confirm with your password.
+
+That check only happens once. On macOS 14 Sonoma you can instead right-click the app and choose **Open**.
+
+<DownloadCTA />
+
+## Is it safe to download Mac cleaners?
+
+It is when you get them from the developer’s own site and they behave transparently. MacDiskCleaner:
+
+- **Never uploads** file names, paths or contents — scanning is local.
+- **Moves everything to the Trash** instead of erasing it.
+- **Blocks protected locations** such as system folders, Keychains and Preferences.
+- **Publishes a SHA-256 checksum** for every release on the [safety page](/security).
+
+Avoid third-party download sites that wrap apps in their own installers.
+
+## After installing
+
+Run your first scan from the Dashboard. You can choose a quick scan (without the slower duplicate check) or a full one, and pick which folders to include. Results are saved, so you don’t have to scan again after reopening the app.

@@ -1,43 +1,61 @@
 ---
-title: "Duplicate Photos on Mac: How to Find and Remove Them"
-description: "Photos imported twice, synced from multiple devices, or saved in several folders — here's how to find and safely remove duplicate photos on Mac."
+title: "How to Find and Delete Duplicate Photos and Files on Mac"
+description: "Remove duplicate photos with the Photos app’s built-in Duplicates album, then find duplicate files everywhere else on your Mac with a hash-based finder — safely, without losing originals."
 date: "2026-02-14"
-keywords: ["mac storage cleaner", "mac junk cleaner", "best mac storage cleaner"]
+updated: "2026-10-09"
+keywords: ["duplicate photos mac", "delete duplicate photos mac", "find duplicate files mac", "duplicate file finder mac", "photos duplicates album", "mac storage cleaner", "best mac storage cleaner"]
+tldr: "For photos in your Photos library, open Photos, select Duplicates under Utilities in the sidebar and click Merge — macOS keeps the best-quality copy and combines their details. For duplicate files outside Photos (Downloads, Documents, external drives), use a hash-based duplicate finder such as MacDiskCleaner, which compares file contents, not just names, and moves extra copies to the Trash."
+related: ["find-delete-large-files-mac", "how-to-clean-up-mac-hard-drive", "best-free-mac-cleaner-apps-2026"]
+faq:
+  - q: "Does Photos on Mac find duplicates?"
+    a: "Yes. Since macOS Ventura, Photos detects duplicate photos and videos and lists them in the Duplicates album under Utilities in the sidebar. It can take a while to appear after updating or importing."
+  - q: "What happens when I merge duplicates in Photos?"
+    a: "Photos keeps the highest-quality version, combines relevant data such as albums, captions and keywords, and moves the other copies to the Recently Deleted album for 30 days."
+  - q: "How do I find duplicate files outside Photos?"
+    a: "Use a duplicate finder that compares file contents (hashes). Finder can’t find duplicates by content; searching by name misses renamed copies and flags different files with the same name."
+  - q: "Is it safe to delete duplicate files on Mac?"
+    a: "Yes, if the files are byte-for-byte identical and you keep one copy. Be careful with duplicates inside app bundles, libraries (Photos, Music) and system folders — delete those through the owning app instead."
 ---
 
-Duplicate photos are one of the sneakiest ways a Mac fills up — importing from an SD card twice, AirDropping a photo you already had, or syncing the same library from multiple devices all quietly create copies.
+Duplicates are one of the easiest ways to recover space safely: by definition, you still have a copy. The right tool depends on where they are.
 
-## Why Photos.app duplicates are tricky
+## Why duplicates happen
 
-Unlike a duplicate PDF sitting in two folders, duplicate photos often aren't byte-for-byte identical — the same photo edited, exported at a different size, or re-saved by a messaging app can look identical but have a different file size or metadata. A simple "same filename" check misses most of them.
+- Importing the same photos from a phone, camera or card more than once.
+- Downloading the same attachment several times (`file (1).pdf`, `file (2).pdf`).
+- Copying folders to reorganise them and never deleting the originals.
+- Syncing from several devices or cloud services into the same Mac.
 
-## Option 1: Photos app's built-in duplicate detection
+## Part 1: Duplicate photos in the Photos app
 
-Recent versions of Photos.app (macOS 13+) have a **Duplicates** album under the sidebar's "Utilities" section, which detects visually similar or exact-duplicate photos within your Photos library specifically. This is a good first pass if your duplicates are all inside Photos.app.
+Photos has a built-in duplicate detector (macOS Ventura and later).
 
-## Option 2: A hash-based duplicate finder for everything else
+1. Open **Photos**.
+2. In the sidebar, under **Utilities**, select **Duplicates**.
+3. Review each group, then click **Merge** for one group, or select several and choose **Merge Items**.
 
-Photos.app's duplicate detection only covers your Photos library — it won't catch photos duplicated across `~/Downloads`, `~/Desktop`, external drives, or old backup folders. For that, you need a scanner that hashes file contents (not just filenames) across your whole Mac.
+Photos keeps the best-quality version, combines albums, keywords and captions, and moves the extra copies to **Recently Deleted**, where they stay for 30 days.
 
-[MacDiskCleaner's Duplicate Finder](/#features) uses a 3-stage check — file size, then a partial hash, then a full SHA-256 hash — to confirm exact duplicates anywhere on your Mac, with zero false positives. It groups duplicates together and lets you pick which copy to keep before removing the rest.
+**If the Duplicates album doesn’t appear:** Photos detects duplicates in the background, which can take hours or days after an update or a big import. Leave Photos open with your Mac plugged in.
+
+**Note:** Photos only looks inside your Photos library — not at copies of the same pictures in Downloads, Desktop or an external drive.
+
+## Part 2: Duplicate files everywhere else
+
+Finder has no duplicate search, and searching by name is unreliable: renamed copies are missed and different files with the same name are flagged. Reliable duplicate finders compare **file contents** using a hash (a fingerprint of the data).
+
+MacDiskCleaner works this way: it groups files with identical contents, shows each copy’s location, size and date, and pre-selects the extra copies while keeping one. Everything you remove goes to the Trash, so you can put it back. The duplicate scan is part of the free tier.
+
+<DownloadCTA />
 
 ## Safe removal checklist
 
-1. Always keep the highest-resolution / most recent copy
-2. If duplicates are split between Photos.app's library and plain files elsewhere, decide which is your "source of truth" first
-3. Let the tool move removed copies to Trash — don't use permanent deletion for anything photo-related until you're certain
+1. **Keep the copy in the place you actually use** (for example Documents, not Downloads).
+2. **Don’t delete inside libraries** — Photos, Music, iMovie or Final Cut libraries manage their own files. Use the app instead.
+3. **Skip app bundles and system folders.** Identical files inside apps are normal.
+4. **Check cloud folders** (iCloud Drive, Dropbox, Google Drive): deleting there deletes on every device.
+5. **Empty the Trash** only once you’re sure — that’s when the space is actually freed.
 
-## How duplicates usually happen
+## Similar vs. duplicate photos
 
-- Importing the same SD card or phone twice
-- iCloud Photos and a separate manual backup both containing the same shots
-- Saving an image from Messages/WhatsApp that you already had from the original source
-- Re-exporting an edited photo without removing the original export
-
-## FAQ
-
-**Will removing duplicates affect my Photos.app library organization (albums, favorites)?**
-If you remove duplicates using Photos.app's own Duplicates album, album membership is preserved on the copy you keep. If you're removing plain duplicate files outside Photos.app, this doesn't apply since they aren't in your library to begin with.
-
-**How much space do duplicate photos typically take up?**
-Highly variable, but a Mac that's synced photos from multiple devices over a few years commonly has several GB in duplicate photos alone — often more than people expect until they actually scan.
+Duplicate means identical (or near-identical in Photos’ case). *Similar* photos — bursts, several shots of the same scene — aren’t duplicates, and deciding which to keep is a personal choice. Review those by hand in the Photos library.

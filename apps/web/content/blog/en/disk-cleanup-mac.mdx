@@ -1,0 +1,77 @@
+---
+title: "Disk Cleanup on Mac: The Mac Equivalent of Windows Disk Cleanup"
+description: "Macs don’t have a “Disk Cleanup” app like Windows. Here’s what to use instead on a MacBook or iMac — built-in Storage settings, Finder and Terminal, or a dedicated disk cleaner — step by step."
+date: "2026-10-09"
+keywords: ["mac disk cleanup", "imac disk cleanup", "mac disc cleanup", "disk cleanup mac", "disk cleaner mac", "mac disk cleaner", "best mac disk cleaner", "mac cleanup", "mac clean up free"]
+tldr: "There is no “Disk Cleanup” app on a Mac. The built-in equivalent is System Settings → General → Storage, which offers recommendations (store in iCloud, optimise storage, empty the Trash automatically) and lets you review large files, downloads and apps. For caches, duplicates and leftovers that Storage doesn’t show, use Finder and Terminal or a disk cleaner such as MacDiskCleaner."
+related: ["how-to-clean-up-mac-hard-drive", "how-to-clean-junk-files-mac", "best-free-mac-cleaner-apps-2026"]
+faq:
+  - q: "Does Mac have Disk Cleanup like Windows?"
+    a: "No. The closest built-in tool is System Settings → General → Storage. It shows what uses space and offers recommendations, but it doesn’t clear caches, duplicates or leftover app files."
+  - q: "How do I run disk cleanup on an iMac?"
+    a: "The same way as on a MacBook: open System Settings → General → Storage, follow the recommendations, review Documents and Applications, then empty the Trash. For a deeper clean, scan for caches, duplicates and large files."
+  - q: "Is Disk Utility a disk cleanup tool?"
+    a: "Not really. Disk Utility’s First Aid checks and repairs disk errors; it doesn’t delete junk or free space."
+  - q: "How often should I clean up my Mac’s disk?"
+    a: "Check Storage every month or two, or whenever free space drops below about 15–20% of your disk. That leaves room for macOS updates and normal temporary files."
+---
+
+If you’ve come from Windows, you might be looking for **Disk Cleanup** — the tool that clears temporary files with a few checkboxes. macOS doesn’t have an app with that name, but it does have equivalents. Here’s how to do a proper disk cleanup on any Mac, including MacBook Air, MacBook Pro and iMac.
+
+## Windows Disk Cleanup vs. what a Mac has
+
+| Windows Disk Cleanup item | Mac equivalent |
+|---|---|
+| Temporary files | Cleared automatically on restart; app caches in `~/Library/Caches` |
+| Recycle Bin | Trash — empty with <Kbd>⇧</Kbd> <Kbd>⌘</Kbd> <Kbd>⌫</Kbd> |
+| Downloaded program files | Old `.dmg` and `.pkg` installers in Downloads |
+| Thumbnails cache | Quick Look cache (rebuilt automatically) |
+| System error memory dumps | `~/Library/Logs/DiagnosticReports` |
+| Windows Update cleanup | Handled by macOS; Time Machine local snapshots are purged when space is needed |
+
+## Step 1: Use the built-in Storage settings
+
+Open **System Settings → General → Storage** (on macOS Ventura and later; older versions: Apple menu → About This Mac → Storage → Manage). Wait for the bar to finish calculating, then work through the **Recommendations**:
+
+- **Store in iCloud** — keep Desktop, Documents and Photos in iCloud and only download them when needed.
+- **Optimise Storage** — removes watched Apple TV movies and shows.
+- **Empty Trash Automatically** — deletes items 30 days after you trash them.
+
+Below the recommendations, click the **ⓘ** next to each category (Applications, Documents, iOS Files, Mail…) to review and delete items. **Documents → Large Files** is the quickest win.
+
+## Step 2: Clear old downloads and installers
+
+Open **Downloads** in Finder, switch to list view (<Kbd>⌘</Kbd> <Kbd>2</Kbd>) and sort by **Size**. Installers (`.dmg`, `.pkg`, `.zip`) are safe to delete once the app is installed.
+
+## Step 3: Remove app caches and logs
+
+Caches and logs are the Mac’s “temporary files”. In Finder choose **Go → Go to Folder…** and open:
+
+- `~/Library/Caches` — move the folders of apps you use heavily to the Trash (quit them first).
+- `~/Library/Logs` — old logs and crash reports.
+
+Apps recreate what they need. Our [cache guide](/blog/clear-cache-mac) explains what is safe.
+
+## Step 4: Uninstall apps you don’t use
+
+In **Applications**, drag unused apps to the Trash. Many leave settings and caches behind in `~/Library/Application Support` and `~/Library/Containers` — remove those folders too, or use an uninstaller that finds them.
+
+<DownloadCTA />
+
+## Step 5: Find duplicates and large files
+
+Storage settings don’t look for duplicate files, and they hide many large files inside folders. Use Finder search (<Kbd>⌘</Kbd> <Kbd>F</Kbd> → **File Size** → **is greater than** 1 GB) or a scanner — see [how to find large files](/blog/find-delete-large-files-mac).
+
+## Step 6: Empty the Trash and restart
+
+Space is only freed once the Trash is emptied. A restart then clears temporary and swap files. Check Storage again — it can take a few minutes to update.
+
+## Doing it in one pass
+
+MacDiskCleaner is a disk cleaner for Mac that combines these steps: one scan shows junk and caches, duplicates, large and old files, old downloads and developer data, with sizes. You pick what goes, and everything is moved to the Trash first. Scanning is free, and so is up to 2 GB of cleanup — [see what’s included](/free-mac-cleaner).
+
+## What not to “clean”
+
+- Anything in `/System` or `/Library/Apple` — protected by macOS.
+- Keychains and Preferences in `~/Library`.
+- **Purgeable** space shown in Storage: macOS frees it automatically when needed, so you don’t have to.

@@ -1,0 +1,81 @@
+---
+title: "Cómo quitar archivos del escritorio del Mac sin borrarlos"
+description: "Despeja archivos, carpetas, capturas y descargas del escritorio de tu MacBook o iMac sin borrar nada: muévelos, usa pilas, oculta los iconos o cambia dónde se guardan las capturas."
+date: "2026-01-29"
+updated: "2026-10-09"
+keywords: ["quitar archivos del escritorio mac sin borrarlos", "quitar carpeta del escritorio mac sin eliminarla", "ocultar iconos escritorio mac", "limpiar escritorio mac", "mover archivos escritorio mac", "capturas de pantalla escritorio mac"]
+tldr: "Para quitar algo del escritorio del Mac sin borrarlo, arrástralo a otra carpeta (por ejemplo, Documentos): se mueve, no se elimina. Para ordenarlo, activa las pilas (clic derecho en el escritorio → Usar pilas). Para ocultar todos los iconos sin tocar los archivos, ve a Ajustes del Sistema → Escritorio y Dock y desactiva «Mostrar ítems: En el escritorio». Solo «Trasladar a la Papelera» borra."
+related: ["how-to-permanently-delete-files-mac", "how-to-clean-up-mac-hard-drive", "find-delete-large-files-mac"]
+faq:
+  - q: "¿Cómo quito una carpeta del escritorio del Mac sin borrarla?"
+    a: "Arrástrala a otra carpeta de la barra lateral del Finder, como Documentos. Se mueve con todo su contenido; no se borra nada."
+  - q: "¿Quitar un archivo del escritorio lo borra?"
+    a: "Solo si usas «Trasladar a la Papelera» (y luego vacías la Papelera). Moverlo, ocultar los iconos o usar pilas deja el archivo donde está."
+  - q: "¿Cómo oculto todos los archivos del escritorio?"
+    a: "En macOS Sonoma o posterior, abre Ajustes del Sistema → Escritorio y Dock y desactiva «Mostrar ítems: En el escritorio». Los archivos siguen en la carpeta Escritorio y se ven en el Finder."
+  - q: "¿Cómo hago que las capturas no se guarden en el escritorio?"
+    a: "Pulsa Mayúsculas-Comando-5, haz clic en Opciones y elige otra ubicación en «Guardar en», por ejemplo Documentos o una carpeta nueva «Capturas»."
+  - q: "Mis archivos del escritorio están en iCloud, ¿es seguro moverlos?"
+    a: "Sí, moverlos es seguro. Pero si la sincronización de Escritorio y Documentos está activada, borrar un archivo del escritorio también lo borra de iCloud en todos tus dispositivos; si dudas, mueve en lugar de borrar."
+---
+
+En un Mac, el escritorio es simplemente una carpeta (`~/Desktop`). Todo lo que hay en él es un archivo real, así que «quitarlo» puede significar cosas muy distintas. Así puedes sacar archivos del escritorio **sin borrarlos**, de lo más rápido a lo más ordenado.
+
+## Lo único que borra
+
+Solo **Trasladar a la Papelera** (<Kbd>⌘</Kbd> <Kbd>⌫</Kbd>, o arrastrar a la Papelera) borra un archivo, e incluso entonces se puede recuperar hasta que vacíes la Papelera. Todos los métodos siguientes conservan tus archivos.
+
+## Método 1: Mueve los archivos a una carpeta
+
+1. Abre una ventana del Finder (<Kbd>⌘</Kbd> <Kbd>N</Kbd>) y elige un destino en la barra lateral, como **Documentos**.
+2. Selecciona los archivos del escritorio (arrastra un recuadro o haz <Kbd>⌘</Kbd>-clic en cada uno).
+3. Arrástralos a la carpeta de destino.
+
+Arrastrar entre carpetas del mismo disco **mueve** los archivos: no los copia ni los borra. También puedes copiar con <Kbd>⌘</Kbd> <Kbd>C</Kbd> y pulsar <Kbd>⌥</Kbd> <Kbd>⌘</Kbd> <Kbd>V</Kbd> en el destino para moverlos.
+
+**Para quitar una carpeta del escritorio**, haz lo mismo: arrastra la carpeta entera a Documentos. Su contenido va con ella.
+
+## Método 2: Agrupa todo con pilas
+
+Haz clic derecho en un hueco del escritorio y elige **Usar pilas** (o pulsa <Kbd>⌃</Kbd> <Kbd>⌘</Kbd> <Kbd>0</Kbd>). macOS agrupa los archivos por tipo —imágenes, PDF, capturas— en pilas que se despliegan al hacer clic. No se mueve ni se borra nada; desactívalo igual.
+
+## Método 3: Oculta todos los iconos (los archivos se quedan)
+
+En **macOS Sonoma o posterior**:
+
+1. Abre **Ajustes del Sistema → Escritorio y Dock**.
+2. En **Escritorio y Stage Manager**, desactiva **Mostrar ítems: En el escritorio**.
+
+El escritorio queda limpio, pero cada archivo sigue en la carpeta Escritorio de la barra lateral del Finder. Vuelve a activarlo cuando quieras.
+
+Ya que estás ahí, pon **Hacer clic en el fondo de pantalla para mostrar el escritorio** en **Solo en Stage Manager** si tus ventanas desaparecen al hacer clic en el escritorio.
+
+En versiones anteriores de macOS puedes ocultar los iconos desde Terminal (y deshacerlo repitiendo con `true`):
+
+```bash
+defaults write com.apple.finder CreateDesktop false
+killall Finder
+```
+
+## Método 4: Que las capturas no vayan al escritorio
+
+Las capturas de pantalla son la principal fuente de desorden. Pulsa <Kbd>⇧</Kbd> <Kbd>⌘</Kbd> <Kbd>5</Kbd>, haz clic en **Opciones** y, en **Guardar en**, elige **Documentos** u **Otra ubicación…** (por ejemplo, una carpeta nueva «Capturas»). Las capturas existentes se pueden mover con el método 1.
+
+## Método 5: Quita alias, no originales
+
+Los iconos con una pequeña **flecha** curva son alias: accesos directos a un archivo guardado en otro sitio. Borrar un alias **no** borra el original, así que es seguro tirar los alias que ya no uses. Si dudas, selecciona el icono y pulsa <Kbd>⌘</Kbd> <Kbd>R</Kbd> (Mostrar original) para ver dónde está el archivo real.
+
+## Método 6: Pásalos a iCloud o a un disco externo
+
+- **Disco externo o memoria USB:** arrastra los archivos al disco en el Finder. Esto los *copia*; cuando termine, puedes trasladar los originales a la Papelera si quieres recuperar el espacio.
+- **iCloud Drive:** con **Carpetas Escritorio y Documentos** activado (Ajustes del Sistema → tu nombre → iCloud → iCloud Drive), los archivos del escritorio se guardan en iCloud y pueden liberarse en local cuando falta espacio. Ojo: entonces borrar un archivo del escritorio lo borra de iCloud en todos tus dispositivos.
+
+<DownloadCTA />
+
+## ¿Y la «pantalla de inicio» del MacBook?
+
+Mucha gente llama «pantalla de inicio» al escritorio del Mac. Todo lo anterior sirve: las capturas, descargas y carpetas que ves ahí están en `~/Desktop`. Las descargas solo aparecen en el escritorio si un navegador está configurado para guardarlas ahí; cámbialo en sus ajustes (en Safari: **Ajustes → General → Ubicación de descarga de archivos**).
+
+## Liberar espacio, no solo ordenar
+
+Mover archivos no libera espacio en disco. Si estás despejando el escritorio por un aviso de «disco casi lleno», busca lo que de verdad ocupa: instaladores antiguos, vídeos, duplicados y cachés. Un análisis gratuito de [MacDiskCleaner](/free-mac-cleaner) los lista con su tamaño, y todo lo que elimines va primero a la Papelera. Para hacerlo a mano, consulta [cómo encontrar archivos grandes en Mac](/blog/find-delete-large-files-mac).

@@ -12,6 +12,12 @@ import '../globals.css'
 
 const GA_MEASUREMENT_ID = 'G-77S20B60EY'
 
+// Pages are prerendered, but they show the current release (version, size,
+// checksum). Re-render at most every 10 minutes so a release published from
+// the admin panel appears without a redeploy. Downloads themselves always go
+// through /api/download, which is resolved live.
+export const revalidate = 600
+
 const inter = Inter({ subsets: ['latin'] })
 
 export function generateStaticParams() {
@@ -101,8 +107,10 @@ export default async function LocaleLayout({
             gtag('config', '${GA_MEASUREMENT_ID}', { anonymize_ip: true });
           `}
         </Script>
-        <NextIntlClientProvider messages={messages}>{children}</NextIntlClientProvider>
-        <CookieNotice />
+        <NextIntlClientProvider messages={messages}>
+          {children}
+          <CookieNotice />
+        </NextIntlClientProvider>
       </body>
     </html>
   )

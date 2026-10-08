@@ -1,0 +1,85 @@
+---
+title: "Comment supprimer les fichiers inutiles sur Mac (gratuitement, à la main ou automatiquement)"
+description: "Ce que sont les fichiers inutiles d’un Mac, où ils se cachent et comment les supprimer sans risque — caches, journaux, vieux téléchargements et installateurs, sauvegardes d’iPhone et restes d’apps — à la main ou avec un nettoyeur gratuit."
+date: "2026-01-18"
+updated: "2026-10-09"
+keywords: ["supprimer fichiers inutiles mac", "nettoyer fichiers inutiles mac", "fichiers indésirables mac", "nettoyer son mac gratuitement", "nettoyage mac gratuit", "nettoyer mac gratuit", "nettoyeur fichiers inutiles mac"]
+tldr: "Les fichiers inutiles d’un Mac sont surtout les caches d’apps (~/Library/Caches), les journaux (~/Library/Logs), les vieux téléchargements et installateurs, les sauvegardes obsolètes d’iPhone/iPad, les caches de développement et les restes d’apps supprimées. Supprimez-les en les plaçant dans la Corbeille via Finder → Aller → Aller au dossier…, puis videz-la — ou laissez un nettoyeur comme MacDiskCleaner tout trouver gratuitement en une analyse."
+related: ["clear-cache-mac", "disk-cleanup-mac", "how-to-clean-up-mac-hard-drive"]
+faq:
+  - q: "Que sont les fichiers inutiles sur un Mac ?"
+    a: "Des fichiers dont votre Mac n’a plus besoin : caches, journaux, rapports de plantage, vieux installateurs et téléchargements, sauvegardes d’appareils obsolètes, fichiers temporaires et restes d’apps supprimées."
+  - q: "Peut-on supprimer les fichiers inutiles sur Mac sans risque ?"
+    a: "Oui, si vous vous limitez aux caches utilisateur, journaux, téléchargements et sauvegardes que vous reconnaissez, et que vous les placez dans la Corbeille au lieu de les supprimer définitivement. Ne supprimez jamais rien dans /System ni votre dossier Keychains."
+  - q: "Comment nettoyer les fichiers inutiles d’un Mac gratuitement ?"
+    a: "À la main avec le Finder et les réglages Stockage, ou avec un outil gratuit. L’offre gratuite de MacDiskCleaner analyse tout et nettoie jusqu’à 2 Go au total sans frais."
+  - q: "À quelle fréquence supprimer les fichiers inutiles ?"
+    a: "Tous les un ou deux mois pour la plupart des gens, ou dès qu’une alerte de stockage apparaît. Les fichiers inutiles se recréent : nettoyer tous les jours ne sert à rien."
+---
+
+Les « fichiers inutiles » d’un Mac ne sont pas un seul dossier. C’est un mélange de données temporaires que les apps et macOS créent et nettoient rarement. Voici où ils se trouvent et comment les supprimer sans rien casser.
+
+## Où se cachent les fichiers inutiles du Mac
+
+| Fichiers inutiles | Emplacement | Suppression sûre ? |
+|---|---|---|
+| Caches des apps | `~/Library/Caches` | Oui — quittez l’app d’abord |
+| Journaux et rapports de plantage | `~/Library/Logs` | Oui |
+| Vieux téléchargements et installateurs | `~/Downloads` | Oui, après vérification |
+| Sauvegardes d’iPhone/iPad | `~/Library/Application Support/MobileSync/Backup` | Les anciennes, oui |
+| Pièces jointes de Mail | `~/Library/Containers/com.apple.mail/Data/Library/Mail Downloads` | Oui — elles restent dans les e-mails |
+| Caches de développement | `~/Library/Developer`, `~/.npm`, `~/.gradle` | Oui — les outils les recréent |
+| Restes d’apps supprimées | `~/Library/Application Support`, `~/Library/Containers` | Oui, pour les apps que vous n’avez plus |
+| La Corbeille | `~/.Trash` | Oui — c’est son rôle |
+
+Téléchargements, sauvegardes d’appareils et caches de développement sont généralement les plus volumineux ; caches et journaux s’accumulent avec le temps.
+
+## Option 1 : nettoyer les fichiers inutiles à la main
+
+### 1. Vider les caches et journaux des apps
+
+Quittez vos apps. Dans le Finder, appuyez sur <Kbd>⇧</Kbd> <Kbd>⌘</Kbd> <Kbd>G</Kbd>, ouvrez `~/Library/Caches` et placez dans la Corbeille les dossiers des apps que vous utilisez beaucoup. Faites de même dans `~/Library/Logs`. Les apps recréent ce dont elles ont besoin.
+
+### 2. Vider le dossier Téléchargements
+
+Triez Téléchargements par taille et supprimez les installateurs (`.dmg`, `.pkg`, `.zip`) d’apps déjà installées, ainsi que les fichiers déjà rangés ailleurs.
+
+### 3. Supprimer les vieilles sauvegardes d’appareils
+
+Branchez votre iPhone ou iPad, sélectionnez-le dans le Finder et cliquez sur **Gérer les sauvegardes** — ou supprimez les anciens dossiers de sauvegarde dans le chemin MobileSync ci-dessus.
+
+### 4. Supprimer les restes d’apps supprimées
+
+Cherchez dans `~/Library/Application Support` et `~/Library/Containers` des dossiers portant le nom d’apps que vous n’avez plus.
+
+### 5. Vider la Corbeille
+
+Appuyez sur <Kbd>⇧</Kbd> <Kbd>⌘</Kbd> <Kbd>⌫</Kbd>. Rien n’est libéré avant.
+
+<DownloadCTA />
+
+## Option 2 : utiliser un nettoyeur
+
+Un nettoyeur fait la même chose plus vite et montre les tailles avant que vous décidiez. Choisissez-en un qui :
+
+- **Affiche chaque élément** avec son chemin et sa taille avant suppression.
+- **Place les fichiers dans la Corbeille** au lieu de les effacer.
+- **Ignore automatiquement les fichiers système.**
+- **Ne tourne pas en permanence** en arrière-plan.
+
+L’analyse de nettoyage de MacDiskCleaner couvre caches, journaux, vieux téléchargements, caches de développement et restes d’apps en une seule passe. L’analyse est toujours gratuite et vous pouvez nettoyer jusqu’à 2 Go au total sans frais — [voici l’offre gratuite](/free-mac-cleaner).
+
+## Ce qui ressemble à des fichiers inutiles, mais n’en est pas
+
+- **Les fichiers de langue dans les apps** — les supprimer casse la signature de code de l’app sur macOS récent. N’y touchez pas.
+- **`/System/Library/Caches`** — protégé et géré par macOS.
+- **L’espace purgeable** — macOS le libère seul quand c’est nécessaire.
+- **Votre photothèque Photos** — elle peut être énorme, mais ce sont vos photos. Utilisez l’[album Doublons](/blog/duplicate-photos-mac) plutôt que de supprimer la photothèque.
+
+## Est-ce sans risque ?
+
+Oui, si vous restez dans les emplacements ci-dessus et gardez les fichiers dans la Corbeille jusqu’à être sûr que tout fonctionne. Fuyez tout outil qui veut supprimer des fichiers système, « optimiser la mémoire » ou nettoyer tous les jours : macOS s’en charge déjà.
+
+## À quelle fréquence nettoyer ?
+
+Tous les un ou deux mois suffisent pour la plupart. Développeurs et monteurs vidéo devraient vérifier plus souvent : caches de compilation et fichiers de rendu grossissent vite.

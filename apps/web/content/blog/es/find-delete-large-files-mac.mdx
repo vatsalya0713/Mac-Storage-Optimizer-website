@@ -1,0 +1,81 @@
+---
+title: "Cómo encontrar archivos grandes en Mac: Finder, Almacenamiento, Terminal y apps"
+description: "Cuatro formas fiables de encontrar los archivos más grandes de tu Mac —búsqueda por tamaño en el Finder, la lista Archivos grandes del Almacenamiento, un comando de Terminal y apps gratuitas— y cómo borrarlos con seguridad."
+date: "2026-02-11"
+updated: "2026-10-09"
+keywords: ["encontrar archivos grandes mac", "buscar archivos grandes mac", "archivos que más ocupan mac", "buscar archivos por tamaño mac", "liberar espacio mac", "omnidisksweeper mac"]
+tldr: "La forma integrada más rápida de encontrar archivos grandes en Mac es Ajustes del Sistema → General → Almacenamiento → Documentos (ⓘ) → Archivos grandes. En el Finder, pulsa ⌘F, elige «Este Mac», añade el atributo Tamaño del archivo y selecciona «es mayor que 1 GB». En Terminal, find ~ -type f -size +1G lista todos los archivos de más de 1 GB de tu carpeta de inicio."
+related: ["how-to-clean-up-mac-hard-drive", "duplicate-photos-mac", "mac-running-out-of-storage-fix-guide"]
+faq:
+  - q: "¿Cómo veo los archivos más grandes de mi Mac?"
+    a: "Abre Ajustes del Sistema → General → Almacenamiento, haz clic en la ⓘ junto a Documentos y elige Archivos grandes. Lista los archivos de más de unos cientos de megas, de mayor a menor."
+  - q: "¿Cómo busco archivos por tamaño en el Finder?"
+    a: "Pulsa Comando-F, elige Este Mac, haz clic en el primer menú de atributos, elige Otro… y marca Tamaño del archivo. Después elige «es mayor que» y un tamaño como 500 MB."
+  - q: "¿Qué archivos grandes se pueden borrar en Mac?"
+    a: "Instaladores antiguos (.dmg, .pkg), vídeos descargados, proyectos exportados, archivos zip ya descomprimidos, copias antiguas de dispositivos y copias duplicadas. No borres archivos de /System ni contenedores de apps que sigues usando."
+  - q: "¿Por qué el Finder no encuentra archivos que el Almacenamiento dice que existen?"
+    a: "La búsqueda del Finder omite ubicaciones del sistema y ocultas, como ~/Library. Los grandes elementos ocultos —cachés, copias, datos de desarrollo— se encuentran mejor con Terminal o un analizador de disco."
+---
+
+Unos pocos archivos grandes suelen ocupar más que miles de archivos pequeños. Estos cuatro métodos los encuentran, del más fácil al más completo.
+
+## Método 1: Ajustes de Almacenamiento (el más fácil)
+
+1. Abre **Ajustes del Sistema → General → Almacenamiento**.
+2. Haz clic en la **ⓘ** junto a **Documentos**.
+3. Elige **Archivos grandes** para ver todo lo que supera unos cientos de megas, de mayor a menor. **Descargas** también aparece ahí.
+
+Selecciona archivos y haz clic en **Eliminar…**; ten en cuenta que esto borra al instante en lugar de usar la Papelera.
+
+## Método 2: Búsqueda por tamaño en el Finder
+
+1. En el Finder pulsa <Kbd>⌘</Kbd> <Kbd>F</Kbd> y elige **Este Mac**.
+2. Haz clic en el primer menú (dice «Clase») y elige **Otro…**.
+3. Marca **Tamaño del archivo** y haz clic en **OK**.
+4. Elige **es mayor que** e indica un tamaño, por ejemplo **1 GB**.
+5. Haz clic derecho en los encabezados de columna, añade **Tamaño** y ordena por él.
+
+Haz clic en **Guardar** para tener la búsqueda en la barra lateral del Finder.
+
+## Método 3: Terminal (el más completo)
+
+Terminal ve lugares que la búsqueda del Finder omite. Todos los archivos de más de 1 GB de tu carpeta de inicio:
+
+```bash
+find ~ -type f -size +1G -exec ls -lh {} + 2>/dev/null | awk '{print $5, $9}'
+```
+
+Las carpetas más grandes de tu carpeta de inicio, con la mayor al final:
+
+```bash
+du -sh ~/* ~/Library/* 2>/dev/null | sort -h | tail -20
+```
+
+Estos comandos solo **listan** archivos: no borran nada.
+
+## Método 4: Apps de espacio en disco
+
+- **GrandPerspective** (gratis): un mapa en el que el rectángulo de cada archivo es proporcional a su tamaño.
+- **OmniDiskSweeper** (gratis): carpetas ordenadas por tamaño para ir bajando.
+- **DaisyDisk** (9,99 $): un mapa circular interactivo; la prueba analiza pero no borra.
+- **MacDiskCleaner** (análisis gratis): lista de archivos grandes, además de archivos antiguos, descargas y duplicados, con el tamaño y la ubicación de cada uno. Space Lens te deja explorar carpetas por tamaño.
+
+<DownloadCTA />
+
+## Dónde suelen esconderse los archivos grandes
+
+- **Descargas**: instaladores, vídeos y zips olvidados.
+- **Películas**: grabaciones de pantalla, exportaciones y bibliotecas de iMovie o Final Cut.
+- **`~/Library/Application Support/MobileSync/Backup`**: copias del iPhone y el iPad.
+- **`~/Library/Developer`**: datos de Xcode y simuladores.
+- **Máquinas virtuales e imágenes de Docker.**
+- **Adjuntos de Mail y Mensajes** dentro de tu Library.
+
+## Antes de borrar
+
+1. **Mira la fecha de última apertura** (Obtener información, <Kbd>⌘</Kbd> <Kbd>I</Kbd>). Sin abrir en un año suele significar que se puede archivar.
+2. **Archiva en lugar de borrar** lo que quizá necesites: un disco externo es barato.
+3. **Usa la Papelera**, no el borrado inmediato, para poder deshacer errores.
+4. **Vacía la Papelera** para liberar de verdad el espacio.
+
+Si el espacio no está en archivos grandes, revisa los [duplicados](/blog/duplicate-photos-mac) y los [Datos del sistema](/clear-system-data-mac).

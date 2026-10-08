@@ -1,0 +1,101 @@
+---
+title: "¿No puedes borrar un archivo en Mac? Cómo forzar el borrado de archivos bloqueados"
+description: "Soluciones para archivos que no se borran en Mac: «el ítem está en uso», errores de permisos, archivos bloqueados, archivos que no van a la Papelera y una Papelera que no se vacía, del Finder a Terminal."
+date: "2026-01-22"
+updated: "2026-10-09"
+keywords: ["no puedo borrar un archivo en mac", "forzar borrado archivo mac", "borrar archivos bloqueados mac", "archivo en uso mac no se puede eliminar", "papelera no se vacía mac", "eliminar archivo que no se borra mac"]
+tldr: "Si el Mac no borra un archivo, cierra la app que lo usa (o reinicia), desbloquéalo en Obtener información (⌘I → desmarca Bloqueado) y revisa Compartir y permisos. Luego usa Opción-Comando-Eliminar para borrarlo al instante o mantén pulsada Opción al vaciar la Papelera. Los archivos protegidos por la Protección de la Integridad del Sistema no se pueden —ni se deben— borrar."
+related: ["how-to-permanently-delete-files-mac", "empty-trash-mac-shortcut", "how-to-clean-junk-files-mac"]
+faq:
+  - q: "¿Cómo fuerzo el borrado de un archivo en Mac?"
+    a: "Cierra cualquier app que pueda usarlo, desbloquéalo en Obtener información, selecciónalo y pulsa Opción-Comando-Eliminar. Si falla, reinicia (o arranca en modo seguro) e inténtalo de nuevo. Como último recurso, el comando rm de Terminal lo borra definitivamente."
+  - q: "¿Por qué el Mac dice que el ítem no se puede trasladar a la Papelera?"
+    a: "Normalmente el archivo está bloqueado, no tienes permiso de escritura sobre él o su carpeta, o forma parte de macOS y está protegido por la Protección de la Integridad del Sistema."
+  - q: "¿Cómo borro un archivo bloqueado en Mac?"
+    a: "Selecciónalo, pulsa Comando-I, desmarca Bloqueado y bórralo. En Terminal, chflags nouchg seguido de la ruta quita el bloqueo."
+  - q: "¿Cómo sé qué app está usando un archivo?"
+    a: "En Terminal, ejecuta lsof con la ruta del archivo (por ejemplo, lsof ~/Downloads/video.mov). Muestra el proceso que lo tiene abierto; cierra esa app o proceso."
+  - q: "¿Debo desactivar la Protección de la Integridad del Sistema para borrar un archivo?"
+    a: "No. Los archivos protegidos por SIP forman parte de macOS; borrarlos puede impedir que el Mac arranque. Si parece que ocupan espacio, la causa casi siempre es otra."
+---
+
+Cuando un Mac se niega a borrar algo, el mensaje de error dice por qué, si sabes interpretarlo. Sigue estas soluciones de arriba abajo; la mayoría de problemas se resuelven en los dos primeros pasos.
+
+## 1. «No se ha podido completar la operación porque el ítem está en uso»
+
+Una app sigue teniendo el archivo abierto.
+
+- **Cierra la app** que lo usó por última vez (<Kbd>⌘</Kbd> <Kbd>Q</Kbd>), no solo su ventana.
+- Si no sabes qué app es, abre **Terminal** y pregúntale a macOS:
+
+```bash
+lsof ~/Downloads/video.mov
+```
+
+La respuesta indica el proceso; ciérralo o fuérzalo desde el **Monitor de Actividad**.
+- ¿Sigue igual? **Reinicia** el Mac y borra el archivo antes de abrir nada más.
+
+## 2. El archivo está bloqueado
+
+Los archivos bloqueados no se pueden trasladar a la Papelera (o la Papelera pide confirmación cada vez).
+
+1. Selecciona el archivo y pulsa <Kbd>⌘</Kbd> <Kbd>I</Kbd> (Obtener información).
+2. Desmarca **Bloqueado** en General.
+3. Bórralo como siempre.
+
+Para muchos archivos a la vez, Terminal quita la marca de bloqueo:
+
+```bash
+chflags -R nouchg ~/Desktop/ProyectoAntiguo
+```
+
+## 3. Errores de «No tienes permiso»
+
+Necesitas permiso de escritura sobre el archivo **y** sobre la carpeta que lo contiene.
+
+1. Pulsa <Kbd>⌘</Kbd> <Kbd>I</Kbd> sobre el archivo (o su carpeta).
+2. Abajo, abre **Compartir y permisos**, haz clic en el candado e introduce tu contraseña.
+3. Pon tu usuario en **Leer y escribir** e inténtalo de nuevo.
+
+Los archivos copiados de otro Mac, de un disco externo o de una copia de seguridad suelen conservar los permisos del dueño anterior; esto arregla la mayoría.
+
+## 4. Usa «Eliminar inmediatamente»
+
+Cuando el problema es la propia Papelera, sáltatela: selecciona el archivo, pulsa <Kbd>⌥</Kbd> <Kbd>⌘</Kbd> <Kbd>⌫</Kbd> y confirma. Todas las opciones en nuestra [guía del atajo para borrar permanentemente](/blog/how-to-permanently-delete-files-mac).
+
+## 5. Reinicia en modo seguro
+
+El modo seguro solo carga lo imprescindible, así que nada más puede tener tu archivo abierto, y además borra algunas cachés del sistema.
+
+- **Apple silicon:** apaga el Mac, mantén pulsado el botón de encendido hasta que aparezca «Cargando opciones de arranque», selecciona tu disco, mantén pulsada <Kbd>⇧</Kbd> y haz clic en **Continuar en modo seguro**.
+- **Intel:** reinicia y mantén pulsada <Kbd>⇧</Kbd> hasta que aparezca la ventana de inicio de sesión.
+
+Borra el archivo y reinicia con normalidad.
+
+## 6. Fuerza el borrado desde Terminal (último recurso)
+
+```bash
+rm -f ~/Downloads/archivo-rebelde.zip
+```
+
+Terminal borra definitivamente, sin Papelera ni confirmación. Revisa bien la ruta; nunca ejecutes `rm` sobre nada de `/System`, `/Library` o una carpeta que no reconozcas. Anteponer `sudo` le da permisos de administrador: úsalo solo con archivos que creaste tú en una ubicación protegida.
+
+<DownloadCTA />
+
+## La Papelera no se vacía
+
+- **Mantén pulsada Opción** al elegir **Vaciar Papelera** (o pulsa <Kbd>⌥</Kbd> <Kbd>⇧</Kbd> <Kbd>⌘</Kbd> <Kbd>⌫</Kbd>). Así se omiten los avisos de ítems bloqueados.
+- **Desbloquea** los ítems bloqueados dentro de la Papelera (Obtener información → desmarca Bloqueado).
+- **Expulsa** los discos o memorias USB cuyos archivos están en la Papelera, o vacíala con el disco conectado, porque los archivos de discos externos se quedan en ese disco.
+- **Reinicia** y vuelve a vaciar la Papelera.
+- ¿Sigue fallando? Ejecuta **Utilidad de Discos → Primera ayuda** en el disco de arranque para reparar errores.
+
+Más opciones en nuestra [guía para vaciar la Papelera](/blog/empty-trash-mac-shortcut).
+
+## Archivos que no debes forzar
+
+Algunos archivos no se pueden borrar porque macOS los protege con la **Protección de la Integridad del Sistema (SIP)**: todo lo que hay en `/System`, `/usr` (salvo `/usr/local`) y las apps que vienen con macOS. No desactives SIP para borrarlos: forman parte del sistema y eliminarlos puede impedir que el Mac arranque. Si crees que los archivos del sistema ocupan mucho, casi siempre son cachés, instantáneas o copias de seguridad; consulta [qué hay de verdad en Datos del sistema](/clear-system-data-mac).
+
+## Una forma más segura de quitar lo que no necesitas
+
+La mayoría de los «no puedo borrar esto» ocurren al hacer limpieza. MacDiskCleaner lista la basura, los duplicados y los archivos grandes con su ubicación exacta, omite automáticamente las rutas protegidas del sistema y mueve lo que elijas a la Papelera, para que limpies sin pelearte con los errores del Finder.

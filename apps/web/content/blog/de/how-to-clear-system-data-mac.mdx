@@ -1,0 +1,99 @@
+---
+title: "Warum sind die Systemdaten auf dem Mac so groß? (Über 100 GB – Ursachen und Lösung)"
+description: "Systemdaten über 100 GB auf deinem Mac? Das sind die üblichen Ursachen – Time-Machine-Snapshots, iPhone-Backups, Xcode, Caches, Docker und virtuelle Maschinen –, so prüfst du jede und verkleinerst sie sicher."
+date: "2026-01-20"
+updated: "2026-10-09"
+keywords: ["systemdaten mac über 100 gb", "systemdaten mac", "systemdaten mac löschen", "systemdaten mac verkleinern", "systemdaten mac zu groß", "mac systemdaten entfernen"]
+tldr: "Wenn die Systemdaten auf einem Mac über 100 GB wachsen, steckt meist eine von fünf Ursachen dahinter: lokale Time-Machine-Snapshots, alte iPhone-/iPad-Backups, Xcode- und Simulatordaten, ein Docker- oder VM-Image oder übergroße App-Caches. Prüfe jede mit den Befehlen unten, entferne Unnötiges, leere den Papierkorb und starte neu. /System und geschützte Dateien bleiben tabu."
+related: ["mac-running-out-of-storage-fix-guide", "clear-cache-mac", "disk-cleanup-mac"]
+faq:
+  - q: "Sind 100 GB Systemdaten normal?"
+    a: "Dutzende Gigabyte sind üblich. Über 100 GB ist fast immer ein bestimmter Verursacher schuld: Snapshots, Geräte-Backups, Xcode oder ein VM-Image."
+  - q: "Warum sind meine Systemdaten plötzlich gewachsen?"
+    a: "Typische Auslöser: ein großer Download oder ein Update, ein neues iPhone-Backup, der Start von Time Machine, die Installation von Xcode oder eines Simulators oder ein wachsendes VM- oder Docker-Image."
+  - q: "Kann ich die Systemdaten auf dem Mac löschen?"
+    a: "Nicht als Ganzes, aber das, woraus sie bestehen: alte Snapshots, Backups, Caches, Protokolle, Entwicklerdaten und Reste gelöschter Apps."
+  - q: "Verkleinert eine Neuinstallation von macOS die Systemdaten?"
+    a: "Selten lohnenswert. Eine Neuinstallation behält deine Benutzerdaten, und die großen Brocken liegen fast immer in deiner Library – die Zahl kommt meist wieder."
+---
+
+„Systemdaten“ (bei älteren macOS-Versionen „Andere“) ist die Sammelkategorie in der Speicheranzeige deines Macs. Ein paar Dutzend Gigabyte sind normal. Erreicht sie **100 GB oder mehr**, steckt fast immer etwas Bestimmtes dahinter. Diese Anleitung zeigt, wie du es findest. Die komplette Schritt-für-Schritt-Bereinigung findest du unter [Systemdaten löschen](/clear-system-data-mac).
+
+## Zuerst: einen verlässlichen Wert ermitteln
+
+Öffne **Systemeinstellungen → Allgemein → Speicher** und lass die Berechnung fertig laufen – der erste Wert ist oft zu hoch. Starte dann neu und prüfe erneut: Ein Neustart entfernt Auslagerungs- und temporäre Dateien und lässt macOS nicht mehr benötigte Snapshots bereinigen.
+
+## Ursache 1: Lokale Time-Machine-Snapshots
+
+Ist Time Machine aktiv, legt macOS stündlich **lokale Snapshots** auf der internen Festplatte an – besonders, wenn das Backup-Laufwerk nicht angeschlossen ist. Sie zählen zu den Systemdaten.
+
+```bash
+tmutil listlocalsnapshots /
+```
+
+Siehst du viele Einträge, schließe das Backup-Laufwerk an und lass ein Backup durchlaufen – oder lösche alte nach Datum:
+
+```bash
+sudo tmutil deletelocalsnapshots 2026-09-15-101500
+```
+
+macOS entfernt Snapshots bei Platzbedarf selbst, aber der Speicherbalken zeigt das nicht immer sofort.
+
+## Ursache 2: Alte iPhone- und iPad-Backups
+
+Jedes lokale Geräte-Backup kann **Dutzende Gigabyte** groß sein, und alte werden nie automatisch entfernt. Sieh nach in:
+
+`~/Library/Application Support/MobileSync/Backup`
+
+Oder Gerät anschließen, in der Finder-Seitenleiste auswählen und auf **Backups verwalten** klicken, um alte zu löschen.
+
+## Ursache 3: Xcode, Simulatoren und Entwickler-Tools
+
+Hast du je Xcode installiert, prüfe `~/Library/Developer`. DerivedData, iOS-DeviceSupport-Dateien und alte Simulator-Laufzeiten erreichen leicht 50 GB und mehr.
+
+```bash
+du -sh ~/Library/Developer/* 2>/dev/null
+xcrun simctl delete unavailable
+```
+
+Unsere [Entwickler-Seite](/developers) erklärt, welche Ordner gefahrlos weg können.
+
+## Ursache 4: Docker, virtuelle Maschinen und Emulatoren
+
+Docker Desktop speichert Container und Images in einer einzigen Disk-Image-Datei, die wächst, aber selten schrumpft; UTM, Parallels und VMware speichern ganze virtuelle Maschinen als Dateien. Prüfe die Größe in den Einstellungen der jeweiligen App und gib Docker-Speicher frei mit:
+
+```bash
+docker system prune
+```
+
+(Lies vor dem Bestätigen, was gelöscht wird – gestoppte Container und ungenutzte Images.)
+
+## Ursache 5: Caches und Protokolle
+
+Browser, Streaming-Apps, Design-Tools und Chat-Apps können jeweils mehrere Gigabyte in `~/Library/Caches` ablegen. Protokolle und Absturzberichte liegen in `~/Library/Logs`. Siehe [Cache sicher leeren](/blog/clear-cache-mac).
+
+<DownloadCTA />
+
+## Ursache 6: Reste gelöschter Apps
+
+Wer eine App in den Papierkorb zieht, lässt ihre Supportdateien in `~/Library/Application Support` und `~/Library/Containers` zurück. Spiele, Videoschnitt-Programme und virtuelle Instrumente hinterlassen teils riesige Ordner.
+
+## Die größten Ordner selbst finden
+
+Das listet die größten Ordner deiner Library auf, den größten zuletzt:
+
+```bash
+du -sh ~/Library/* 2>/dev/null | sort -h | tail -15
+```
+
+Arbeite dich von oben nach unten vor, lösche aber nie `Keychains`, `Preferences` oder die Container von Apps, die du noch nutzt.
+
+## Was du nicht tun solltest
+
+- **Den Systemintegritätsschutz nicht ausschalten** und nichts in `/System` löschen – das verkleinert die Systemdaten nicht sinnvoll und kann macOS beschädigen.
+- **Die Festplatte nicht löschen**, um die Zahl zu korrigieren – außer mit vollständigem Backup und echtem Grund.
+- **„Cleanern“ misstrauen, die Systemdaten mit einem Klick löschen wollen**, ohne zu zeigen, was drinsteckt.
+
+## Der schnellere Weg
+
+Ein MacDiskCleaner-Scan schlüsselt die Benutzer-Caches, Protokolle, Entwicklerdaten und App-Reste auf, aus denen der Großteil der Systemdaten besteht – mit Größen – und verschiebt deine Auswahl in den Papierkorb. Scannen ist kostenlos, du siehst also, wohin dein Speicher verschwunden ist, bevor du irgendetwas entscheidest.

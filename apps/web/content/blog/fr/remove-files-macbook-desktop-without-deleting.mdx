@@ -1,0 +1,81 @@
+---
+title: "Comment enlever des fichiers du bureau du Mac sans les supprimer"
+description: "Débarrassez le bureau de votre MacBook ou iMac des fichiers, dossiers, captures et téléchargements sans rien supprimer : déplacez-les, utilisez les piles, masquez les icônes ou changez l’emplacement des captures."
+date: "2026-01-29"
+updated: "2026-10-09"
+keywords: ["enlever fichiers du bureau mac sans supprimer", "retirer dossier du bureau mac sans le supprimer", "masquer icônes bureau mac", "ranger bureau mac", "captures d’écran bureau mac", "vider le bureau mac"]
+tldr: "Pour retirer un élément du bureau du Mac sans le supprimer, faites-le glisser dans un autre dossier (Documents, par exemple) : il est déplacé, pas effacé. Pour ranger, activez les piles (clic droit sur le bureau → Utiliser les piles). Pour masquer toutes les icônes en gardant les fichiers, ouvrez Réglages Système → Bureau et Dock et désactivez « Afficher les éléments : Sur le bureau ». Seul « Placer dans la corbeille » supprime."
+related: ["how-to-permanently-delete-files-mac", "how-to-clean-up-mac-hard-drive", "find-delete-large-files-mac"]
+faq:
+  - q: "Comment retirer un dossier du bureau du Mac sans le supprimer ?"
+    a: "Faites-le glisser sur un autre dossier de la barre latérale du Finder, comme Documents. Il y est déplacé avec tout son contenu ; rien n’est supprimé."
+  - q: "Retirer un fichier du bureau le supprime-t-il ?"
+    a: "Seulement avec « Placer dans la corbeille » (puis en vidant la Corbeille). Le déplacer, masquer les icônes ou utiliser les piles laisse le fichier intact."
+  - q: "Comment masquer tous les fichiers du bureau ?"
+    a: "Sous macOS Sonoma ou ultérieur, ouvrez Réglages Système → Bureau et Dock et désactivez « Afficher les éléments : Sur le bureau ». Les fichiers restent dans le dossier Bureau et visibles dans le Finder."
+  - q: "Comment éviter que les captures d’écran arrivent sur le bureau ?"
+    a: "Appuyez sur Maj-Commande-5, cliquez sur Options et choisissez un autre emplacement sous « Enregistrer dans », par exemple Documents ou un nouveau dossier « Captures »."
+  - q: "Mes fichiers du bureau sont dans iCloud : est-ce sûr de les déplacer ?"
+    a: "Oui. Mais si la synchronisation Bureau et Documents est active, supprimer un fichier du bureau le supprime aussi d’iCloud sur tous vos appareils : en cas de doute, déplacez plutôt que de supprimer."
+---
+
+Sur Mac, le bureau n’est qu’un dossier (`~/Desktop`). Tout ce qui s’y trouve est un vrai fichier — « l’enlever » peut donc vouloir dire des choses très différentes. Voici comment retirer des fichiers du bureau **sans les supprimer**, du plus rapide au plus ordonné.
+
+## La seule chose qui supprime
+
+Seul **Placer dans la corbeille** (<Kbd>⌘</Kbd> <Kbd>⌫</Kbd>, ou glisser vers la Corbeille) supprime un fichier — et même alors, il reste récupérable tant que la Corbeille n’est pas vidée. Toutes les méthodes ci-dessous conservent vos fichiers.
+
+## Méthode 1 : déplacer les fichiers dans un dossier
+
+1. Ouvrez une fenêtre du Finder (<Kbd>⌘</Kbd> <Kbd>N</Kbd>) et choisissez une destination dans la barre latérale, comme **Documents**.
+2. Sélectionnez les fichiers du bureau (tracez un cadre ou faites <Kbd>⌘</Kbd>-clic sur chacun).
+3. Faites-les glisser sur le dossier de destination.
+
+Glisser entre dossiers d’un même disque **déplace** les fichiers : ni copie ni suppression. Vous pouvez aussi copier avec <Kbd>⌘</Kbd> <Kbd>C</Kbd> puis appuyer sur <Kbd>⌥</Kbd> <Kbd>⌘</Kbd> <Kbd>V</Kbd> dans la destination pour les déplacer.
+
+**Pour retirer un dossier du bureau**, même principe : faites glisser tout le dossier dans Documents. Son contenu suit.
+
+## Méthode 2 : tout regrouper avec les piles
+
+Faites un clic droit sur un espace vide du bureau et choisissez **Utiliser les piles** (ou <Kbd>⌃</Kbd> <Kbd>⌘</Kbd> <Kbd>0</Kbd>). macOS regroupe les fichiers par type — images, PDF, captures — en piles qui s’ouvrent d’un clic. Rien n’est déplacé ni supprimé ; désactivez-les de la même façon.
+
+## Méthode 3 : masquer toutes les icônes (les fichiers restent)
+
+Sous **macOS Sonoma ou ultérieur** :
+
+1. Ouvrez **Réglages Système → Bureau et Dock**.
+2. Dans **Bureau et Stage Manager**, désactivez **Afficher les éléments : Sur le bureau**.
+
+Le bureau est vide, mais chaque fichier reste dans le dossier Bureau de la barre latérale du Finder. Réactivez l’option quand vous voulez.
+
+Au passage, si vos fenêtres disparaissent quand vous cliquez sur le bureau, réglez **Cliquer sur le fond d’écran pour afficher le bureau** sur **Uniquement dans Stage Manager**.
+
+Sur les versions plus anciennes de macOS, vous pouvez masquer les icônes depuis le Terminal (et revenir en arrière avec `true`) :
+
+```bash
+defaults write com.apple.finder CreateDesktop false
+killall Finder
+```
+
+## Méthode 4 : ne plus enregistrer les captures sur le bureau
+
+Les captures d’écran sont la première source de désordre. Appuyez sur <Kbd>⇧</Kbd> <Kbd>⌘</Kbd> <Kbd>5</Kbd>, cliquez sur **Options** et, sous **Enregistrer dans**, choisissez **Documents** ou **Autre emplacement…** (par exemple un nouveau dossier « Captures »). Déplacez les captures existantes avec la méthode 1.
+
+## Méthode 5 : supprimer les alias, pas les originaux
+
+Les icônes avec une petite **flèche** courbe sont des alias : des raccourcis vers un fichier rangé ailleurs. Supprimer un alias ne supprime **pas** l’original ; vous pouvez donc jeter sans risque les alias inutiles. En cas de doute, sélectionnez l’icône et appuyez sur <Kbd>⌘</Kbd> <Kbd>R</Kbd> (Afficher l’original).
+
+## Méthode 6 : transférer vers iCloud ou un disque externe
+
+- **Disque externe ou clé USB :** faites glisser les fichiers sur le disque dans le Finder. Cela les *copie* ; une fois la copie terminée, vous pouvez placer les originaux dans la Corbeille pour récupérer l’espace.
+- **iCloud Drive :** avec **Dossiers Bureau et Documents** activé (Réglages Système → votre nom → iCloud → iCloud Drive), les fichiers du bureau sont stockés dans iCloud et peuvent être libérés localement quand l’espace manque. Attention : supprimer alors un fichier du bureau le supprime sur tous vos appareils.
+
+<DownloadCTA />
+
+## Et l’« écran d’accueil » du MacBook ?
+
+Beaucoup appellent le bureau du Mac « écran d’accueil ». Tout ce qui précède s’applique : captures, téléchargements et dossiers qu’on y voit se trouvent dans `~/Desktop`. Les téléchargements n’arrivent sur le bureau que si un navigateur est réglé ainsi — modifiez-le dans ses réglages (Safari : **Réglages → Général → Emplacement des fichiers téléchargés**).
+
+## Libérer de l’espace, pas seulement ranger
+
+Déplacer des fichiers ne libère pas d’espace disque. Si vous videz le bureau à cause d’un message « disque presque plein », cherchez ce qui est vraiment volumineux : vieux installateurs, vidéos, doublons et caches. Une analyse gratuite avec [MacDiskCleaner](/free-mac-cleaner) les liste avec leur taille, et tout ce que vous supprimez passe d’abord par la Corbeille. À la main : [trouver les gros fichiers sur Mac](/blog/find-delete-large-files-mac).

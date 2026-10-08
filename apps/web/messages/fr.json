@@ -18,7 +18,7 @@
     "download": "Télécharger gratuitement"
   },
   "hero": {
-    "badge": "Compatible macOS Sequoia · Natif Apple Silicon",
+    "badge": "macOS 14+ · Natif Apple Silicon et Intel",
     "titleLine1": "Le nettoyeur Mac",
     "titleAccent": "conçu pour Mac.",
     "subtitle": "Libérez des gigaoctets d'espace, supprimez les fichiers indésirables cachés, trouvez les doublons et gardez votre Mac aussi rapide qu'au premier jour.",
@@ -33,10 +33,10 @@
   },
   "stats": {
     "items": [
-      { "num": "1 M+", "label": "Téléchargements" },
-      { "num": "4,9★", "label": "Note moyenne" },
-      { "num": "50 Go+", "label": "Espace libéré en moyenne" },
-      { "num": "24/7", "label": "Assistance client" }
+      { "num": "12,99 $", "label": "Pro en paiement unique, sans abonnement" },
+      { "num": "2 Go", "label": "Nettoyage gratuit, sans essai" },
+      { "num": "100 %", "label": "Analyse sur votre Mac" },
+      { "num": "30 jours", "label": "Satisfait ou remboursé" }
     ]
   },
   "features": {
@@ -56,11 +56,11 @@
     "label": "Expérience fluide",
     "title": "Conçu pour être natif.",
     "titleAccent": "Parce qu'il l'est.",
-    "body": "MacDiskCleaner est conçu depuis le départ pour macOS. Il utilise des API natives, respecte le modèle de sécurité de votre système et s'intègre parfaitement avec Spotlight, Apple Silicon et bien plus.",
+    "body": "MacDiskCleaner est conçu depuis le départ pour macOS. Il utilise des API natives, respecte le modèle de sécurité de votre système et fonctionne nativement sur les Mac Apple Silicon et Intel.",
     "points": [
       "Langage de conception natif macOS",
       "Optimisé pour Apple Silicon et Intel",
-      "Architecture sandboxée, axée sur la confidentialité",
+      "Analyse 100 % locale, axée sur la confidentialité",
       "Les analyses planifiées s'exécutent silencieusement en arrière-plan"
     ]
   },
@@ -146,5 +146,83 @@
     "downloadCta": "Télécharger MacDiskCleaner",
     "supportNote": "Vous n'avez pas reçu l'e-mail ? Vérifiez vos spams ou contactez support@macdiskcleaner.com.",
     "appNote": "Achat depuis l'application ? Retournez dans MacDiskCleaner : Pro se débloque automatiquement en quelques secondes. Rien à coller."
+  },
+  "common": {
+    "home": "MacDiskCleaner",
+    "download": "Télécharger gratuitement",
+    "downloadForMac": "Télécharger gratuitement pour Mac",
+    "ctaTitle": "Prêt à nettoyer votre Mac ?",
+    "ctaSubtitle": "Téléchargement gratuit. Aucun compte nécessaire pour commencer.",
+    "versionLine": "Version {version} · {size} Mo · macOS 14 ou ultérieur · Apple Silicon et Intel",
+    "faqTitle": "Questions fréquentes",
+    "relatedTitle": "Guides associés",
+    "updated": "Mis à jour le {date}",
+    "readTime": "{minutes} min de lecture",
+    "quickAnswer": "Réponse rapide",
+    "inlineCtaTitle": "Tout faire en une seule analyse avec MacDiskCleaner",
+    "inlineCtaText": "Il repère les fichiers inutiles, les doublons et les gros fichiers sur tout votre Mac, vous montre tout gratuitement et place d’abord dans la Corbeille ce que vous choisissez — rien n’est perdu par erreur.",
+    "allGuides": "Tous les guides",
+    "blogTitle": "Guides pour nettoyer son Mac et libérer de l’espace",
+    "blogDescription": "Des guides pratiques et précis pour libérer de l’espace sur Mac : fichiers inutiles, Données système, doublons, gros fichiers, Corbeille et plus encore.",
+    "blogH1": "Guides pour nettoyer votre Mac",
+    "blogLead": "Des guides pratiques et précis pour libérer de l’espace et garder votre Mac rapide.",
+    "blogBreadcrumb": "Blog"
+  },
+  "footerLinks": {
+    "developers": "Pour les développeurs",
+    "changelog": "Notes de version",
+    "safety": "Sécurité",
+    "vsCleanMyMac": "vs. CleanMyMac",
+    "contact": "Contact",
+    "download": "Télécharger",
+    "guides": "Guides",
+    "systemData": "Données système"
+  },
+  "downloadStarter": {
+    "started": "Votre téléchargement a commencé",
+    "notStarted": "Rien ne se passe ? <link>Cliquez ici pour télécharger</link>.",
+    "firstTime": "La première ouverture (20 secondes, une seule fois) :",
+    "step1": "Ouvrez le fichier <b>MacDiskCleaner.dmg</b> téléchargé et faites glisser <b>MacDiskCleaner</b> dans le dossier <b>Applications</b>.",
+    "step2": "Ouvrez MacDiskCleaner depuis Applications. macOS affiche <i>« Apple n’a pas pu vérifier… »</i> — fermez ce message avec le bouton de gauche, sans supprimer l’app. <warn>Ne cliquez jamais sur « Placer dans la corbeille ».</warn>",
+    "step3": "Ouvrez <b>Réglages Système → Confidentialité et sécurité</b>, descendez jusqu’à <i>« MacDiskCleaner a été bloqué »</i>, cliquez sur <b>Ouvrir quand même</b> et confirmez avec votre mot de passe.",
+    "openSettings": "Ouvrir Confidentialité et sécurité",
+    "step4": "C’est fait — l’app s’ouvre désormais normalement et les mises à jour s’installent seules, sans avertissement.",
+    "zeroTitle": "Vous préférez aucun avertissement ?",
+    "zeroText": "Collez ceci dans le Terminal — l’app s’installe et s’ouvre sans aucune alerte de sécurité :"
+  },
+  "contact": {
+    "metaTitle": "Contacter l’assistance MacDiskCleaner",
+    "metaDescription": "Questions, signalements de bugs ou suggestions pour MacDiskCleaner — écrivez-nous. Réponse sous 1 à 2 jours ouvrés.",
+    "title": "Nous contacter",
+    "lead": "Questions, bugs ou idées — nous lisons tout et répondons sous 1 à 2 jours ouvrés.",
+    "sentTitle": "Message envoyé",
+    "sentText": "Merci — nous vous répondrons rapidement.",
+    "sendAnother": "Envoyer un autre message",
+    "name": "Nom",
+    "email": "E-mail",
+    "topic": "Sujet",
+    "message": "Message",
+    "send": "Envoyer le message",
+    "catGeneral": "Question générale",
+    "catSupport": "Assistance / problème technique",
+    "catBug": "Signaler un bug",
+    "catSuggestion": "Suggestion de fonctionnalité",
+    "errorGeneric": "Une erreur est survenue — réessayez ou écrivez-nous directement par e-mail ci-dessous.",
+    "errorNetwork": "Impossible de joindre le serveur — vérifiez votre connexion et réessayez, ou écrivez-nous par e-mail ci-dessous.",
+    "emailNote": "Vous préférez l’e-mail ? Écrivez-nous à <mail>support@macdiskcleaner.com</mail>. Clients Pro : indiquez votre clé de licence pour une aide prioritaire."
+  },
+  "notFound": {
+    "title": "Cette page n’existe pas.",
+    "text": "Le lien est peut-être ancien ou mal saisi. Voici les pages que la plupart des visiteurs cherchent :",
+    "home": "Accueil",
+    "pricing": "Tarifs",
+    "guides": "Guides",
+    "contact": "Contacter l’assistance"
+  },
+  "cookie": {
+    "text": "Ce site utilise une mesure d’audience respectueuse de la vie privée pour savoir quelles pages sont utiles — sans publicité ni revente de données. Voir notre <link>Politique de confidentialité</link>.",
+    "decline": "Refuser",
+    "accept": "Accepter",
+    "label": "Préférences de cookies"
   }
 }

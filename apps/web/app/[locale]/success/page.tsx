@@ -1,9 +1,11 @@
 "use client";
 import { Suspense, useEffect, useState } from "react";
+import { downloadHref } from "@/components/site/DownloadButton";
 import { useSearchParams } from "next/navigation";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { Check, Copy, Loader2, Download } from "lucide-react";
 import { AppleLogo } from "@/components/AppleLogo"
+import { Link } from "@/i18n/navigation";
 
 export default function SuccessPage() {
   return (
@@ -15,6 +17,7 @@ export default function SuccessPage() {
 
 function SuccessContent() {
   const t = useTranslations("success");
+  const locale = useLocale();
   const searchParams = useSearchParams();
   const paymentId = searchParams.get("payment_id");
   const fromApp = searchParams.get("from") === "app";
@@ -96,7 +99,7 @@ function SuccessContent() {
           </ol>
         </div>
 
-        <a href="/downloads?start=1" className="btn-primary text-[15px] py-3 px-7 inline-flex">
+        <a href={downloadHref(locale)} className="btn-primary text-[15px] py-3 px-7 inline-flex">
           <AppleLogo size={16} /> {t("downloadCta")} <Download size={16} />
         </a>
 

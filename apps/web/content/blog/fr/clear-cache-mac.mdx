@@ -1,0 +1,78 @@
+---
+title: "Comment vider le cache sur Mac (apps, navigateur et système) sans risque"
+description: "Où se trouvent les caches du Mac, lesquels supprimer et comment vider le cache de Safari, Chrome et Firefox, des apps macOS et du DNS — et quand vider le cache ne sert à rien."
+date: "2026-10-09"
+keywords: ["vider le cache mac", "supprimer cache mac", "vider cache safari mac", "vider cache chrome mac", "nettoyer cache mac", "fichiers cache mac", "vider cache dns mac"]
+tldr: "Pour vider le cache d’une app sur Mac, quittez-la, ouvrez Finder → Aller → Aller au dossier…, saisissez ~/Library/Caches et placez le dossier de cette app dans la Corbeille. Les navigateurs ont leur propre réglage : dans Safari, Développement → Vider les caches (⌥⌘E) ; dans Chrome, Effacer les données de navigation → Images et fichiers en cache. Les caches se recréent : les vider libère de l’espace temporairement et corrige des bugs, mais n’accélère pas le Mac durablement."
+related: ["how-to-clean-junk-files-mac", "how-to-clear-system-data-mac", "disk-cleanup-mac"]
+faq:
+  - q: "Peut-on supprimer les fichiers de cache sur Mac sans risque ?"
+    a: "Vider les caches d’apps de ~/Library/Caches est sans danger : les apps les recréent. Quittez l’app avant, placez les dossiers dans la Corbeille plutôt que de les effacer directement, et ne touchez pas aux caches système de /System."
+  - q: "Vider le cache rend-il le Mac plus rapide ?"
+    a: "Rarement pour longtemps. Les caches servent à accélérer ; juste après, les apps peuvent même être plus lentes. Cela aide quand un cache est corrompu (une app bugue) ou quand il faut de la place vite."
+  - q: "Comment vider le cache de Safari sur Mac ?"
+    a: "Activez Safari → Réglages → Avancés → « Afficher les fonctionnalités pour les développeurs web », puis choisissez Développement → Vider les caches, ou appuyez sur Option-Commande-E."
+  - q: "Comment vider le cache DNS sur Mac ?"
+    a: "Dans le Terminal, lancez : sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder — puis saisissez votre mot de passe."
+  - q: "Combien d’espace occupent les caches ?"
+    a: "Très variable : quelques centaines de Mo sur un Mac neuf, plusieurs Go sur un Mac avec navigateurs très utilisés, apps de streaming musical, de création ou de développement."
+---
+
+Un cache est un ensemble de fichiers qu’une app conserve pour ne pas télécharger ou recalculer deux fois la même chose. Utiles, les caches grossissent, peuvent se corrompre et comptent dans les « Données système » de votre stockage. Voici comment les vider sans risque.
+
+## Où le Mac stocke les caches
+
+| Cache | Emplacement | Suppression sûre ? |
+|---|---|---|
+| Caches de vos apps | `~/Library/Caches` | Oui — quittez l’app d’abord |
+| Caches des navigateurs | Dans chaque navigateur (voir ci-dessous) | Oui |
+| Caches d’apps pour tout le système | `/Library/Caches` | En grande partie — droits admin, soyez sélectif |
+| Caches système de macOS | `/System/Library/Caches` | Non — protégés et gérés par macOS |
+| Caches de développement (Xcode, npm, Gradle…) | `~/Library/Developer`, `~/.npm`, `~/.gradle` | Oui — les outils les recréent |
+
+Le `~` désigne votre dossier de départ. `~/Library` est masqué par défaut ; ouvrez-le avec **Aller → Aller au dossier…** (<Kbd>⇧</Kbd> <Kbd>⌘</Kbd> <Kbd>G</Kbd>) dans le Finder.
+
+## Vider le cache des apps
+
+1. Quittez l’app dont vous voulez vider le cache.
+2. Dans le Finder, appuyez sur <Kbd>⇧</Kbd> <Kbd>⌘</Kbd> <Kbd>G</Kbd>, saisissez `~/Library/Caches` et appuyez sur Entrée.
+3. Passez en présentation par liste et activez **Présentation → Afficher les options de présentation → Calculer toutes les tailles** pour voir les dossiers les plus lourds.
+4. Placez dans la Corbeille les dossiers de cette app (noms du type `com.spotify.client`).
+5. Rouvrez l’app, puis videz la Corbeille une fois que tout fonctionne.
+
+Astuce : déplacez le **contenu** des dossiers, pas `~/Library/Caches` lui-même.
+
+## Vider le cache du navigateur
+
+- **Safari :** Safari → **Réglages → Avancés** → cochez **Afficher les fonctionnalités pour les développeurs web**. Puis **Développement → Vider les caches** (<Kbd>⌥</Kbd> <Kbd>⌘</Kbd> <Kbd>E</Kbd>). Pour effacer aussi l’historique et les cookies : **Historique → Effacer l’historique**.
+- **Chrome :** appuyez sur <Kbd>⇧</Kbd> <Kbd>⌘</Kbd> <Kbd>⌫</Kbd> pour ouvrir **Effacer les données de navigation**, choisissez une période et cochez **Images et fichiers en cache**.
+- **Firefox :** **Paramètres → Vie privée et sécurité → Cookies et données de sites → Effacer les données…** et cochez **Contenu web en cache**.
+- **Edge :** **Paramètres → Confidentialité, recherche et services → Effacer les données de navigation → Choisir les éléments à effacer**.
+
+Vider uniquement le cache vous laisse connecté ; supprimer les cookies vous déconnecte des sites.
+
+<DownloadCTA />
+
+## Vider le cache DNS
+
+Si des sites ne se chargent plus après un changement de réseau, vider le DNS règle souvent le problème :
+
+```bash
+sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder
+```
+
+Cela ne libère pas d’espace : cela réinitialise seulement la liste des adresses web mémorisées.
+
+## Caches de développement
+
+DerivedData de Xcode, les fichiers du simulateur et les caches des gestionnaires de paquets (npm, Yarn, CocoaPods, Gradle, Cargo) sont souvent les plus gros caches d’un Mac de développeur. On peut les supprimer car vos outils les recréent — voyez [MacDiskCleaner pour les développeurs](/developers) pour le détail de chacun.
+
+## Ce que vider le cache ne règle pas
+
+- **Un Mac lent faute de mémoire** — consultez le Moniteur d’activité.
+- **Un disque plein de gros fichiers** — les caches sont rarement le principal coupable ; ce sont plutôt les doublons, vidéos, vieilles sauvegardes et Données système.
+- **La vitesse à long terme** — les caches se reconstituent dès que vous utilisez vos apps.
+
+## Vider les caches en sécurité, en une étape
+
+L’analyse de nettoyage de MacDiskCleaner repère les caches d’apps, journaux et caches de développement sur tout le Mac, indique la taille de chacun et place votre sélection dans la Corbeille — si une app se comporte mal ensuite, vous remettez simplement son cache. Il ne touche jamais aux caches système protégés.

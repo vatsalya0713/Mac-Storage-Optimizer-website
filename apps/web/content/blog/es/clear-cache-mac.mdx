@@ -1,0 +1,78 @@
+---
+title: "Cómo borrar la caché en Mac (apps, navegador y sistema) de forma segura"
+description: "Dónde se guardan las cachés del Mac, cuáles se pueden borrar y cómo vaciar la caché de Safari, Chrome y Firefox, de las apps de macOS y del DNS, además de cuándo borrar la caché no sirve de nada."
+date: "2026-10-09"
+keywords: ["borrar caché mac", "limpiar caché mac", "cómo borrar la caché en mac", "vaciar caché safari mac", "borrar caché chrome mac", "limpiador de caché mac", "borrar archivos caché mac"]
+tldr: "Para borrar la caché de una app en Mac, ciérrala, abre Finder → Ir → Ir a la carpeta…, escribe ~/Library/Caches y mueve la carpeta de esa app a la Papelera. Los navegadores tienen su propio ajuste: en Safari usa Desarrollo → Vaciar cachés (⌥⌘E) y en Chrome Borrar datos de navegación → Archivos e imágenes en caché. Las cachés se regeneran solas, así que borrarlas libera espacio temporalmente y corrige fallos, pero no acelera el Mac para siempre."
+related: ["how-to-clean-junk-files-mac", "how-to-clear-system-data-mac", "disk-cleanup-mac"]
+faq:
+  - q: "¿Es seguro borrar archivos de caché en Mac?"
+    a: "Borrar las cachés de apps de ~/Library/Caches es seguro: las apps las regeneran. Cierra la app antes, mueve las carpetas a la Papelera en lugar de borrarlas directamente y no toques las cachés del sistema de /System."
+  - q: "¿Borrar la caché hace que el Mac vaya más rápido?"
+    a: "Normalmente no por mucho tiempo. Las cachés existen para acelerar las cosas, así que justo después las apps pueden ir más lentas. Ayuda cuando una caché está dañada (una app falla) o cuando necesitas espacio rápido."
+  - q: "¿Cómo borro la caché de Safari en Mac?"
+    a: "Activa Safari → Ajustes → Avanzado → «Mostrar funciones para desarrolladores web» y luego elige Desarrollo → Vaciar cachés, o pulsa Opción-Comando-E."
+  - q: "¿Cómo vacío la caché DNS en Mac?"
+    a: "En Terminal ejecuta: sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder, e introduce tu contraseña."
+  - q: "¿Cuánto espacio ocupan las cachés?"
+    a: "Depende mucho: unos cientos de megas en un Mac nuevo y muchos gigas en uno con navegadores muy usados, apps de streaming de música, diseño o desarrollo."
+---
+
+Una caché es un conjunto de archivos que una app guarda para no tener que descargar o calcular lo mismo dos veces. Son útiles, pero crecen, pueden dañarse y cuentan dentro de «Datos del sistema» en tu almacenamiento. Así se borran con seguridad.
+
+## Dónde guarda el Mac las cachés
+
+| Caché | Ubicación | ¿Se puede borrar? |
+|---|---|---|
+| Cachés de tus apps | `~/Library/Caches` | Sí, cerrando antes la app |
+| Cachés del navegador | Dentro de cada navegador (ver abajo) | Sí |
+| Cachés de apps para todo el sistema | `/Library/Caches` | En su mayoría; requiere administrador, sé selectivo |
+| Cachés del sistema macOS | `/System/Library/Caches` | No: protegidas y gestionadas por macOS |
+| Cachés de desarrollo (Xcode, npm, Gradle…) | `~/Library/Developer`, `~/.npm`, `~/.gradle` | Sí: las herramientas las regeneran |
+
+El símbolo `~` es tu carpeta de inicio. `~/Library` está oculta por defecto; usa **Ir → Ir a la carpeta…** (<Kbd>⇧</Kbd> <Kbd>⌘</Kbd> <Kbd>G</Kbd>) en el Finder para abrirla.
+
+## Borrar la caché de las apps
+
+1. Cierra la app cuya caché quieres borrar.
+2. En el Finder pulsa <Kbd>⇧</Kbd> <Kbd>⌘</Kbd> <Kbd>G</Kbd>, escribe `~/Library/Caches` y pulsa Retorno.
+3. Cambia a la vista de lista y activa **Visualización → Mostrar opciones de visualización → Calcular todos los tamaños** para ver qué carpetas ocupan más.
+4. Mueve a la Papelera las carpetas de esa app (con nombres como `com.spotify.client`).
+5. Vuelve a abrir la app y vacía la Papelera cuando todo funcione.
+
+Consejo: mueve el **contenido** de las carpetas, no `~/Library/Caches` entera.
+
+## Borrar la caché del navegador
+
+- **Safari:** Safari → **Ajustes → Avanzado** → marca **Mostrar funciones para desarrolladores web**. Después, **Desarrollo → Vaciar cachés** (<Kbd>⌥</Kbd> <Kbd>⌘</Kbd> <Kbd>E</Kbd>). Para borrar también el historial y las cookies, usa **Historial → Borrar historial**.
+- **Chrome:** pulsa <Kbd>⇧</Kbd> <Kbd>⌘</Kbd> <Kbd>⌫</Kbd> para abrir **Borrar datos de navegación**, elige un intervalo y marca **Archivos e imágenes en caché**.
+- **Firefox:** **Ajustes → Privacidad y seguridad → Cookies y datos del sitio → Limpiar datos…** y marca **Contenido web en caché**.
+- **Edge:** **Configuración → Privacidad, búsqueda y servicios → Borrar datos de exploración → Elegir lo que se debe borrar**.
+
+Borrar solo la caché mantiene tus sesiones abiertas; borrar las cookies te desconecta de las webs.
+
+<DownloadCTA />
+
+## Vaciar la caché DNS
+
+Si las webs no cargan tras cambiar de red, vaciar el DNS suele arreglarlo:
+
+```bash
+sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder
+```
+
+Esto no libera espacio: solo reinicia la lista de direcciones web que recuerda el Mac.
+
+## Cachés de desarrollo
+
+DerivedData de Xcode, los archivos del simulador y las cachés de gestores de paquetes (npm, Yarn, CocoaPods, Gradle, Cargo) suelen ser las cachés más grandes en el Mac de un desarrollador. Se pueden borrar porque tus herramientas las regeneran; consulta [MacDiskCleaner para desarrolladores](/developers) para ver qué es cada una y cómo vuelve.
+
+## Lo que borrar la caché no arregla
+
+- **Un Mac lento porque la memoria está llena**: revisa el Monitor de Actividad.
+- **Un disco lleno de archivos grandes**: las cachés rara vez son el problema principal; suelen serlo los duplicados, vídeos, copias antiguas y Datos del sistema.
+- **La velocidad a largo plazo**: las cachés vuelven a crecer en cuanto usas tus apps.
+
+## Borrar cachés con seguridad en un paso
+
+El análisis de limpieza de MacDiskCleaner encuentra cachés de apps, registros y cachés de desarrollo en todo el Mac, muestra cuánto ocupa cada una y mueve lo que selecciones a la Papelera, así que si una app falla después, puedes devolver su caché. Nunca toca las cachés protegidas del sistema.

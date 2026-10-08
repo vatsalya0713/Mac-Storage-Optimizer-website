@@ -1,40 +1,9 @@
 import latest from '@/public/downloads/latest.json'
-const SITE_URL = 'https://www.macdiskcleaner.com'
 
-const FAQ_ITEMS = [
-  {
-    q: 'Is MacDiskCleaner safe to use?',
-    a: 'Yes. MacDiskCleaner only deletes files you explicitly approve. Everything is moved to Trash before permanent removal, so nothing is ever unrecoverable.',
-  },
-  {
-    q: 'Does MacDiskCleaner work on Apple Silicon and Intel Macs?',
-    a: 'Yes. MacDiskCleaner supports macOS 14 Sonoma and later, including the latest macOS release, on both Apple Silicon (M1, M2, M3, M4) and Intel Macs.',
-  },
-  {
-    q: 'Is the free version of MacDiskCleaner really free?',
-    a: 'Yes. Scanning and browsing every result are free forever, and you can clean up 2 GB in total at no cost — there is no trial period and nothing expires. After 2 GB, the app asks for Pro.',
-  },
-  {
-    q: 'What does MacDiskCleaner Pro unlock?',
-    a: 'Pro removes the 2 GB free cleanup cap and adds the App Uninstaller, Privacy Cleaner, Startup Manager, and Scheduled Scans, plus lifetime updates, for a single $12.99 payment — no subscription.',
-  },
-  {
-    q: 'How many Macs can one Pro license activate?',
-    a: 'Each MacDiskCleaner Pro license activates on one Mac, and can be moved to a new Mac by deactivating it on the old one.',
-  },
-  {
-    q: 'How is MacDiskCleaner different from CleanMyMac X or OnyX?',
-    a: 'MacDiskCleaner is a one-time $12.99 purchase with no subscription, unlike CleanMyMac, and includes a guided duplicate finder and large-file scanner that OnyX does not.',
-  },
-  {
-    q: 'Can I get a refund on MacDiskCleaner Pro?',
-    a: 'Yes, MacDiskCleaner offers a full 30-day no-questions-asked refund on all Pro purchases.',
-  },
-  {
-    q: 'Does MacDiskCleaner upload my files or data to a server?',
-    a: 'No. Scanning, duplicate detection, and cleanup analysis all happen locally on your Mac. Only your license key is ever sent to our servers, during activation.',
-  },
-]
+// Site-wide entities only (organization, website, the app itself). Page-level
+// markup such as FAQPage and BreadcrumbList is emitted by the page that
+// visibly shows that content.
+const SITE_URL = 'https://www.macdiskcleaner.com'
 
 export function StructuredData({ locale }: { locale: string }) {
   const path = locale === 'en' ? '' : `/${locale}`
@@ -75,20 +44,7 @@ export function StructuredData({ locale }: { locale: string }) {
     ],
   }
 
-  const faqPage =
-    locale === 'en'
-      ? {
-          '@type': 'FAQPage',
-          '@id': `${url}/#faq`,
-          mainEntity: FAQ_ITEMS.map((item) => ({
-            '@type': 'Question',
-            name: item.q,
-            acceptedAnswer: { '@type': 'Answer', text: item.a },
-          })),
-        }
-      : null
-
-  const graph = [organization, website, softwareApplication, faqPage].filter(Boolean)
+  const graph = [organization, website, softwareApplication]
 
   return (
     <script

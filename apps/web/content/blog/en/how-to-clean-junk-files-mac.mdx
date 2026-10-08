@@ -1,36 +1,85 @@
 ---
-title: "How to Clean Junk Files on Your Mac (Free & Automatic)"
-description: "Step-by-step guide to finding and removing cache files, logs, and other junk that quietly fills up your Mac's storage — manually or with a free cleaner."
+title: "How to Delete Junk Files on Mac (Free, Manual and Automatic)"
+description: "What counts as junk on a Mac, where it hides, and how to delete it safely — caches, logs, old downloads, installers, iPhone backups, language files and app leftovers — by hand or with a free cleaner."
 date: "2026-01-18"
-keywords: ["mac junk cleaner", "mac junk files cleaner", "mac junk cleaner free", "remove junk files from mac free"]
+updated: "2026-10-09"
+keywords: ["how to delete junk files on mac", "how to clean junk files on mac", "clean junk files mac", "mac junk cleaner", "mac junk cleaner free", "remove junk files from mac free", "how to clean unnecessary files on mac", "mac cleanup"]
+tldr: "Junk files on a Mac are mostly app caches (~/Library/Caches), logs (~/Library/Logs), old downloads and installers, outdated iPhone/iPad backups, developer caches and leftovers from deleted apps. Delete them by moving them to the Trash with Finder’s Go → Go to Folder…, then empty the Trash — or let a cleaner such as MacDiskCleaner find them all in one scan for free."
+related: ["clear-cache-mac", "disk-cleanup-mac", "how-to-clean-up-mac-hard-drive"]
+faq:
+  - q: "What are junk files on a Mac?"
+    a: "Files your Mac no longer needs: caches, logs, crash reports, old installers and downloads, outdated device backups, temporary files and leftovers from apps you deleted."
+  - q: "Is it safe to delete junk files on Mac?"
+    a: "Yes, if you stick to user caches, logs, downloads and backups you recognise, and move them to the Trash rather than deleting them permanently. Never delete from /System or your Keychains folder."
+  - q: "How do I clean junk files on Mac for free?"
+    a: "Manually with Finder and Storage settings, or with a free tool. MacDiskCleaner’s free tier scans everything and cleans up to 2 GB in total at no cost."
+  - q: "How often should I delete junk files?"
+    a: "Every month or two for most people, or whenever you get a low-storage warning. Junk regenerates, so there’s no benefit in cleaning daily."
 ---
 
-"Junk files" on a Mac are the cache files, logs, temporary files, and leftover app data that build up silently over months of normal use. None of it is dangerous to remove — but finding it manually means digging through hidden folders most people never see.
+“Junk” on a Mac isn’t one folder. It’s a mix of temporary data that apps and macOS create and rarely clean up. Here’s where it lives and how to remove it without breaking anything.
 
-## Where Mac junk files actually live
+## Where Mac junk files hide
 
-- `~/Library/Caches` — app and browser caches, usually the biggest single contributor
-- `~/Library/Logs` — diagnostic logs most apps never clean up themselves
-- `~/Library/Application Support` — leftover data from apps you've already uninstalled
-- `/private/var/folders` — system-level temporary files
+| Junk | Where | Safe to remove? |
+|---|---|---|
+| App caches | `~/Library/Caches` | Yes — quit the app first |
+| Logs and crash reports | `~/Library/Logs` | Yes |
+| Old downloads and installers | `~/Downloads` | Yes, once you’ve checked them |
+| iPhone/iPad backups | `~/Library/Application Support/MobileSync/Backup` | Old ones, yes |
+| Mail attachments | `~/Library/Containers/com.apple.mail/Data/Library/Mail Downloads` | Yes — they stay in the emails |
+| Developer caches | `~/Library/Developer`, `~/.npm`, `~/.gradle` | Yes — tools rebuild them |
+| Leftovers from deleted apps | `~/Library/Application Support`, `~/Library/Containers` | Yes, for apps you no longer have |
+| The Trash | `~/.Trash` | Yes — that’s what it’s for |
 
-## Option 1: Clean it manually
+Downloads, device backups and developer caches are usually the biggest; caches and logs add up over time.
 
-1. Open Finder, press **Cmd+Shift+G**, and type `~/Library/Caches`.
-2. Sort by size and look for folders belonging to apps you don't use — those are usually safe to empty.
-3. Repeat for `~/Library/Logs`.
-4. Empty the Trash afterward to actually reclaim the space.
+## Option 1: Clean junk files manually
 
-This works, but it's slow, and it's easy to second-guess whether a given folder is safe to touch — a lot of these folder names aren't self-explanatory.
+### 1. Clear app caches and logs
+
+Quit your apps. In Finder press <Kbd>⇧</Kbd> <Kbd>⌘</Kbd> <Kbd>G</Kbd>, open `~/Library/Caches`, and move the folders of apps you use heavily to the Trash. Do the same in `~/Library/Logs`. Apps recreate what they need.
+
+### 2. Empty your Downloads folder
+
+Sort Downloads by size and delete installers (`.dmg`, `.pkg`, `.zip`) for apps you’ve already installed, plus files you’ve already saved elsewhere.
+
+### 3. Delete old device backups
+
+Connect your iPhone or iPad, select it in Finder and click **Manage Backups** — or remove old backup folders from the MobileSync path above.
+
+### 4. Remove leftovers from deleted apps
+
+Look in `~/Library/Application Support` and `~/Library/Containers` for folders named after apps you no longer have.
+
+### 5. Empty the Trash
+
+Press <Kbd>⇧</Kbd> <Kbd>⌘</Kbd> <Kbd>⌫</Kbd>. Nothing is freed until you do.
+
+<DownloadCTA />
 
 ## Option 2: Use a junk cleaner
 
-A dedicated cleaner scans all of these locations automatically, groups what it finds by category, and lets you review everything before anything is deleted. [MacDiskCleaner's free tier](/free-mac-cleaner) lets you scan for free and clean up to 2 GB with exactly this workflow: scan, review, clean — nothing is removed without you seeing it first.
+A cleaner does the same thing faster, and shows you sizes before you decide. Look for one that:
+
+- **Shows every item** with its path and size before deleting.
+- **Moves files to the Trash** instead of erasing them.
+- **Skips system files automatically.**
+- **Doesn’t run constantly** in the background.
+
+MacDiskCleaner’s cleanup scan covers caches, logs, old downloads, developer caches and app leftovers in one pass. Scanning is always free and you can clean up to 2 GB in total at no cost — [here’s the free tier](/free-mac-cleaner).
+
+## Things that look like junk but aren’t
+
+- **Language files inside apps** — removing them breaks the app’s code signature on modern macOS. Leave them.
+- **`/System/Library/Caches`** — protected and managed by macOS.
+- **Purgeable space** — macOS frees it automatically when needed.
+- **Your Photos library** — it can be huge, but it’s your photos. Use the [Duplicates album](/blog/duplicate-photos-mac) instead of deleting the library.
 
 ## Is it safe?
 
-Yes, as long as the tool moves files to Trash rather than deleting them outright, and as long as it's only touching cache/log/temp locations rather than your actual documents. That's the standard every cleaner on this site follows.
+Yes, when you stick to the locations above and keep things in the Trash until you’re sure everything still works. Avoid any tool that wants to delete system files, “optimise memory” or clean daily — macOS handles those jobs itself.
 
 ## How often should you clean junk files?
 
-Most people don't need to think about it at all — a cleaner with scheduled scans (available in MacDiskCleaner Pro) handles it silently in the background. If you're doing it manually, once every one to two months is enough for typical use.
+Every month or two is plenty for most people. If you’re a developer or edit video, check more often — build caches and render files grow quickly.

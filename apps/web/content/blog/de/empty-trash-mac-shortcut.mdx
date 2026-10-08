@@ -1,0 +1,69 @@
+---
+title: "Papierkorb leeren auf dem Mac: Tastenkombinationen, automatisches Leeren und Lösungen"
+description: "Alle Wege, den Papierkorb auf dem Mac zu leeren: die Tastenkombination Umschalt-Befehl-Rückschritt, Leeren ohne Rückfrage, einzelne Objekte löschen, automatisches Leeren nach 30 Tagen – und was hilft, wenn er sich nicht leeren lässt."
+date: "2026-10-09"
+keywords: ["papierkorb leeren mac tastenkombination", "mac papierkorb leeren", "papierkorb leeren ohne nachfrage mac", "papierkorb lässt sich nicht leeren mac", "papierkorb automatisch leeren mac", "mac endgültig löschen"]
+tldr: "Um den Papierkorb auf dem Mac zu leeren, drücke im Finder Umschalt-Befehl-Rückschritt (⇧⌘⌫) und bestätige – oder klicke im Dock mit rechts auf den Papierkorb und wähle „Papierkorb entleeren“. Mit zusätzlicher Wahltaste (⌥⇧⌘⌫) entfällt die Rückfrage. Automatisch geht es über Finder → Einstellungen → Erweitert → „Objekte nach 30 Tagen aus dem Papierkorb entfernen“."
+related: ["how-to-permanently-delete-files-mac", "how-to-delete-files-mac-wont-delete", "mac-running-out-of-storage-fix-guide"]
+faq:
+  - q: "Mit welcher Tastenkombination leere ich den Papierkorb?"
+    a: "Umschalt-Befehl-Rückschritt (⇧⌘⌫), während der Finder aktiv ist. macOS fragt vor dem Leeren nach einer Bestätigung."
+  - q: "Wie leere ich den Papierkorb ohne Rückfrage?"
+    a: "Wahl-Umschalt-Befehl-Rückschritt (⌥⇧⌘⌫) drücken oder die Wahltaste halten, während du im Finder-Menü oder im Dock „Papierkorb entleeren“ wählst."
+  - q: "Kann ich Dateien nach dem Leeren wiederherstellen?"
+    a: "Nicht aus dem Papierkorb. Stelle sie aus einem Time-Machine- oder anderen Backup wieder her, falls vorhanden."
+  - q: "Gibt das Leeren sofort Speicher frei?"
+    a: "Meist ja, die Speicheransicht braucht aber ein paar Minuten zur Aktualisierung. Bei iCloud Drive bleiben gelöschte Dateien 30 Tage unter „Zuletzt gelöscht“ auf iCloud.com."
+  - q: "Warum ist der Papierkorb nach dem Leeren noch voll?"
+    a: "Dateien von einem externen Laufwerk liegen in einem eigenen Papierkorb auf diesem Laufwerk – schließe es an und leere erneut. Auch geschützte oder verwendete Objekte können das Leeren blockieren."
+---
+
+Eine Datei in den Papierkorb zu legen, gibt keinen Speicher frei – sie bleibt auf der Festplatte, bis du den Papierkorb leerst. Hier sind alle Wege dazu und Lösungen, wenn es nicht klappt.
+
+## Tastenkombinationen zum Leeren
+
+| Was du willst | So geht’s |
+|---|---|
+| Papierkorb leeren | <Kbd>⇧</Kbd> <Kbd>⌘</Kbd> <Kbd>⌫</Kbd> im Finder, dann bestätigen |
+| Ohne „Wirklich?“-Abfrage leeren | <Kbd>⌥</Kbd> <Kbd>⇧</Kbd> <Kbd>⌘</Kbd> <Kbd>⌫</Kbd> |
+| Über das Dock leeren | Rechtsklick (oder Ctrl-Klick) auf den Papierkorb → **Papierkorb entleeren** |
+| Nur ein Objekt löschen | Papierkorb öffnen, Rechtsklick aufs Objekt → **Sofort löschen** |
+| Ein Objekt wiederherstellen | Papierkorb öffnen, auswählen → **Ablage → Zurücklegen** |
+
+Die Kürzel funktionieren nur, wenn der **Finder** aktiv ist – klicke vorher auf den Schreibtisch, falls eine andere App vorne ist.
+
+## Papierkorb automatisch leeren
+
+**Option 1 – Finder-Einstellung:** Finder → **Einstellungen** → **Erweitert** → **Objekte nach 30 Tagen aus dem Papierkorb entfernen** aktivieren.
+
+**Option 2 – Speicher-Einstellungen:** Systemeinstellungen → **Allgemein → Speicher** → **Papierkorb automatisch entleeren** einschalten.
+
+Beides bewirkt dasselbe: Jedes Objekt wird 30 Tage nach dem Löschen endgültig entfernt – du hast also einen Monat Bedenkzeit.
+
+## Wie viel belegt der Papierkorb?
+
+Papierkorb öffnen, mit <Kbd>⌘</Kbd> <Kbd>A</Kbd> alles auswählen und <Kbd>⌃</Kbd> <Kbd>⌘</Kbd> <Kbd>I</Kbd> drücken – das zeigt die Gesamtgröße in einem Fenster. Auch **Systemeinstellungen → Allgemein → Speicher** zeigt es an.
+
+<DownloadCTA />
+
+## Wenn sich der Papierkorb nicht leeren lässt
+
+1. **Wahltaste halten** beim Leeren – das umgeht Warnungen zu geschützten Dateien.
+2. **Schutz entfernen:** Objekt im Papierkorb auswählen, <Kbd>⌘</Kbd> <Kbd>I</Kbd> drücken und **Geschützt** deaktivieren.
+3. **Apps beenden**, die eine gelöschte Datei noch verwenden (Fehlermeldung „wird verwendet“).
+4. **Externe Laufwerke wieder anschließen:** Von einem USB-Stick gelöschte Dateien liegen im versteckten Papierkorb dieses Laufwerks und verschwinden erst, wenn du bei angeschlossenem Laufwerk leerst.
+5. **Neu starten** und erneut versuchen.
+6. **Erste Hilfe** im Festplattendienstprogramm auf dem Startvolume ausführen, wenn Fehler bleiben.
+
+Für hartnäckige Dateien siehe [so löschst du Dateien, die sich nicht löschen lassen](/blog/how-to-delete-files-mac-wont-delete).
+
+## Papierkorb entleeren vs. Sofort löschen
+
+- **Papierkorb entleeren** löscht alles, was gerade im Papierkorb liegt, endgültig.
+- **Sofort löschen** (<Kbd>⌥</Kbd> <Kbd>⌘</Kbd> <Kbd>⌫</Kbd> auf einer ausgewählten Datei) überspringt den Papierkorb nur für dieses Objekt.
+
+Beides ist endgültig. Wenn du beim Aufräumen viele Dateien entfernst, ist es sicherer, sie eine Weile im Papierkorb zu lassen – deshalb verschiebt MacDiskCleaner Dateien immer in den Papierkorb und lässt dich leeren, wann du bereit bist.
+
+## Dateien in iCloud Drive
+
+Aus iCloud Drive gelöschte Dateien bleiben zusätzlich 30 Tage unter **Zuletzt gelöscht** auf iCloud.com, und dieser Platz zählt weiter zu deinem iCloud-Speicher, bis du sie dort entfernst.

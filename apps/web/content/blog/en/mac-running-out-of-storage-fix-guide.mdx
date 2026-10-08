@@ -1,48 +1,66 @@
 ---
-title: "Mac Running Out of Storage? The Complete Fix Guide"
-description: "Your Mac says storage is almost full — here's how to actually diagnose what's using it and fix it, not just guess."
+title: "Mac Storage Full? How to Fix “Your Disk Is Almost Full”"
+description: "Your Mac says the disk is almost full. Here’s how to find out what is actually using the space, free some up immediately, deal with System Data and purgeable space, and keep it from filling up again."
 date: "2026-02-08"
-keywords: ["mac storage cleaner", "mac storage cleaner app", "macbook storage cleaner free app"]
+updated: "2026-10-09"
+keywords: ["mac storage full", "your disk is almost full mac", "mac running out of storage", "macos taking up storage", "mac storage cleaner", "macbook storage cleaner free app", "free up space on macbook"]
+tldr: "When your Mac says the disk is almost full, first empty the Trash and restart. Then open System Settings → General → Storage, delete large files and old downloads from Documents → Large Files, remove old iPhone backups, and clear caches. If System Data is huge, check Time Machine snapshots, device backups and Xcode. Keep 15–20% of the disk free to avoid the warning returning."
+related: ["how-to-clear-system-data-mac", "how-to-clean-up-mac-hard-drive", "find-delete-large-files-mac"]
+faq:
+  - q: "Why does my Mac say storage is full when I deleted files?"
+    a: "Deleted files stay in the Trash until it’s emptied, and the Storage view can take a few minutes to update. Time Machine local snapshots can also hold deleted data until macOS purges them."
+  - q: "What is purgeable space on a Mac?"
+    a: "Space used by items macOS can remove automatically when needed — for example iCloud files that are already in the cloud or old snapshots. You don’t need to delete it manually."
+  - q: "What happens if my Mac’s storage is completely full?"
+    a: "Apps can crash, files may fail to save, macOS updates won’t install and the Mac slows down because it has no room for virtual memory. Free some space as soon as you can."
+  - q: "How do I stop my Mac storage from filling up?"
+    a: "Turn on Empty Trash Automatically, store Desktop and Documents in iCloud if you use it, clear Downloads regularly, and run a cleanup scan every month or two."
 ---
 
-"Your disk is almost full" is one of the most frustrating macOS alerts, mostly because it doesn't tell you *what* is full. Here's how to actually diagnose it.
+“Your disk is almost full” rarely says **what** is full. Here’s how to diagnose it properly and get space back — fast first, thorough second.
 
-## Step 1: See what macOS itself thinks is using space
+## Free space right now (2 minutes)
 
-Apple menu → **About This Mac** → **Storage** → **Manage**. This gives a rough breakdown (Apps, Documents, Photos, "System Data"), but "System Data" is usually the biggest and least helpful category — it's a catch-all, not something you can click into.
+1. **Empty the Trash:** <Kbd>⇧</Kbd> <Kbd>⌘</Kbd> <Kbd>⌫</Kbd> in Finder.
+2. **Quit apps you’re not using**, especially browsers with many tabs and video editors.
+3. **Restart.** This clears swap and temporary files, which can be several gigabytes on a nearly full disk.
 
-## Step 2: Find out what's actually in "System Data"
+If you still have less than about 10 GB free, delete a few big files from Downloads before continuing.
 
-This is almost always some combination of:
+## Step 1: See what macOS thinks is using space
 
-- App caches and logs that accumulate silently over months
-- Leftover files from apps you uninstalled without removing their support files
-- Old iOS/iPadOS device backups
-- Time Machine local snapshots
+Open **System Settings → General → Storage**. The coloured bar shows the main categories: Applications, Documents, Photos, iCloud Drive, Mail, Messages, macOS and **System Data**. Click the **ⓘ** next to each one to see and delete its contents.
 
-A scanner that actually enumerates these locations (rather than macOS's rough category estimate) gives you an actionable list instead of a mystery number. [MacDiskCleaner's Storage Overview](/#features) shows a real breakdown by folder and file type — not just "System Data: 41 GB."
+## Step 2: Remove large files and old downloads
 
-## Step 3: Attack the biggest categories first
+Under **Documents**, open **Large Files** and **Downloads**. Old installers, videos and archives are the quickest wins. Guide: [find large files on Mac](/blog/find-delete-large-files-mac).
 
-In order of typical impact:
+## Step 3: Check iOS files and Messages
 
-1. **Large files** — old video exports, disk images, forgotten downloads. Often the single biggest recoverable chunk.
-2. **Duplicates** — photos imported twice, files saved in multiple places.
-3. **Junk** — caches, logs, temp files. Individually small, collectively significant.
-4. **Uninstalled app leftovers** — dragging an app to Trash doesn't remove its `~/Library` support files.
+- **iOS Files** lists iPhone and iPad backups and software updates stored on your Mac — delete old ones.
+- **Messages** can hold gigabytes of photos and videos; in Messages → Settings → General, set **Keep messages** to 1 year or 30 days if you’re happy to.
 
-## Step 4: Prevent it from filling up again
+## Step 4: Deal with System Data
 
-Storage doesn't usually get low from one big event — it's gradual, from caches and downloads accumulating over weeks. A scheduled scan (available in [MacDiskCleaner Pro](/#pricing)) running quietly in the background catches this before it becomes a "Mac is full" emergency again.
+If **System Data** is very large, the usual causes are Time Machine local snapshots, device backups, developer data or a virtual machine. Read [why System Data gets so big](/blog/how-to-clear-system-data-mac) and the [step-by-step fix](/clear-system-data-mac).
+
+<DownloadCTA />
+
+## Step 5: Uninstall apps you don’t use
+
+Under **Applications**, sort by size and remove what you no longer need, then delete the app’s leftover folders in `~/Library/Application Support`.
+
+## Understand purgeable space
+
+Storage sometimes shows **purgeable** space. That’s data macOS will delete by itself when it needs room — local copies of iCloud files, old snapshots and some caches. You don’t need to do anything about it.
+
+## Keep it from filling up again
+
+- Turn on **Empty Trash Automatically** in Storage recommendations.
+- Move finished projects and old photos to an external drive.
+- Keep **15–20% of your disk free** — macOS uses it for virtual memory and updates.
+- Run a cleanup scan every month or two. MacDiskCleaner shows where space went since last time, and Pro can scan on a schedule.
 
 ## How much space should cleaning recover?
 
-For a Mac that hasn't been cleaned before, 20–50 GB is typical. If you've cleaned recently, expect a smaller amount from caches and logs that regenerated since.
-
-## FAQ
-
-**Why does my Mac say storage is full when Finder shows free space?**
-macOS sometimes delays updating the reported free space after large deletions — restart, or wait a few minutes, before assuming the deletion didn't work.
-
-**Is it safe to delete "System Data"?**
-You can't delete that category directly — it's not one folder. What's safe is clearing the caches, logs, and leftover files that make it up, which is what a proper cleanup covers.
+That depends on the Mac. One with years of downloads, device backups or developer tools often has tens of gigabytes to reclaim. A free MacDiskCleaner scan tells you the real number for your Mac before you spend time on manual cleanup.

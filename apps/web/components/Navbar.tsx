@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
-import { useTranslations } from "next-intl";
+import { downloadHref } from "@/components/site/DownloadButton";
+import { useLocale, useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { Menu, X, Download } from "lucide-react";
 import { LanguageSwitcher } from "./LanguageSwitcher";
@@ -8,15 +9,17 @@ import { AppleLogo } from "@/components/AppleLogo"
 
 export function Navbar() {
   const t = useTranslations("nav");
+  const locale = useLocale();
   const [open, setOpen] = useState(false);
 
+  // Locale-aware links: a visitor on /fr stays in French on every page.
   const links = [
-    { href: "/#features", label: t("features") },
-    { href: "/#pricing", label: t("pricing") },
-    { href: "/free-mac-cleaner", label: t("freeMacCleaner") },
-    { href: "/vs/cleanmymac", label: t("compare") },
-    { href: "/blog", label: t("blog") },
-    { href: "/contact", label: t("contact") },
+    { key: "features", href: { pathname: "/", hash: "features" }, label: t("features") },
+    { key: "pricing", href: { pathname: "/pricing" }, label: t("pricing") },
+    { key: "free", href: { pathname: "/free-mac-cleaner" }, label: t("freeMacCleaner") },
+    { key: "compare", href: { pathname: "/vs/cleanmymac" }, label: t("compare") },
+    { key: "blog", href: { pathname: "/blog" }, label: t("blog") },
+    { key: "contact", href: { pathname: "/contact" }, label: t("contact") },
   ];
 
   return (
@@ -35,16 +38,15 @@ export function Navbar() {
 
         <nav className="hidden lg:flex items-center gap-6 text-[13.5px] text-[#6E6E73] font-medium flex-shrink-0">
           {links.map((l) => (
-            <a key={l.href} href={l.href} className="hover:text-[#1D1D1F] transition-colors whitespace-nowrap">
+            <Link key={l.key} href={l.href} className="hover:text-[#1D1D1F] transition-colors whitespace-nowrap">
               {l.label}
-            </a>
+            </Link>
           ))}
         </nav>
 
         <div className="flex items-center gap-2 flex-shrink-0">
           <LanguageSwitcher className="hidden lg:flex" />
-          <a
-            href="/downloads?start=1"
+          <a href={downloadHref(locale)}
             className="btn-primary text-[12px] sm:text-[13px] py-[8px] sm:py-[9px] px-3.5 sm:px-5 whitespace-nowrap"
           >
             <AppleLogo size={14} /> <span className="hidden xs:inline">{t("download")}</span> <Download size={14} />
@@ -62,14 +64,14 @@ export function Navbar() {
       {open && (
         <nav className="lg:hidden border-t border-[rgba(0,0,0,0.06)] bg-white/95 backdrop-blur-xl px-6 py-4 flex flex-col gap-1">
           {links.map((l) => (
-            <a
-              key={l.href}
+            <Link
+              key={l.key}
               href={l.href}
               onClick={() => setOpen(false)}
               className="py-2.5 text-[15px] font-medium text-[#1D1D1F] border-b border-[rgba(0,0,0,0.04)] last:border-0"
             >
               {l.label}
-            </a>
+            </Link>
           ))}
           <div className="pt-2.5">
             <LanguageSwitcher />

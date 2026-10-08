@@ -18,7 +18,7 @@
     "download": "Kostenlos herunterladen"
   },
   "hero": {
-    "badge": "macOS Sequoia bereit · Nativ für Apple Silicon",
+    "badge": "macOS 14+ · Nativ auf Apple Silicon & Intel",
     "titleLine1": "Der Mac-Cleaner,",
     "titleAccent": "gemacht für den Mac.",
     "subtitle": "Gib Gigabytes an Speicherplatz frei, entferne versteckten Datenmüll, finde Duplikate und halte deinen Mac so schnell wie am ersten Tag.",
@@ -33,10 +33,10 @@
   },
   "stats": {
     "items": [
-      { "num": "1 Mio.+", "label": "Downloads" },
-      { "num": "4,9★", "label": "Durchschnittliche Bewertung" },
-      { "num": "50 GB+", "label": "Durchschnittlich freigegebener Speicher" },
-      { "num": "24/7", "label": "Kundensupport" }
+      { "num": "12,99 $", "label": "Pro einmalig – kein Abo" },
+      { "num": "2 GB", "label": "Gratis aufräumen, keine Testphase" },
+      { "num": "100 %", "label": "Scan direkt auf dem Mac" },
+      { "num": "30 Tage", "label": "Geld-zurück-Garantie" }
     ]
   },
   "features": {
@@ -56,11 +56,11 @@
     "label": "Nahtlose Erfahrung",
     "title": "Fühlt sich nativ an.",
     "titleAccent": "Weil es das ist.",
-    "body": "MacDiskCleaner wurde von Grund auf für macOS entwickelt. Es nutzt native APIs, respektiert das Sicherheitsmodell deines Systems und integriert sich nahtlos mit Spotlight, Apple Silicon und mehr.",
+    "body": "MacDiskCleaner wurde von Grund auf für macOS entwickelt. Es nutzt native APIs, respektiert das Sicherheitsmodell deines Systems und läuft nativ auf Macs mit Apple Silicon und Intel.",
     "points": [
       "Native macOS-Designsprache",
       "Optimiert für Apple Silicon & Intel",
-      "Sandboxed und auf Datenschutz ausgelegt",
+      "Nur lokal, auf Datenschutz ausgelegt",
       "Geplante Scans laufen unbemerkt im Hintergrund"
     ]
   },
@@ -146,5 +146,83 @@
     "downloadCta": "MacDiskCleaner herunterladen",
     "supportNote": "E-Mail nicht erhalten? Prüfe deinen Spam-Ordner oder kontaktiere support@macdiskcleaner.com.",
     "appNote": "Direkt in der App gekauft? Wechsle zurück zu MacDiskCleaner – Pro wird in wenigen Sekunden automatisch freigeschaltet. Nichts einzufügen."
+  },
+  "common": {
+    "home": "MacDiskCleaner",
+    "download": "Kostenlos laden",
+    "downloadForMac": "Kostenlos für Mac laden",
+    "ctaTitle": "Bereit, deinen Mac aufzuräumen?",
+    "ctaSubtitle": "Kostenloser Download. Kein Konto nötig, um loszulegen.",
+    "versionLine": "Version {version} · {size} MB · macOS 14 oder neuer · Apple Silicon & Intel",
+    "faqTitle": "Häufige Fragen",
+    "relatedTitle": "Passende Anleitungen",
+    "updated": "Aktualisiert am {date}",
+    "readTime": "{minutes} Min. Lesezeit",
+    "quickAnswer": "Kurze Antwort",
+    "inlineCtaTitle": "Alles in einem Scan mit MacDiskCleaner",
+    "inlineCtaText": "Findet Datenmüll, Duplikate und große Dateien auf deinem ganzen Mac, zeigt dir alles kostenlos an und verschiebt, was du auswählst, zuerst in den Papierkorb – so geht nichts versehentlich verloren.",
+    "allGuides": "Alle Anleitungen",
+    "blogTitle": "Anleitungen: Mac aufräumen & Speicherplatz freigeben",
+    "blogDescription": "Praktische, genaue Anleitungen, um auf dem Mac Speicherplatz freizugeben: Datenmüll, Systemdaten, Duplikate, große Dateien, Papierkorb und mehr.",
+    "blogH1": "Anleitungen zum Mac-Aufräumen",
+    "blogLead": "Praktische, genaue Anleitungen, um Speicherplatz freizugeben und deinen Mac schnell zu halten.",
+    "blogBreadcrumb": "Blog"
+  },
+  "footerLinks": {
+    "developers": "Für Entwickler",
+    "changelog": "Versionshinweise",
+    "safety": "Sicherheit",
+    "vsCleanMyMac": "vs. CleanMyMac",
+    "contact": "Kontakt",
+    "download": "Download",
+    "guides": "Anleitungen",
+    "systemData": "Systemdaten"
+  },
+  "downloadStarter": {
+    "started": "Dein Download hat begonnen",
+    "notStarted": "Nicht gestartet? <link>Hier klicken zum Herunterladen</link>.",
+    "firstTime": "Beim ersten Öffnen (dauert 20 Sekunden, nur einmal):",
+    "step1": "Öffne die geladene <b>MacDiskCleaner.dmg</b> und ziehe <b>MacDiskCleaner</b> in den Ordner <b>Programme</b>.",
+    "step2": "Öffne MacDiskCleaner aus dem Ordner Programme. macOS zeigt <i>„Apple konnte nicht überprüfen …“</i> – klicke auf <b>Fertig</b>. <warn>Niemals auf „In den Papierkorb legen“ klicken.</warn>",
+    "step3": "Öffne <b>Systemeinstellungen → Datenschutz & Sicherheit</b>, scrolle zu <i>„MacDiskCleaner wurde blockiert“</i>, klicke auf <b>Dennoch öffnen</b> und bestätige mit deinem Passwort.",
+    "openSettings": "Datenschutz & Sicherheit öffnen",
+    "step4": "Fertig – ab jetzt öffnet sich die App ganz normal, und Updates installieren sich ohne Warnung von selbst.",
+    "zeroTitle": "Lieber ganz ohne Warnung?",
+    "zeroText": "Füge das im Terminal ein – es installiert und öffnet die App ohne jede Sicherheitsabfrage:"
+  },
+  "contact": {
+    "metaTitle": "MacDiskCleaner Support kontaktieren",
+    "metaDescription": "Fragen, Fehlerberichte oder Vorschläge zu MacDiskCleaner – schreib uns. Antwort innerhalb von 1–2 Werktagen.",
+    "title": "Kontakt",
+    "lead": "Fragen, Fehlerberichte oder Ideen – wir lesen alles und antworten innerhalb von 1–2 Werktagen.",
+    "sentTitle": "Nachricht gesendet",
+    "sentText": "Danke – wir melden uns bald.",
+    "sendAnother": "Weitere Nachricht senden",
+    "name": "Name",
+    "email": "E-Mail",
+    "topic": "Thema",
+    "message": "Nachricht",
+    "send": "Nachricht senden",
+    "catGeneral": "Allgemeine Frage",
+    "catSupport": "Support / technisches Problem",
+    "catBug": "Fehler melden",
+    "catSuggestion": "Funktionswunsch",
+    "errorGeneric": "Etwas ist schiefgelaufen – bitte erneut versuchen oder direkt per E-Mail schreiben.",
+    "errorNetwork": "Server nicht erreichbar – Verbindung prüfen und erneut versuchen oder direkt per E-Mail schreiben.",
+    "emailNote": "Lieber per E-Mail? Schreib uns an <mail>support@macdiskcleaner.com</mail>. Pro-Kunden: Lizenzschlüssel angeben für bevorzugte Hilfe."
+  },
+  "notFound": {
+    "title": "Diese Seite gibt es nicht.",
+    "text": "Der Link ist vielleicht veraltet oder falsch geschrieben. Hier findest du, was die meisten suchen:",
+    "home": "Startseite",
+    "pricing": "Preise",
+    "guides": "Anleitungen",
+    "contact": "Support kontaktieren"
+  },
+  "cookie": {
+    "text": "Diese Website nutzt datenschutzfreundliche Statistiken, um zu sehen, welche Seiten hilfreich sind – keine Werbung, kein Datenverkauf. Mehr in unserer <link>Datenschutzerklärung</link>.",
+    "decline": "Ablehnen",
+    "accept": "Akzeptieren",
+    "label": "Cookie-Einstellungen"
   }
 }

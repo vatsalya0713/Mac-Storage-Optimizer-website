@@ -1,0 +1,88 @@
+---
+title: "Atajo para borrar permanentemente en Mac: Opción-Comando-Eliminar (y 5 formas más)"
+description: "El atajo de teclado para borrar archivos definitivamente en un Mac sin pasar por la Papelera, cómo vaciarla al instante y cuándo conviene —y cuándo no— saltarse la Papelera."
+date: "2026-01-24"
+updated: "2026-10-09"
+keywords: ["atajo borrar permanentemente mac", "borrar archivos definitivamente mac", "eliminar permanentemente mac atajo", "borrar sin papelera mac", "atajo eliminar archivo mac", "comando borrar mac"]
+tldr: "Para borrar un archivo definitivamente en un Mac sin enviarlo a la Papelera, selecciónalo en el Finder y pulsa Opción-Comando-Eliminar (⌥⌘⌫); después confirma. Comando-Eliminar (⌘⌫) lo mueve a la Papelera, Mayúsculas-Comando-Eliminar (⇧⌘⌫) vacía la Papelera y Opción-Mayúsculas-Comando-Eliminar la vacía sin preguntar."
+related: ["empty-trash-mac-shortcut", "how-to-delete-files-mac-wont-delete", "remove-files-macbook-desktop-without-deleting"]
+faq:
+  - q: "¿Cuál es el atajo para borrar permanentemente un archivo en Mac?"
+    a: "Selecciona el archivo en el Finder y pulsa Opción-Comando-Eliminar (⌥⌘⌫). macOS te pide confirmación y lo elimina al instante sin pasar por la Papelera."
+  - q: "¿Puedo recuperar un archivo borrado con Opción-Comando-Eliminar?"
+    a: "No desde la Papelera, porque nunca llega a ella. Solo podrás recuperarlo de una copia de Time Machine u otra copia de seguridad. Por eso conviene reservarlo para archivos de los que estés seguro."
+  - q: "¿Cómo borro en Mac sin el cuadro de confirmación?"
+    a: "No hay forma integrada de saltarse la confirmación de «Eliminar inmediatamente». Para la Papelera, Opción-Mayúsculas-Comando-Eliminar la vacía sin preguntar."
+  - q: "¿Hay un borrado seguro en Mac?"
+    a: "Apple eliminó «Vaciar Papelera de forma segura» en OS X El Capitan porque no es fiable en discos SSD. En un Mac actual, activar FileVault (cifrado del disco) es lo que hace ilegibles los datos borrados."
+  - q: "¿Por qué «Eliminar inmediatamente» aparece atenuado?"
+    a: "Solo aparece en el Finder y cuando tu cuenta puede eliminar el ítem seleccionado. Los archivos bloqueados, en uso o sin permisos deben arreglarse antes; consulta nuestra guía de archivos que no se borran."
+---
+
+macOS está diseñado para que borrar sea reversible: los archivos van primero a la Papelera. Cuando de verdad quieres que algo desaparezca ya, estos son los atajos y métodos que se saltan esa red de seguridad.
+
+## Los atajos de un vistazo
+
+| Acción | Atajo | ¿Reversible? |
+|---|---|---|
+| Trasladar a la Papelera | <Kbd>⌘</Kbd> <Kbd>⌫</Kbd> | Sí: «Devolver» desde la Papelera |
+| Eliminar inmediatamente (sin Papelera) | <Kbd>⌥</Kbd> <Kbd>⌘</Kbd> <Kbd>⌫</Kbd> | No |
+| Vaciar la Papelera | <Kbd>⇧</Kbd> <Kbd>⌘</Kbd> <Kbd>⌫</Kbd> | No |
+| Vaciar la Papelera sin confirmar | <Kbd>⌥</Kbd> <Kbd>⇧</Kbd> <Kbd>⌘</Kbd> <Kbd>⌫</Kbd> | No |
+| Deshacer el traslado a la Papelera | <Kbd>⌘</Kbd> <Kbd>Z</Kbd> | Sí, justo después |
+
+En el teclado de un MacBook, la tecla **eliminar** (delete) es la tecla ⌫. Estos atajos funcionan en el Finder, también en el escritorio.
+
+## Método 1: Opción-Comando-Eliminar
+
+1. Selecciona el archivo o la carpeta en el Finder.
+2. Pulsa <Kbd>⌥</Kbd> <Kbd>⌘</Kbd> <Kbd>⌫</Kbd>.
+3. Haz clic en **Eliminar** en el cuadro de confirmación.
+
+El ítem desaparece al momento y nunca aparece en la Papelera.
+
+## Método 2: Mantén pulsada Opción en el menú Archivo
+
+Selecciona el ítem, abre el menú **Archivo** del Finder y mantén pulsada <Kbd>⌥</Kbd>: «Trasladar a la Papelera» cambia a **Eliminar inmediatamente…**. Es la misma acción que el atajo, útil si no recuerdas las teclas.
+
+## Método 3: Borrar desde dentro de la Papelera
+
+Abre la Papelera, selecciona uno o varios ítems y elige **Eliminar inmediatamente** en el menú contextual. Útil si quieres conservar el resto de la Papelera por ahora.
+
+## Método 4: Vaciar la Papelera
+
+Pulsa <Kbd>⇧</Kbd> <Kbd>⌘</Kbd> <Kbd>⌫</Kbd> en el Finder, o haz clic derecho en la Papelera del Dock y elige **Vaciar Papelera**. Añade <Kbd>⌥</Kbd> para saltarte el aviso. Más opciones en nuestra [guía para vaciar la Papelera](/blog/empty-trash-mac-shortcut).
+
+## Método 5: Terminal (avanzado)
+
+`rm` borra archivos definitivamente, sin Papelera ni confirmación:
+
+```bash
+rm ~/Downloads/instalador-antiguo.dmg
+```
+
+Ten muchísimo cuidado: una errata en la ruta puede borrar lo que no querías, y `rm -r` borra carpetas enteras. Para el día a día, el Finder es más seguro.
+
+<DownloadCTA />
+
+## Método 6: Activa el vaciado automático
+
+Si lo que quieres es que los archivos borrados no se acumulen, deja que macOS vacíe la Papelera por ti: abre Finder → **Ajustes** → **Avanzado** y marca **Eliminar ítems de la Papelera tras 30 días**. Cada ítem se borra 30 días después de enviarlo a la Papelera, así que conservas un margen de seguridad.
+
+## Cuándo tiene sentido borrar definitivamente
+
+- Archivos grandes que seguro que no necesitas (imágenes de disco, instaladores, vídeos exportados) cuando necesitas el espacio ya.
+- Archivos sensibles que no quieres dejar en la Papelera.
+- Cuando el disco está tan lleno que macOS no funciona bien.
+
+## Cuándo no deberías saltarte la Papelera
+
+- Al limpiar muchos archivos a la vez: una selección equivocada no tiene arreglo.
+- Para cualquier cosa dentro de `~/Library`, carpetas de soporte de apps o ubicaciones del sistema.
+- Si no estás seguro de que otra app ya no necesite el archivo.
+
+Por eso MacDiskCleaner nunca borra directamente: todo lo que limpia va primero a la Papelera, para que puedas recuperarlo si cambias de opinión.
+
+## ¿Y el borrado seguro?
+
+Las versiones antiguas de macOS tenían **Vaciar Papelera de forma segura**. Apple lo eliminó en OS X El Capitan porque sobrescribir archivos no es fiable en los SSD. En los Mac actuales, el cifrado **FileVault** (Ajustes del Sistema → Privacidad y seguridad → FileVault) es lo que hace prácticamente irrecuperables los datos borrados.

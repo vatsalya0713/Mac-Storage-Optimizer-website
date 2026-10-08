@@ -1,3 +1,4 @@
+import { cache } from 'react'
 import { supabaseAdmin } from './supabase'
 import latestFile from '@/public/downloads/latest.json'
 
@@ -15,7 +16,8 @@ export type LatestRelease = {
 // Shared by /api/releases/latest (what the app's updater calls) and the
 // downloads page (what visitors see) so both always agree, whether the
 // current release came from an admin upload or the CLI release script.
-export async function getLatestRelease(): Promise<LatestRelease> {
+// Wrapped in React cache() so a page with several download CTAs makes one query.
+export const getLatestRelease = cache(async function getLatestRelease(): Promise<LatestRelease> {
   const { data } = await supabaseAdmin
     .from('app_releases')
     .select('version, build, released_at, notes, dmg_path, sha256, size_bytes, min_macos')
@@ -34,4 +36,4 @@ export async function getLatestRelease(): Promise<LatestRelease> {
     sizeBytes: data.size_bytes,
     minMacOS: data.min_macos,
   }
-}
+})

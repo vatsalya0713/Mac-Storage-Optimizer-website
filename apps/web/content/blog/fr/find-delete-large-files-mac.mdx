@@ -1,0 +1,81 @@
+---
+title: "Comment trouver les gros fichiers sur Mac : Finder, Stockage, Terminal et apps"
+description: "Quatre méthodes fiables pour trouver les plus gros fichiers de votre Mac — recherche par taille dans le Finder, liste Fichiers volumineux du Stockage, une commande Terminal et des apps gratuites — et comment les supprimer sans risque."
+date: "2026-02-11"
+updated: "2026-10-09"
+keywords: ["trouver gros fichiers mac", "rechercher fichiers volumineux mac", "fichiers qui prennent de la place mac", "rechercher fichier par taille mac", "libérer de l’espace mac", "omnidisksweeper mac"]
+tldr: "Le moyen intégré le plus rapide pour trouver les gros fichiers sur Mac est Réglages Système → Général → Stockage → Documents (ⓘ) → Fichiers volumineux. Dans le Finder, appuyez sur ⌘F, choisissez « Ce Mac », ajoutez l’attribut Taille du fichier et sélectionnez « est supérieure à 1 Go ». Dans le Terminal, find ~ -type f -size +1G liste tous les fichiers de plus de 1 Go de votre dossier de départ."
+related: ["how-to-clean-up-mac-hard-drive", "duplicate-photos-mac", "mac-running-out-of-storage-fix-guide"]
+faq:
+  - q: "Comment voir les plus gros fichiers de mon Mac ?"
+    a: "Ouvrez Réglages Système → Général → Stockage, cliquez sur le ⓘ à côté de Documents et choisissez Fichiers volumineux. Les fichiers de plus de quelques centaines de Mo sont listés, du plus gros au plus petit."
+  - q: "Comment rechercher des fichiers par taille dans le Finder ?"
+    a: "Appuyez sur Commande-F, choisissez Ce Mac, cliquez sur le premier menu d’attributs, choisissez Autre… et cochez Taille du fichier. Réglez ensuite « est supérieure à » et une taille comme 500 Mo."
+  - q: "Quels gros fichiers peut-on supprimer sur Mac ?"
+    a: "Vieux installateurs (.dmg, .pkg), vidéos téléchargées, projets exportés, archives zip déjà décompressées, anciennes sauvegardes d’appareils et copies en double. Pas de fichiers dans /System ni les conteneurs d’apps encore utilisées."
+  - q: "Pourquoi le Finder ne trouve-t-il pas des fichiers que le Stockage signale ?"
+    a: "La recherche du Finder ignore les emplacements système et masqués comme ~/Library. Les gros éléments cachés — caches, sauvegardes, données de développement — se trouvent plus facilement avec le Terminal ou un outil d’analyse."
+---
+
+Quelques gros fichiers occupent souvent plus de place que des milliers de petits. Ces quatre méthodes les trouvent, de la plus simple à la plus complète.
+
+## Méthode 1 : les réglages Stockage (la plus simple)
+
+1. Ouvrez **Réglages Système → Général → Stockage**.
+2. Cliquez sur le **ⓘ** à côté de **Documents**.
+3. Choisissez **Fichiers volumineux** pour voir tout ce qui dépasse quelques centaines de Mo, du plus gros au plus petit. **Téléchargements** y figure aussi.
+
+Sélectionnez des fichiers et cliquez sur **Supprimer…** — attention, cela supprime immédiatement au lieu de passer par la Corbeille.
+
+## Méthode 2 : recherche par taille dans le Finder
+
+1. Dans le Finder, appuyez sur <Kbd>⌘</Kbd> <Kbd>F</Kbd> et choisissez **Ce Mac**.
+2. Cliquez sur le premier menu (« Type ») et choisissez **Autre…**.
+3. Cochez **Taille du fichier** et cliquez sur **OK**.
+4. Réglez **est supérieure à** et saisissez une taille, par exemple **1 Go**.
+5. Faites un clic droit sur les en-têtes de colonnes, ajoutez **Taille** et triez.
+
+Cliquez sur **Enregistrer** pour garder la recherche dans la barre latérale du Finder.
+
+## Méthode 3 : le Terminal (la plus complète)
+
+Le Terminal voit des endroits que la recherche du Finder ignore. Tous les fichiers de plus de 1 Go de votre dossier de départ :
+
+```bash
+find ~ -type f -size +1G -exec ls -lh {} + 2>/dev/null | awk '{print $5, $9}'
+```
+
+Les plus gros dossiers de votre dossier de départ, le plus gros en dernier :
+
+```bash
+du -sh ~/* ~/Library/* 2>/dev/null | sort -h | tail -20
+```
+
+Ces commandes ne font que **lister** : elles ne suppriment rien.
+
+## Méthode 4 : les apps d’analyse du disque
+
+- **GrandPerspective** (gratuit) — une mosaïque où chaque rectangle a la taille du fichier.
+- **OmniDiskSweeper** (gratuit) — les dossiers triés par taille, à parcourir.
+- **DaisyDisk** (9,99 $) — une carte interactive en rayons ; l’essai analyse mais ne supprime pas.
+- **MacDiskCleaner** (analyse gratuite) — une liste des gros fichiers, plus les anciens fichiers, téléchargements et doublons, avec la taille et l’emplacement de chacun. Space Lens permet de parcourir les dossiers par taille.
+
+<DownloadCTA />
+
+## Où se cachent souvent les gros fichiers
+
+- **Téléchargements** — installateurs, vidéos et zips oubliés.
+- **Vidéos** — enregistrements d’écran, exports et bibliothèques iMovie ou Final Cut.
+- **`~/Library/Application Support/MobileSync/Backup`** — sauvegardes d’iPhone et d’iPad.
+- **`~/Library/Developer`** — données Xcode et simulateurs.
+- **Machines virtuelles et images Docker.**
+- **Pièces jointes de Mail et de Messages** dans votre Library.
+
+## Avant de supprimer
+
+1. **Vérifiez la date de dernière ouverture** (Lire les informations, <Kbd>⌘</Kbd> <Kbd>I</Kbd>). Pas ouvert depuis un an : on peut généralement archiver.
+2. **Archivez plutôt que supprimer** ce dont vous pourriez avoir besoin — un disque externe coûte peu.
+3. **Passez par la Corbeille**, pas la suppression immédiate, pour pouvoir annuler une erreur.
+4. **Videz la Corbeille** pour libérer réellement l’espace.
+
+Si l’espace ne vient pas des gros fichiers, regardez ensuite les [doublons](/blog/duplicate-photos-mac) et les [Données système](/clear-system-data-mac).

@@ -1,0 +1,69 @@
+---
+title: "Empty Trash on Mac: Keyboard Shortcuts, Auto-Empty and Fixes"
+description: "Every way to empty the Trash on a Mac: the Shift-Command-Delete shortcut, emptying without confirmation, deleting single items, auto-emptying after 30 days, and what to do when the Trash won’t empty."
+date: "2026-10-09"
+keywords: ["empty trash mac shortcut", "empty trash shortcut mac", "how to empty trash on mac", "mac empty trash without confirmation", "trash won t empty mac", "empty trash automatically mac", "delete permanently mac"]
+tldr: "To empty the Trash on a Mac, press Shift-Command-Delete (⇧⌘⌫) in Finder and confirm, or right-click the Trash in the Dock and choose Empty Trash. Add Option (⌥⇧⌘⌫) to skip the confirmation. To have macOS do it for you, turn on Finder → Settings → Advanced → “Remove items from the Trash after 30 days”."
+related: ["how-to-permanently-delete-files-mac", "how-to-delete-files-mac-wont-delete", "mac-running-out-of-storage-fix-guide"]
+faq:
+  - q: "What is the shortcut to empty the Trash on Mac?"
+    a: "Shift-Command-Delete (⇧⌘⌫) while Finder is active. macOS asks you to confirm before emptying."
+  - q: "How do I empty the Trash without the confirmation?"
+    a: "Press Option-Shift-Command-Delete (⌥⇧⌘⌫), or hold Option when choosing Empty Trash from the Finder menu or the Dock."
+  - q: "Can I recover files after emptying the Trash?"
+    a: "Not from the Trash. Restore them from a Time Machine or other backup if you have one."
+  - q: "Does emptying the Trash free up space immediately?"
+    a: "Usually yes, but the Storage view can take a few minutes to update. If you use iCloud Drive, files deleted from it stay in Recently Deleted on iCloud.com for 30 days."
+  - q: "Why is my Trash still full after emptying it?"
+    a: "Files from an external drive live in a separate Trash on that drive — reconnect it and empty again. Locked items and files in use can also block emptying."
+---
+
+Moving a file to the Trash doesn’t free any space — the file is still on your disk until the Trash is emptied. Here’s every way to do it, plus fixes when it won’t cooperate.
+
+## Empty Trash shortcuts
+
+| What you want | How |
+|---|---|
+| Empty the Trash | <Kbd>⇧</Kbd> <Kbd>⌘</Kbd> <Kbd>⌫</Kbd> in Finder, then confirm |
+| Empty without the “Are you sure?” prompt | <Kbd>⌥</Kbd> <Kbd>⇧</Kbd> <Kbd>⌘</Kbd> <Kbd>⌫</Kbd> |
+| Empty from the Dock | Right-click (or Control-click) the Trash → **Empty Trash** |
+| Delete just one item | Open the Trash, right-click the item → **Delete Immediately** |
+| Restore an item | Open the Trash, select it → **File → Put Back** |
+
+The shortcuts only work when **Finder** is the active app — click the desktop first if another app is in front.
+
+## Empty the Trash automatically
+
+**Option 1 — Finder setting:** Finder → **Settings** → **Advanced** → tick **Remove items from the Trash after 30 days**.
+
+**Option 2 — Storage settings:** System Settings → **General → Storage** → turn on **Empty Trash Automatically**.
+
+Both do the same thing: each item is permanently removed 30 days after you trashed it, so you still have a month to change your mind.
+
+## How much space is in the Trash?
+
+Open the Trash, press <Kbd>⌘</Kbd> <Kbd>A</Kbd> to select everything, then <Kbd>⌃</Kbd> <Kbd>⌘</Kbd> <Kbd>I</Kbd> to see the total size in one window. **System Settings → General → Storage** also shows it. If you’ve been cleaning up, the Trash can easily hold several gigabytes.
+
+<DownloadCTA />
+
+## When the Trash won’t empty
+
+1. **Hold Option** while emptying — this bypasses locked-file warnings.
+2. **Unlock items:** select the item in the Trash, press <Kbd>⌘</Kbd> <Kbd>I</Kbd> and untick **Locked**.
+3. **Quit apps** that may still use a trashed file (the error says “in use”).
+4. **Reconnect external drives:** files deleted from a USB drive sit in that drive’s own hidden Trash, so they only disappear when you empty the Trash with the drive connected.
+5. **Restart** and try again.
+6. **Run First Aid** in Disk Utility on your startup disk if errors persist.
+
+For stubborn files, see [how to force delete files that won’t delete](/blog/how-to-delete-files-mac-wont-delete).
+
+## Empty Trash vs. Delete Immediately
+
+- **Empty Trash** permanently deletes everything currently in the Trash.
+- **Delete Immediately** (<Kbd>⌥</Kbd> <Kbd>⌘</Kbd> <Kbd>⌫</Kbd> on a selected file) skips the Trash for that one item.
+
+Both are permanent. If you’re removing lots of files during a clean-up, keeping them in the Trash for a while is the safer habit — that’s why MacDiskCleaner always moves files to the Trash and lets you empty it when you’re ready.
+
+## iCloud Drive files
+
+Files you delete from iCloud Drive are also kept in **Recently Deleted** on iCloud.com for 30 days, and that space still counts against your iCloud storage until it’s cleared there.

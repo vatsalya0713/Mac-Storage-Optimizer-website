@@ -1,0 +1,99 @@
+---
+title: "¿Por qué Datos del sistema ocupa tanto en Mac? (Más de 100 GB: causas y solución)"
+description: "¿Datos del sistema supera los 100 GB en tu Mac? Estas son las causas habituales —instantáneas de Time Machine, copias del iPhone, Xcode, cachés, Docker y máquinas virtuales—, cómo comprobar cada una y cómo reducirlo con seguridad."
+date: "2026-01-20"
+updated: "2026-10-09"
+keywords: ["datos del sistema mac más de 100 gb", "datos del sistema mac", "cómo borrar datos del sistema mac", "reducir datos del sistema mac", "datos del sistema ocupa mucho mac", "eliminar datos del sistema mac"]
+tldr: "Cuando Datos del sistema supera los 100 GB en un Mac, casi siempre es por una de cinco cosas: instantáneas locales de Time Machine, copias antiguas del iPhone/iPad, datos de Xcode y simuladores, una imagen de disco de Docker o de una máquina virtual, o cachés de apps enormes. Comprueba cada una con los comandos de abajo, elimina lo que no necesites, vacía la Papelera y reinicia. No toques /System ni los archivos protegidos."
+related: ["mac-running-out-of-storage-fix-guide", "clear-cache-mac", "disk-cleanup-mac"]
+faq:
+  - q: "¿Es normal que Datos del sistema ocupe 100 GB?"
+    a: "Decenas de gigas es habitual. Por encima de 100 GB casi siempre hay un culpable concreto: instantáneas, copias de dispositivos, Xcode o la imagen de una máquina virtual."
+  - q: "¿Por qué ha aumentado de golpe Datos del sistema?"
+    a: "Lo típico: una descarga o actualización grande, una nueva copia del iPhone, empezar a usar Time Machine, instalar Xcode o un simulador, o el crecimiento de una máquina virtual o de Docker."
+  - q: "¿Se pueden borrar los Datos del sistema en Mac?"
+    a: "No como un único elemento, pero sí lo que los compone: instantáneas antiguas, copias, cachés, registros, datos de desarrollo y restos de apps borradas."
+  - q: "¿Reinstalar macOS reduce los Datos del sistema?"
+    a: "Rara vez merece la pena. Reinstalar macOS conserva tus datos de usuario, y lo grande casi siempre está en tu Library, así que la cifra suele volver."
+---
+
+«Datos del sistema» («Otros» en versiones antiguas de macOS) es la categoría comodín del Almacenamiento de tu Mac. Unas decenas de gigas son normales. Cuando llega a **100 GB o más**, casi siempre hay algo concreto detrás. Esta guía te enseña a encontrarlo. Para la guía completa de eliminación paso a paso, consulta [cómo borrar Datos del sistema](/clear-system-data-mac).
+
+## Primero: consigue una cifra fiable
+
+Abre **Ajustes del Sistema → General → Almacenamiento** y deja que termine de calcular: la primera cifra suele ser demasiado alta. Después reinicia el Mac y vuelve a mirar: el reinicio borra el swap y los temporales y permite a macOS purgar instantáneas que ya no necesita.
+
+## Causa 1: Instantáneas locales de Time Machine
+
+Si Time Machine está activado, macOS guarda **instantáneas locales** cada hora en el disco interno, sobre todo cuando el disco de copia no está conectado. Cuentan como Datos del sistema.
+
+```bash
+tmutil listlocalsnapshots /
+```
+
+Si ves muchas, conecta el disco de copia y deja que termine una copia, o borra las antiguas por fecha:
+
+```bash
+sudo tmutil deletelocalsnapshots 2026-09-15-101500
+```
+
+macOS las elimina solo cuando hace falta espacio, pero la barra de Almacenamiento no siempre lo refleja al momento.
+
+## Causa 2: Copias antiguas del iPhone y el iPad
+
+Cada copia local de un dispositivo puede ocupar **decenas de gigas**, y las antiguas nunca se borran solas. Mira en:
+
+`~/Library/Application Support/MobileSync/Backup`
+
+O conecta el dispositivo, selecciónalo en la barra lateral del Finder y haz clic en **Gestionar copias de seguridad** para borrar las antiguas.
+
+## Causa 3: Xcode, simuladores y herramientas de desarrollo
+
+Si alguna vez instalaste Xcode, revisa `~/Library/Developer`. DerivedData, los archivos DeviceSupport de iOS y los runtimes antiguos del simulador alcanzan fácilmente 50 GB o más.
+
+```bash
+du -sh ~/Library/Developer/* 2>/dev/null
+xcrun simctl delete unavailable
+```
+
+Nuestra [página para desarrolladores](/developers) explica qué carpetas se pueden borrar.
+
+## Causa 4: Docker, máquinas virtuales y emuladores
+
+Docker Desktop guarda contenedores e imágenes en un único archivo de imagen de disco que crece pero rara vez se reduce; UTM, Parallels y VMware guardan máquinas virtuales enteras como archivos. Mira su tamaño en los ajustes de cada app y recupera espacio de Docker con:
+
+```bash
+docker system prune
+```
+
+(Lee qué va a borrar antes de confirmar: elimina contenedores detenidos e imágenes sin usar.)
+
+## Causa 5: Cachés y registros
+
+Navegadores, apps de streaming, herramientas de diseño y apps de chat pueden guardar varios gigas cada una en `~/Library/Caches`. Los registros e informes de fallos están en `~/Library/Logs`. Consulta [cómo borrar la caché con seguridad](/blog/clear-cache-mac).
+
+<DownloadCTA />
+
+## Causa 6: Restos de apps borradas
+
+Arrastrar una app a la Papelera deja atrás sus archivos de soporte en `~/Library/Application Support` y `~/Library/Containers`. Juegos, editores de vídeo e instrumentos virtuales pueden dejar carpetas enormes.
+
+## Encuentra tú mismo las carpetas más grandes
+
+Esto lista las carpetas más grandes de tu Library, con la mayor al final:
+
+```bash
+du -sh ~/Library/* 2>/dev/null | sort -h | tail -15
+```
+
+Empieza por las más grandes, pero nunca borres `Keychains`, `Preferences` ni los contenedores de apps que sigues usando.
+
+## Lo que no debes hacer
+
+- **No desactives la Protección de la Integridad del Sistema** ni borres nada de `/System`: no reducirá Datos del sistema de forma útil y puede estropear macOS.
+- **No borres el disco** para arreglar la cifra salvo que tengas una copia completa y un motivo real.
+- **Desconfía de los «limpiadores» que prometen borrar Datos del sistema con un clic** sin enseñarte qué hay dentro.
+
+## La forma rápida
+
+Un análisis de MacDiskCleaner desglosa las cachés de usuario, registros, datos de desarrollo y restos de apps que forman la mayor parte de Datos del sistema, con sus tamaños, y mueve a la Papelera lo que selecciones. El análisis es gratis, así que puedes ver adónde ha ido tu espacio antes de decidir nada.

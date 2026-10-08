@@ -1,4 +1,6 @@
 import type { Metadata } from 'next'
+import { downloadHref } from "@/components/site/DownloadButton";
+import { getLocale } from 'next-intl/server'
 import { Link } from '@/i18n/navigation'
 import { Navbar } from '@/components/Navbar'
 import { Footer } from '@/components/Footer'
@@ -32,7 +34,7 @@ async function getChangelog() {
 }
 
 export default async function ChangelogPage() {
-  const changelog = await getChangelog()
+  const [changelog, locale] = await Promise.all([getChangelog(), getLocale()])
   return (
     <>
       <Navbar />
@@ -50,7 +52,7 @@ export default async function ChangelogPage() {
             <p className="text-[18px] text-[#6E6E73] leading-relaxed max-w-[560px] mx-auto mb-8">
               MacDiskCleaner checks for updates on its own and installs them in one click — your results, settings and license are kept. You can also choose <strong>MacDiskCleaner → Check for Updates…</strong> any time.
             </p>
-            <a href="/downloads?start=1" className="btn-primary text-[15px] py-3 px-7 inline-flex">
+            <a href={downloadHref(locale)} className="btn-primary text-[15px] py-3 px-7 inline-flex">
               <AppleLogo size={15} /> Download the latest version <Download size={15} />
             </a>
           </div>

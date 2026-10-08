@@ -1,0 +1,77 @@
+---
+title: "Nettoyage de disque sur Mac : l’équivalent du « Nettoyage de disque » de Windows"
+description: "Le Mac n’a pas d’app « Nettoyage de disque » comme Windows. Voici quoi utiliser à la place sur MacBook ou iMac — réglages Stockage, Finder et Terminal ou un nettoyeur de disque — étape par étape."
+date: "2026-10-09"
+keywords: ["nettoyage disque mac", "nettoyage disque dur mac", "nettoyer disque mac", "nettoyage disque dur mac gratuit", "nettoyer son mac gratuitement", "nettoyage imac", "libérer de l’espace mac"]
+tldr: "Il n’existe pas d’app « Nettoyage de disque » sur Mac. L’équivalent intégré est Réglages Système → Général → Stockage, qui propose des recommandations (stocker dans iCloud, optimiser le stockage, vider la corbeille automatiquement) et permet de passer en revue gros fichiers, téléchargements et apps. Pour les caches, doublons et restes qu’il ne montre pas, utilisez le Finder et le Terminal ou un nettoyeur comme MacDiskCleaner."
+related: ["how-to-clean-up-mac-hard-drive", "how-to-clean-junk-files-mac", "best-free-mac-cleaner-apps-2026"]
+faq:
+  - q: "Le Mac a-t-il un nettoyage de disque comme Windows ?"
+    a: "Non. L’outil intégré le plus proche est Réglages Système → Général → Stockage. Il montre ce qui occupe l’espace et donne des recommandations, mais ne supprime ni caches, ni doublons, ni restes d’apps."
+  - q: "Comment faire un nettoyage de disque sur un iMac ?"
+    a: "Comme sur un MacBook : ouvrez Réglages Système → Général → Stockage, suivez les recommandations, passez en revue Documents et Applications, puis videz la Corbeille. Pour aller plus loin, cherchez caches, doublons et gros fichiers."
+  - q: "Utilitaire de disque sert-il à nettoyer le disque ?"
+    a: "Pas vraiment. S.O.S. vérifie et répare les erreurs du disque ; il ne supprime pas de fichiers inutiles et ne libère pas d’espace."
+  - q: "À quelle fréquence nettoyer le disque de son Mac ?"
+    a: "Vérifiez le Stockage tous les un ou deux mois, ou quand l’espace libre passe sous 15 à 20 % du disque. Il reste ainsi de la place pour les mises à jour de macOS et les fichiers temporaires."
+---
+
+Si vous venez de Windows, vous cherchez peut-être le **Nettoyage de disque** — l’outil qui efface les fichiers temporaires en quelques cases cochées. macOS n’a pas d’app de ce nom, mais il a des équivalents. Voici comment faire un vrai nettoyage de disque sur n’importe quel Mac, MacBook Air, MacBook Pro ou iMac.
+
+## Nettoyage de disque Windows vs. Mac
+
+| Élément du Nettoyage de disque Windows | Équivalent sur Mac |
+|---|---|
+| Fichiers temporaires | Effacés au redémarrage ; caches des apps dans `~/Library/Caches` |
+| Corbeille | Corbeille — videz-la avec <Kbd>⇧</Kbd> <Kbd>⌘</Kbd> <Kbd>⌫</Kbd> |
+| Fichiers programmes téléchargés | Vieux installateurs `.dmg` et `.pkg` dans Téléchargements |
+| Miniatures | Cache de Coup d’œil (recréé automatiquement) |
+| Fichiers de vidage mémoire | `~/Library/Logs/DiagnosticReports` |
+| Nettoyage de Windows Update | Géré par macOS ; les instantanés locaux Time Machine sont purgés quand l’espace manque |
+
+## Étape 1 : utiliser les réglages Stockage
+
+Ouvrez **Réglages Système → Général → Stockage** (macOS Ventura et ultérieur ; versions antérieures : menu Pomme → À propos de ce Mac → Stockage → Gérer). Attendez la fin du calcul, puis suivez les **Recommandations** :
+
+- **Stocker dans iCloud** — garde Bureau, Documents et Photos dans iCloud et ne les télécharge qu’au besoin.
+- **Optimiser le stockage** — supprime les films et séries Apple TV déjà regardés.
+- **Vider la corbeille automatiquement** — efface les éléments 30 jours après leur mise à la corbeille.
+
+En dessous, cliquez sur le **ⓘ** à côté de chaque catégorie (Applications, Documents, Fichiers iOS, Mail…) pour vérifier et supprimer des éléments. **Documents → Fichiers volumineux** est le gain le plus rapide.
+
+## Étape 2 : supprimer les vieux téléchargements et installateurs
+
+Ouvrez **Téléchargements** dans le Finder, passez en présentation par liste (<Kbd>⌘</Kbd> <Kbd>2</Kbd>) et triez par **Taille**. Les installateurs (`.dmg`, `.pkg`, `.zip`) peuvent être supprimés une fois l’app installée.
+
+## Étape 3 : supprimer caches et journaux des apps
+
+Caches et journaux sont les « fichiers temporaires » du Mac. Dans le Finder, choisissez **Aller → Aller au dossier…** et ouvrez :
+
+- `~/Library/Caches` — placez dans la Corbeille les dossiers des apps que vous utilisez beaucoup (quittez-les d’abord).
+- `~/Library/Logs` — anciens journaux et rapports de plantage.
+
+Les apps recréent ce dont elles ont besoin. Notre [guide des caches](/blog/clear-cache-mac) explique ce qui est sans risque.
+
+## Étape 4 : désinstaller les apps inutilisées
+
+Dans **Applications**, faites glisser les apps inutilisées vers la Corbeille. Beaucoup laissent réglages et caches dans `~/Library/Application Support` et `~/Library/Containers` : supprimez aussi ces dossiers, ou utilisez un désinstallateur qui les trouve.
+
+<DownloadCTA />
+
+## Étape 5 : trouver doublons et gros fichiers
+
+Les réglages Stockage ne cherchent pas les doublons et cachent de nombreux gros fichiers dans des dossiers. Utilisez la recherche du Finder (<Kbd>⌘</Kbd> <Kbd>F</Kbd> → **Taille du fichier** → **est supérieure à** 1 Go) ou un outil d’analyse — voir [trouver les gros fichiers](/blog/find-delete-large-files-mac).
+
+## Étape 6 : vider la Corbeille et redémarrer
+
+L’espace n’est libéré qu’une fois la Corbeille vidée. Un redémarrage efface ensuite fichiers temporaires et swap. Revérifiez le Stockage — l’affichage peut mettre quelques minutes à se mettre à jour.
+
+## Tout faire en une fois
+
+MacDiskCleaner est un nettoyeur de disque pour Mac qui regroupe ces étapes : une analyse affiche fichiers inutiles et caches, doublons, gros et anciens fichiers, vieux téléchargements et données de développement, avec leur taille. Vous choisissez ce qui part, et tout passe d’abord par la Corbeille. L’analyse est gratuite, tout comme jusqu’à 2 Go de nettoyage — [voir ce qui est inclus](/free-mac-cleaner).
+
+## Ce qu’il ne faut pas « nettoyer »
+
+- Rien dans `/System` ni `/Library/Apple` — protégés par macOS.
+- Les trousseaux et préférences de `~/Library`.
+- L’espace **purgeable** du Stockage : macOS le libère seul quand c’est nécessaire.

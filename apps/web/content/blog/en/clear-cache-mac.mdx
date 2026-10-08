@@ -1,0 +1,78 @@
+---
+title: "How to Clear Cache on Mac (App, Browser and System Caches) — Safely"
+description: "Where Mac caches live, which ones are safe to delete, and how to clear the cache in Safari, Chrome and Firefox, in macOS apps and for DNS — plus when clearing cache doesn’t help."
+date: "2026-10-09"
+keywords: ["mac cache cleaner", "how to clear cache on mac", "clear cache mac", "delete cache files mac", "clear safari cache mac", "clear chrome cache mac", "flush dns mac"]
+tldr: "To clear app caches on a Mac, quit the app, open Finder → Go → Go to Folder…, enter ~/Library/Caches and move that app’s folder to the Trash. Browsers have their own setting: in Safari use Develop → Empty Caches (⌥⌘E), in Chrome use Delete browsing data → Cached images and files. Caches rebuild automatically, so clearing them frees space temporarily and fixes glitches, but isn’t a permanent speed-up."
+related: ["how-to-clean-junk-files-mac", "how-to-clear-system-data-mac", "disk-cleanup-mac"]
+faq:
+  - q: "Is it safe to delete cache files on a Mac?"
+    a: "Clearing user app caches in ~/Library/Caches is safe — apps rebuild them. Quit the app first, move the folders to the Trash rather than erasing them, and leave system caches in /System alone."
+  - q: "Will clearing the cache make my Mac faster?"
+    a: "Usually not for long. Caches exist to speed things up, so apps can feel slower right after clearing. It helps when a cache is corrupted (an app misbehaves) or when you need disk space quickly."
+  - q: "How do I clear the cache in Safari on Mac?"
+    a: "Turn on Safari → Settings → Advanced → “Show features for web developers”, then choose Develop → Empty Caches, or press Option-Command-E."
+  - q: "How do I flush the DNS cache on Mac?"
+    a: "In Terminal run: sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder — then enter your password."
+  - q: "How much space do caches use?"
+    a: "It varies widely: a few hundred megabytes on a new Mac, many gigabytes on one with heavy browser, music-streaming, design or developer apps."
+---
+
+A cache is a set of files an app keeps so it doesn’t have to download or recalculate the same thing twice. Caches are useful, but they grow, they can get corrupted, and they count towards the “System Data” and “Other” parts of your storage. Here’s how to clear them safely.
+
+## Where Mac caches are stored
+
+| Cache | Location | Safe to clear? |
+|---|---|---|
+| Your apps’ caches | `~/Library/Caches` | Yes — quit the app first |
+| Browser caches | Inside each browser (see below) | Yes |
+| System-wide app caches | `/Library/Caches` | Mostly — requires admin; be selective |
+| macOS system caches | `/System/Library/Caches` | No — protected and managed by macOS |
+| Developer caches (Xcode, npm, Gradle…) | `~/Library/Developer`, `~/.npm`, `~/.gradle` | Yes — tools rebuild them |
+
+The `~` means your home folder. `~/Library` is hidden by default; use **Go → Go to Folder…** (<Kbd>⇧</Kbd> <Kbd>⌘</Kbd> <Kbd>G</Kbd>) in Finder to open it.
+
+## Clear app caches
+
+1. Quit the app whose cache you want to clear.
+2. In Finder press <Kbd>⇧</Kbd> <Kbd>⌘</Kbd> <Kbd>G</Kbd>, type `~/Library/Caches` and press Return.
+3. Switch to list view and turn on **View → Show View Options → Calculate all sizes** to see which folders are biggest.
+4. Move the folders for that app (named like `com.spotify.client`) to the Trash.
+5. Open the app again, then empty the Trash once everything works.
+
+Tip: move the folder **contents**, not `~/Library/Caches` itself.
+
+## Clear your browser cache
+
+- **Safari:** Safari → **Settings → Advanced** → tick **Show features for web developers**. Then **Develop → Empty Caches** (<Kbd>⌥</Kbd> <Kbd>⌘</Kbd> <Kbd>E</Kbd>). To clear history and cookies as well, use **History → Clear History**.
+- **Chrome:** press <Kbd>⇧</Kbd> <Kbd>⌘</Kbd> <Kbd>⌫</Kbd> to open **Delete browsing data**, choose a time range and tick **Cached images and files**.
+- **Firefox:** **Settings → Privacy & Security → Cookies and Site Data → Clear Data…** and tick **Cached Web Content**.
+- **Edge:** **Settings → Privacy, search, and services → Clear browsing data → Choose what to clear**.
+
+Clearing only the cache keeps you signed in; clearing cookies signs you out of websites.
+
+<DownloadCTA />
+
+## Flush the DNS cache
+
+If websites don’t load after a network change, flushing DNS often fixes it:
+
+```bash
+sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder
+```
+
+This doesn’t free disk space — it only resets the list of website addresses your Mac remembers.
+
+## Developer caches
+
+Xcode’s DerivedData, simulator files, and package-manager caches (npm, Yarn, CocoaPods, Gradle, Cargo) are often the largest caches on a developer’s Mac. They are safe to delete because your tools rebuild them — see [MacDiskCleaner for developers](/developers) for what each one is and how it comes back.
+
+## What clearing cache won’t fix
+
+- **A Mac that’s slow because memory is full** — check Activity Monitor instead.
+- **A disk that’s full of large files** — caches are rarely the biggest culprit; duplicates, videos, old backups and System Data usually are.
+- **Long-term speed** — caches grow back as soon as you use your apps.
+
+## Clearing caches safely in one step
+
+MacDiskCleaner’s cleanup scan finds app caches, logs and developer caches across your Mac, shows how much each one takes, and moves what you select to the Trash — so if an app misbehaves afterwards, you can put its cache back. It never touches protected system caches.

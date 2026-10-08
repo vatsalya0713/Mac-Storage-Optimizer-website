@@ -39,26 +39,39 @@ export async function GET() {
     'A: Yes — a full 30-day no-questions-asked refund on all Pro purchases, via support@macdiskcleaner.com.',
     '',
     'Q: How is this different from CleanMyMac or OnyX?',
-    'A: MacDiskCleaner is a one-time purchase with no subscription (unlike CleanMyMac), and includes a guided duplicate finder and large-file scanner that OnyX does not have.',
+    'A: MacDiskCleaner is a one-time purchase with no subscription (CleanMyMac is mainly a yearly subscription), and includes a guided duplicate finder and large-file scanner that OnyX does not have. It does not include malware scanning (CleanMyMac does) or advanced system tweaks (OnyX does).',
     '',
     'Q: Does it collect or upload my data?',
-    'A: No. All scanning, duplicate detection, and cleanup analysis happen entirely on-device. Only the license key is sent to the server, during activation.',
+    'A: No. All scanning, duplicate detection, and cleanup analysis happen entirely on-device. No file names, paths or contents are ever sent. The only data sent is the license key with a one-way hashed device ID (activation), the total amount cleaned on the free plan (a single number), and update checks.',
     '',
     'Q: Is pricing the same for US customers?',
     'A: Yes, $12.99 USD everywhere, charged once, with standard card, Apple Pay, and Google Pay support at checkout.',
     '',
     'Q: Do I need an internet connection to use it?',
-    'A: Only briefly for first-time Pro activation and update checks. Scanning and cleaning work fully offline.',
+    'A: Only for Pro activation, periodic licence checks and update checks. Scanning and cleaning themselves run on the Mac.',
     '',
     '---',
   ]
+
+  // MDX components aren't meaningful to an AI reader: keep the key labels, drop the CTA.
+  const plain = (mdx: string) =>
+    mdx
+      .replace(/<DownloadCTA\s*\/>/g, '')
+      .replace(/<Kbd>(.*?)<\/Kbd>/g, '$1')
+      .replace(/\n{3,}/g, '\n\n')
+      .trim()
 
   for (const slug of getPostSlugs('en')) {
     const source = fs.readFileSync(getPostPath('en', slug), 'utf8')
     const { data, content } = matter(source)
     sections.push(`\n## ${data.title}\n`)
-    sections.push(`Source: ${SITE_URL}/blog/${slug}\n`)
-    sections.push(content.trim())
+    sections.push(`Source: ${SITE_URL}/blog/${slug} (also in Spanish, German and French at /es, /de and /fr + /blog/${slug})\n`)
+    if (data.tldr) sections.push(`Quick answer: ${data.tldr}\n`)
+    sections.push(plain(content))
+    if (Array.isArray(data.faq) && data.faq.length) {
+      sections.push('\n### FAQ')
+      for (const f of data.faq as { q: string; a: string }[]) sections.push(`Q: ${f.q}\nA: ${f.a}\n`)
+    }
     sections.push('\n---')
   }
 

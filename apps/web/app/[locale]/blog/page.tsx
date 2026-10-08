@@ -1,34 +1,61 @@
 import type { Metadata } from 'next'
+import { getTranslations, setRequestLocale } from 'next-intl/server'
+import { ChevronRight, Clock } from 'lucide-react'
 import { Link } from '@/i18n/navigation'
 import { getAllPosts } from '@/lib/blog'
+import { absoluteUrl, formatDate, pageMetadata } from '@/lib/seo'
 import { Navbar } from '@/components/Navbar'
 import { Footer } from '@/components/Footer'
-import { ChevronRight } from 'lucide-react'
+import { Breadcrumbs } from '@/components/site/Breadcrumbs'
+import { DownloadCTA } from '@/components/site/DownloadCTA'
+import { JsonLd } from '@/components/site/JsonLd'
 
-export async function generateMetadata(): Promise<Metadata> {
-  // English-only content today — canonical pinned to the unprefixed URL
-  // (see the note in app/[locale]/free-mac-cleaner/page.tsx).
-  return {
-    title: 'Mac Cleanup Guides & Storage Tips',
-    description: 'Practical guides for freeing up space, removing junk files, and keeping your Mac fast — from the team behind MacDiskCleaner.',
-    alternates: { canonical: '/blog' },
-  }
+type Params = { locale: string }
+
+export async function generateMetadata({ params }: { params: Promise<Params> }): Promise<Metadata> {
+  const { locale } = await params
+  const t = await getTranslations({ locale, namespace: 'common' })
+  return pageMetadata({ locale, pathname: '/blog', title: t('blogTitle'), description: t('blogDescription') })
 }
 
-export default async function BlogIndex() {
-  const posts = getAllPosts('en') // English cornerstone content today; see content/blog for locale expansion
+export default async function BlogIndex({ params }: { params: Promise<Params> }) {
+  const { locale } = await params
+  setRequestLocale(locale)
+  const t = await getTranslations('common')
+  const posts = getAllPosts(locale)
 
   return (
     <>
       <Navbar />
       <main className="min-h-screen bg-white pt-32 pb-32">
-        <div className="max-w-[820px] mx-auto px-6">
-          <h1 className="text-[40px] md:text-[52px] font-extrabold tracking-[-0.03em] text-[#1D1D1F] mb-4">
-            Mac Cleanup Guides
-          </h1>
-          <p className="text-[18px] text-[#6E6E73] mb-14 max-w-[560px]">
-            Practical, tested guides for freeing up space and keeping your Mac fast.
-          </p>
+        <JsonLd
+          data={{
+            '@context': 'https://schema.org',
+            '@type': 'CollectionPage',
+            name: t('blogTitle'),
+            description: t('blogDescription'),
+            inLanguage: locale,
+            url: absoluteUrl(locale, '/blog'),
+            mainEntity: {
+              '@type': 'ItemList',
+              itemListElement: posts.map((p, i) => ({
+                '@type': 'ListItem',
+                position: i + 1,
+                url: absoluteUrl(p.locale, `/blog/${p.slug}`),
+                name: p.title,
+              })),
+            },
+          }}
+        />
+        <div className="max-w-[820px] mx-auto px-6 break-words hyphens-auto">
+          <Breadcrumbs
+            locale={locale}
+            pathname="/blog"
+            align="left"
+            items={[{ label: t('home'), href: '/' }, { label: t('blogBreadcrumb') }]}
+          />
+          <h1 className="text-[40px] md:text-[52px] font-extrabold tracking-[-0.03em] text-[#1D1D1F] mb-4">{t('blogH1')}</h1>
+          <p className="text-[18px] text-[#6E6E73] mb-14 max-w-[560px]">{t('blogLead')}</p>
 
           <div className="divide-y divide-[rgba(0,0,0,0.06)]">
             {posts.map((post) => (
@@ -36,11 +63,20 @@ export default async function BlogIndex() {
                 <div>
                   <h2 className="text-[19px] font-bold text-[#1D1D1F] mb-1.5 group-hover:text-[#007AFF] transition-colors">{post.title}</h2>
                   <p className="text-[15px] text-[#6E6E73] leading-relaxed">{post.description}</p>
+                  <p className="flex items-center gap-2 text-[12px] text-[#9A9A9E] mt-2">
+                    <span>{formatDate(post.updated ?? post.date, locale)}</span>
+                    <span aria-hidden>·</span>
+                    <span className="inline-flex items-center gap-1">
+                      <Clock size={12} /> {t('readTime', { minutes: post.minutes })}
+                    </span>
+                  </p>
                 </div>
                 <ChevronRight size={18} className="text-[#6E6E73] flex-shrink-0 group-hover:translate-x-1 transition-transform" />
               </Link>
             ))}
           </div>
+
+          <DownloadCTA className="mt-16" />
         </div>
       </main>
       <Footer />

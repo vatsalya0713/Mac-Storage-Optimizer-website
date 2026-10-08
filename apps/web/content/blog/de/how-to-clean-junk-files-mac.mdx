@@ -1,0 +1,85 @@
+---
+title: "Datenmüll auf dem Mac löschen (kostenlos, manuell und automatisch)"
+description: "Was auf dem Mac als Datenmüll gilt, wo er sich versteckt und wie du ihn sicher löschst – Caches, Protokolle, alte Downloads und Installer, iPhone-Backups und App-Reste – von Hand oder mit einem kostenlosen Cleaner."
+date: "2026-01-18"
+updated: "2026-10-09"
+keywords: ["mac datenmüll löschen", "mac junk dateien entfernen", "unnötige dateien mac löschen", "mac reinigen kostenlos", "mac aufräumen kostenlos", "mac junk cleaner", "datenmüll mac"]
+tldr: "Datenmüll auf dem Mac besteht vor allem aus App-Caches (~/Library/Caches), Protokollen (~/Library/Logs), alten Downloads und Installern, veralteten iPhone-/iPad-Backups, Entwickler-Caches und Resten gelöschter Apps. Lösche ihn, indem du ihn über Finder → Gehe zu → Gehe zum Ordner … in den Papierkorb legst und diesen leerst – oder lass einen Cleaner wie MacDiskCleaner alles in einem kostenlosen Scan finden."
+related: ["clear-cache-mac", "disk-cleanup-mac", "how-to-clean-up-mac-hard-drive"]
+faq:
+  - q: "Was ist Datenmüll auf dem Mac?"
+    a: "Dateien, die dein Mac nicht mehr braucht: Caches, Protokolle, Absturzberichte, alte Installer und Downloads, veraltete Geräte-Backups, temporäre Dateien und Reste gelöschter Apps."
+  - q: "Ist es sicher, Datenmüll auf dem Mac zu löschen?"
+    a: "Ja, wenn du dich auf Benutzer-Caches, Protokolle, Downloads und Backups beschränkst, die du kennst, und sie in den Papierkorb legst statt endgültig zu löschen. Lösche nie etwas in /System oder deinen Ordner Keychains."
+  - q: "Wie entferne ich Datenmüll auf dem Mac kostenlos?"
+    a: "Manuell mit Finder und Speicher-Einstellungen oder mit einem kostenlosen Tool. Die Gratis-Version von MacDiskCleaner scannt alles und räumt insgesamt bis zu 2 GB kostenlos auf."
+  - q: "Wie oft sollte ich Datenmüll löschen?"
+    a: "Für die meisten alle ein bis zwei Monate oder bei einer Speicherwarnung. Datenmüll entsteht neu – tägliches Aufräumen bringt nichts."
+---
+
+„Datenmüll“ ist auf dem Mac kein einzelner Ordner, sondern eine Mischung aus temporären Daten, die Apps und macOS anlegen und selten aufräumen. Hier steht, wo er liegt und wie du ihn entfernst, ohne etwas kaputt zu machen.
+
+## Wo sich Datenmüll auf dem Mac versteckt
+
+| Datenmüll | Ort | Löschen sicher? |
+|---|---|---|
+| App-Caches | `~/Library/Caches` | Ja – App vorher beenden |
+| Protokolle und Absturzberichte | `~/Library/Logs` | Ja |
+| Alte Downloads und Installer | `~/Downloads` | Ja, nach Prüfung |
+| iPhone-/iPad-Backups | `~/Library/Application Support/MobileSync/Backup` | Alte ja |
+| Mail-Anhänge | `~/Library/Containers/com.apple.mail/Data/Library/Mail Downloads` | Ja – sie bleiben in den E-Mails |
+| Entwickler-Caches | `~/Library/Developer`, `~/.npm`, `~/.gradle` | Ja – Tools erstellen sie neu |
+| Reste gelöschter Apps | `~/Library/Application Support`, `~/Library/Containers` | Ja, bei Apps, die du nicht mehr hast |
+| Der Papierkorb | `~/.Trash` | Ja – dafür ist er da |
+
+Downloads, Geräte-Backups und Entwickler-Caches sind meist am größten; Caches und Protokolle summieren sich mit der Zeit.
+
+## Option 1: Datenmüll manuell entfernen
+
+### 1. App-Caches und Protokolle leeren
+
+Beende deine Apps. Im Finder <Kbd>⇧</Kbd> <Kbd>⌘</Kbd> <Kbd>G</Kbd> drücken, `~/Library/Caches` öffnen und die Ordner viel genutzter Apps in den Papierkorb legen. Dasselbe in `~/Library/Logs`. Apps erzeugen Benötigtes neu.
+
+### 2. Den Ordner Downloads leeren
+
+Downloads nach Größe sortieren und Installer (`.dmg`, `.pkg`, `.zip`) bereits installierter Apps löschen, ebenso Dateien, die du schon anderswo gespeichert hast.
+
+### 3. Alte Geräte-Backups löschen
+
+iPhone oder iPad anschließen, im Finder auswählen und **Backups verwalten** klicken – oder alte Backup-Ordner im MobileSync-Pfad oben entfernen.
+
+### 4. Reste gelöschter Apps entfernen
+
+In `~/Library/Application Support` und `~/Library/Containers` nach Ordnern von Apps suchen, die du nicht mehr hast.
+
+### 5. Papierkorb leeren
+
+<Kbd>⇧</Kbd> <Kbd>⌘</Kbd> <Kbd>⌫</Kbd> drücken. Erst dann wird Platz frei.
+
+<DownloadCTA />
+
+## Option 2: Einen Datenmüll-Cleaner nutzen
+
+Ein Cleaner erledigt dasselbe schneller und zeigt dir Größen, bevor du entscheidest. Achte darauf, dass er:
+
+- **Jedes Objekt mit Pfad und Größe zeigt**, bevor gelöscht wird.
+- **Dateien in den Papierkorb verschiebt**, statt sie zu löschen.
+- **Systemdateien automatisch überspringt.**
+- **Nicht ständig im Hintergrund läuft.**
+
+Der Aufräum-Scan von MacDiskCleaner deckt Caches, Protokolle, alte Downloads, Entwickler-Caches und App-Reste in einem Durchgang ab. Scannen ist immer kostenlos, und insgesamt bis zu 2 GB räumst du gratis auf – [hier die Gratis-Version](/free-mac-cleaner).
+
+## Was wie Datenmüll aussieht, aber keiner ist
+
+- **Sprachdateien in Apps** – sie zu entfernen, zerstört auf aktuellem macOS die Codesignatur der App. Finger weg.
+- **`/System/Library/Caches`** – geschützt und von macOS verwaltet.
+- **Löschbarer Speicher** – macOS gibt ihn bei Bedarf selbst frei.
+- **Deine Fotos-Mediathek** – sie kann riesig sein, aber es sind deine Fotos. Nutze das [Album „Duplikate“](/blog/duplicate-photos-mac), statt die Mediathek zu löschen.
+
+## Ist das sicher?
+
+Ja, wenn du bei den Orten oben bleibst und Dateien im Papierkorb lässt, bis alles läuft. Meide Tools, die Systemdateien löschen, „den Arbeitsspeicher optimieren“ oder täglich aufräumen wollen – das erledigt macOS selbst.
+
+## Wie oft aufräumen?
+
+Alle ein bis zwei Monate reichen für die meisten. Entwickler und Videoschnitt-Nutzer sollten öfter nachsehen – Build-Caches und Render-Dateien wachsen schnell.

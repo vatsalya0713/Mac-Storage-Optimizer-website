@@ -1,18 +1,21 @@
 import type { Metadata } from 'next'
+import { getTranslations, setRequestLocale } from 'next-intl/server'
+import { pageMetadata } from '@/lib/seo'
 import { Navbar } from '@/components/Navbar'
 import { Footer } from '@/components/Footer'
 import { ContactForm } from './ContactForm'
 
-// English-only by design, same as /free-mac-cleaner, /vs/cleanmymac, and
-// the blog — no `languages` alternates so untranslated locale URLs aren't
-// advertised as duplicate content.
-export const metadata: Metadata = {
-  title: 'Contact Us',
-  description: 'Questions, bug reports, or feature suggestions for MacDiskCleaner — get in touch.',
-  alternates: { canonical: '/contact' },
+type Params = { locale: string }
+
+export async function generateMetadata({ params }: { params: Promise<Params> }): Promise<Metadata> {
+  const { locale } = await params
+  const t = await getTranslations({ locale, namespace: 'contact' })
+  return pageMetadata({ locale, pathname: '/contact', title: t('metaTitle'), description: t('metaDescription') })
 }
 
-export default function ContactPage() {
+export default async function ContactPage({ params }: { params: Promise<Params> }) {
+  const { locale } = await params
+  setRequestLocale(locale)
   return (
     <>
       <Navbar />

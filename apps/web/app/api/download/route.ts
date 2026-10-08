@@ -27,7 +27,8 @@ export async function GET(request: NextRequest) {
     .from('download_logs')
     .insert([
       {
-        source: request.nextUrl.searchParams.get('src') || 'dmg',
+        // Short slug only (e.g. dmg, installer, downloads-page) — never arbitrary text.
+        source: /^[a-z0-9-]{1,32}$/.test(request.nextUrl.searchParams.get('src') ?? '') ? request.nextUrl.searchParams.get('src') : 'dmg',
         version: release.version,
         country: request.headers.get('x-vercel-ip-country'),
         region: request.headers.get('x-vercel-ip-country-region'),

@@ -1,0 +1,73 @@
+---
+title: "Descarga gratis un limpiador de Mac: cómo instalar MacDiskCleaner con seguridad"
+description: "Descarga un limpiador de Mac gratis directamente, sin correo ni prueba. Qué incluye, requisitos, cómo instalarlo y cómo superar con seguridad la comprobación de macOS en el primer arranque."
+date: "2026-02-05"
+updated: "2026-10-09"
+keywords: ["descargar limpiador mac gratis", "limpiador mac gratis descargar", "limpiador de disco mac gratis", "limpiar mac gratis", "descargar macdiskcleaner", "limpiador almacenamiento mac descarga"]
+tldr: "Descarga MacDiskCleaner gratis desde macdiskcleaner.com/downloads: una app universal para Mac con Apple Silicon e Intel con macOS 14 o posterior, sin cuenta. Para instalarla sin avisos, pega el comando de una línea de la página de descargas en Terminal. Si usas el .dmg, arrastra la app a Aplicaciones, ábrela una vez y haz clic en Abrir igualmente en Ajustes del Sistema → Privacidad y seguridad."
+related: ["best-free-mac-cleaner-apps-2026", "how-to-clean-junk-files-mac", "disk-cleanup-mac"]
+faq:
+  - q: "¿Descargar MacDiskCleaner es gratis?"
+    a: "Sí. La descarga es gratuita, sin cuenta, correo ni tarjeta. El plan gratuito no caduca: analiza todo y limpia hasta 2 GB en total."
+  - q: "¿Por qué macOS dice que no puede verificar la app?"
+    a: "macOS muestra ese mensaje con las apps descargadas desde el navegador que no se distribuyen a través de la Mac App Store. Es una comprobación única: cierra el aviso y haz clic en Abrir igualmente en Privacidad y seguridad, o usa el instalador por Terminal, que lo evita."
+  - q: "¿Funciona en Mac con M1, M2, M3 y M4?"
+    a: "Sí. MacDiskCleaner es una app universal con código nativo para Apple Silicon e Intel, en macOS 14 Sonoma o posterior."
+  - q: "¿Cómo la actualizo?"
+    a: "La app busca actualizaciones y las instala desde dentro, con suma de control verificada. No hace falta volver a descargarla."
+  - q: "¿Cómo verifico la descarga?"
+    a: "Compara la suma SHA-256 del archivo con la publicada en la página de seguridad: ejecuta shasum -a 256 sobre el .dmg descargado en Terminal."
+---
+
+Puedes [descargar MacDiskCleaner](/downloads) directamente desde esta web, sin registro por correo ni cuenta atrás de prueba. Esto es lo que obtienes y cómo instalarlo correctamente.
+
+## Qué incluye gratis
+
+- Un análisis completo de tu Mac (o de las carpetas que elijas): basura y cachés, duplicados, archivos grandes y antiguos, descargas viejas, datos de desarrollo y restos de apps.
+- Todos los resultados visibles, nada oculto tras un muro de pago.
+- Hasta **2 GB de limpieza en total**, gratis y para siempre.
+- Borrado a través de la Papelera, para poder recuperar lo que elimines.
+
+Pro (12,99 $ una vez) quita el límite de 2 GB y añade desinstalador, limpiador de privacidad, gestor de inicio y análisis programados. [Compara gratis y Pro](/pricing).
+
+## Requisitos del sistema
+
+- macOS 14 Sonoma o posterior
+- Procesador Apple Silicon (M1 o posterior) o Intel
+- Unos 50 MB de espacio libre
+
+## Opción 1: Instalar sin avisos (Terminal)
+
+Abre **Terminal** (Aplicaciones → Utilidades), pega esta línea y pulsa Retorno:
+
+```bash
+curl -fsSL https://www.macdiskcleaner.com/install.sh | bash
+```
+
+Descarga la última versión, comprueba su suma SHA-256 publicada, la instala en Aplicaciones y la abre. Puedes [leer el script](/install.sh) antes de ejecutarlo.
+
+## Opción 2: Descargar el .dmg
+
+1. Haz clic en **Descargar** en la [página de descargas](/downloads) y abre **MacDiskCleaner.dmg**.
+2. Arrastra **MacDiskCleaner** a la carpeta **Aplicaciones**.
+3. Ábrela desde Aplicaciones. macOS mostrará «Apple no ha podido verificar…»: cierra el aviso sin trasladar la app a la Papelera.
+4. Abre **Ajustes del Sistema → Privacidad y seguridad**, baja y haz clic en **Abrir igualmente** junto a MacDiskCleaner; confirma con tu contraseña.
+
+Esa comprobación solo ocurre una vez. En macOS 14 Sonoma también puedes hacer clic derecho en la app y elegir **Abrir**.
+
+<DownloadCTA />
+
+## ¿Es seguro descargar limpiadores de Mac?
+
+Lo es si los descargas de la web del desarrollador y se comportan con transparencia. MacDiskCleaner:
+
+- **Nunca sube** nombres, rutas ni contenidos de archivos: el análisis es local.
+- **Lo mueve todo a la Papelera** en lugar de borrarlo.
+- **Bloquea ubicaciones protegidas** como las carpetas del sistema, los llaveros y las preferencias.
+- **Publica una suma SHA-256** de cada versión en la [página de seguridad](/security).
+
+Evita las webs de descarga de terceros que envuelven las apps en sus propios instaladores.
+
+## Después de instalar
+
+Haz tu primer análisis desde el panel principal. Puedes elegir un análisis rápido (sin la búsqueda de duplicados, más lenta) o uno completo, y qué carpetas incluir. Los resultados se guardan, así que no tienes que volver a analizar al reabrir la app.

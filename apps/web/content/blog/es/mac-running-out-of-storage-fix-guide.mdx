@@ -1,0 +1,66 @@
+---
+title: "¿Almacenamiento del Mac lleno? Cómo solucionar «Tu disco está casi lleno»"
+description: "Tu Mac dice que el disco está casi lleno. Así averiguas qué ocupa realmente el espacio, liberas un poco al momento, entiendes Datos del sistema y el espacio purgable, y evitas que vuelva a llenarse."
+date: "2026-02-08"
+updated: "2026-10-09"
+keywords: ["almacenamiento mac lleno", "disco casi lleno mac", "mac sin espacio", "liberar espacio mac", "macbook almacenamiento lleno", "macos ocupa mucho espacio", "limpiador almacenamiento mac gratis"]
+tldr: "Cuando el Mac dice que el disco está casi lleno, primero vacía la Papelera y reinicia. Después abre Ajustes del Sistema → General → Almacenamiento, borra archivos grandes y descargas antiguas desde Documentos → Archivos grandes, elimina copias antiguas del iPhone y vacía cachés. Si Datos del sistema es enorme, revisa las instantáneas de Time Machine, las copias de dispositivos y Xcode. Deja libre un 15–20 % del disco para que el aviso no vuelva."
+related: ["how-to-clear-system-data-mac", "how-to-clean-up-mac-hard-drive", "find-delete-large-files-mac"]
+faq:
+  - q: "¿Por qué el Mac dice que el almacenamiento está lleno si borré archivos?"
+    a: "Los archivos borrados siguen en la Papelera hasta que la vacías, y la vista de Almacenamiento tarda unos minutos en actualizarse. Las instantáneas locales de Time Machine también pueden retener datos borrados hasta que macOS las purga."
+  - q: "¿Qué es el espacio purgable en un Mac?"
+    a: "Espacio ocupado por elementos que macOS puede eliminar solo cuando lo necesita, como archivos de iCloud que ya están en la nube o instantáneas antiguas. No hace falta borrarlo a mano."
+  - q: "¿Qué pasa si el almacenamiento del Mac se llena del todo?"
+    a: "Las apps pueden cerrarse, los archivos pueden no guardarse, las actualizaciones de macOS no se instalan y el Mac va lento por no tener sitio para la memoria virtual. Libera espacio cuanto antes."
+  - q: "¿Cómo evito que el almacenamiento se vuelva a llenar?"
+    a: "Activa Vaciar la Papelera automáticamente, guarda Escritorio y Documentos en iCloud si lo usas, limpia Descargas con regularidad y haz un análisis de limpieza cada uno o dos meses."
+---
+
+«Tu disco está casi lleno» rara vez dice **qué** está lleno. Así se diagnostica bien y se recupera espacio: primero lo rápido, después lo completo.
+
+## Libera espacio ahora mismo (2 minutos)
+
+1. **Vacía la Papelera:** <Kbd>⇧</Kbd> <Kbd>⌘</Kbd> <Kbd>⌫</Kbd> en el Finder.
+2. **Cierra las apps que no uses**, sobre todo navegadores con muchas pestañas y editores de vídeo.
+3. **Reinicia.** Así se borran el swap y los temporales, que pueden ser varios gigas con el disco casi lleno.
+
+Si sigues teniendo menos de unos 10 GB libres, borra algunos archivos grandes de Descargas antes de continuar.
+
+## Paso 1: Mira qué cree macOS que ocupa espacio
+
+Abre **Ajustes del Sistema → General → Almacenamiento**. La barra de colores muestra las categorías principales: Aplicaciones, Documentos, Fotos, iCloud Drive, Mail, Mensajes, macOS y **Datos del sistema**. Haz clic en la **ⓘ** junto a cada una para ver y borrar su contenido.
+
+## Paso 2: Elimina archivos grandes y descargas antiguas
+
+En **Documentos**, abre **Archivos grandes** y **Descargas**. Los instaladores, vídeos y archivos comprimidos antiguos son lo más rápido. Guía: [encontrar archivos grandes en Mac](/blog/find-delete-large-files-mac).
+
+## Paso 3: Revisa Archivos de iOS y Mensajes
+
+- **Archivos de iOS** lista las copias de seguridad y actualizaciones de software del iPhone y el iPad guardadas en tu Mac: borra las antiguas.
+- **Mensajes** puede ocupar gigas con fotos y vídeos; en Mensajes → Ajustes → General, pon **Conservar mensajes** en 1 año o 30 días si te parece bien.
+
+## Paso 4: Ocúpate de Datos del sistema
+
+Si **Datos del sistema** es muy grande, las causas habituales son las instantáneas locales de Time Machine, las copias de dispositivos, los datos de desarrollo o una máquina virtual. Lee [por qué Datos del sistema crece tanto](/blog/how-to-clear-system-data-mac) y la [solución paso a paso](/clear-system-data-mac).
+
+<DownloadCTA />
+
+## Paso 5: Desinstala las apps que no uses
+
+En **Aplicaciones**, ordena por tamaño y elimina lo que ya no necesites; después borra las carpetas sobrantes de la app en `~/Library/Application Support`.
+
+## Entiende el espacio purgable
+
+El Almacenamiento a veces muestra espacio **purgable**. Son datos que macOS borrará solo cuando necesite sitio: copias locales de archivos de iCloud, instantáneas antiguas y algunas cachés. No tienes que hacer nada.
+
+## Que no vuelva a llenarse
+
+- Activa **Vaciar la Papelera automáticamente** en las recomendaciones de Almacenamiento.
+- Pasa los proyectos terminados y las fotos antiguas a un disco externo.
+- Mantén libre **un 15–20 % del disco**: macOS lo usa para la memoria virtual y las actualizaciones.
+- Haz un análisis de limpieza cada uno o dos meses. MacDiskCleaner muestra adónde ha ido el espacio desde la última vez, y Pro puede analizar de forma programada.
+
+## ¿Cuánto espacio debería recuperar una limpieza?
+
+Depende del Mac. Uno con años de descargas, copias de dispositivos o herramientas de desarrollo suele tener decenas de gigas por recuperar. Un análisis gratuito con MacDiskCleaner te da la cifra real de tu Mac antes de dedicar tiempo a limpiar a mano.

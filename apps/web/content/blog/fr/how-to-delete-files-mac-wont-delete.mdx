@@ -1,0 +1,101 @@
+---
+title: "Impossible de supprimer un fichier sur Mac ? Forcer la suppression des fichiers verrouillés et bloqués"
+description: "Solutions pour les fichiers impossibles à supprimer sur Mac : « l’élément est en cours d’utilisation », erreurs d’autorisation, fichiers verrouillés, fichiers qui refusent d’aller à la Corbeille et Corbeille qui ne se vide pas — du Finder au Terminal."
+date: "2026-01-22"
+updated: "2026-10-09"
+keywords: ["impossible de supprimer un fichier mac", "forcer suppression fichier mac", "supprimer fichier verrouillé mac", "fichier en cours d’utilisation mac", "corbeille ne se vide pas mac", "mac fichier ne veut pas se supprimer"]
+tldr: "Si un Mac refuse de supprimer un fichier, quittez l’app qui l’utilise (ou redémarrez), déverrouillez-le dans Lire les informations (⌘I → décochez Verrouillé) et vérifiez Partage et permissions. Supprimez-le ensuite immédiatement avec Option-Commande-Supprimer, ou maintenez Option en vidant la Corbeille. Les fichiers protégés par la Protection de l’intégrité du système ne peuvent — et ne doivent — pas être supprimés."
+related: ["how-to-permanently-delete-files-mac", "empty-trash-mac-shortcut", "how-to-clean-junk-files-mac"]
+faq:
+  - q: "Comment forcer la suppression d’un fichier sur Mac ?"
+    a: "Quittez toute app susceptible de l’utiliser, déverrouillez-le dans Lire les informations, sélectionnez-le et appuyez sur Option-Commande-Supprimer. Si cela échoue, redémarrez (ou démarrez en mode sans échec) et réessayez. En dernier recours, la commande rm du Terminal le supprime définitivement."
+  - q: "Pourquoi le Mac dit-il que l’élément ne peut pas être placé dans la corbeille ?"
+    a: "En général, le fichier est verrouillé, vous n’avez pas l’autorisation d’écriture sur lui ou son dossier, ou il fait partie de macOS et est protégé par la Protection de l’intégrité du système."
+  - q: "Comment supprimer un fichier verrouillé sur Mac ?"
+    a: "Sélectionnez-le, appuyez sur Commande-I, décochez Verrouillé, puis supprimez-le. Dans le Terminal, chflags nouchg suivi du chemin retire le verrou."
+  - q: "Comment savoir quelle app utilise un fichier ?"
+    a: "Dans le Terminal, lancez lsof avec le chemin du fichier (par exemple lsof ~/Downloads/video.mov). Il indique le processus qui le tient ouvert ; quittez cette app ou ce processus."
+  - q: "Faut-il désactiver la Protection de l’intégrité du système pour supprimer un fichier ?"
+    a: "Non. Les fichiers protégés par SIP font partie de macOS ; les supprimer peut empêcher le Mac de démarrer. S’ils semblent occuper de la place, la cause est presque toujours ailleurs."
+---
+
+Quand un Mac refuse de supprimer quelque chose, le message d’erreur dit pourquoi — encore faut-il savoir le lire. Suivez les solutions dans l’ordre ; la plupart des problèmes se règlent dès les deux premières étapes.
+
+## 1. « L’opération ne peut pas être effectuée car l’élément est en cours d’utilisation »
+
+Une app garde le fichier ouvert.
+
+- **Quittez l’app** qui l’a utilisé en dernier (<Kbd>⌘</Kbd> <Kbd>Q</Kbd>), pas seulement sa fenêtre.
+- Vous ne savez pas laquelle ? Ouvrez le **Terminal** et demandez à macOS :
+
+```bash
+lsof ~/Downloads/video.mov
+```
+
+Le résultat indique le processus ; quittez-le ou forcez-le à quitter depuis le **Moniteur d’activité**.
+- Toujours bloqué ? **Redémarrez** et supprimez le fichier avant d’ouvrir quoi que ce soit.
+
+## 2. Le fichier est verrouillé
+
+Un fichier verrouillé ne peut pas aller à la Corbeille (ou la Corbeille demande confirmation à chaque fois).
+
+1. Sélectionnez le fichier et appuyez sur <Kbd>⌘</Kbd> <Kbd>I</Kbd> (Lire les informations).
+2. Décochez **Verrouillé** dans Général.
+3. Supprimez-le normalement.
+
+Pour de nombreux fichiers à la fois, le Terminal retire le verrou :
+
+```bash
+chflags -R nouchg ~/Desktop/AncienProjet
+```
+
+## 3. Erreurs « Vous n’avez pas l’autorisation »
+
+Il faut l’autorisation d’écriture sur le fichier **et** sur le dossier qui le contient.
+
+1. Appuyez sur <Kbd>⌘</Kbd> <Kbd>I</Kbd> sur le fichier (ou son dossier).
+2. En bas, ouvrez **Partage et permissions**, cliquez sur le cadenas et saisissez votre mot de passe.
+3. Réglez votre utilisateur sur **Lecture et écriture**, puis réessayez.
+
+Les fichiers copiés depuis un autre Mac, un disque externe ou une sauvegarde gardent souvent les permissions de l’ancien propriétaire : cela règle la plupart des cas.
+
+## 4. Utiliser « Supprimer immédiatement »
+
+Quand la Corbeille elle-même pose problème, contournez-la : sélectionnez le fichier, appuyez sur <Kbd>⌥</Kbd> <Kbd>⌘</Kbd> <Kbd>⌫</Kbd> et confirmez. Toutes les options dans notre [guide du raccourci de suppression définitive](/blog/how-to-permanently-delete-files-mac).
+
+## 5. Redémarrer en mode sans échec
+
+Le mode sans échec ne charge que l’essentiel : rien d’autre ne peut garder votre fichier ouvert, et certains caches système sont vidés.
+
+- **Apple silicon :** éteignez le Mac, maintenez le bouton d’alimentation jusqu’à « Chargement des options de démarrage », sélectionnez votre disque, maintenez <Kbd>⇧</Kbd> et cliquez sur **Continuer en mode sans échec**.
+- **Intel :** redémarrez en maintenant <Kbd>⇧</Kbd> jusqu’à la fenêtre de connexion.
+
+Supprimez le fichier, puis redémarrez normalement.
+
+## 6. Forcer la suppression dans le Terminal (dernier recours)
+
+```bash
+rm -f ~/Downloads/fichier-recalcitrant.zip
+```
+
+Le Terminal supprime définitivement, sans Corbeille ni confirmation. Vérifiez le chemin deux fois ; n’utilisez jamais `rm` sur quoi que ce soit dans `/System`, `/Library` ou un dossier inconnu. Ajouter `sudo` donne les droits d’administrateur : à réserver aux fichiers que vous avez vous-même créés dans un emplacement protégé.
+
+<DownloadCTA />
+
+## La Corbeille ne se vide pas
+
+- **Maintenez Option** en choisissant **Vider la corbeille** (ou appuyez sur <Kbd>⌥</Kbd> <Kbd>⇧</Kbd> <Kbd>⌘</Kbd> <Kbd>⌫</Kbd>) : les alertes sur les éléments verrouillés sont ignorées.
+- **Déverrouillez** les éléments verrouillés dans la Corbeille (Lire les informations → décochez Verrouillé).
+- **Éjectez** les disques ou clés USB dont des fichiers sont dans la Corbeille — ou videz-la disque branché, car les fichiers d’un disque externe restent sur ce disque.
+- **Redémarrez** et videz à nouveau.
+- Toujours en échec ? Lancez **Utilitaire de disque → S.O.S.** sur le disque de démarrage pour réparer les erreurs.
+
+Plus d’options dans notre [guide pour vider la Corbeille](/blog/empty-trash-mac-shortcut).
+
+## Les fichiers à ne pas forcer
+
+Certains fichiers ne peuvent pas être supprimés car macOS les protège par la **Protection de l’intégrité du système (SIP)** : tout ce qui se trouve dans `/System`, `/usr` (sauf `/usr/local`) et les apps fournies avec macOS. Ne désactivez pas SIP pour les supprimer : ils font partie du système, et les effacer peut empêcher le démarrage. Si des fichiers système semblent prendre de la place, il s’agit presque toujours de caches, d’instantanés ou de sauvegardes — voir [ce que contiennent vraiment les Données système](/clear-system-data-mac).
+
+## Une façon plus sûre de supprimer l’inutile
+
+La plupart des « je n’arrive pas à supprimer ça » arrivent pendant un nettoyage. MacDiskCleaner liste les fichiers inutiles, les doublons et les gros fichiers avec leur emplacement exact, ignore automatiquement les chemins système protégés et place votre sélection dans la Corbeille : vous nettoyez sans vous battre avec les erreurs du Finder.

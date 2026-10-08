@@ -1,0 +1,77 @@
+---
+title: "Datenträgerbereinigung auf dem Mac: das Mac-Gegenstück zur Windows-Datenträgerbereinigung"
+description: "Der Mac hat keine „Datenträgerbereinigung“ wie Windows. Das nutzt du stattdessen auf MacBook oder iMac – Speicher-Einstellungen, Finder und Terminal oder einen Disk Cleaner – Schritt für Schritt."
+date: "2026-10-09"
+keywords: ["datenträgerbereinigung mac", "mac festplatte bereinigen", "mac speicher bereinigen", "imac aufräumen", "mac disk cleaner", "mac reinigen kostenlos", "mac speicherplatz freigeben"]
+tldr: "Auf dem Mac gibt es keine App namens „Datenträgerbereinigung“. Das eingebaute Gegenstück ist Systemeinstellungen → Allgemein → Speicher: Es bietet Empfehlungen (in iCloud speichern, Speicher optimieren, Papierkorb automatisch entleeren) und zeigt große Dateien, Downloads und Apps. Für Caches, Duplikate und Reste, die dort fehlen, nimmst du Finder und Terminal oder einen Disk Cleaner wie MacDiskCleaner."
+related: ["how-to-clean-up-mac-hard-drive", "how-to-clean-junk-files-mac", "best-free-mac-cleaner-apps-2026"]
+faq:
+  - q: "Hat der Mac eine Datenträgerbereinigung wie Windows?"
+    a: "Nein. Am nächsten kommt Systemeinstellungen → Allgemein → Speicher. Dort siehst du, was Platz belegt, und bekommst Empfehlungen – Caches, Duplikate und App-Reste entfernt es aber nicht."
+  - q: "Wie räume ich einen iMac auf?"
+    a: "Genau wie ein MacBook: Systemeinstellungen → Allgemein → Speicher öffnen, Empfehlungen umsetzen, Dokumente und Programme prüfen und den Papierkorb leeren. Für eine gründliche Bereinigung nach Caches, Duplikaten und großen Dateien suchen."
+  - q: "Ist das Festplattendienstprogramm ein Aufräum-Tool?"
+    a: "Nicht wirklich. „Erste Hilfe“ prüft und repariert Festplattenfehler; es entfernt keinen Datenmüll und gibt keinen Speicher frei."
+  - q: "Wie oft sollte ich die Festplatte meines Macs aufräumen?"
+    a: "Alle ein bis zwei Monate den Speicher prüfen – oder wenn der freie Platz unter etwa 15–20 % fällt. So bleibt Raum für macOS-Updates und temporäre Dateien."
+---
+
+Wer von Windows kommt, sucht vielleicht die **Datenträgerbereinigung** – das Tool, das temporäre Dateien mit ein paar Häkchen entfernt. macOS hat keine App mit diesem Namen, aber Entsprechungen. So räumst du jeden Mac gründlich auf, auch MacBook Air, MacBook Pro und iMac.
+
+## Windows-Datenträgerbereinigung vs. Mac
+
+| Eintrag in der Windows-Datenträgerbereinigung | Entsprechung auf dem Mac |
+|---|---|
+| Temporäre Dateien | Werden beim Neustart entfernt; App-Caches in `~/Library/Caches` |
+| Papierkorb | Papierkorb – leeren mit <Kbd>⇧</Kbd> <Kbd>⌘</Kbd> <Kbd>⌫</Kbd> |
+| Heruntergeladene Programmdateien | Alte `.dmg`- und `.pkg`-Installer im Ordner Downloads |
+| Miniaturansichten | Quick-Look-Cache (wird automatisch neu erstellt) |
+| Speicherabbilder für Systemfehler | `~/Library/Logs/DiagnosticReports` |
+| Windows-Update-Bereinigung | Erledigt macOS; lokale Time-Machine-Snapshots werden bei Platzbedarf entfernt |
+
+## Schritt 1: Die eingebauten Speicher-Einstellungen nutzen
+
+Öffne **Systemeinstellungen → Allgemein → Speicher** (ab macOS Ventura; ältere Versionen: Apple-Menü → Über diesen Mac → Speicher → Verwalten). Warte, bis der Balken berechnet ist, und arbeite die **Empfehlungen** ab:
+
+- **In iCloud speichern** – Schreibtisch, Dokumente und Fotos in iCloud halten und nur bei Bedarf laden.
+- **Speicher optimieren** – entfernt bereits angesehene Apple-TV-Filme und -Serien.
+- **Papierkorb automatisch entleeren** – löscht Objekte 30 Tage nach dem Verschieben in den Papierkorb.
+
+Darunter klickst du auf das **ⓘ** neben jeder Kategorie (Programme, Dokumente, iOS-Dateien, Mail …), um Objekte zu prüfen und zu löschen. **Dokumente → Große Dateien** bringt am schnellsten etwas.
+
+## Schritt 2: Alte Downloads und Installer löschen
+
+Öffne **Downloads** im Finder, wechsle zur Listendarstellung (<Kbd>⌘</Kbd> <Kbd>2</Kbd>) und sortiere nach **Größe**. Installer (`.dmg`, `.pkg`, `.zip`) können nach der Installation weg.
+
+## Schritt 3: App-Caches und Protokolle entfernen
+
+Caches und Protokolle sind die „temporären Dateien“ des Macs. Wähle im Finder **Gehe zu → Gehe zum Ordner …** und öffne:
+
+- `~/Library/Caches` – Ordner viel genutzter Apps in den Papierkorb legen (Apps vorher beenden).
+- `~/Library/Logs` – alte Protokolle und Absturzberichte.
+
+Apps erzeugen Benötigtes neu. Unser [Cache-Ratgeber](/blog/clear-cache-mac) erklärt, was sicher ist.
+
+## Schritt 4: Ungenutzte Apps deinstallieren
+
+Zieh ungenutzte Apps aus **Programme** in den Papierkorb. Viele hinterlassen Einstellungen und Caches in `~/Library/Application Support` und `~/Library/Containers` – entferne diese Ordner ebenfalls oder nutze eine Deinstallation, die sie findet.
+
+<DownloadCTA />
+
+## Schritt 5: Duplikate und große Dateien finden
+
+Die Speicher-Einstellungen suchen keine Duplikate und verstecken viele große Dateien in Ordnern. Nutze die Finder-Suche (<Kbd>⌘</Kbd> <Kbd>F</Kbd> → **Dateigröße** → **ist größer als** 1 GB) oder einen Scanner – siehe [große Dateien finden](/blog/find-delete-large-files-mac).
+
+## Schritt 6: Papierkorb leeren und neu starten
+
+Platz wird erst frei, wenn der Papierkorb geleert ist. Ein Neustart entfernt danach temporäre und Auslagerungsdateien. Prüfe den Speicher erneut – die Anzeige kann ein paar Minuten brauchen.
+
+## Alles in einem Durchgang
+
+MacDiskCleaner ist ein Disk Cleaner für den Mac, der diese Schritte bündelt: Ein Scan zeigt Datenmüll und Caches, Duplikate, große und alte Dateien, alte Downloads und Entwicklerdaten – mit Größen. Du wählst aus, und alles landet zuerst im Papierkorb. Scannen ist kostenlos, ebenso bis zu 2 GB Aufräumen – [sieh dir an, was enthalten ist](/free-mac-cleaner).
+
+## Was du nicht „aufräumen“ solltest
+
+- Nichts in `/System` oder `/Library/Apple` – geschützt von macOS.
+- Schlüsselbunde und Einstellungen in `~/Library`.
+- **Löschbaren** Speicher in der Speicheranzeige: macOS gibt ihn bei Bedarf selbst frei.

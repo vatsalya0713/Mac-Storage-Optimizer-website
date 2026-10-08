@@ -1,48 +1,81 @@
 ---
-title: "How to Find and Delete Large Files on Mac"
-description: "The fastest ways to find exactly which files are taking up the most space on your Mac, from built-in tools to dedicated scanners."
+title: "How to Find Large Files on Mac: Finder, Storage Settings, Terminal and Apps"
+description: "Four reliable ways to find the biggest files on your Mac — Finder search by size, the Large Files list in Storage settings, a Terminal one-liner and free disk-space apps — and how to delete them safely."
 date: "2026-02-11"
-keywords: ["mac storage cleaner", "mac disk cleaner free", "mac storage cleaner app"]
+updated: "2026-10-09"
+keywords: ["find large files mac", "how to find large files on mac", "find big files mac", "mac large file finder", "omnidisksweeper mac", "mac storage cleaner", "mac disk cleaner free"]
+tldr: "The fastest built-in way to find large files on a Mac is System Settings → General → Storage → Documents (ⓘ) → Large Files. In Finder, press ⌘F, set Search to “This Mac”, add the File Size attribute and choose “is greater than 1 GB”. In Terminal, find ~ -type f -size +1G lists every file over 1 GB in your home folder."
+related: ["how-to-clean-up-mac-hard-drive", "duplicate-photos-mac", "mac-running-out-of-storage-fix-guide"]
+faq:
+  - q: "How do I see the largest files on my Mac?"
+    a: "Open System Settings → General → Storage, click the ⓘ next to Documents and choose Large Files. It lists files over a few hundred megabytes, biggest first."
+  - q: "How do I search for files by size in Finder?"
+    a: "Press Command-F, set the search to This Mac, click the first attribute pop-up, choose Other… and tick File Size. Then set “is greater than” and a size such as 500 MB."
+  - q: "What large files are safe to delete on Mac?"
+    a: "Old installers (.dmg, .pkg), downloaded videos, exported projects, zip archives you’ve already unpacked, old device backups and duplicate copies. Don’t delete files in /System or app containers you still use."
+  - q: "Why can’t Finder find files that Storage says exist?"
+    a: "Finder search skips system and hidden locations such as ~/Library. Large hidden items — caches, backups, developer data — are easier to find with Terminal or a disk scanner."
 ---
 
-Large files — old video exports, disk images, forgotten archives — are usually the single biggest recoverable chunk of space on a Mac that hasn't been cleaned in a while. Here's how to actually find them.
+A handful of big files often uses more space than thousands of small ones. These four methods find them, from easiest to most thorough.
 
-## Method 1: Finder (free, manual)
+## Method 1: Storage settings (easiest)
 
-1. Open a Finder window, select your Mac's main drive
-2. Switch to **List View** (Cmd+2)
-3. Click the **Size** column header to sort by size — click again to reverse
-4. Use **View → Show View Options** to make sure "Calculate all sizes" is checked, so folders show accurate totals
+1. Open **System Settings → General → Storage**.
+2. Click the **ⓘ** next to **Documents**.
+3. Choose **Large Files** to see everything over a few hundred megabytes, biggest first. **Downloads** is listed there too.
 
-This works, but Finder's search doesn't easily let you say "show me every file over 500 MB across my whole Mac" — you're browsing folder by folder.
+Select files and click **Delete…** — note that this deletes immediately rather than using the Trash.
 
-## Method 2: Spotlight search by size
+## Method 2: Finder search by size
 
-Open Spotlight (Cmd+Space) and search using:
+1. In Finder press <Kbd>⌘</Kbd> <Kbd>F</Kbd> and set **Search** to **This Mac**.
+2. Click the first pop-up (it says “Kind”) and choose **Other…**.
+3. Tick **File Size** and click **OK**.
+4. Set **is greater than** and enter a size, e.g. **1 GB**.
+5. Right-click the column headers and add **Size**, then sort by it.
+
+Click **Save** to keep the search in Finder’s sidebar for next time.
+
+## Method 3: Terminal (thorough)
+
+Terminal can see places Finder search skips. Every file over 1 GB in your home folder:
+
+```bash
+find ~ -type f -size +1G -exec ls -lh {} + 2>/dev/null | awk '{print $5, $9}'
 ```
-kind:file size:>500mb
+
+The biggest folders in your home folder, largest last:
+
+```bash
+du -sh ~/* ~/Library/* 2>/dev/null | sort -h | tail -20
 ```
-This is faster than manual browsing but still limited — it won't distinguish "large file you actually need" from "large file you forgot about," and won't show *why* a file is large or what to do next.
 
-## Method 3: A dedicated large file scanner
+These commands only **list** files — they don’t delete anything.
 
-A tool built specifically for this sorts by size across your entire Mac in one pass, and lets you preview, reveal in Finder, or move straight to Trash. [MacDiskCleaner's Large File Scanner](/#features) is included in both the free and Pro tiers — no limit on how many files it shows you.
+## Method 4: Disk-space apps
 
-## Where large files typically hide
+- **GrandPerspective** (free) — a treemap where each file’s rectangle is sized by its space.
+- **OmniDiskSweeper** (free) — folders sorted by size, to click down through.
+- **DaisyDisk** ($9.99) — an interactive sunburst map; the trial scans but can’t delete.
+- **MacDiskCleaner** (free to scan) — a Large Files list plus old files, downloads and duplicates, with each item’s size and location. Space Lens lets you browse folders by size.
 
-- `~/Downloads` — installers, exported videos, one-off downloads
-- `~/Movies` — screen recordings, video exports
-- `~/Library/Application Support/MobileSync/Backup` — old iPhone/iPad backups
-- Mounted disk images (`.dmg`) you opened and forgot to delete after installing
+<DownloadCTA />
 
-## Before you delete anything
+## Where large files usually hide
 
-Check the file's last-opened date, not just its size — a 20 GB video project you're actively editing is very different from a 20 GB export you finished six months ago. Moving to Trash first (rather than permanently deleting) gives you a safety window either way.
+- **Downloads** — installers, videos and zips you forgot about.
+- **Movies** — screen recordings, exports and iMovie or Final Cut libraries.
+- **`~/Library/Application Support/MobileSync/Backup`** — iPhone and iPad backups.
+- **`~/Library/Developer`** — Xcode data and simulators.
+- **Virtual machines and Docker** images.
+- **Mail and Messages attachments** inside your Library.
 
-## FAQ
+## Before you delete
 
-**What counts as a "large file" on Mac?**
-There's no fixed threshold, but most cleanup tools default to flagging anything over 100 MB, since that's large enough to matter but common enough to catch real opportunities.
+1. **Check the last-opened date** (Get Info, <Kbd>⌘</Kbd> <Kbd>I</Kbd>). Untouched for a year usually means safe to archive.
+2. **Archive instead of deleting** anything you might need — an external drive is cheap.
+3. **Use the Trash**, not instant deletion, so you can undo mistakes.
+4. **Empty the Trash** to actually free the space.
 
-**Will deleting large files slow down my Mac in any way?**
-No — removing files only frees space. If anything, having more free space helps macOS perform better, since it needs some free space for virtual memory swapping.
+If the space isn’t in large files, look at [duplicates](/blog/duplicate-photos-mac) and [System Data](/clear-system-data-mac) next.

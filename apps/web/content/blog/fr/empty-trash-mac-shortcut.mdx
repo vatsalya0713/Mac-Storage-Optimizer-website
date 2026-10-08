@@ -1,0 +1,69 @@
+---
+title: "Vider la Corbeille sur Mac : raccourcis clavier, vidage automatique et solutions"
+description: "Toutes les façons de vider la Corbeille sur Mac : le raccourci Maj-Commande-Supprimer, vider sans confirmation, supprimer un seul élément, le vidage automatique après 30 jours et que faire si elle ne se vide pas."
+date: "2026-10-09"
+keywords: ["vider la corbeille mac raccourci", "raccourci vider corbeille mac", "comment vider la corbeille sur mac", "vider corbeille sans confirmation mac", "corbeille ne se vide pas mac", "vider corbeille automatiquement mac"]
+tldr: "Pour vider la Corbeille sur Mac, appuyez sur Maj-Commande-Supprimer (⇧⌘⌫) dans le Finder et confirmez, ou faites un clic droit sur la Corbeille du Dock et choisissez Vider la corbeille. Ajoutez Option (⌥⇧⌘⌫) pour éviter la confirmation. Pour que macOS s’en charge, activez Finder → Réglages → Avancés → « Supprimer les éléments de la corbeille après 30 jours »."
+related: ["how-to-permanently-delete-files-mac", "how-to-delete-files-mac-wont-delete", "mac-running-out-of-storage-fix-guide"]
+faq:
+  - q: "Quel est le raccourci pour vider la Corbeille sur Mac ?"
+    a: "Maj-Commande-Supprimer (⇧⌘⌫) lorsque le Finder est actif. macOS demande confirmation avant de vider."
+  - q: "Comment vider la Corbeille sans confirmation ?"
+    a: "Appuyez sur Option-Maj-Commande-Supprimer (⌥⇧⌘⌫), ou maintenez Option en choisissant Vider la corbeille dans le menu du Finder ou dans le Dock."
+  - q: "Peut-on récupérer des fichiers après avoir vidé la Corbeille ?"
+    a: "Pas depuis la Corbeille. Restaurez-les depuis une sauvegarde Time Machine ou autre si vous en avez une."
+  - q: "Vider la Corbeille libère-t-il de l’espace tout de suite ?"
+    a: "En général oui, mais la vue Stockage peut mettre quelques minutes à se mettre à jour. Avec iCloud Drive, les fichiers supprimés restent 30 jours dans « Supprimés récemment » sur iCloud.com."
+  - q: "Pourquoi la Corbeille est-elle encore pleine après l’avoir vidée ?"
+    a: "Les fichiers d’un disque externe sont dans une Corbeille distincte sur ce disque : rebranchez-le et videz à nouveau. Des éléments verrouillés ou en cours d’utilisation peuvent aussi bloquer le vidage."
+---
+
+Placer un fichier dans la Corbeille ne libère pas d’espace : il reste sur le disque jusqu’à ce que la Corbeille soit vidée. Voici toutes les façons de le faire, et les solutions quand ça coince.
+
+## Raccourcis pour vider la Corbeille
+
+| Ce que vous voulez | Comment |
+|---|---|
+| Vider la Corbeille | <Kbd>⇧</Kbd> <Kbd>⌘</Kbd> <Kbd>⌫</Kbd> dans le Finder, puis confirmer |
+| Vider sans la question « Voulez-vous vraiment… ? » | <Kbd>⌥</Kbd> <Kbd>⇧</Kbd> <Kbd>⌘</Kbd> <Kbd>⌫</Kbd> |
+| Vider depuis le Dock | Clic droit (ou Contrôle-clic) sur la Corbeille → **Vider la corbeille** |
+| Supprimer un seul élément | Ouvrir la Corbeille, clic droit sur l’élément → **Supprimer immédiatement** |
+| Récupérer un élément | Ouvrir la Corbeille, le sélectionner → **Fichier → Remettre** |
+
+Les raccourcis ne fonctionnent que lorsque le **Finder** est l’app active : cliquez d’abord sur le bureau si une autre app est au premier plan.
+
+## Vider la Corbeille automatiquement
+
+**Option 1 — réglage du Finder :** Finder → **Réglages** → **Avancés** → cochez **Supprimer les éléments de la corbeille après 30 jours**.
+
+**Option 2 — Stockage :** Réglages Système → **Général → Stockage** → activez **Vider la corbeille automatiquement**.
+
+Les deux font la même chose : chaque élément est supprimé définitivement 30 jours après sa mise à la corbeille, ce qui vous laisse un mois pour changer d’avis.
+
+## Combien d’espace occupe la Corbeille ?
+
+Ouvrez la Corbeille, appuyez sur <Kbd>⌘</Kbd> <Kbd>A</Kbd> pour tout sélectionner, puis sur <Kbd>⌃</Kbd> <Kbd>⌘</Kbd> <Kbd>I</Kbd> pour voir la taille totale dans une seule fenêtre. **Réglages Système → Général → Stockage** l’indique aussi.
+
+<DownloadCTA />
+
+## Quand la Corbeille ne se vide pas
+
+1. **Maintenez Option** en la vidant : les alertes sur les fichiers verrouillés sont ignorées.
+2. **Déverrouillez les éléments :** sélectionnez l’élément dans la Corbeille, appuyez sur <Kbd>⌘</Kbd> <Kbd>I</Kbd> et décochez **Verrouillé**.
+3. **Quittez les apps** qui utilisent encore un fichier de la Corbeille (le message indique « en cours d’utilisation »).
+4. **Rebranchez les disques externes :** les fichiers supprimés d’une clé USB sont dans la Corbeille cachée de ce disque et ne disparaissent que si vous videz la Corbeille disque branché.
+5. **Redémarrez** et réessayez.
+6. **Lancez S.O.S.** dans Utilitaire de disque sur le disque de démarrage si les erreurs persistent.
+
+Pour les fichiers récalcitrants, voyez [comment forcer la suppression des fichiers bloqués](/blog/how-to-delete-files-mac-wont-delete).
+
+## Vider la corbeille ou Supprimer immédiatement ?
+
+- **Vider la corbeille** supprime définitivement tout ce qu’elle contient.
+- **Supprimer immédiatement** (<Kbd>⌥</Kbd> <Kbd>⌘</Kbd> <Kbd>⌫</Kbd> sur un fichier sélectionné) contourne la Corbeille pour ce seul élément.
+
+Les deux sont définitifs. Si vous supprimez beaucoup de fichiers pendant un nettoyage, les laisser quelque temps dans la Corbeille est l’habitude la plus sûre — c’est pour cela que MacDiskCleaner place toujours les fichiers dans la Corbeille et vous laisse la vider quand vous êtes prêt.
+
+## Les fichiers d’iCloud Drive
+
+Les fichiers supprimés d’iCloud Drive sont aussi conservés 30 jours dans **Supprimés récemment** sur iCloud.com, et cet espace compte toujours dans votre stockage iCloud tant qu’ils n’y sont pas effacés.

@@ -1,0 +1,78 @@
+---
+title: "Mac Cache leeren (Apps, Browser und System) – so geht’s sicher"
+description: "Wo der Mac Caches speichert, welche du löschen kannst und wie du den Cache in Safari, Chrome und Firefox, in macOS-Apps und für DNS leerst – plus wann Cache leeren nichts bringt."
+date: "2026-10-09"
+keywords: ["mac cache leeren", "cache löschen mac", "safari cache leeren mac", "chrome cache leeren mac", "mac cache cleaner", "cache dateien löschen mac", "dns cache leeren mac"]
+tldr: "Um den Cache einer App auf dem Mac zu leeren, beende sie, öffne Finder → Gehe zu → Gehe zum Ordner …, gib ~/Library/Caches ein und lege den Ordner dieser App in den Papierkorb. Browser haben eigene Einstellungen: In Safari Entwickler → Cache-Speicher leeren (⌥⌘E), in Chrome Browserdaten löschen → Bilder und Dateien im Cache. Caches bauen sich neu auf – Leeren gibt Platz vorübergehend frei und behebt Fehler, macht den Mac aber nicht dauerhaft schneller."
+related: ["how-to-clean-junk-files-mac", "how-to-clear-system-data-mac", "disk-cleanup-mac"]
+faq:
+  - q: "Kann ich Cache-Dateien auf dem Mac gefahrlos löschen?"
+    a: "App-Caches in ~/Library/Caches zu leeren ist sicher – Apps erzeugen sie neu. Beende die App vorher, lege die Ordner in den Papierkorb, statt sie sofort zu löschen, und lass System-Caches in /System in Ruhe."
+  - q: "Wird der Mac durch Cache leeren schneller?"
+    a: "Meist nicht lange. Caches sollen Dinge beschleunigen, direkt danach können Apps sogar langsamer sein. Es hilft bei beschädigten Caches (eine App spinnt) oder wenn du schnell Platz brauchst."
+  - q: "Wie leere ich den Safari-Cache auf dem Mac?"
+    a: "Safari → Einstellungen → Erweitert → „Funktionen für Webentwickler anzeigen“ aktivieren, dann Entwickler → Cache-Speicher leeren wählen oder Wahl-Befehl-E drücken."
+  - q: "Wie leere ich den DNS-Cache auf dem Mac?"
+    a: "Im Terminal ausführen: sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder – dann dein Passwort eingeben."
+  - q: "Wie viel Platz belegen Caches?"
+    a: "Sehr unterschiedlich: einige Hundert Megabyte auf einem neuen Mac, viele Gigabyte auf einem mit intensiv genutzten Browsern, Musik-Streaming-, Design- oder Entwickler-Apps."
+---
+
+Ein Cache ist eine Sammlung von Dateien, die eine App aufbewahrt, um nicht zweimal dasselbe laden oder berechnen zu müssen. Caches sind nützlich, wachsen aber, können beschädigt werden und zählen zu den „Systemdaten“ deines Speichers. So leerst du sie sicher.
+
+## Wo der Mac Caches speichert
+
+| Cache | Speicherort | Löschen sicher? |
+|---|---|---|
+| Caches deiner Apps | `~/Library/Caches` | Ja – App vorher beenden |
+| Browser-Caches | In jedem Browser (siehe unten) | Ja |
+| Systemweite App-Caches | `/Library/Caches` | Meistens – Admin nötig, gezielt vorgehen |
+| macOS-System-Caches | `/System/Library/Caches` | Nein – geschützt und von macOS verwaltet |
+| Entwickler-Caches (Xcode, npm, Gradle …) | `~/Library/Developer`, `~/.npm`, `~/.gradle` | Ja – Tools erstellen sie neu |
+
+Das `~` steht für deinen Benutzerordner. `~/Library` ist standardmäßig ausgeblendet; öffne ihn im Finder mit **Gehe zu → Gehe zum Ordner …** (<Kbd>⇧</Kbd> <Kbd>⌘</Kbd> <Kbd>G</Kbd>).
+
+## App-Caches leeren
+
+1. Die App beenden, deren Cache du leeren willst.
+2. Im Finder <Kbd>⇧</Kbd> <Kbd>⌘</Kbd> <Kbd>G</Kbd> drücken, `~/Library/Caches` eingeben und Return drücken.
+3. In die Listendarstellung wechseln und **Darstellung → Darstellungsoptionen einblenden → Alle Größen berechnen** aktivieren, um die größten Ordner zu sehen.
+4. Die Ordner dieser App (Namen wie `com.spotify.client`) in den Papierkorb legen.
+5. App wieder öffnen und den Papierkorb leeren, sobald alles läuft.
+
+Tipp: den **Inhalt** verschieben, nicht `~/Library/Caches` selbst.
+
+## Browser-Cache leeren
+
+- **Safari:** Safari → **Einstellungen → Erweitert** → **Funktionen für Webentwickler anzeigen** aktivieren. Dann **Entwickler → Cache-Speicher leeren** (<Kbd>⌥</Kbd> <Kbd>⌘</Kbd> <Kbd>E</Kbd>). Für Verlauf und Cookies: **Verlauf → Verlauf löschen**.
+- **Chrome:** <Kbd>⇧</Kbd> <Kbd>⌘</Kbd> <Kbd>⌫</Kbd> öffnet **Browserdaten löschen**; Zeitraum wählen und **Bilder und Dateien im Cache** ankreuzen.
+- **Firefox:** **Einstellungen → Datenschutz & Sicherheit → Cookies und Website-Daten → Daten entfernen …** und **Zwischengespeicherte Webinhalte** ankreuzen.
+- **Edge:** **Einstellungen → Datenschutz, Suche und Dienste → Browserdaten löschen → Zu löschende Elemente auswählen**.
+
+Nur den Cache zu leeren, hält dich angemeldet; Cookies zu löschen, meldet dich bei Websites ab.
+
+<DownloadCTA />
+
+## DNS-Cache leeren
+
+Laden Websites nach einem Netzwechsel nicht, hilft oft das Leeren des DNS-Caches:
+
+```bash
+sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder
+```
+
+Das gibt keinen Speicher frei – es setzt nur die Liste der gemerkten Web-Adressen zurück.
+
+## Entwickler-Caches
+
+Xcode-DerivedData, Simulatordateien und die Caches von Paketmanagern (npm, Yarn, CocoaPods, Gradle, Cargo) sind auf Entwickler-Macs oft die größten Caches. Sie können weg, weil deine Tools sie neu erstellen – siehe [MacDiskCleaner für Entwickler](/developers), was jeder Ordner ist und wie er zurückkommt.
+
+## Was Cache leeren nicht behebt
+
+- **Einen langsamen Mac wegen vollem Arbeitsspeicher** – sieh in die Aktivitätsanzeige.
+- **Eine Festplatte voller großer Dateien** – Caches sind selten der Hauptgrund; meist sind es Duplikate, Videos, alte Backups und Systemdaten.
+- **Dauerhafte Geschwindigkeit** – Caches wachsen nach, sobald du deine Apps nutzt.
+
+## Caches sicher in einem Schritt leeren
+
+Der Aufräum-Scan von MacDiskCleaner findet App-Caches, Protokolle und Entwickler-Caches auf deinem ganzen Mac, zeigt die Größe jedes einzelnen und verschiebt deine Auswahl in den Papierkorb – macht eine App danach Probleme, legst du den Cache einfach zurück. Geschützte System-Caches rührt es nie an.

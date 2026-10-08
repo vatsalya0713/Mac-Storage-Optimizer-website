@@ -1,0 +1,81 @@
+---
+title: "Dateien vom Mac-Schreibtisch entfernen, ohne sie zu löschen"
+description: "Dateien, Ordner, Bildschirmfotos und Downloads vom Schreibtisch deines MacBook oder iMac entfernen, ohne etwas zu löschen: verschieben, Stapel nutzen, Symbole ausblenden oder den Speicherort für Bildschirmfotos ändern."
+date: "2026-01-29"
+updated: "2026-10-09"
+keywords: ["dateien vom schreibtisch entfernen ohne zu löschen mac", "ordner vom schreibtisch entfernen mac", "mac schreibtisch symbole ausblenden", "mac schreibtisch aufräumen", "bildschirmfotos schreibtisch mac", "macbook schreibtisch leeren"]
+tldr: "Um etwas vom Mac-Schreibtisch zu entfernen, ohne es zu löschen, ziehe es in einen anderen Ordner (z. B. Dokumente) – das verschiebt, es löscht nicht. Zum Ordnen aktivierst du Stapel (Rechtsklick auf den Schreibtisch → Stapel verwenden). Um alle Symbole auszublenden, die Dateien aber zu behalten, öffne Systemeinstellungen → Schreibtisch & Dock und schalte „Objekte anzeigen: Auf dem Schreibtisch“ aus. Nur „In den Papierkorb legen“ löscht."
+related: ["how-to-permanently-delete-files-mac", "how-to-clean-up-mac-hard-drive", "find-delete-large-files-mac"]
+faq:
+  - q: "Wie entferne ich einen Ordner vom Schreibtisch, ohne ihn zu löschen?"
+    a: "Zieh den Ordner auf einen anderen Ordner in der Finder-Seitenleiste, etwa Dokumente. Er wird samt Inhalt dorthin verschoben; gelöscht wird nichts."
+  - q: "Löscht das Entfernen vom Schreibtisch die Datei?"
+    a: "Nur mit „In den Papierkorb legen“ (und anschließendem Entleeren). Verschieben, Ausblenden der Symbole oder Stapel lassen die Datei unverändert."
+  - q: "Wie blende ich alle Dateien auf dem Schreibtisch aus?"
+    a: "Ab macOS Sonoma: Systemeinstellungen → Schreibtisch & Dock und „Objekte anzeigen: Auf dem Schreibtisch“ ausschalten. Die Dateien bleiben im Ordner Schreibtisch und sind im Finder sichtbar."
+  - q: "Wie sichere ich Bildschirmfotos nicht mehr auf dem Schreibtisch?"
+    a: "Umschalt-Befehl-5 drücken, auf Optionen klicken und unter „Sichern unter“ einen anderen Ort wählen, z. B. Dokumente oder einen neuen Ordner „Bildschirmfotos“."
+  - q: "Meine Schreibtischdateien liegen in iCloud – ist Verschieben sicher?"
+    a: "Ja. Ist aber die Synchronisierung von Schreibtisch & Dokumente aktiv, löscht das Löschen einer Schreibtischdatei sie auch in iCloud auf allen Geräten – im Zweifel verschieben statt löschen."
+---
+
+Auf dem Mac ist der Schreibtisch einfach ein Ordner (`~/Desktop`). Alles darauf sind echte Dateien – „entfernen“ kann also sehr Verschiedenes bedeuten. So bekommst du Dateien vom Schreibtisch, **ohne sie zu löschen**, vom schnellsten bis zum ordentlichsten Weg.
+
+## Das Einzige, was löscht
+
+Nur **In den Papierkorb legen** (<Kbd>⌘</Kbd> <Kbd>⌫</Kbd> oder auf den Papierkorb ziehen) löscht eine Datei – und selbst dann lässt sie sich wiederherstellen, bis du den Papierkorb entleerst. Alle folgenden Methoden behalten deine Dateien.
+
+## Methode 1: Dateien in einen Ordner verschieben
+
+1. Ein Finder-Fenster öffnen (<Kbd>⌘</Kbd> <Kbd>N</Kbd>) und in der Seitenleiste ein Ziel wählen, etwa **Dokumente**.
+2. Die Dateien auf dem Schreibtisch auswählen (Rahmen aufziehen oder mit <Kbd>⌘</Kbd> einzeln anklicken).
+3. Auf den Zielordner ziehen.
+
+Ziehen zwischen Ordnern auf derselben Festplatte **verschiebt** Dateien – nichts wird kopiert oder gelöscht. Alternativ mit <Kbd>⌘</Kbd> <Kbd>C</Kbd> kopieren und im Ziel <Kbd>⌥</Kbd> <Kbd>⌘</Kbd> <Kbd>V</Kbd> drücken, um sie zu verschieben.
+
+**Einen Ordner vom Schreibtisch entfernen** funktioniert genauso: den ganzen Ordner nach Dokumente ziehen. Der Inhalt geht mit.
+
+## Methode 2: Alles mit Stapeln gruppieren
+
+Mit rechts auf eine freie Stelle des Schreibtischs klicken und **Stapel verwenden** wählen (oder <Kbd>⌃</Kbd> <Kbd>⌘</Kbd> <Kbd>0</Kbd>). macOS gruppiert die Dateien nach Art – Bilder, PDFs, Bildschirmfotos – zu Stapeln, die sich per Klick aufklappen. Nichts wird verschoben oder gelöscht; ausschalten geht genauso.
+
+## Methode 3: Alle Schreibtischsymbole ausblenden (Dateien bleiben)
+
+Ab **macOS Sonoma**:
+
+1. **Systemeinstellungen → Schreibtisch & Dock** öffnen.
+2. Unter **Schreibtisch & Stage Manager** die Option **Objekte anzeigen: Auf dem Schreibtisch** ausschalten.
+
+Der Schreibtisch ist leer, aber jede Datei liegt weiter im Ordner Schreibtisch in der Finder-Seitenleiste. Jederzeit wieder einschaltbar.
+
+Wenn deine Fenster beim Klick auf den Schreibtisch verschwinden, stelle dort **Auf Hintergrundbild klicken, um Schreibtisch anzuzeigen** auf **Nur in Stage Manager**.
+
+Bei älteren macOS-Versionen blendest du die Symbole im Terminal aus (rückgängig mit `true`):
+
+```bash
+defaults write com.apple.finder CreateDesktop false
+killall Finder
+```
+
+## Methode 4: Bildschirmfotos nicht mehr auf dem Schreibtisch
+
+Bildschirmfotos sind die häufigste Ursache für Unordnung. <Kbd>⇧</Kbd> <Kbd>⌘</Kbd> <Kbd>5</Kbd> drücken, auf **Optionen** klicken und unter **Sichern unter** **Dokumente** oder **Anderer Ort …** wählen (z. B. ein neuer Ordner „Bildschirmfotos“). Vorhandene Bildschirmfotos verschiebst du mit Methode 1.
+
+## Methode 5: Aliasse entfernen, nicht Originale
+
+Symbole mit einem kleinen gebogenen **Pfeil** sind Aliasse – Verweise auf eine Datei an anderer Stelle. Ein Alias zu löschen, löscht das Original **nicht**; nicht mehr benötigte Aliasse kannst du also bedenkenlos entfernen. Im Zweifel Symbol auswählen und <Kbd>⌘</Kbd> <Kbd>R</Kbd> (Original zeigen) drücken.
+
+## Methode 6: In iCloud oder auf ein externes Laufwerk auslagern
+
+- **Externes Laufwerk oder USB-Stick:** Dateien im Finder auf das Laufwerk ziehen. Das *kopiert* sie; nach dem Kopieren kannst du die Originale in den Papierkorb legen, wenn du den Platz brauchst.
+- **iCloud Drive:** Mit **Ordner „Schreibtisch“ & „Dokumente“** (Systemeinstellungen → dein Name → iCloud → iCloud Drive) werden Schreibtischdateien in iCloud gespeichert und bei Platzmangel lokal ausgelagert. Achtung: Dann löscht das Löschen einer Schreibtischdatei sie auf allen Geräten.
+
+<DownloadCTA />
+
+## Und der „Startbildschirm“ am MacBook?
+
+Viele nennen den Mac-Schreibtisch „Startbildschirm“ oder „Homescreen“. Alles oben gilt auch dafür: Bildschirmfotos, Downloads und Ordner dort liegen in `~/Desktop`. Downloads landen nur auf dem Schreibtisch, wenn ein Browser so eingestellt ist – ändere das in seinen Einstellungen (Safari: **Einstellungen → Allgemein → Speicherort für Downloads**).
+
+## Speicher freigeben statt nur aufräumen
+
+Verschieben gibt keinen Speicherplatz frei. Räumst du den Schreibtisch wegen „Festplatte fast voll“ auf, suche nach dem, was wirklich groß ist: alte Installer, Videos, Duplikate und Caches. Ein kostenloser [MacDiskCleaner](/free-mac-cleaner)-Scan listet sie mit Größe auf, und alles Entfernte landet zuerst im Papierkorb. Manuell: [große Dateien auf dem Mac finden](/blog/find-delete-large-files-mac).

@@ -1,0 +1,70 @@
+---
+title: "Nettoyer son Mac gratuitement : nettoyage du disque dur en 10 étapes"
+description: "Une liste ordonnée et sûre pour nettoyer le disque dur ou le SSD d’un Mac — les plus gros gains d’abord : gros fichiers, doublons, téléchargements, fichiers inutiles, apps, sauvegardes, Données système et Corbeille — avec une méthode gratuite à chaque étape."
+date: "2026-01-27"
+updated: "2026-10-09"
+keywords: ["nettoyer son mac gratuitement", "nettoyage disque dur mac", "nettoyer disque dur mac", "nettoyage disque dur mac gratuit", "libérer de l’espace mac", "nettoyer mac gratuit", "nettoyage mac gratuit"]
+tldr: "Pour nettoyer le disque d’un Mac, commencez par les recommandations Stockage (Réglages Système → Général → Stockage), puis supprimez gros fichiers et vieux téléchargements, effacez les doublons, videz caches et journaux, désinstallez les apps inutilisées avec leurs restes, supprimez les vieilles sauvegardes d’iPhone et les instantanés Time Machine, nettoyez les données de développement, et enfin videz la Corbeille et redémarrez. Passez d’abord par la Corbeille pour que chaque étape reste réversible."
+related: ["disk-cleanup-mac", "find-delete-large-files-mac", "how-to-clean-junk-files-mac"]
+faq:
+  - q: "Quel est le moyen le plus rapide de libérer de l’espace sur Mac ?"
+    a: "Supprimer ou déplacer quelques gros fichiers : vieux téléchargements, vidéos et installateurs. Stockage → Documents → Fichiers volumineux les liste en quelques secondes."
+  - q: "Combien d’espace libre faut-il garder sur un Mac ?"
+    a: "Gardez au moins 15 à 20 % du disque libre. macOS a besoin de place pour la mémoire virtuelle, les fichiers temporaires et les mises à jour ; les mises à niveau majeures de macOS demandent des dizaines de Go."
+  - q: "Nettoyer le disque rend-il le Mac plus rapide ?"
+    a: "Cela aide quand le disque est presque plein, car macOS ralentit sans place pour le swap et les caches. Au-delà, l’espace libre ne rend pas un SSD plus rapide."
+  - q: "Est-ce sûr d’utiliser une app de nettoyage pour Mac ?"
+    a: "Oui, si elle montre tout avant suppression, place les fichiers dans la Corbeille et ignore les fichiers système — MacDiskCleaner fait les trois."
+---
+
+Cette liste est classée selon **l’espace que chaque étape libère généralement** : vous pouvez vous arrêter dès que vous avez assez de place. Chaque étape passe par la Corbeille ; rien n’est définitif avant la toute fin.
+
+## 1. Voir ce qui occupe l’espace
+
+Ouvrez **Réglages Système → Général → Stockage** et attendez que la barre se charge. Notez l’espace libre pour mesurer le résultat et appliquez les **Recommandations** utiles (Stocker dans iCloud, Optimiser le stockage, Vider la corbeille automatiquement).
+
+## 2. Supprimer les gros fichiers
+
+Cliquez sur le **ⓘ** à côté de Documents → **Fichiers volumineux**, ou cherchez par taille dans le Finder (<Kbd>⌘</Kbd> <Kbd>F</Kbd> → Taille du fichier → est supérieure à 1 Go). Toutes les méthodes : [trouver les gros fichiers](/blog/find-delete-large-files-mac).
+
+## 3. Vider Téléchargements
+
+Triez `~/Downloads` par taille. Installateurs, images disque et fichiers zip peuvent être supprimés une fois utilisés.
+
+## 4. Supprimer les doublons
+
+Les doublons s’accumulent avec les téléchargements répétés, les dossiers copiés et les importations de photos. Utilisez l’album **Doublons** de Photos pour votre photothèque et un outil de détection par contenu pour le reste — voir [photos et fichiers en double](/blog/duplicate-photos-mac).
+
+## 5. Vider caches et journaux
+
+Quittez vos apps, puis placez dans la Corbeille les dossiers d’apps de `~/Library/Caches` et les vieux fichiers de `~/Library/Logs`. Détails : [vider le cache sur Mac](/blog/clear-cache-mac).
+
+<DownloadCTA />
+
+## 6. Désinstaller correctement les apps
+
+Glisser une app dans la Corbeille laisse ses réglages et caches derrière elle. Après suppression, vérifiez `~/Library/Application Support`, `~/Library/Caches` et `~/Library/Containers` à la recherche de dossiers à son nom — ou utilisez un désinstallateur qui les trouve.
+
+## 7. Supprimer les vieilles sauvegardes d’iPhone et d’iPad
+
+Branchez l’appareil, sélectionnez-le dans le Finder et cliquez sur **Gérer les sauvegardes**, ou ouvrez `~/Library/Application Support/MobileSync/Backup`. Chaque ancienne sauvegarde peut peser des dizaines de Go.
+
+## 8. Nettoyer les Données système
+
+Instantanés locaux Time Machine, données Xcode et machines virtuelles comptent dans les Données système. Notre [guide des Données système](/clear-system-data-mac) donne les commandes exactes.
+
+## 9. Archiver les anciens projets sur un disque externe
+
+Photos, projets vidéo et travaux terminés rarement ouverts n’ont pas besoin de rester sur le SSD interne. Copiez-les sur un disque externe, vérifiez la copie, puis supprimez les originaux.
+
+## 10. Vider la Corbeille et redémarrer
+
+Appuyez sur <Kbd>⇧</Kbd> <Kbd>⌘</Kbd> <Kbd>⌫</Kbd> pour vider la Corbeille, puis redémarrez pour effacer les fichiers temporaires. Revérifiez le Stockage.
+
+## Les dix étapes en une seule analyse
+
+MacDiskCleaner couvre les étapes 2 à 8 en une passe : gros et anciens fichiers, téléchargements, doublons, caches et journaux, données de développement et restes d’apps, chacun avec sa taille et son emplacement. Vous choisissez ce qui part, et tout passe d’abord par la Corbeille. L’analyse est gratuite, tout comme les 2 premiers Go de nettoyage.
+
+## Combien d’espace pouvez-vous récupérer ?
+
+Tout dépend de l’usage du Mac. Ceux qui accumulent des années de téléchargements, de sauvegardes d’appareils ou d’outils de développement ont souvent des dizaines de Go à récupérer ; un Mac neuf, très peu. Une analyse gratuite vous le dit avant d’y passer du temps.

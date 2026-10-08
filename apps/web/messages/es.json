@@ -18,7 +18,7 @@
     "download": "Descargar gratis"
   },
   "hero": {
-    "badge": "Compatible con macOS Sequoia · Nativo para Apple Silicon",
+    "badge": "macOS 14+ · Nativo en Apple Silicon e Intel",
     "titleLine1": "El limpiador de Mac",
     "titleAccent": "hecho para tu Mac.",
     "subtitle": "Libera gigabytes de almacenamiento, elimina archivos basura ocultos, encuentra duplicados y mantén tu Mac como el primer día.",
@@ -33,10 +33,10 @@
   },
   "stats": {
     "items": [
-      { "num": "1M+", "label": "Descargas" },
-      { "num": "4.9★", "label": "Valoración media" },
-      { "num": "50 GB+", "label": "Espacio liberado en promedio" },
-      { "num": "24/7", "label": "Atención al cliente" }
+      { "num": "$12.99", "label": "Pro de pago único, sin suscripción" },
+      { "num": "2 GB", "label": "Limpieza gratis, sin prueba" },
+      { "num": "100%", "label": "Análisis en tu Mac" },
+      { "num": "30 días", "label": "Garantía de reembolso" }
     ]
   },
   "features": {
@@ -56,11 +56,11 @@
     "label": "Experiencia fluida",
     "title": "Diseñado para sentirse nativo.",
     "titleAccent": "Porque lo es.",
-    "body": "MacDiskCleaner está construido desde cero para macOS. Usa APIs nativas, respeta el modelo de seguridad de tu sistema y se integra a la perfección con Spotlight, Apple Silicon y más.",
+    "body": "MacDiskCleaner está construido desde cero para macOS. Usa APIs nativas, respeta el modelo de seguridad de tu sistema y funciona de forma nativa en Mac con Apple Silicon e Intel.",
     "points": [
       "Lenguaje de diseño nativo de macOS",
       "Optimizado para Apple Silicon e Intel",
-      "Arquitectura aislada (sandboxed) y centrada en la privacidad",
+      "Análisis solo local, centrado en la privacidad",
       "Los escaneos programados se ejecutan en segundo plano de forma silenciosa"
     ]
   },
@@ -146,5 +146,83 @@
     "downloadCta": "Descargar MacDiskCleaner",
     "supportNote": "¿No recibiste el correo? Revisa tu carpeta de spam o contacta a support@macdiskcleaner.com.",
     "appNote": "¿Compraste desde la app? Vuelve a MacDiskCleaner: Pro se activa solo en unos segundos. No hace falta pegar nada."
+  },
+  "common": {
+    "home": "MacDiskCleaner",
+    "download": "Descargar gratis",
+    "downloadForMac": "Descargar gratis para Mac",
+    "ctaTitle": "¿Listo para limpiar tu Mac?",
+    "ctaSubtitle": "Descarga gratuita. No necesitas crear una cuenta para empezar.",
+    "versionLine": "Versión {version} · {size} MB · macOS 14 o posterior · Apple Silicon e Intel",
+    "faqTitle": "Preguntas frecuentes",
+    "relatedTitle": "Guías relacionadas",
+    "updated": "Actualizado el {date}",
+    "readTime": "{minutes} min de lectura",
+    "quickAnswer": "Respuesta rápida",
+    "inlineCtaTitle": "Hazlo en un solo análisis con MacDiskCleaner",
+    "inlineCtaText": "Encuentra archivos basura, duplicados y archivos grandes en todo tu Mac, te lo muestra todo gratis y mueve primero a la Papelera lo que elijas, para que nada se pierda por error.",
+    "allGuides": "Todas las guías",
+    "blogTitle": "Guías para limpiar tu Mac y liberar espacio",
+    "blogDescription": "Guías prácticas y precisas para liberar espacio en un Mac: archivos basura, Datos del sistema, duplicados, archivos grandes, la Papelera y más.",
+    "blogH1": "Guías para limpiar tu Mac",
+    "blogLead": "Guías prácticas y precisas para liberar espacio y mantener tu Mac rápido.",
+    "blogBreadcrumb": "Blog"
+  },
+  "footerLinks": {
+    "developers": "Para desarrolladores",
+    "changelog": "Novedades",
+    "safety": "Seguridad",
+    "vsCleanMyMac": "vs. CleanMyMac",
+    "contact": "Contacto",
+    "download": "Descargar",
+    "guides": "Guías",
+    "systemData": "Datos del sistema"
+  },
+  "downloadStarter": {
+    "started": "Tu descarga ha comenzado",
+    "notStarted": "¿No ha empezado? <link>Haz clic aquí para descargar</link>.",
+    "firstTime": "Cómo abrirlo la primera vez (20 segundos, solo una vez):",
+    "step1": "Abre el archivo descargado <b>MacDiskCleaner.dmg</b> y arrastra <b>MacDiskCleaner</b> a la carpeta <b>Aplicaciones</b>.",
+    "step2": "Abre MacDiskCleaner desde Aplicaciones. macOS mostrará <i>\"Apple no ha podido verificar…\"</i>: ciérralo con el botón de la izquierda, sin eliminar la app. <warn>Nunca hagas clic en \"Trasladar a la Papelera\".</warn>",
+    "step3": "Abre <b>Ajustes del Sistema → Privacidad y seguridad</b>, baja hasta <i>\"Se ha bloqueado MacDiskCleaner\"</i>, haz clic en <b>Abrir igualmente</b> y confirma con tu contraseña.",
+    "openSettings": "Abrir Privacidad y seguridad",
+    "step4": "Listo: a partir de ahora se abre con normalidad y las actualizaciones se instalan solas, sin avisos.",
+    "zeroTitle": "¿Prefieres que no aparezca ningún aviso?",
+    "zeroText": "Pega esto en Terminal: instala y abre la app sin ningún aviso de seguridad:"
+  },
+  "contact": {
+    "metaTitle": "Contactar con el soporte de MacDiskCleaner",
+    "metaDescription": "Preguntas, errores o sugerencias para MacDiskCleaner: escríbenos. Respondemos en 1–2 días laborables.",
+    "title": "Contacta con nosotros",
+    "lead": "Preguntas, errores o ideas: lo leemos todo y respondemos en 1–2 días laborables.",
+    "sentTitle": "Mensaje enviado",
+    "sentText": "Gracias, te responderemos pronto.",
+    "sendAnother": "Enviar otro mensaje",
+    "name": "Nombre",
+    "email": "Correo electrónico",
+    "topic": "Tema",
+    "message": "Mensaje",
+    "send": "Enviar mensaje",
+    "catGeneral": "Pregunta general",
+    "catSupport": "Soporte / problema técnico",
+    "catBug": "Informar de un error",
+    "catSuggestion": "Sugerencia de función",
+    "errorGeneric": "Algo ha fallado. Inténtalo de nuevo o escríbenos directamente al correo de abajo.",
+    "errorNetwork": "No se pudo conectar con el servidor. Comprueba tu conexión y vuelve a intentarlo, o escríbenos al correo de abajo.",
+    "emailNote": "¿Prefieres el correo? Escríbenos a <mail>support@macdiskcleaner.com</mail>. Si tienes Pro, incluye tu clave de licencia para una atención prioritaria."
+  },
+  "notFound": {
+    "title": "Esta página no existe.",
+    "text": "Puede que el enlace sea antiguo o tenga un error. Estos son los lugares que la mayoría busca:",
+    "home": "Inicio",
+    "pricing": "Precios",
+    "guides": "Guías",
+    "contact": "Contactar con soporte"
+  },
+  "cookie": {
+    "text": "Este sitio usa analítica respetuosa con la privacidad para saber qué páginas son útiles: sin anuncios y sin vender datos. Consulta nuestra <link>Política de privacidad</link>.",
+    "decline": "Rechazar",
+    "accept": "Aceptar",
+    "label": "Preferencias de cookies"
   }
 }

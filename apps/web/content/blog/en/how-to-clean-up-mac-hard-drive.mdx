@@ -1,40 +1,70 @@
 ---
-title: "How to Clean Up Your Mac Hard Drive: The Complete Guide"
-description: "A complete, prioritized checklist for freeing up disk space on a Mac — from the biggest wins first to the small stuff, with a free-tool option at each step."
+title: "How to Clean Up Your Mac Hard Drive: A 10-Step Checklist"
+description: "A prioritised, safe checklist to clean up a Mac hard drive or SSD — biggest wins first: large files, duplicates, downloads, junk, apps, backups, System Data and the Trash — with free methods for each step."
 date: "2026-01-27"
-keywords: ["how to clean up your mac hard drive", "mac storage cleaner", "mac storage cleaner app"]
+updated: "2026-10-09"
+keywords: ["how to clean up your mac hard drive", "clean mac hard drive", "how to clean mac hard drive", "mac storage cleaner", "mac storage cleaner app", "clean up mac storage", "free up space on mac"]
+tldr: "To clean up a Mac hard drive, start with Storage recommendations (System Settings → General → Storage), then remove large files and old downloads, delete duplicates, clear caches and logs, uninstall unused apps with their leftovers, delete old iPhone backups and Time Machine snapshots, clear developer data, and finally empty the Trash and restart. Move files to the Trash first so every step is reversible."
+related: ["disk-cleanup-mac", "find-delete-large-files-mac", "how-to-clean-junk-files-mac"]
+faq:
+  - q: "What is the fastest way to free up space on a Mac?"
+    a: "Delete or move a few large files: old downloads, videos and installers. Storage settings → Documents → Large Files lists them in seconds."
+  - q: "How much free space should a Mac have?"
+    a: "Aim to keep at least 15–20% of the disk free. macOS needs room for virtual memory, temporary files and updates; major macOS upgrades need tens of gigabytes."
+  - q: "Does cleaning the hard drive make a Mac faster?"
+    a: "It helps when the disk is nearly full, because macOS slows down without room for swap and caches. Beyond that, free space doesn’t make an SSD faster."
+  - q: "Is it safe to use a Mac cleaner app?"
+    a: "Yes, if it shows you everything before deleting, moves files to the Trash and skips system files — MacDiskCleaner does all three."
 ---
 
-If your Mac is running low on space, don't start with the small stuff — start with whichever of these gives you the biggest win first. This checklist is ordered by typical impact.
+This checklist is ordered by **how much space each step usually recovers**, so you can stop as soon as you have enough. Every step uses the Trash, so nothing is permanent until the very end.
 
-## 1. Find and remove large files (usually the biggest win)
+## 1. Check what’s using space
 
-Old video exports, downloaded disk images, and forgotten archives are often the single largest recoverable chunk of space. Sort your Downloads folder by size, and check `~/Movies` and `~/Downloads` specifically — these accumulate large files fastest.
+Open **System Settings → General → Storage** and wait for the bar to load. Note your free space so you can measure the result, and apply any **Recommendations** that suit you (Store in iCloud, Optimise Storage, Empty Trash Automatically).
 
-## 2. Find and remove duplicate files
+## 2. Remove large files
 
-Photos imported twice, downloaded files saved in multiple places, duplicate PDFs — these add up without you noticing. A duplicate finder that hashes file contents (not just filenames) catches copies even when they've been renamed.
+Click the **ⓘ** next to Documents → **Large Files**, or search in Finder by size (<Kbd>⌘</Kbd> <Kbd>F</Kbd> → File Size → is greater than 1 GB). Full methods: [how to find large files](/blog/find-delete-large-files-mac).
 
-## 3. Clean junk files (caches, logs, temp files)
+## 3. Clear out Downloads
 
-See our dedicated guide on [cleaning junk files on Mac](/blog/how-to-clean-junk-files-mac) — this alone commonly recovers several gigabytes on a Mac that hasn't been cleaned in a while.
+Sort `~/Downloads` by size. Installers, disk images and zip files are safe to delete once you’ve used them.
 
-## 4. Uninstall apps properly — including their leftovers
+## 4. Delete duplicate files
 
-Dragging an app to Trash leaves its support files, caches, and preferences behind in `~/Library`. Over time, this "ghost data" from apps you removed years ago can add up to gigabytes. A proper uninstaller removes the app and its leftovers together.
+Duplicates pile up from repeated downloads, copied folders and photo imports. Use the Photos **Duplicates** album for your library and a hash-based duplicate finder for everything else — see [duplicate photos and files](/blog/duplicate-photos-mac).
 
-## 5. Clear old iOS/iPadOS backups and unused disk images
+## 5. Clear caches and logs
 
-If you've ever backed up an iPhone or iPad to this Mac via Finder, or mounted a `.dmg` installer without deleting it afterward, check `~/Library/Application Support/MobileSync/Backup` and your Downloads folder respectively.
+Quit your apps, then move app folders in `~/Library/Caches` and old files in `~/Library/Logs` to the Trash. Details: [how to clear cache on Mac](/blog/clear-cache-mac).
 
-## 6. Empty the Trash
+<DownloadCTA />
 
-Easy to forget — deleting a file doesn't reclaim the space until Trash is actually emptied.
+## 6. Uninstall apps properly
 
-## Do all six steps in one pass
+Dragging an app to the Trash leaves settings and caches behind. After removing an app, check `~/Library/Application Support`, `~/Library/Caches` and `~/Library/Containers` for folders with its name — or use an uninstaller that finds them for you.
 
-Doing this manually across six different locations takes real time and requires knowing where to look. [MacDiskCleaner](/#features) runs a single scan that covers all six categories above — large files, duplicates, junk, leftover app data, and more — and shows you the total recoverable space before you delete anything.
+## 7. Delete old iPhone and iPad backups
 
-## How much space should I expect to recover?
+Connect your device, select it in Finder and click **Manage Backups**, or open `~/Library/Application Support/MobileSync/Backup`. Each old backup can be tens of gigabytes.
 
-For a Mac that's never been cleaned, 20–50 GB is common. For a Mac cleaned regularly, expect a smaller but still meaningful amount from caches and logs that regenerate over weeks of normal use.
+## 8. Clean up System Data
+
+Time Machine local snapshots, Xcode data and virtual machines all count as System Data. Our [System Data guide](/clear-system-data-mac) has the exact commands.
+
+## 9. Archive old projects to an external drive
+
+Photos, video projects and finished work you rarely open don’t need to live on your internal SSD. Copy them to an external drive, check the copy, then remove the originals.
+
+## 10. Empty the Trash and restart
+
+Press <Kbd>⇧</Kbd> <Kbd>⌘</Kbd> <Kbd>⌫</Kbd> to empty the Trash, then restart to clear temporary files. Check Storage again.
+
+## Do all ten steps in one scan
+
+MacDiskCleaner covers steps 2 to 8 in one pass: large and old files, downloads, duplicates, caches and logs, developer data and app leftovers, each with its size and location. You choose what goes and everything is moved to the Trash first. Scanning is free, and so is the first 2 GB of cleanup.
+
+## How much space can you expect to recover?
+
+It depends entirely on how the Mac has been used. Macs with years of downloads, device backups or developer tools often have tens of gigabytes to reclaim; a new Mac may have very little. A free scan tells you before you spend any time.

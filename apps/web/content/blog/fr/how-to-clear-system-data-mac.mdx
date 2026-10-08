@@ -1,0 +1,99 @@
+---
+title: "Pourquoi les Données système prennent-elles autant de place sur Mac ? (Plus de 100 Go : causes et solutions)"
+description: "Données système de plus de 100 Go sur votre Mac ? Voici les causes habituelles — instantanés Time Machine, sauvegardes d’iPhone, Xcode, caches, Docker et machines virtuelles —, comment vérifier chacune et les réduire sans risque."
+date: "2026-01-20"
+updated: "2026-10-09"
+keywords: ["données système mac plus de 100 go", "données système mac", "supprimer données système mac", "réduire données système mac", "données système mac trop volumineuses", "nettoyer données système mac"]
+tldr: "Quand les Données système dépassent 100 Go sur un Mac, la cause est presque toujours l’une de ces cinq : instantanés locaux Time Machine, vieilles sauvegardes d’iPhone/iPad, données Xcode et simulateurs, image disque Docker ou de machine virtuelle, ou caches d’apps démesurés. Vérifiez chacune avec les commandes ci-dessous, supprimez l’inutile, videz la Corbeille et redémarrez. Ne touchez ni à /System ni aux fichiers protégés."
+related: ["mac-running-out-of-storage-fix-guide", "clear-cache-mac", "disk-cleanup-mac"]
+faq:
+  - q: "Est-il normal que les Données système fassent 100 Go ?"
+    a: "Quelques dizaines de Go, c’est courant. Au-delà de 100 Go, il y a presque toujours un coupable précis : instantanés, sauvegardes d’appareils, Xcode ou image de machine virtuelle."
+  - q: "Pourquoi mes Données système ont-elles soudain augmenté ?"
+    a: "Déclencheurs typiques : un gros téléchargement ou une mise à jour, une nouvelle sauvegarde d’iPhone, l’activation de Time Machine, l’installation de Xcode ou d’un simulateur, ou une machine virtuelle ou Docker qui grossit."
+  - q: "Peut-on supprimer les Données système sur Mac ?"
+    a: "Pas d’un seul bloc, mais on peut supprimer ce qui les compose : anciens instantanés, sauvegardes, caches, journaux, données de développement et restes d’apps supprimées."
+  - q: "Réinstaller macOS réduit-il les Données système ?"
+    a: "Cela vaut rarement la peine. La réinstallation conserve vos données utilisateur, et les gros éléments se trouvent presque toujours dans votre Library : le chiffre revient en général."
+---
+
+« Données système » (« Autres » sur les anciennes versions de macOS) est la catégorie fourre-tout du stockage de votre Mac. Quelques dizaines de Go, c’est normal. Quand elle atteint **100 Go ou plus**, quelque chose de précis en est presque toujours responsable. Ce guide montre comment le trouver. Pour la procédure complète pas à pas, voyez [comment supprimer les Données système](/clear-system-data-mac).
+
+## D’abord : obtenir un chiffre fiable
+
+Ouvrez **Réglages Système → Général → Stockage** et laissez le calcul se terminer : le premier chiffre est souvent trop élevé. Redémarrez ensuite et vérifiez à nouveau : le redémarrage efface swap et fichiers temporaires et laisse macOS purger les instantanés devenus inutiles.
+
+## Cause 1 : les instantanés locaux Time Machine
+
+Si Time Machine est actif, macOS crée chaque heure des **instantanés locaux** sur le disque interne, surtout quand le disque de sauvegarde n’est pas branché. Ils comptent dans les Données système.
+
+```bash
+tmutil listlocalsnapshots /
+```
+
+S’il y en a beaucoup, branchez le disque de sauvegarde et laissez une sauvegarde se terminer, ou supprimez les anciens par date :
+
+```bash
+sudo tmutil deletelocalsnapshots 2026-09-15-101500
+```
+
+macOS les supprime automatiquement quand il manque de place, mais la barre de Stockage ne le reflète pas toujours tout de suite.
+
+## Cause 2 : les vieilles sauvegardes d’iPhone et d’iPad
+
+Chaque sauvegarde locale d’un appareil peut peser **des dizaines de Go**, et les anciennes ne sont jamais supprimées automatiquement. Regardez dans :
+
+`~/Library/Application Support/MobileSync/Backup`
+
+Ou branchez l’appareil, sélectionnez-le dans la barre latérale du Finder et cliquez sur **Gérer les sauvegardes** pour supprimer les anciennes.
+
+## Cause 3 : Xcode, simulateurs et outils de développement
+
+Si vous avez déjà installé Xcode, vérifiez `~/Library/Developer`. DerivedData, les fichiers DeviceSupport iOS et les anciens runtimes de simulateur atteignent facilement 50 Go ou plus.
+
+```bash
+du -sh ~/Library/Developer/* 2>/dev/null
+xcrun simctl delete unavailable
+```
+
+Notre [page développeurs](/developers) explique quels dossiers on peut supprimer.
+
+## Cause 4 : Docker, machines virtuelles et émulateurs
+
+Docker Desktop stocke conteneurs et images dans un seul fichier image disque qui grossit mais rétrécit rarement ; UTM, Parallels et VMware stockent des machines virtuelles entières sous forme de fichiers. Vérifiez leur taille dans les réglages de chaque app, et récupérez l’espace de Docker avec :
+
+```bash
+docker system prune
+```
+
+(Lisez ce qui sera supprimé avant de confirmer : les conteneurs arrêtés et les images inutilisées.)
+
+## Cause 5 : caches et journaux
+
+Navigateurs, apps de streaming, outils de création et messageries peuvent chacun garder plusieurs Go dans `~/Library/Caches`. Journaux et rapports de plantage se trouvent dans `~/Library/Logs`. Voyez [comment vider le cache sans risque](/blog/clear-cache-mac).
+
+<DownloadCTA />
+
+## Cause 6 : les restes d’apps supprimées
+
+Glisser une app dans la Corbeille laisse ses fichiers de support dans `~/Library/Application Support` et `~/Library/Containers`. Jeux, logiciels de montage vidéo et instruments virtuels peuvent laisser des dossiers énormes.
+
+## Trouver vous-même les plus gros dossiers
+
+Cette commande liste les plus gros dossiers de votre Library, le plus gros en dernier :
+
+```bash
+du -sh ~/Library/* 2>/dev/null | sort -h | tail -15
+```
+
+Avancez du plus gros au plus petit, mais ne supprimez jamais `Keychains`, `Preferences` ni les conteneurs des apps que vous utilisez encore.
+
+## Ce qu’il ne faut pas faire
+
+- **Ne désactivez pas la Protection de l’intégrité du système** et ne supprimez rien dans `/System` : cela ne réduira pas utilement les Données système et peut endommager macOS.
+- **N’effacez pas le disque** pour corriger le chiffre, sauf avec une sauvegarde complète et une vraie raison.
+- **Méfiez-vous des « nettoyeurs » qui promettent de supprimer les Données système en un clic** sans montrer ce qu’elles contiennent.
+
+## La méthode rapide
+
+Une analyse MacDiskCleaner détaille les caches utilisateur, journaux, données de développement et restes d’apps qui composent l’essentiel des Données système, avec leur taille, et place votre sélection dans la Corbeille. L’analyse est gratuite : vous voyez où est passé votre espace avant de décider quoi que ce soit.
