@@ -26,7 +26,7 @@ export const pricingCopy: Localized<PricingCopy> = {
   en: {
     metaTitle: 'MacDiskCleaner Pricing — Free Tier & $12.99 One-Time Pro (No Subscription)',
     metaDescription:
-      'MacDiskCleaner pricing: scan everything free and clean up to 2 GB at no cost, then unlock unlimited cleanup with a $12.99 one-time Pro purchase — no subscription, 30-day refund.',
+      'MacDiskCleaner pricing: scan free and clean up to 2 GB at no cost, then unlimited cleanup with Pro for $12.99 once. No subscription, 30-day refund.',
     breadcrumb: 'Pricing',
     h1: 'Simple. Honest.',
     h1Accent: 'One price.',
@@ -77,7 +77,7 @@ export const pricingCopy: Localized<PricingCopy> = {
   es: {
     metaTitle: 'Precios de MacDiskCleaner: plan gratuito y Pro por 12,99 $ (pago único, sin suscripción)',
     metaDescription:
-      'Precios de MacDiskCleaner: analiza todo gratis y limpia hasta 2 GB sin coste; después, limpieza ilimitada con Pro por un único pago de 12,99 $. Sin suscripción y con reembolso de 30 días.',
+      'Precios de MacDiskCleaner: analiza gratis y limpia hasta 2 GB; después, Pro por 12,99 $ una sola vez. Sin suscripción y con reembolso de 30 días.',
     breadcrumb: 'Precios',
     h1: 'Sencillo. Honesto.',
     h1Accent: 'Un solo precio.',
@@ -128,7 +128,7 @@ export const pricingCopy: Localized<PricingCopy> = {
   de: {
     metaTitle: 'MacDiskCleaner Preise: Gratis-Version & Pro für einmalig 12,99 $ (kein Abo)',
     metaDescription:
-      'MacDiskCleaner Preise: alles kostenlos scannen und bis zu 2 GB gratis aufräumen, danach unbegrenzt aufräumen mit Pro für einmalig 12,99 $ – kein Abo, 30 Tage Geld-zurück-Garantie.',
+      'MacDiskCleaner Preise: gratis scannen und bis zu 2 GB aufräumen, danach Pro für einmalig 12,99 $. Kein Abo, 30 Tage Geld-zurück-Garantie.',
     breadcrumb: 'Preise',
     h1: 'Einfach. Ehrlich.',
     h1Accent: 'Ein Preis.',
@@ -179,7 +179,7 @@ export const pricingCopy: Localized<PricingCopy> = {
   fr: {
     metaTitle: 'Tarifs MacDiskCleaner : offre gratuite et Pro à 12,99 $ en paiement unique (sans abonnement)',
     metaDescription:
-      'Tarifs MacDiskCleaner : analysez tout gratuitement et nettoyez jusqu’à 2 Go sans frais, puis nettoyage illimité avec Pro pour 12,99 $ en une seule fois — sans abonnement, remboursement sous 30 jours.',
+      'Tarifs MacDiskCleaner : analyse gratuite et 2 Go nettoyés sans frais, puis Pro à 12,99 $ une seule fois. Sans abonnement, remboursé sous 30 jours.',
     breadcrumb: 'Tarifs',
     h1: 'Simple. Honnête.',
     h1Accent: 'Un seul prix.',

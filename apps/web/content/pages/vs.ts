@@ -30,7 +30,7 @@ export const vsCleanMyMac: Localized<ComparisonCopy> = {
   en: {
     metaTitle: 'MacDiskCleaner vs CleanMyMac (2026): One-Time $12.99 vs Subscription — Full Comparison',
     metaDescription:
-      'MacDiskCleaner vs CleanMyMac (with OnyX for reference): subscription vs one-time price, free tiers, duplicate and large-file finders, uninstallers, malware tools and safety — compared honestly.',
+      'MacDiskCleaner vs CleanMyMac, with OnyX for reference: subscription vs one-time price, free tiers, features, malware tools and safety compared.',
     breadcrumb: 'vs. CleanMyMac',
     h1: 'MacDiskCleaner vs CleanMyMac',
     lead: 'Two popular Mac cleaners with very different price models — a yearly subscription versus a one-time $12.99 — plus the free OnyX for reference. Here is an honest side-by-side so you can pick the right one.',
@@ -78,7 +78,7 @@ export const vsCleanMyMac: Localized<ComparisonCopy> = {
   es: {
     metaTitle: 'MacDiskCleaner vs CleanMyMac (2026): 12,99 $ una vez o suscripción — comparativa completa',
     metaDescription:
-      'CleanMyMac vs OnyX vs MacDiskCleaner, comparados con honestidad: suscripción o pago único, planes gratuitos, buscadores de duplicados y archivos grandes, desinstaladores, antimalware y seguridad.',
+      'MacDiskCleaner vs CleanMyMac, con OnyX como referencia: suscripción o pago único, planes gratuitos, funciones, antimalware y seguridad.',
     breadcrumb: 'vs. CleanMyMac',
     h1: 'MacDiskCleaner vs CleanMyMac',
     lead: 'Dos limpiadores de Mac populares con modelos de precio muy distintos —suscripción anual frente a un pago único de 12,99 $—, con OnyX, gratuito, como referencia. Aquí tienes una comparativa honesta para elegir bien.',
@@ -126,7 +126,7 @@ export const vsCleanMyMac: Localized<ComparisonCopy> = {
   de: {
     metaTitle: 'MacDiskCleaner vs CleanMyMac (2026): einmalig 12,99 $ oder Abo – der komplette Vergleich',
     metaDescription:
-      'CleanMyMac vs OnyX vs MacDiskCleaner ehrlich verglichen: Abo oder Einmalkauf, Gratis-Versionen, Duplikat- und Große-Dateien-Finder, Deinstallation, Malware-Scan und Sicherheit.',
+      'MacDiskCleaner vs CleanMyMac, mit OnyX als Referenz: Abo oder Einmalkauf, Gratis-Versionen, Funktionen, Malware-Schutz und Sicherheit.',
     breadcrumb: 'vs. CleanMyMac',
     h1: 'MacDiskCleaner vs CleanMyMac',
     lead: 'Zwei beliebte Mac Cleaner mit sehr unterschiedlichem Preismodell – Jahresabo gegen einmalig 12,99 $ – plus das kostenlose OnyX als Referenz. Hier der ehrliche Vergleich, damit du das Passende wählst.',
@@ -174,7 +174,7 @@ export const vsCleanMyMac: Localized<ComparisonCopy> = {
   fr: {
     metaTitle: 'MacDiskCleaner vs CleanMyMac (2026) : 12,99 $ une fois ou abonnement — comparatif complet',
     metaDescription:
-      'CleanMyMac vs OnyX vs MacDiskCleaner, comparés honnêtement : abonnement ou paiement unique, offres gratuites, recherche de doublons et de gros fichiers, désinstallation, antimalware et sécurité.',
+      'MacDiskCleaner vs CleanMyMac, avec OnyX en référence : abonnement ou paiement unique, offres gratuites, fonctions, antimalware et sécurité.',
     breadcrumb: 'vs. CleanMyMac',
     h1: 'MacDiskCleaner vs CleanMyMac',
     lead: 'Deux nettoyeurs Mac populaires aux modèles de prix très différents — abonnement annuel contre 12,99 $ une seule fois — avec OnyX, gratuit, en référence. Voici un comparatif honnête pour bien choisir.',
@@ -225,7 +225,7 @@ export const vsOnyx: Localized<ComparisonCopy> = {
   en: {
     metaTitle: 'MacDiskCleaner vs OnyX (2026): Which Free Mac Cleaner Is Right for You?',
     metaDescription:
-      'OnyX vs MacDiskCleaner: OnyX is a free maintenance toolbox for advanced users; MacDiskCleaner is a guided cleaner with duplicate and large-file finders and a free tier. Full comparison.',
+      'OnyX vs MacDiskCleaner: a free maintenance toolbox for advanced users vs a guided cleaner with duplicate and large-file finders and a free tier.',
     breadcrumb: 'vs. OnyX',
     h1: 'MacDiskCleaner vs OnyX',
     lead: 'OnyX is a free, powerful maintenance utility for technically confident users. MacDiskCleaner is guided and beginner-friendly, and finds the duplicates and large files OnyX doesn’t look for.',
@@ -273,7 +273,7 @@ export const vsOnyx: Localized<ComparisonCopy> = {
   es: {
     metaTitle: 'MacDiskCleaner vs OnyX (2026): ¿qué limpiador de Mac gratis te conviene?',
     metaDescription:
-      'OnyX vs MacDiskCleaner: OnyX es una caja de herramientas de mantenimiento gratuita para usuarios avanzados; MacDiskCleaner es un limpiador guiado con buscador de duplicados y archivos grandes y plan gratuito.',
+      'OnyX vs MacDiskCleaner: herramientas de mantenimiento gratis para expertos frente a un limpiador guiado con buscador de duplicados y plan gratuito.',
     breadcrumb: 'vs. OnyX',
     h1: 'MacDiskCleaner vs OnyX',
     lead: 'OnyX es una utilidad de mantenimiento gratuita y potente para usuarios con conocimientos. MacDiskCleaner es guiado y sencillo, y encuentra los duplicados y archivos grandes que OnyX no busca.',
@@ -321,7 +321,7 @@ export const vsOnyx: Localized<ComparisonCopy> = {
   de: {
     metaTitle: 'MacDiskCleaner vs OnyX (2026): Welcher kostenlose Mac Cleaner passt zu dir?',
     metaDescription:
-      'OnyX vs MacDiskCleaner: OnyX ist ein kostenloser Wartungs-Werkzeugkasten für Fortgeschrittene, MacDiskCleaner ein geführter Cleaner mit Duplikat- und Große-Dateien-Finder und Gratis-Version.',
+      'OnyX vs MacDiskCleaner: kostenloser Wartungs-Werkzeugkasten für Profis gegen geführten Cleaner mit Duplikat-Finder und Gratis-Version.',
     breadcrumb: 'vs. OnyX',
     h1: 'MacDiskCleaner vs OnyX',
     lead: 'OnyX ist ein kostenloses, mächtiges Wartungstool für technisch versierte Nutzer. MacDiskCleaner ist geführt und einsteigerfreundlich und findet die Duplikate und großen Dateien, nach denen OnyX nicht sucht.',
@@ -369,7 +369,7 @@ export const vsOnyx: Localized<ComparisonCopy> = {
   fr: {
     metaTitle: 'MacDiskCleaner vs OnyX (2026) : quel nettoyeur Mac gratuit choisir ?',
     metaDescription:
-      'OnyX vs MacDiskCleaner : OnyX est une boîte à outils de maintenance gratuite pour utilisateurs avancés ; MacDiskCleaner est un nettoyeur guidé avec recherche de doublons et de gros fichiers et offre gratuite.',
+      'OnyX vs MacDiskCleaner : boîte à outils de maintenance gratuite pour experts ou nettoyeur guidé avec détection des doublons et offre gratuite.',
     breadcrumb: 'vs. OnyX',
     h1: 'MacDiskCleaner vs OnyX',
     lead: 'OnyX est un utilitaire de maintenance gratuit et puissant pour les utilisateurs avertis. MacDiskCleaner est guidé et accessible, et trouve les doublons et gros fichiers qu’OnyX ne cherche pas.',
@@ -420,7 +420,7 @@ export const vsDaisyDisk: Localized<ComparisonCopy> = {
   en: {
     metaTitle: 'MacDiskCleaner vs DaisyDisk (2026): Disk Map vs Guided Cleaner',
     metaDescription:
-      'DaisyDisk vs MacDiskCleaner: DaisyDisk ($9.99) maps your disk visually and you delete manually; MacDiskCleaner finds junk, duplicates and large files and has a free tier. Full comparison.',
+      'DaisyDisk ($9.99) maps your disk and you delete by hand; MacDiskCleaner finds junk, duplicates and large files for you, with a free tier.',
     breadcrumb: 'vs. DaisyDisk',
     h1: 'MacDiskCleaner vs DaisyDisk',
     lead: 'DaisyDisk draws a beautiful map of your disk, then you decide what to delete. MacDiskCleaner goes looking for junk, duplicates and large files for you — and has a genuinely free tier.',
@@ -466,7 +466,7 @@ export const vsDaisyDisk: Localized<ComparisonCopy> = {
   es: {
     metaTitle: 'MacDiskCleaner vs DaisyDisk (2026): mapa del disco o limpiador guiado',
     metaDescription:
-      'DaisyDisk vs MacDiskCleaner: DaisyDisk (9,99 $) muestra un mapa visual del disco y tú borras a mano; MacDiskCleaner encuentra basura, duplicados y archivos grandes y tiene plan gratuito.',
+      'DaisyDisk (9,99 $) muestra un mapa del disco y borras a mano; MacDiskCleaner encuentra basura, duplicados y archivos grandes, con plan gratuito.',
     breadcrumb: 'vs. DaisyDisk',
     h1: 'MacDiskCleaner vs DaisyDisk',
     lead: 'DaisyDisk dibuja un mapa precioso de tu disco y luego tú decides qué borrar. MacDiskCleaner busca por ti archivos basura, duplicados y archivos grandes, y tiene un plan gratuito de verdad.',
@@ -512,7 +512,7 @@ export const vsDaisyDisk: Localized<ComparisonCopy> = {
   de: {
     metaTitle: 'MacDiskCleaner vs DaisyDisk (2026): Speicher-Karte vs geführter Cleaner',
     metaDescription:
-      'DaisyDisk vs MacDiskCleaner: DaisyDisk (9,99 $) zeigt eine visuelle Speicherkarte, gelöscht wird manuell; MacDiskCleaner findet Datenmüll, Duplikate und große Dateien und hat eine Gratis-Version.',
+      'DaisyDisk (9,99 $) zeigt eine Speicherkarte, gelöscht wird von Hand; MacDiskCleaner findet Datenmüll, Duplikate und große Dateien – auch gratis.',
     breadcrumb: 'vs. DaisyDisk',
     h1: 'MacDiskCleaner vs DaisyDisk',
     lead: 'DaisyDisk zeichnet eine schöne Karte deiner Festplatte – dann entscheidest du, was weg kann. MacDiskCleaner sucht Datenmüll, Duplikate und große Dateien für dich und hat eine wirklich kostenlose Version.',
@@ -558,7 +558,7 @@ export const vsDaisyDisk: Localized<ComparisonCopy> = {
   fr: {
     metaTitle: 'MacDiskCleaner vs DaisyDisk (2026) : carte du disque ou nettoyeur guidé',
     metaDescription:
-      'DaisyDisk vs MacDiskCleaner : DaisyDisk (9,99 $) affiche une carte visuelle du disque et vous supprimez à la main ; MacDiskCleaner trouve fichiers inutiles, doublons et gros fichiers et propose une offre gratuite.',
+      'DaisyDisk (9,99 $) cartographie le disque et vous supprimez à la main ; MacDiskCleaner trouve fichiers inutiles, doublons et gros fichiers, gratuitement.',
     breadcrumb: 'vs. DaisyDisk',
     h1: 'MacDiskCleaner vs DaisyDisk',
     lead: 'DaisyDisk dessine une superbe carte de votre disque, puis c’est à vous de décider quoi supprimer. MacDiskCleaner cherche pour vous les fichiers inutiles, doublons et gros fichiers — avec une offre vraiment gratuite.',

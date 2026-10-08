@@ -39,7 +39,7 @@ export const downloadsCopy: Localized<DownloadsCopy> = {
   en: {
     metaTitle: 'Download MacDiskCleaner for Mac — Free, Apple Silicon & Intel',
     metaDescription:
-      'Download the latest MacDiskCleaner: one universal app for Apple Silicon and Intel Macs running macOS 14 or later. Free, no account required, verified with a published SHA-256 checksum.',
+      'Download the latest MacDiskCleaner: one free, universal app for Apple Silicon and Intel Macs on macOS 14+. No account, verified SHA-256 checksum.',
     breadcrumb: 'Download',
     h1: 'One download.',
     h1Accent: 'Every Mac.',
@@ -93,7 +93,7 @@ export const downloadsCopy: Localized<DownloadsCopy> = {
   es: {
     metaTitle: 'Descargar MacDiskCleaner para Mac: gratis, Apple Silicon e Intel',
     metaDescription:
-      'Descarga la última versión de MacDiskCleaner: una sola app universal para Mac con Apple Silicon e Intel con macOS 14 o posterior. Gratis, sin cuenta y verificada con suma SHA-256 publicada.',
+      'Descarga la última versión de MacDiskCleaner: una app gratis y universal para Mac Apple Silicon e Intel con macOS 14+. Sin cuenta, con SHA-256.',
     breadcrumb: 'Descargar',
     h1: 'Una descarga.',
     h1Accent: 'Todos los Mac.',
@@ -142,7 +142,7 @@ export const downloadsCopy: Localized<DownloadsCopy> = {
   de: {
     metaTitle: 'MacDiskCleaner für Mac herunterladen – kostenlos, Apple Silicon & Intel',
     metaDescription:
-      'Lade die neueste Version von MacDiskCleaner: eine universelle App für Macs mit Apple Silicon und Intel ab macOS 14. Kostenlos, ohne Konto, geprüft mit veröffentlichter SHA-256-Prüfsumme.',
+      'Neueste Version von MacDiskCleaner laden: eine kostenlose, universelle App für Apple-Silicon- und Intel-Macs ab macOS 14. Ohne Konto, mit SHA-256.',
     breadcrumb: 'Download',
     h1: 'Ein Download.',
     h1Accent: 'Jeder Mac.',
@@ -191,7 +191,7 @@ export const downloadsCopy: Localized<DownloadsCopy> = {
   fr: {
     metaTitle: 'Télécharger MacDiskCleaner pour Mac — gratuit, Apple Silicon et Intel',
     metaDescription:
-      'Téléchargez la dernière version de MacDiskCleaner : une seule app universelle pour les Mac Apple Silicon et Intel sous macOS 14 ou ultérieur. Gratuit, sans compte, vérifiable par somme SHA-256 publiée.',
+      'Téléchargez la dernière version de MacDiskCleaner : une app gratuite et universelle pour Mac Apple Silicon et Intel sous macOS 14+, sans compte.',
     breadcrumb: 'Télécharger',
     h1: 'Un seul téléchargement.',
     h1Accent: 'Tous les Mac.',

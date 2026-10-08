@@ -26,7 +26,7 @@ export const developersCopy: Localized<DevelopersCopy> = {
   en: {
     metaTitle: 'Mac Cleaner for Developers — Clear Xcode DerivedData, node_modules & Caches Safely',
     metaDescription:
-      'Reclaim space from Xcode DerivedData, node_modules, CocoaPods, Cargo target, Gradle and package caches. Project-aware "safe to rebuild" labels; never touches source code or .git.',
+      'Safely clear Xcode DerivedData, node_modules, CocoaPods, Cargo, Gradle and package caches on Mac — project-aware, never touching source or .git.',
     breadcrumb: 'For developers',
     h1: 'Take back your disk from',
     h1Accent: 'build junk.',
@@ -67,7 +67,7 @@ export const developersCopy: Localized<DevelopersCopy> = {
   es: {
     metaTitle: 'Limpiador de Mac para desarrolladores: borra DerivedData de Xcode, node_modules y cachés con seguridad',
     metaDescription:
-      'Recupera espacio de DerivedData de Xcode, node_modules, CocoaPods, target de Cargo, Gradle y cachés de paquetes. Etiquetas «se puede regenerar» por proyecto; nunca toca tu código fuente ni .git.',
+      'Borra con seguridad DerivedData de Xcode, node_modules, CocoaPods, Cargo, Gradle y cachés de paquetes, sin tocar tu código ni .git.',
     breadcrumb: 'Para desarrolladores',
     h1: 'Recupera tu disco de la',
     h1Accent: 'basura de compilación.',
@@ -108,7 +108,7 @@ export const developersCopy: Localized<DevelopersCopy> = {
   de: {
     metaTitle: 'Mac Cleaner für Entwickler: Xcode DerivedData, node_modules & Caches sicher löschen',
     metaDescription:
-      'Speicher zurückholen aus Xcode DerivedData, node_modules, CocoaPods, Cargo target, Gradle und Paket-Caches. Projektbewusste „sicher neu erstellbar“-Labels; Quellcode und .git bleiben unberührt.',
+      'Xcode DerivedData, node_modules, CocoaPods, Cargo, Gradle und Paket-Caches auf dem Mac sicher löschen – Quellcode und .git bleiben unberührt.',
     breadcrumb: 'Für Entwickler',
     h1: 'Hol dir deinen Speicher vom',
     h1Accent: 'Build-Müll zurück.',
@@ -149,7 +149,7 @@ export const developersCopy: Localized<DevelopersCopy> = {
   fr: {
     metaTitle: 'Nettoyeur Mac pour développeurs : supprimer DerivedData Xcode, node_modules et caches en toute sécurité',
     metaDescription:
-      'Récupérez l’espace occupé par DerivedData de Xcode, node_modules, CocoaPods, target de Cargo, Gradle et les caches de paquets. Étiquettes « reconstructible » par projet ; ne touche jamais au code source ni à .git.',
+      'Supprimez sans risque DerivedData de Xcode, node_modules, CocoaPods, Cargo, Gradle et les caches de paquets, sans toucher au code ni à .git.',
     breadcrumb: 'Pour les développeurs',
     h1: 'Reprenez votre disque aux',
     h1Accent: 'déchets de compilation.',

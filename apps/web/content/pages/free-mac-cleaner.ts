@@ -26,7 +26,7 @@ export const freeMacCleanerCopy: Localized<FreeMacCleanerCopy> = {
   en: {
     metaTitle: 'Free Mac Cleaner — Clean Junk, Duplicates & Large Files (No Trial)',
     metaDescription:
-      'A genuinely free Mac cleaner: scan everything free forever and clean up to 2 GB at no cost — junk, duplicates, large and old files. No trial, no account, no credit card.',
+      'A genuinely free Mac cleaner: scan everything free forever and clean up to 2 GB — junk, duplicates, large files. No trial, no account, no card.',
     breadcrumb: 'Free Mac Cleaner',
     h1: "A free Mac cleaner that's",
     h1Accent: 'actually free.',
@@ -74,7 +74,7 @@ export const freeMacCleanerCopy: Localized<FreeMacCleanerCopy> = {
   es: {
     metaTitle: 'Limpiador de Mac gratis: archivos basura, duplicados y archivos grandes (sin prueba)',
     metaDescription:
-      'Un limpiador de Mac realmente gratis: analiza todo gratis para siempre y limpia hasta 2 GB sin pagar — archivos basura, duplicados, archivos grandes y antiguos. Sin prueba, sin cuenta, sin tarjeta.',
+      'Un limpiador de Mac gratis de verdad: analiza todo gratis y limpia hasta 2 GB de basura, duplicados y archivos grandes. Sin prueba ni tarjeta.',
     breadcrumb: 'Limpiador de Mac gratis',
     h1: 'Un limpiador de Mac gratis que',
     h1Accent: 'es gratis de verdad.',
@@ -122,7 +122,7 @@ export const freeMacCleanerCopy: Localized<FreeMacCleanerCopy> = {
   de: {
     metaTitle: 'Mac Cleaner kostenlos: Datenmüll, Duplikate & große Dateien entfernen (ohne Testphase)',
     metaDescription:
-      'Ein wirklich kostenloser Mac Cleaner: Alles gratis scannen – für immer – und bis zu 2 GB kostenlos aufräumen: Datenmüll, Duplikate, große und alte Dateien. Keine Testphase, kein Konto, keine Kreditkarte.',
+      'Ein wirklich kostenloser Mac Cleaner: alles gratis scannen und bis zu 2 GB Datenmüll, Duplikate und große Dateien entfernen. Ohne Test, ohne Karte.',
     breadcrumb: 'Mac Cleaner kostenlos',
     h1: 'Ein kostenloser Mac Cleaner, der',
     h1Accent: 'wirklich gratis ist.',
@@ -170,7 +170,7 @@ export const freeMacCleanerCopy: Localized<FreeMacCleanerCopy> = {
   fr: {
     metaTitle: 'Nettoyeur Mac gratuit : fichiers inutiles, doublons et gros fichiers (sans essai)',
     metaDescription:
-      'Un nettoyeur Mac vraiment gratuit : analysez tout gratuitement, pour toujours, et nettoyez jusqu’à 2 Go sans payer — fichiers inutiles, doublons, gros et anciens fichiers. Sans essai, sans compte, sans carte bancaire.',
+      'Un nettoyeur Mac vraiment gratuit : analyse illimitée et jusqu’à 2 Go nettoyés — fichiers inutiles, doublons, gros fichiers. Sans essai ni carte.',
     breadcrumb: 'Nettoyeur Mac gratuit',
     h1: 'Un nettoyeur Mac gratuit',
     h1Accent: 'vraiment gratuit.',

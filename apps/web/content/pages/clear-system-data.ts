@@ -28,7 +28,7 @@ export const clearSystemDataCopy: Localized<ClearSystemDataCopy> = {
   en: {
     metaTitle: 'How to Clear System Data on Mac (Safe Step-by-Step Guide, 2026)',
     metaDescription:
-      'What "System Data" in Mac storage really contains and how to reduce it safely: Time Machine snapshots, caches, logs, old iPhone backups, Xcode data and app leftovers — with exact paths and commands.',
+      'What “System Data” on a Mac really contains and how to reduce it safely — snapshots, caches, logs, iPhone backups, Xcode — with exact commands.',
     breadcrumb: 'Clear System Data',
     h1: 'Clear "System Data" on Mac',
     h1Accent: 'the safe way.',
@@ -84,7 +84,7 @@ export const clearSystemDataCopy: Localized<ClearSystemDataCopy> = {
   es: {
     metaTitle: 'Cómo borrar Datos del sistema en Mac (guía segura paso a paso, 2026)',
     metaDescription:
-      'Qué contiene de verdad «Datos del sistema» en el almacenamiento del Mac y cómo reducirlo con seguridad: instantáneas de Time Machine, cachés, registros, copias de iPhone, datos de Xcode y restos de apps, con rutas y comandos exactos.',
+      'Qué contiene «Datos del sistema» en tu Mac y cómo reducirlo con seguridad: instantáneas, cachés, registros, copias del iPhone y Xcode, con comandos.',
     breadcrumb: 'Borrar Datos del sistema',
     h1: 'Borra «Datos del sistema» en Mac',
     h1Accent: 'de forma segura.',
@@ -140,7 +140,7 @@ export const clearSystemDataCopy: Localized<ClearSystemDataCopy> = {
   de: {
     metaTitle: 'Systemdaten auf dem Mac löschen (sichere Schritt-für-Schritt-Anleitung, 2026)',
     metaDescription:
-      'Was „Systemdaten“ im Mac-Speicher wirklich enthält und wie du sie sicher verkleinerst: Time-Machine-Snapshots, Caches, Protokolle, alte iPhone-Backups, Xcode-Daten und App-Reste – mit genauen Pfaden und Befehlen.',
+      'Was in den Systemdaten deines Macs steckt und wie du sie sicher verkleinerst: Snapshots, Caches, Protokolle, iPhone-Backups, Xcode – mit Befehlen.',
     breadcrumb: 'Systemdaten löschen',
     h1: '„Systemdaten“ auf dem Mac löschen –',
     h1Accent: 'aber sicher.',
@@ -196,7 +196,7 @@ export const clearSystemDataCopy: Localized<ClearSystemDataCopy> = {
   fr: {
     metaTitle: 'Comment supprimer les Données système sur Mac (guide sûr étape par étape, 2026)',
     metaDescription:
-      'Ce que contiennent vraiment les « Données système » du stockage Mac et comment les réduire sans risque : instantanés Time Machine, caches, journaux, anciennes sauvegardes d’iPhone, données Xcode et restes d’apps — avec chemins et commandes exacts.',
+      'Ce que contiennent les Données système du Mac et comment les réduire sans risque : instantanés, caches, journaux, sauvegardes, Xcode — avec commandes.',
     breadcrumb: 'Supprimer les Données système',
     h1: 'Supprimer les « Données système » sur Mac',
     h1Accent: 'sans risque.',

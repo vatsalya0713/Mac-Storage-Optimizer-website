@@ -21,7 +21,7 @@ export const securityCopy: Localized<SecurityCopy> = {
   en: {
     metaTitle: 'Is MacDiskCleaner Safe? How It Protects Your Files & Privacy',
     metaDescription:
-      'MacDiskCleaner moves everything to the Trash, blocks protected system paths, scans locally with no file uploads, and publishes a SHA-256 checksum for every release.',
+      'MacDiskCleaner moves everything to the Trash, blocks protected system paths, scans locally with no uploads and publishes a checksum for every release.',
     breadcrumb: 'Safety & privacy',
     h1: 'Built to be',
     h1Accent: 'safe to trust.',
@@ -51,7 +51,7 @@ export const securityCopy: Localized<SecurityCopy> = {
   es: {
     metaTitle: '¿Es seguro MacDiskCleaner? Cómo protege tus archivos y tu privacidad',
     metaDescription:
-      'MacDiskCleaner mueve todo a la Papelera, bloquea las rutas protegidas del sistema, analiza en local sin subir archivos y publica una suma SHA-256 de cada versión.',
+      'MacDiskCleaner lo mueve todo a la Papelera, bloquea rutas protegidas, analiza en local sin subir nada y publica una suma SHA-256 de cada versión.',
     breadcrumb: 'Seguridad y privacidad',
     h1: 'Diseñado para',
     h1Accent: 'que puedas confiar.',
@@ -81,7 +81,7 @@ export const securityCopy: Localized<SecurityCopy> = {
   de: {
     metaTitle: 'Ist MacDiskCleaner sicher? So schützt die App deine Dateien & Privatsphäre',
     metaDescription:
-      'MacDiskCleaner verschiebt alles in den Papierkorb, sperrt geschützte Systempfade, scannt lokal ohne Datei-Uploads und veröffentlicht für jede Version eine SHA-256-Prüfsumme.',
+      'MacDiskCleaner nutzt den Papierkorb, sperrt geschützte Systempfade, scannt lokal ohne Uploads und veröffentlicht für jede Version eine Prüfsumme.',
     breadcrumb: 'Sicherheit & Datenschutz',
     h1: 'Gebaut, um',
     h1Accent: 'vertrauenswürdig zu sein.',
@@ -111,7 +111,7 @@ export const securityCopy: Localized<SecurityCopy> = {
   fr: {
     metaTitle: 'MacDiskCleaner est-il sûr ? Comment il protège vos fichiers et votre vie privée',
     metaDescription:
-      'MacDiskCleaner place tout dans la Corbeille, bloque les chemins système protégés, analyse en local sans envoyer de fichiers et publie une somme SHA-256 pour chaque version.',
+      'MacDiskCleaner passe par la Corbeille, bloque les chemins protégés, analyse en local sans rien envoyer et publie une somme SHA-256 par version.',
     breadcrumb: 'Sécurité et confidentialité',
     h1: 'Conçu pour',
     h1Accent: 'mériter votre confiance.',
