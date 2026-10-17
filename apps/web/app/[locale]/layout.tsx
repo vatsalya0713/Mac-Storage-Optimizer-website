@@ -8,9 +8,10 @@ import { hasLocale } from 'next-intl'
 import { routing } from '@/i18n/routing'
 import { StructuredData } from '@/components/StructuredData'
 import { CookieNotice } from '@/components/CookieNotice'
+import { AnalyticsTracker } from '@/components/AnalyticsTracker'
 import '../globals.css'
 
-const GA_MEASUREMENT_ID = 'G-77S20B60EY'
+const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || 'G-77S20B60EY'
 
 // Pages are prerendered, but they show the current release (version, size,
 // checksum). Re-render at most every 10 minutes so a release published from
@@ -101,12 +102,11 @@ export default async function LocaleLayout({
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
-            gtag('consent', 'default', { analytics_storage: 'denied', ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied' });
-            try { if (localStorage.getItem('mdc-analytics-consent') === 'granted') gtag('consent', 'update', { analytics_storage: 'granted' }); } catch (e) {}
             gtag('js', new Date());
-            gtag('config', '${GA_MEASUREMENT_ID}', { anonymize_ip: true });
+            gtag('config', '${GA_MEASUREMENT_ID}');
           `}
         </Script>
+        <AnalyticsTracker measurementId={GA_MEASUREMENT_ID} />
         <NextIntlClientProvider messages={messages}>
           {children}
           <CookieNotice />
